@@ -23,6 +23,11 @@
             <artifactId>testng</artifactId>								
             <version>6.11</version>								
             <scope>test</scope>							  			
+       </dependency>
+       <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.41.2</version>
        </dependency>				
 </dependencies>
   
@@ -46,7 +51,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>Sanity_Test.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
