@@ -78,7 +78,7 @@ public class New_User {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.navigate().refresh();
 		
 		
