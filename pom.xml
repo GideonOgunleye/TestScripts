@@ -46,7 +46,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>Sanity_Test.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
