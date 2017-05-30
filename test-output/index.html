@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>C:\Users\Gideon Okunleye\workspace\SSL247_Test\Sanity_Test.xml</span>
+                    <span>C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\Sanity_Test.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,36 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">17 methods,   17 passed</span>
+                    <span class="method-stats">17 methods, 4 failed,   13 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Ask_a_question">Ask_a_question</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_Bronchure">Request_a_Bronchure</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_PenTest_Proposal">Request_a_PenTest_Proposal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Admin_User" hash-for-method="Send_Fulfillment_Email">Send_Fulfillment_Email</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -100,11 +129,6 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Ask_a_question">Ask_a_question</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Admin_User" hash-for-method="Create_Proposal">Create_Proposal</a> <!-- method navigator-link -->
@@ -147,16 +171,6 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_Bronchure">Request_a_Bronchure</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_PenTest_Proposal">Request_a_PenTest_Proposal</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_Certificate_Order">SQL_Certificate_Order</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -177,11 +191,6 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Admin_User" hash-for-method="Send_Fulfillment_Email">Send_Fulfillment_Email</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="User_Registration">User_Registration</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -197,6 +206,149 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Sanity_Test.Admin_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Send_Fulfillment_Email">
+                  </a> <!-- Send_Fulfillment_Email -->
+                  <span class="method-name">Send_Fulfillment_Email</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;.//*[@id=&apos;CertificateField&apos;]&quot;}
+  (Session info: chrome=59.0.3071.71)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.09 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;172.22.213.41&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\GIDEON~1\AppData\Local\Temp\scoped_dir10792_6650}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.71, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 294023e60246cc686ec5e1550f143ad5
+*** Element info: {Using=xpath, value=.//*[@id=&apos;CertificateField&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:476)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Admin_User.Send_Fulfillment_Email(Admin_User.java:360)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Sanity_Test.New_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Ask_a_question">
+                  </a> <!-- Ask_a_question -->
+                  <span class="method-name">Ask_a_question</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: .//*[@id=&apos;contactform&apos;]/div[2]/div[1]/div/select (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;172.22.213.41&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\GIDEON~1\AppData\Local\Temp\scoped_dir9996_22502}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.71, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: c7ab175f88e84cb4013a0188aeda78fe
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at Sanity_Test.New_User.Ask_a_question(New_User.java:319)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_Bronchure">
+                  </a> <!-- Request_a_Bronchure -->
+                  <span class="method-name">Request_a_Bronchure</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotVisibleException: element not visible: Element is not currently visible and may not be manipulated
+  (Session info: chrome=59.0.3071.71)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 35 milliseconds
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;172.22.213.41&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\GIDEON~1\AppData\Local\Temp\scoped_dir9996_22502}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.71, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: c7ab175f88e84cb4013a0188aeda78fe
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:324)
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:120)
+	at Sanity_Test.New_User.Request_a_Bronchure(New_User.java:368)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_PenTest_Proposal">
+                  </a> <!-- Request_a_PenTest_Proposal -->
+                  <span class="method-name">Request_a_PenTest_Proposal</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotVisibleException: element not visible: Element is not currently visible and may not be manipulated
+  (Session info: chrome=59.0.3071.71)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 33 milliseconds
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;172.22.213.41&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\GIDEON~1\AppData\Local\Temp\scoped_dir9996_22502}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.71, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: c7ab175f88e84cb4013a0188aeda78fe
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:324)
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:120)
+	at Sanity_Test.New_User.Request_a_PenTest_Proposal(New_User.java:404)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Sanity_Test.SQL_Queries</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_Certificate_Order">
+                  </a> <!-- SQL_Certificate_Order -->
+                  <span class="method-name">SQL_Certificate_Order</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteAccount">
+                  </a> <!-- SQL_DeleteAccount -->
+                  <span class="method-name">SQL_DeleteAccount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteUser">
+                  </a> <!-- SQL_DeleteUser -->
+                  <span class="method-name">SQL_DeleteUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -260,42 +412,6 @@
                   <span class="method-name">Send_Change_Password_Request_Email</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Send_Fulfillment_Email">
-                  </a> <!-- Send_Fulfillment_Email -->
-                  <span class="method-name">Send_Fulfillment_Email</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Sanity_Test.SQL_Queries</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="SQL_Certificate_Order">
-                  </a> <!-- SQL_Certificate_Order -->
-                  <span class="method-name">SQL_Certificate_Order</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SQL_DeleteAccount">
-                  </a> <!-- SQL_DeleteAccount -->
-                  <span class="method-name">SQL_DeleteAccount</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SQL_DeleteUser">
-                  </a> <!-- SQL_DeleteUser -->
-                  <span class="method-name">SQL_DeleteUser</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
           <div class="suite-Suite-class-passed">
@@ -304,13 +420,6 @@
               <span class="class-name">Sanity_Test.New_User</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Ask_a_question">
-                  </a> <!-- Ask_a_question -->
-                  <span class="method-name">Ask_a_question</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="Get_in_Touch">
@@ -327,20 +436,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Request_a_Bronchure">
-                  </a> <!-- Request_a_Bronchure -->
-                  <span class="method-name">Request_a_Bronchure</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Request_a_PenTest_Proposal">
-                  </a> <!-- Request_a_PenTest_Proposal -->
-                  <span class="method-name">Request_a_PenTest_Proposal</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="User_Registration">
                   </a> <!-- User_Registration -->
                   <span class="method-name">User_Registration</span>
@@ -351,7 +446,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Gideon Okunleye\workspace\SSL247_Test\Sanity_Test.xml</span>
+            <span class="header-content">C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\Sanity_Test.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -510,76 +605,76 @@ data.addRows(17);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Order_RapidSSL')
 data.setCell(0, 2, 'Sanity_Test.Registered_User')
-data.setCell(0, 3, 128618);
+data.setCell(0, 3, 116447);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Create_Proposal')
 data.setCell(1, 2, 'Sanity_Test.Admin_User')
-data.setCell(1, 3, 84726);
+data.setCell(1, 3, 94232);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'Domain_Name_Ordering')
 data.setCell(2, 2, 'Sanity_Test.Registered_User')
-data.setCell(2, 3, 64869);
+data.setCell(2, 3, 79711);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'Edit_User')
 data.setCell(3, 2, 'Sanity_Test.Registered_User')
-data.setCell(3, 3, 45842);
+data.setCell(3, 3, 44422);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'Send_Fulfillment_Email')
-data.setCell(4, 2, 'Sanity_Test.Admin_User')
-data.setCell(4, 3, 32704);
+data.setCell(4, 1, 'Ask_a_question')
+data.setCell(4, 2, 'Sanity_Test.New_User')
+data.setCell(4, 3, 42540);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'Edit_Account_User')
 data.setCell(5, 2, 'Sanity_Test.Admin_User')
-data.setCell(5, 3, 29902);
+data.setCell(5, 3, 36989);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'User_Registration')
-data.setCell(6, 2, 'Sanity_Test.New_User')
-data.setCell(6, 3, 29349);
+data.setCell(6, 1, 'Send_Fulfillment_Email')
+data.setCell(6, 2, 'Sanity_Test.Admin_User')
+data.setCell(6, 3, 31029);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'Send_Change_Password_Request_Email')
 data.setCell(7, 2, 'Sanity_Test.Admin_User')
-data.setCell(7, 3, 28583);
+data.setCell(7, 3, 27914);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'Create_User')
-data.setCell(8, 2, 'Sanity_Test.Registered_User')
-data.setCell(8, 3, 17230);
+data.setCell(8, 1, 'User_Registration')
+data.setCell(8, 2, 'Sanity_Test.New_User')
+data.setCell(8, 3, 26665);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'Get_in_Touch')
-data.setCell(9, 2, 'Sanity_Test.New_User')
-data.setCell(9, 3, 14112);
+data.setCell(9, 1, 'Create_User')
+data.setCell(9, 2, 'Sanity_Test.Registered_User')
+data.setCell(9, 3, 14479);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'Ask_a_question')
+data.setCell(10, 1, 'Get_in_Touch')
 data.setCell(10, 2, 'Sanity_Test.New_User')
-data.setCell(10, 3, 8082);
+data.setCell(10, 3, 13034);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'Request_a_Bronchure')
+data.setCell(11, 1, 'Request_a_PenTest_Proposal')
 data.setCell(11, 2, 'Sanity_Test.New_User')
-data.setCell(11, 3, 7400);
+data.setCell(11, 3, 4430);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'Request_a_PenTest_Proposal')
+data.setCell(12, 1, 'Request_a_Bronchure')
 data.setCell(12, 2, 'Sanity_Test.New_User')
-data.setCell(12, 3, 7063);
+data.setCell(12, 3, 4284);
 data.setCell(13, 0, 13)
 data.setCell(13, 1, 'Log_Out_New_User')
 data.setCell(13, 2, 'Sanity_Test.New_User')
-data.setCell(13, 3, 3284);
+data.setCell(13, 3, 2888);
 data.setCell(14, 0, 14)
 data.setCell(14, 1, 'SQL_Certificate_Order')
 data.setCell(14, 2, 'Sanity_Test.SQL_Queries')
-data.setCell(14, 3, 793);
+data.setCell(14, 3, 1291);
 data.setCell(15, 0, 15)
 data.setCell(15, 1, 'SQL_DeleteAccount')
 data.setCell(15, 2, 'Sanity_Test.SQL_Queries')
-data.setCell(15, 3, 544);
+data.setCell(15, 3, 474);
 data.setCell(16, 0, 16)
 data.setCell(16, 1, 'SQL_DeleteUser')
 data.setCell(16, 2, 'Sanity_Test.SQL_Queries')
-data.setCell(16, 3, 289);
+data.setCell(16, 3, 322);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 minutes</span>
+              <span class="suite-total-time">Total running time: 9 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -612,188 +707,196 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">Admin_Login</span>
-                <span class="method-start">2827 ms</span>
+                <span class="method-start">2959 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Create_Proposal</span>
-                <span class="method-start">16518 ms</span>
+                <span class="method-start">14529 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Log_Out([TestResult name=Create_Proposal status=SUCCESS method=Admin_User.Create_Proposal()[pri:0, instance:...)</span>
-                <span class="method-start">101245 ms</span>
+                <span class="method-start">108763 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">Admin_Login</span>
-                <span class="method-start">119942 ms</span>
+                <span class="method-start">126377 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Edit_Account_User</span>
-                <span class="method-start">130818 ms</span>
+                <span class="method-start">135109 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Log_Out([TestResult name=Edit_Account_User status=SUCCESS method=Admin_User.Edit_Account_User()[pri:0, insta...)</span>
-                <span class="method-start">160721 ms</span>
+                <span class="method-start">172099 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">Admin_Login</span>
-                <span class="method-start">179011 ms</span>
+                <span class="method-start">189624 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Send_Change_Password_Request_Email</span>
-                <span class="method-start">190100 ms</span>
+                <span class="method-start">197510 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Log_Out([TestResult name=Send_Change_Password_Request_Email status=SUCCESS method=Admin_User.Send_Change_Pas...)</span>
-                <span class="method-start">218685 ms</span>
+                <span class="method-start">225425 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">Admin_Login</span>
-                <span class="method-start">236517 ms</span>
+                <span class="method-start">251982 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">Send_Fulfillment_Email</span>
-                <span class="method-start">247120 ms</span>
+                <span class="method-start">262260 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">Log_Out([TestResult name=Send_Fulfillment_Email status=SUCCESS method=Admin_User.Send_Fulfillment_Email()[pr...)</span>
-                <span class="method-start">279825 ms</span>
+                <span class="method-name">Log_Out([TestResult name=Send_Fulfillment_Email status=FAILURE method=Admin_User.Send_Fulfillment_Email()[pr...)</span>
+                <span class="method-start">293296 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">297563 ms</span>
+                <span class="method-start">311095 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Sanity_Test.Registered_User</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">299674 ms</span>
+                <span class="method-start">313047 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">301873 ms</span>
+                <span class="method-start">315032 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Order_RapidSSL</span>
-                <span class="method-start">320881 ms</span>
+                <span class="method-start">339330 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">User_Logout([TestResult name=Order_RapidSSL status=SUCCESS method=Registered_User.Order_RapidSSL()[pri:1, instan...)</span>
-                <span class="method-start">449502 ms</span>
+                <span class="method-start">455778 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">467692 ms</span>
+                <span class="method-start">473306 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Create_User</span>
-                <span class="method-start">481475 ms</span>
+                <span class="method-start">487754 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">User_Logout([TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:San...)</span>
-                <span class="method-start">498706 ms</span>
+                <span class="method-start">502234 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">516405 ms</span>
+                <span class="method-start">519623 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Edit_User</span>
-                <span class="method-start">530671 ms</span>
+                <span class="method-start">534206 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">User_Logout([TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_...)</span>
-                <span class="method-start">576514 ms</span>
+                <span class="method-start">578629 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">594608 ms</span>
+                <span class="method-start">596858 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Domain_Name_Ordering</span>
-                <span class="method-start">610356 ms</span>
+                <span class="method-start">612306 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">User_Logout([TestResult name=Domain_Name_Ordering status=SUCCESS method=Registered_User.Domain_Name_Ordering()[p...)</span>
-                <span class="method-start">675225 ms</span>
+                <span class="method-start">692018 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">696570 ms</span>
+                <span class="method-start">709430 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Sanity_Test.New_User</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">BeforeTest</span>
-                <span class="method-start">698530 ms</span>
+                <span class="method-start">711258 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">User_Registration</span>
-                <span class="method-start">715713 ms</span>
+                <span class="method-start">727338 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Aftermethod([TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instanc...)</span>
-                <span class="method-start">745063 ms</span>
+                <span class="method-start">754004 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">Log_Out_New_User</span>
-                <span class="method-start">752253 ms</span>
+                <span class="method-start">760932 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Aftermethod([TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:...)</span>
-                <span class="method-start">755538 ms</span>
+                <span class="method-start">763820 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">Get_in_Touch</span>
-                <span class="method-start">762643 ms</span>
+                <span class="method-start">771850 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">Aftermethod([TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_T...)</span>
-                <span class="method-start">776756 ms</span>
+                <span class="method-start">784885 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">Ask_a_question</span>
-                <span class="method-start">785430 ms</span>
+                <span class="method-start">792892 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">Aftermethod([TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sani...)</span>
-                <span class="method-start">793513 ms</span>
+                <span class="method-name">Aftermethod([TestResult name=Ask_a_question status=FAILURE method=New_User.Ask_a_question()[pri:3, instance:Sani...)</span>
+                <span class="method-start">835434 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">Request_a_Bronchure</span>
-                <span class="method-start">800830 ms</span>
+                <span class="method-start">843869 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">Aftermethod([TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, ins...)</span>
-                <span class="method-start">808233 ms</span>
+                <span class="method-name">Aftermethod([TestResult name=Request_a_Bronchure status=FAILURE method=New_User.Request_a_Bronchure()[pri:4, ins...)</span>
+                <span class="method-start">848154 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">Request_a_PenTest_Proposal</span>
-                <span class="method-start">816671 ms</span>
+                <span class="method-start">856970 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">Aftermethod([TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposa...)</span>
-                <span class="method-start">823735 ms</span>
+                <span class="method-name">Aftermethod([TestResult name=Request_a_PenTest_Proposal status=FAILURE method=New_User.Request_a_PenTest_Proposa...)</span>
+                <span class="method-start">861402 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">AfterTest</span>
-                <span class="method-start">833193 ms</span>
+                <span class="method-start">870889 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">Sanity_Test.SQL_Queries</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">SQL_DeleteAccount</span>
-                <span class="method-start">844150 ms</span>
+                <span class="method-start">881710 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">SQL_DeleteUser</span>
-                <span class="method-start">844695 ms</span>
+                <span class="method-start">882185 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">SQL_Certificate_Order</span>
-                <span class="method-start">844985 ms</span>
+                <span class="method-start">882509 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
