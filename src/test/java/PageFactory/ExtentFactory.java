@@ -7,7 +7,7 @@ public class ExtentFactory {
 
 	public static ExtentReports getInstance() {
 		ExtentReports extent;
-		String Path = "C:\\Users\\Gideon Okunleye\\workspace\\SSL247_Test\\test-output\\Extent Report\\Sanity Test(30-05-2016).html";
+		String Path = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\Extent Reports\\Sanity Test.html";
 		extent = new ExtentReports (Path, false);
 		
 		
@@ -17,7 +17,7 @@ public class ExtentFactory {
 	
 	public static ExtentReports getInstance2() {
 		ExtentReports extent;
-		String Path = "C:\\Users\\Gideon Okunleye\\workspace\\SSL247_Test\\test-output\\Extent Report\\Regression TestV.html";
+		String Path = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\Extent Reports\\Regression Test.html";
 		extent = new ExtentReports (Path, false);
 		
 		
