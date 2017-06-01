@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="0" total="17" passed="17">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="779681" started-at="2017-06-01T11:05:53Z" finished-at="2017-06-01T11:18:53Z">
+  <suite name="Suite" duration-ms="794613" started-at="2017-06-01T13:46:55Z" finished-at="2017-06-01T14:00:09Z">
     <groups>
       <group name="Sanity">
         <method signature="Admin_User.Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Create_Proposal" class="Sanity_Test.Admin_User"/>
@@ -26,21 +26,21 @@
         <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
       </group> <!-- SQL -->
     </groups>
-    <test name="Test 1" duration-ms="279188" started-at="2017-06-01T11:05:53Z" finished-at="2017-06-01T11:10:33Z">
+    <test name="Test 1" duration-ms="274975" started-at="2017-06-01T13:46:55Z" finished-at="2017-06-01T13:51:30Z">
       <class name="Sanity_Test.Admin_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="beforeTest" is-config="true" duration-ms="2749" started-at="2017-06-01T12:05:53Z" finished-at="2017-06-01T12:05:56Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="beforeTest" is-config="true" duration-ms="2770" started-at="2017-06-01T14:46:55Z" finished-at="2017-06-01T14:46:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="11202" started-at="2017-06-01T12:05:56Z" finished-at="2017-06-01T12:06:07Z">
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="11441" started-at="2017-06-01T14:46:58Z" finished-at="2017-06-01T14:47:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Create_Proposal" duration-ms="82916" started-at="2017-06-01T12:06:07Z" finished-at="2017-06-01T12:07:30Z">
+        <test-method status="PASS" signature="Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Create_Proposal" duration-ms="81936" started-at="2017-06-01T14:47:09Z" finished-at="2017-06-01T14:48:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Create_Proposal -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="18278" started-at="2017-06-01T12:07:30Z" finished-at="2017-06-01T12:07:49Z">
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17571" started-at="2017-06-01T14:48:31Z" finished-at="2017-06-01T14:48:49Z">
           <params>
             <param index="0">
               <value>
@@ -51,15 +51,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7577" started-at="2017-06-01T12:07:49Z" finished-at="2017-06-01T12:07:56Z">
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7625" started-at="2017-06-01T14:48:49Z" finished-at="2017-06-01T14:48:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Edit_Account_User" duration-ms="27361" started-at="2017-06-01T12:07:56Z" finished-at="2017-06-01T12:08:24Z">
+        <test-method status="PASS" signature="Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Edit_Account_User" duration-ms="27523" started-at="2017-06-01T14:48:56Z" finished-at="2017-06-01T14:49:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Edit_Account_User -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17763" started-at="2017-06-01T12:08:24Z" finished-at="2017-06-01T12:08:41Z">
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17563" started-at="2017-06-01T14:49:24Z" finished-at="2017-06-01T14:49:41Z">
           <params>
             <param index="0">
               <value>
@@ -70,15 +70,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7451" started-at="2017-06-01T12:08:41Z" finished-at="2017-06-01T12:08:49Z">
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7440" started-at="2017-06-01T14:49:41Z" finished-at="2017-06-01T14:49:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Change_Password_Request_Email" duration-ms="26105" started-at="2017-06-01T12:08:49Z" finished-at="2017-06-01T12:09:15Z">
+        <test-method status="PASS" signature="Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Change_Password_Request_Email" duration-ms="26241" started-at="2017-06-01T14:49:49Z" finished-at="2017-06-01T14:50:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Send_Change_Password_Request_Email -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="18428" started-at="2017-06-01T12:09:15Z" finished-at="2017-06-01T12:09:33Z">
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17306" started-at="2017-06-01T14:50:15Z" finished-at="2017-06-01T14:50:32Z">
           <params>
             <param index="0">
               <value>
@@ -89,15 +89,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7989" started-at="2017-06-01T12:09:33Z" finished-at="2017-06-01T12:09:41Z">
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7554" started-at="2017-06-01T14:50:32Z" finished-at="2017-06-01T14:50:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Fulfillment_Email" duration-ms="30696" started-at="2017-06-01T12:09:41Z" finished-at="2017-06-01T12:10:12Z">
+        <test-method status="PASS" signature="Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Fulfillment_Email" duration-ms="30746" started-at="2017-06-01T14:50:40Z" finished-at="2017-06-01T14:51:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Send_Fulfillment_Email -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="18692" started-at="2017-06-01T12:10:12Z" finished-at="2017-06-01T12:10:31Z">
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17266" started-at="2017-06-01T14:51:11Z" finished-at="2017-06-01T14:51:28Z">
           <params>
             <param index="0">
               <value>
@@ -108,27 +108,27 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="afterTest" is-config="true" duration-ms="1957" started-at="2017-06-01T12:10:31Z" finished-at="2017-06-01T12:10:33Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="afterTest" is-config="true" duration-ms="1965" started-at="2017-06-01T14:51:28Z" finished-at="2017-06-01T14:51:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- Sanity_Test.Admin_User -->
     </test> <!-- Test 1 -->
-    <test name="Test 2" duration-ms="370108" started-at="2017-06-01T11:10:33Z" finished-at="2017-06-01T11:16:43Z">
+    <test name="Test 2" duration-ms="389514" started-at="2017-06-01T13:51:30Z" finished-at="2017-06-01T13:57:59Z">
       <class name="Sanity_Test.Registered_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="beforeTest" is-config="true" duration-ms="2014" started-at="2017-06-01T12:10:33Z" finished-at="2017-06-01T12:10:35Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="beforeTest" is-config="true" duration-ms="2064" started-at="2017-06-01T14:51:30Z" finished-at="2017-06-01T14:51:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="17404" started-at="2017-06-01T12:10:35Z" finished-at="2017-06-01T12:10:52Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="16401" started-at="2017-06-01T14:51:32Z" finished-at="2017-06-01T14:51:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Order_RapidSSL" duration-ms="114314" started-at="2017-06-01T12:10:52Z" finished-at="2017-06-01T12:12:46Z">
+        <test-method status="PASS" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Order_RapidSSL" duration-ms="114536" started-at="2017-06-01T14:51:48Z" finished-at="2017-06-01T14:53:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Order_RapidSSL -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17581" started-at="2017-06-01T12:12:46Z" finished-at="2017-06-01T12:13:04Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17593" started-at="2017-06-01T14:53:43Z" finished-at="2017-06-01T14:54:00Z">
           <params>
             <param index="0">
               <value>
@@ -139,15 +139,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="13851" started-at="2017-06-01T12:13:04Z" finished-at="2017-06-01T12:13:18Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="13711" started-at="2017-06-01T14:54:00Z" finished-at="2017-06-01T14:54:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Create_User" duration-ms="15291" started-at="2017-06-01T12:13:18Z" finished-at="2017-06-01T12:13:33Z">
+        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Create_User" duration-ms="14931" started-at="2017-06-01T14:54:14Z" finished-at="2017-06-01T14:54:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Create_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17602" started-at="2017-06-01T12:13:33Z" finished-at="2017-06-01T12:13:51Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17364" started-at="2017-06-01T14:54:29Z" finished-at="2017-06-01T14:54:46Z">
           <params>
             <param index="0">
               <value>
@@ -158,15 +158,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="13878" started-at="2017-06-01T12:13:51Z" finished-at="2017-06-01T12:14:05Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="14389" started-at="2017-06-01T14:54:46Z" finished-at="2017-06-01T14:55:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Edit_User" duration-ms="45802" started-at="2017-06-01T12:14:05Z" finished-at="2017-06-01T12:14:50Z">
+        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Edit_User" duration-ms="44284" started-at="2017-06-01T14:55:01Z" finished-at="2017-06-01T14:55:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Edit_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17834" started-at="2017-06-01T12:14:50Z" finished-at="2017-06-01T12:15:08Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17423" started-at="2017-06-01T14:55:45Z" finished-at="2017-06-01T14:56:02Z">
           <params>
             <param index="0">
               <value>
@@ -177,15 +177,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="13595" started-at="2017-06-01T12:15:08Z" finished-at="2017-06-01T12:15:22Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="25085" started-at="2017-06-01T14:56:02Z" finished-at="2017-06-01T14:56:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Domain_Name_Ordering" duration-ms="61140" started-at="2017-06-01T12:15:22Z" finished-at="2017-06-01T12:16:23Z">
+        <test-method status="PASS" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Domain_Name_Ordering" duration-ms="60711" started-at="2017-06-01T14:56:28Z" finished-at="2017-06-01T14:57:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Domain_Name_Ordering -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17965" started-at="2017-06-01T12:16:23Z" finished-at="2017-06-01T12:16:41Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="29132" started-at="2017-06-01T14:57:28Z" finished-at="2017-06-01T14:57:57Z">
           <params>
             <param index="0">
               <value>
@@ -196,23 +196,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="afterTest" is-config="true" duration-ms="1825" started-at="2017-06-01T12:16:41Z" finished-at="2017-06-01T12:16:43Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="afterTest" is-config="true" duration-ms="1879" started-at="2017-06-01T14:57:57Z" finished-at="2017-06-01T14:57:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- Sanity_Test.Registered_User -->
     </test> <!-- Test 2 -->
-    <test name="Test 3" duration-ms="128847" started-at="2017-06-01T11:16:43Z" finished-at="2017-06-01T11:18:52Z">
+    <test name="Test 3" duration-ms="128530" started-at="2017-06-01T13:57:59Z" finished-at="2017-06-01T14:00:08Z">
       <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="BeforeTest" is-config="true" duration-ms="16073" started-at="2017-06-01T12:16:43Z" finished-at="2017-06-01T12:16:59Z">
+        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="BeforeTest" is-config="true" duration-ms="16297" started-at="2017-06-01T14:57:59Z" finished-at="2017-06-01T14:58:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="User_Registration" duration-ms="26719" started-at="2017-06-01T12:16:59Z" finished-at="2017-06-01T12:17:26Z">
+        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="User_Registration" duration-ms="26758" started-at="2017-06-01T14:58:16Z" finished-at="2017-06-01T14:58:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7233" started-at="2017-06-01T12:17:26Z" finished-at="2017-06-01T12:17:33Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6982" started-at="2017-06-01T14:58:42Z" finished-at="2017-06-01T14:58:49Z">
           <params>
             <param index="0">
               <value>
@@ -223,11 +223,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5649fd9b]" name="Log_Out_New_User" duration-ms="1844" started-at="2017-06-01T12:17:33Z" finished-at="2017-06-01T12:17:35Z">
+        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5649fd9b]" name="Log_Out_New_User" duration-ms="1819" started-at="2017-06-01T14:58:49Z" finished-at="2017-06-01T14:58:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out_New_User -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6984" started-at="2017-06-01T12:17:35Z" finished-at="2017-06-01T12:17:42Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6629" started-at="2017-06-01T14:58:51Z" finished-at="2017-06-01T14:58:58Z">
           <params>
             <param index="0">
               <value>
@@ -238,11 +238,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5649fd9b]" name="Get_in_Touch" duration-ms="11772" started-at="2017-06-01T12:17:42Z" finished-at="2017-06-01T12:17:53Z">
+        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5649fd9b]" name="Get_in_Touch" duration-ms="12479" started-at="2017-06-01T14:58:58Z" finished-at="2017-06-01T14:59:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7446" started-at="2017-06-01T12:17:53Z" finished-at="2017-06-01T12:18:01Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7536" started-at="2017-06-01T14:59:10Z" finished-at="2017-06-01T14:59:18Z">
           <params>
             <param index="0">
               <value>
@@ -253,11 +253,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5649fd9b]" name="Ask_a_question" duration-ms="6273" started-at="2017-06-01T12:18:01Z" finished-at="2017-06-01T12:18:07Z">
+        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5649fd9b]" name="Ask_a_question" duration-ms="6251" started-at="2017-06-01T14:59:18Z" finished-at="2017-06-01T14:59:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6672" started-at="2017-06-01T12:18:07Z" finished-at="2017-06-01T12:18:14Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6647" started-at="2017-06-01T14:59:24Z" finished-at="2017-06-01T14:59:31Z">
           <params>
             <param index="0">
               <value>
@@ -268,11 +268,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_Bronchure" duration-ms="5526" started-at="2017-06-01T12:18:14Z" finished-at="2017-06-01T12:18:19Z">
+        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_Bronchure" duration-ms="5510" started-at="2017-06-01T14:59:31Z" finished-at="2017-06-01T14:59:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7773" started-at="2017-06-01T12:18:19Z" finished-at="2017-06-01T12:18:27Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7424" started-at="2017-06-01T14:59:36Z" finished-at="2017-06-01T14:59:44Z">
           <params>
             <param index="0">
               <value>
@@ -283,11 +283,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_PenTest_Proposal" duration-ms="5527" started-at="2017-06-01T12:18:27Z" finished-at="2017-06-01T12:18:33Z">
+        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_PenTest_Proposal" duration-ms="5184" started-at="2017-06-01T14:59:44Z" finished-at="2017-06-01T14:59:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="8178" started-at="2017-06-01T12:18:33Z" finished-at="2017-06-01T12:18:41Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="8193" started-at="2017-06-01T14:59:49Z" finished-at="2017-06-01T14:59:57Z">
           <params>
             <param index="0">
               <value>
@@ -298,23 +298,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="AfterTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="AfterTest" is-config="true" duration-ms="10818" started-at="2017-06-01T12:18:41Z" finished-at="2017-06-01T12:18:52Z">
+        <test-method status="PASS" signature="AfterTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="AfterTest" is-config="true" duration-ms="10811" started-at="2017-06-01T14:59:57Z" finished-at="2017-06-01T15:00:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterTest -->
       </class> <!-- Sanity_Test.New_User -->
     </test> <!-- Test 3 -->
-    <test name="Test 4" duration-ms="1497" started-at="2017-06-01T11:18:52Z" finished-at="2017-06-01T11:18:53Z">
+    <test name="Test 4" duration-ms="1560" started-at="2017-06-01T14:00:08Z" finished-at="2017-06-01T14:00:09Z">
       <class name="Sanity_Test.SQL_Queries">
-        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteAccount" duration-ms="452" started-at="2017-06-01T12:18:52Z" finished-at="2017-06-01T12:18:52Z">
+        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteAccount" duration-ms="475" started-at="2017-06-01T15:00:08Z" finished-at="2017-06-01T15:00:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteAccount -->
-        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteUser" duration-ms="274" started-at="2017-06-01T12:18:52Z" finished-at="2017-06-01T12:18:52Z">
+        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteUser" duration-ms="290" started-at="2017-06-01T15:00:08Z" finished-at="2017-06-01T15:00:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteUser -->
-        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_Certificate_Order" duration-ms="767" started-at="2017-06-01T12:18:52Z" finished-at="2017-06-01T12:18:53Z">
+        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_Certificate_Order" duration-ms="793" started-at="2017-06-01T15:00:09Z" finished-at="2017-06-01T15:00:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_Certificate_Order -->
