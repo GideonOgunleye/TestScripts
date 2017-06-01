@@ -5,10 +5,13 @@
     <classes>
       <class name="Sanity_Test.Registered_User">
         <methods>
+          <include name="Create_User"/>
           <include name="afterTest"/>
+          <include name="Edit_User"/>
           <include name="beforeTest"/>
           <include name="User_Login"/>
           <include name="Domain_Name_Ordering"/>
+          <include name="Order_RapidSSL"/>
           <include name="User_Logout"/>
         </methods>
       </class> <!-- Sanity_Test.Registered_User -->
