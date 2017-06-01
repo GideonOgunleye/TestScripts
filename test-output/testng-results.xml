@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="359104" started-at="2017-06-01T08:17:15Z" finished-at="2017-06-01T08:23:14Z">
+    <groups>
+      <group name="Sanity">
+        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@598067a5]" name="Create_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@598067a5]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@598067a5]" name="Edit_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@598067a5]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
+      </group> <!-- Sanity -->
+    </groups>
+    <test name="Default test" duration-ms="359104" started-at="2017-06-01T08:17:15Z" finished-at="2017-06-01T08:23:14Z">
+      <class name="Sanity_Test.Registered_User">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="beforeTest" is-config="true" duration-ms="2868" started-at="2017-06-01T09:17:15Z" finished-at="2017-06-01T09:17:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Login" is-config="true" duration-ms="15751" started-at="2017-06-01T09:17:18Z" finished-at="2017-06-01T09:17:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@598067a5]" name="Order_RapidSSL" duration-ms="113367" started-at="2017-06-01T09:17:34Z" finished-at="2017-06-01T09:19:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_RapidSSL -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Logout" is-config="true" duration-ms="17818" started-at="2017-06-01T09:19:27Z" finished-at="2017-06-01T09:19:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_RapidSSL status=SUCCESS method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@598067a5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Login" is-config="true" duration-ms="13392" started-at="2017-06-01T09:19:45Z" finished-at="2017-06-01T09:19:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@598067a5]" name="Create_User" duration-ms="14485" started-at="2017-06-01T09:19:58Z" finished-at="2017-06-01T09:20:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Create_User -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Logout" is-config="true" duration-ms="17372" started-at="2017-06-01T09:20:13Z" finished-at="2017-06-01T09:20:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@598067a5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Login" is-config="true" duration-ms="13406" started-at="2017-06-01T09:20:30Z" finished-at="2017-06-01T09:20:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@598067a5]" name="Edit_User" duration-ms="44223" started-at="2017-06-01T09:20:44Z" finished-at="2017-06-01T09:21:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Edit_User -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Logout" is-config="true" duration-ms="17422" started-at="2017-06-01T09:21:28Z" finished-at="2017-06-01T09:21:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@598067a5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Login" is-config="true" duration-ms="13353" started-at="2017-06-01T09:21:45Z" finished-at="2017-06-01T09:21:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@598067a5]" name="Domain_Name_Ordering" duration-ms="56404" started-at="2017-06-01T09:21:59Z" finished-at="2017-06-01T09:22:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Domain_Name_Ordering -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="User_Logout" is-config="true" duration-ms="17345" started-at="2017-06-01T09:22:55Z" finished-at="2017-06-01T09:23:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Domain_Name_Ordering status=SUCCESS method=Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@598067a5] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Registered_User@598067a5]" name="afterTest" is-config="true" duration-ms="1868" started-at="2017-06-01T09:23:12Z" finished-at="2017-06-01T09:23:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- Sanity_Test.Registered_User -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
