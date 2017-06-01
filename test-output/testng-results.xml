@@ -1,324 +1,407 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="17" passed="17">
+<testng-results skipped="0" failed="0" ignored="0" total="13" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="794613" started-at="2017-06-01T13:46:55Z" finished-at="2017-06-01T14:00:09Z">
+  <suite name="Suite" duration-ms="1920751" started-at="2017-06-01T14:54:01Z" finished-at="2017-06-01T15:26:02Z">
     <groups>
-      <group name="Sanity">
-        <method signature="Admin_User.Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Create_Proposal" class="Sanity_Test.Admin_User"/>
-        <method signature="Admin_User.Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
-        <method signature="Admin_User.Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Change_Password_Request_Email" class="Sanity_Test.Admin_User"/>
-        <method signature="Admin_User.Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Fulfillment_Email" class="Sanity_Test.Admin_User"/>
-        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Create_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Edit_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5649fd9b]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5649fd9b]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5649fd9b]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="User_Registration" class="Sanity_Test.New_User"/>
-      </group> <!-- Sanity -->
+      <group name="Regression">
+        <method signature="Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" class="Regression_Test.Order_Products"/>
+      </group> <!-- Regression -->
       <group name="SQL">
-        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:1, instance:Regression_Test.SQL_Queries@69ea3742]" name="SQL_Certificate_Order" class="Regression_Test.SQL_Queries"/>
       </group> <!-- SQL -->
     </groups>
-    <test name="Test 1" duration-ms="274975" started-at="2017-06-01T13:46:55Z" finished-at="2017-06-01T13:51:30Z">
-      <class name="Sanity_Test.Admin_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="beforeTest" is-config="true" duration-ms="2770" started-at="2017-06-01T14:46:55Z" finished-at="2017-06-01T14:46:58Z">
+    <test name="Test 2" duration-ms="1919588" started-at="2017-06-01T14:54:01Z" finished-at="2017-06-01T15:26:01Z">
+      <class name="Regression_Test.Order_Products">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="beforeTest" is-config="true" duration-ms="2778" started-at="2017-06-01T15:54:01Z" finished-at="2017-06-01T15:54:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="11441" started-at="2017-06-01T14:46:58Z" finished-at="2017-06-01T14:47:09Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="15950" started-at="2017-06-01T15:54:04Z" finished-at="2017-06-01T15:54:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Create_Proposal" duration-ms="81936" started-at="2017-06-01T14:47:09Z" finished-at="2017-06-01T14:48:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Create_Proposal -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17571" started-at="2017-06-01T14:48:31Z" finished-at="2017-06-01T14:48:49Z">
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="132147" started-at="2017-06-01T15:54:20Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T15:56:32Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Create_Proposal status=SUCCESS method=Admin_User.Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@553f17c] output={null}]]]>
+                <![CDATA[Order Products Test --> Order_Symantec Secure Site]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Symantec Secure Site]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7625" started-at="2017-06-01T14:48:49Z" finished-at="2017-06-01T14:48:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Edit_Account_User" duration-ms="27523" started-at="2017-06-01T14:48:56Z" finished-at="2017-06-01T14:49:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Edit_Account_User -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17563" started-at="2017-06-01T14:49:24Z" finished-at="2017-06-01T14:49:41Z">
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="18428" started-at="2017-06-01T15:56:32Z" finished-at="2017-06-01T15:56:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Edit_Account_User status=SUCCESS method=Admin_User.Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@553f17c] output={null}]]]>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7440" started-at="2017-06-01T14:49:41Z" finished-at="2017-06-01T14:49:49Z">
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="14941" started-at="2017-06-01T15:56:51Z" finished-at="2017-06-01T15:57:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Change_Password_Request_Email" duration-ms="26241" started-at="2017-06-01T14:49:49Z" finished-at="2017-06-01T14:50:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Send_Change_Password_Request_Email -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17306" started-at="2017-06-01T14:50:15Z" finished-at="2017-06-01T14:50:32Z">
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="124278" started-at="2017-06-01T15:57:06Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T15:59:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Send_Change_Password_Request_Email status=SUCCESS method=Admin_User.Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c] output={null}]]]>
+                <![CDATA[Order Products Test --> Order_Symantec Secure Site EV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Symantec Secure Site EV]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Admin_Login" is-config="true" duration-ms="7554" started-at="2017-06-01T14:50:32Z" finished-at="2017-06-01T14:50:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Admin_Login -->
-        <test-method status="PASS" signature="Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Send_Fulfillment_Email" duration-ms="30746" started-at="2017-06-01T14:50:40Z" finished-at="2017-06-01T14:51:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Send_Fulfillment_Email -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="Log_Out" is-config="true" duration-ms="17266" started-at="2017-06-01T14:51:11Z" finished-at="2017-06-01T14:51:28Z">
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17466" started-at="2017-06-01T15:59:10Z" finished-at="2017-06-01T15:59:27Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Send_Fulfillment_Email status=SUCCESS method=Admin_User.Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@553f17c] output={null}]]]>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@553f17c]" name="afterTest" is-config="true" duration-ms="1965" started-at="2017-06-01T14:51:28Z" finished-at="2017-06-01T14:51:30Z">
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="25543" started-at="2017-06-01T15:59:27Z" finished-at="2017-06-01T15:59:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="144443" started-at="2017-06-01T15:59:53Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:02:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> Order_Symantec Secure Site Pro]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Symantec Secure Site Pro]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="18762" started-at="2017-06-01T16:02:17Z" finished-at="2017-06-01T16:02:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="16422" started-at="2017-06-01T16:02:36Z" finished-at="2017-06-01T16:02:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="105527" started-at="2017-06-01T16:02:53Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:04:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> Order_Symantec Secure Site Pro EV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Symantec Secure Site Pro EV]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17604" started-at="2017-06-01T16:04:38Z" finished-at="2017-06-01T16:04:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="14099" started-at="2017-06-01T16:04:56Z" finished-at="2017-06-01T16:05:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="131941" started-at="2017-06-01T16:05:10Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:07:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> Order_Thawte SSL Web Server]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Thawte SSL Web Server]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17567" started-at="2017-06-01T16:07:22Z" finished-at="2017-06-01T16:07:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="13911" started-at="2017-06-01T16:07:39Z" finished-at="2017-06-01T16:07:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="100033" started-at="2017-06-01T16:07:53Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:09:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> Order_Thawte SSL Web Server EV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Thawte SSL Web Server EV]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17461" started-at="2017-06-01T16:09:33Z" finished-at="2017-06-01T16:09:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="13802" started-at="2017-06-01T16:09:51Z" finished-at="2017-06-01T16:10:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="131140" started-at="2017-06-01T16:10:05Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:12:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> Order_Thawte SSL123]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Thawte SSL123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17660" started-at="2017-06-01T16:12:16Z" finished-at="2017-06-01T16:12:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="16908" started-at="2017-06-01T16:12:33Z" finished-at="2017-06-01T16:12:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="135624" started-at="2017-06-01T16:12:50Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:15:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> GeoTrust QuickSSL Premium]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[GeoTrust QuickSSL Premium]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="18916" started-at="2017-06-01T16:15:06Z" finished-at="2017-06-01T16:15:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="17027" started-at="2017-06-01T16:15:25Z" finished-at="2017-06-01T16:15:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="141101" started-at="2017-06-01T16:15:42Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:18:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> GeoTrust True BusinessID]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[GeoTrust True BusinessID]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="19157" started-at="2017-06-01T16:18:03Z" finished-at="2017-06-01T16:18:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="16935" started-at="2017-06-01T16:18:22Z" finished-at="2017-06-01T16:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="107593" started-at="2017-06-01T16:18:39Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:20:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> GeoTrust True BusinessID EV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[GeoTrust True BusinessID EV]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="17475" started-at="2017-06-01T16:20:27Z" finished-at="2017-06-01T16:20:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="14310" started-at="2017-06-01T16:20:44Z" finished-at="2017-06-01T16:20:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="132159" started-at="2017-06-01T16:20:58Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:23:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> GeoTrust True BusinessID Multi-Domain]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[GeoTrust True BusinessID Multi-Domain]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="18492" started-at="2017-06-01T16:23:11Z" finished-at="2017-06-01T16:23:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Login" is-config="true" duration-ms="17767" started-at="2017-06-01T16:23:29Z" finished-at="2017-06-01T16:23:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Login -->
+        <test-method status="PASS" signature="Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008]" name="Order_Certificates" duration-ms="113387" started-at="2017-06-01T16:23:47Z" data-provider="OrderProduct_Data" finished-at="2017-06-01T16:25:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Order Products Test --> GeoTrust True BusinessID Multi-Domain EV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[GeoTrust True BusinessID Multi-Domain EV]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Order_Certificates -->
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="User_Logout" is-config="true" duration-ms="18560" started-at="2017-06-01T16:25:40Z" finished-at="2017-06-01T16:25:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lang.String, java.lang.String)[pri:1, instance:Regression_Test.Order_Products@4f7d0008] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- User_Logout -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Regression_Test.Order_Products@4f7d0008]" name="afterTest" is-config="true" duration-ms="2230" started-at="2017-06-01T16:25:59Z" finished-at="2017-06-01T16:26:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.Admin_User -->
-    </test> <!-- Test 1 -->
-    <test name="Test 2" duration-ms="389514" started-at="2017-06-01T13:51:30Z" finished-at="2017-06-01T13:57:59Z">
-      <class name="Sanity_Test.Registered_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="beforeTest" is-config="true" duration-ms="2064" started-at="2017-06-01T14:51:30Z" finished-at="2017-06-01T14:51:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="16401" started-at="2017-06-01T14:51:32Z" finished-at="2017-06-01T14:51:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Order_RapidSSL" duration-ms="114536" started-at="2017-06-01T14:51:48Z" finished-at="2017-06-01T14:53:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Order_RapidSSL -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17593" started-at="2017-06-01T14:53:43Z" finished-at="2017-06-01T14:54:00Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Order_RapidSSL status=SUCCESS method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@25bbe1b6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="13711" started-at="2017-06-01T14:54:00Z" finished-at="2017-06-01T14:54:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Create_User" duration-ms="14931" started-at="2017-06-01T14:54:14Z" finished-at="2017-06-01T14:54:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Create_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17364" started-at="2017-06-01T14:54:29Z" finished-at="2017-06-01T14:54:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@25bbe1b6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="14389" started-at="2017-06-01T14:54:46Z" finished-at="2017-06-01T14:55:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Edit_User" duration-ms="44284" started-at="2017-06-01T14:55:01Z" finished-at="2017-06-01T14:55:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Edit_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="17423" started-at="2017-06-01T14:55:45Z" finished-at="2017-06-01T14:56:02Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@25bbe1b6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Login" is-config="true" duration-ms="25085" started-at="2017-06-01T14:56:02Z" finished-at="2017-06-01T14:56:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@25bbe1b6]" name="Domain_Name_Ordering" duration-ms="60711" started-at="2017-06-01T14:56:28Z" finished-at="2017-06-01T14:57:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Domain_Name_Ordering -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="User_Logout" is-config="true" duration-ms="29132" started-at="2017-06-01T14:57:28Z" finished-at="2017-06-01T14:57:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Domain_Name_Ordering status=SUCCESS method=Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@25bbe1b6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Registered_User@25bbe1b6]" name="afterTest" is-config="true" duration-ms="1879" started-at="2017-06-01T14:57:57Z" finished-at="2017-06-01T14:57:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.Registered_User -->
+      </class> <!-- Regression_Test.Order_Products -->
     </test> <!-- Test 2 -->
-    <test name="Test 3" duration-ms="128530" started-at="2017-06-01T13:57:59Z" finished-at="2017-06-01T14:00:08Z">
-      <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="BeforeTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="BeforeTest" is-config="true" duration-ms="16297" started-at="2017-06-01T14:57:59Z" finished-at="2017-06-01T14:58:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BeforeTest -->
-        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="User_Registration" duration-ms="26758" started-at="2017-06-01T14:58:16Z" finished-at="2017-06-01T14:58:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6982" started-at="2017-06-01T14:58:42Z" finished-at="2017-06-01T14:58:49Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5649fd9b]" name="Log_Out_New_User" duration-ms="1819" started-at="2017-06-01T14:58:49Z" finished-at="2017-06-01T14:58:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Log_Out_New_User -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6629" started-at="2017-06-01T14:58:51Z" finished-at="2017-06-01T14:58:58Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5649fd9b]" name="Get_in_Touch" duration-ms="12479" started-at="2017-06-01T14:58:58Z" finished-at="2017-06-01T14:59:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7536" started-at="2017-06-01T14:59:10Z" finished-at="2017-06-01T14:59:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5649fd9b]" name="Ask_a_question" duration-ms="6251" started-at="2017-06-01T14:59:18Z" finished-at="2017-06-01T14:59:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="6647" started-at="2017-06-01T14:59:24Z" finished-at="2017-06-01T14:59:31Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_Bronchure" duration-ms="5510" started-at="2017-06-01T14:59:31Z" finished-at="2017-06-01T14:59:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="7424" started-at="2017-06-01T14:59:36Z" finished-at="2017-06-01T14:59:44Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5649fd9b]" name="Request_a_PenTest_Proposal" duration-ms="5184" started-at="2017-06-01T14:59:44Z" finished-at="2017-06-01T14:59:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="Aftermethod" is-config="true" duration-ms="8193" started-at="2017-06-01T14:59:49Z" finished-at="2017-06-01T14:59:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5649fd9b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="AfterTest()[pri:0, instance:Sanity_Test.New_User@5649fd9b]" name="AfterTest" is-config="true" duration-ms="10811" started-at="2017-06-01T14:59:57Z" finished-at="2017-06-01T15:00:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AfterTest -->
-      </class> <!-- Sanity_Test.New_User -->
-    </test> <!-- Test 3 -->
-    <test name="Test 4" duration-ms="1560" started-at="2017-06-01T14:00:08Z" finished-at="2017-06-01T14:00:09Z">
-      <class name="Sanity_Test.SQL_Queries">
-        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteAccount" duration-ms="475" started-at="2017-06-01T15:00:08Z" finished-at="2017-06-01T15:00:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SQL_DeleteAccount -->
-        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_DeleteUser" duration-ms="290" started-at="2017-06-01T15:00:08Z" finished-at="2017-06-01T15:00:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SQL_DeleteUser -->
-        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@148080bb]" name="SQL_Certificate_Order" duration-ms="793" started-at="2017-06-01T15:00:09Z" finished-at="2017-06-01T15:00:09Z">
+    <test name="Test 3" duration-ms="1131" started-at="2017-06-01T15:26:01Z" finished-at="2017-06-01T15:26:02Z">
+      <class name="Regression_Test.SQL_Queries">
+        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:1, instance:Regression_Test.SQL_Queries@69ea3742]" name="SQL_Certificate_Order" duration-ms="1128" started-at="2017-06-01T16:26:01Z" finished-at="2017-06-01T16:26:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_Certificate_Order -->
-      </class> <!-- Sanity_Test.SQL_Queries -->
-    </test> <!-- Test 4 -->
+      </class> <!-- Regression_Test.SQL_Queries -->
+    </test> <!-- Test 3 -->
   </suite> <!-- Suite -->
 </testng-results>
