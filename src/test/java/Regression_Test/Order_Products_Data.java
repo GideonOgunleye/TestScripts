@@ -8,7 +8,7 @@ public class Order_Products_Data {
 	
 	@DataProvider (name ="OrderProduct_Data")
 	public static Object[][] testData(){
-		Object[][] obj = new Object[11][2];
+		Object[][] obj = new Object[12][2];
 		
 		/*---------1st Parameter-------------*/	
 		//Product Name
@@ -24,49 +24,49 @@ public class Order_Products_Data {
 		
 		/*---------3rd Parameter-------------*/	
 		//Product Name
-		obj[2][0]="Order Products Test --> Order_Symantec Secure Site Pro ";
+		obj[2][0]="Order Products Test --> Order_Symantec Secure Site Pro";
 		//Product Link
 		obj[2][1]= "Symantec Secure Site Pro";
 		
 		/*---------4th Parameter-------------*/	
 		//Product Name
-		obj[3][0]="Order Products Test --> Order_Symantec Secure Site Pro EV ";
+		obj[3][0]="Order Products Test --> Order_Symantec Secure Site Pro EV";
 		//Product Link
 		obj[3][1]= "Symantec Secure Site Pro EV";
 		
 		/*---------5th Parameter-------------*/	
 		//Product Name
-		obj[4][0]="Order Products Test --> Order_Thawte SSL Web Server ";
+		obj[4][0]="Order Products Test --> Order_Thawte SSL Web Server";
 		//Product Link
 		obj[4][1]= "Thawte SSL Web Server";
 		
 		/*---------6th Parameter-------------*/	
 		//Product Name
-		obj[5][0]="Order Products Test --> Order_Thawte SSL Web Server EV ";
+		obj[5][0]="Order Products Test --> Order_Thawte SSL Web Server EV";
 		//Product Link
 		obj[5][1]= "Thawte SSL Web Server EV";
 		
 		/*---------7th Parameter-------------*/	
 		//Product Name
-		obj[6][0]="Order Products Test --> Order_Thawte SSL123 ";
+		obj[6][0]="Order Products Test --> Order_Thawte SSL123";
 		//Product Link
 		obj[6][1]= "Thawte SSL123";
 		
 		/*---------8th Parameter-------------*/	
 		//Product Name
-		obj[7][0]="Order Products Test --> GeoTrust QuickSSL Premium ";
+		obj[7][0]="Order Products Test --> GeoTrust QuickSSL Premium";
 		//Product Link
 		obj[7][1]= "GeoTrust QuickSSL Premium";
 		
 		/*---------9th Parameter-------------*/	
 		//Product Name
-		obj[8][0]="Order Products Test --> GeoTrust True BusinessID ";
+		obj[8][0]="Order Products Test --> GeoTrust True BusinessID";
 		//Product Link
 		obj[8][1]= "GeoTrust True BusinessID";
 		
 		/*---------10th Parameter-------------*/	
 		//Product Name
-		obj[9][0]="Order Products Test --> GeoTrust True BusinessID EV  ";
+		obj[9][0]="Order Products Test --> GeoTrust True BusinessID EV";
 		//Product Link
 		obj[9][1]= "GeoTrust True BusinessID EV";
 		
@@ -75,6 +75,12 @@ public class Order_Products_Data {
 		obj[10][0]="Order Products Test --> GeoTrust True BusinessID Multi-Domain";
 		//Product Link
 		obj[10][1]= "GeoTrust True BusinessID Multi-Domain";
+		
+		/*---------12th Parameter-------------*/	
+		//Product Name
+		obj[11][0]="Order Products Test --> GeoTrust True BusinessID Multi-Domain EV";
+		//Product Link
+		obj[11][1]= "GeoTrust True BusinessID Multi-Domain EV";
 		
 		
 	    
