@@ -139,6 +139,7 @@ public class Order_Products {
 		
 		WebElement Link10 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[10]/td[1]"));
 		WebElement Link11 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[11]/td[1]"));
+		WebElement Link12 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[12]/td[1]"));
 		//WebElement Link16 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[1]"));
 		
 		if (Link1.getText().contains(ProductLink)) {
@@ -208,9 +209,13 @@ public class Order_Products {
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[11]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
-/*			
-			}else if () {
 			
+			}else if (Link12.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[12]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
+/*			
 			}else if () {
 			
 			}else if () {
