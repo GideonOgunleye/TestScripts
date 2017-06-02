@@ -9,28 +9,60 @@
     </run>
  </groups> 
    
-  <test name="Test 1">
+<!--  <test name="Test 1">
+  		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="chrome"/>
    <classes>
       <class name="Sanity_Test.Admin_User"/>
     </classes>  
-  </test><!-- Test -->
+  </test> Test -->
   
   <test name="Test 2">
+  		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="chrome"/>  
     <classes>
         <class name="Sanity_Test.Registered_User"/>
     </classes>
   </test><!-- Test -->
   
   <test name="Test 3">
+ 		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="chrome"/>
      <classes>
-      <class name="Sanity_Test.New_User"/>
+     <class name="Sanity_Test.New_User"/>
    </classes> 
-  </test><!--  Test -->
+  </test><!--  Test --> 
   
- <test name="Test 4">
+  <test name="Test 5">
+  		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="chrome"/>
      <classes>
       <class name="Sanity_Test.SQL_Queries"/>
    </classes> 
+  </test><!--  Test -->
+  
+<test name="Test 6">
+  		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="Firefox"/>  
+    <classes>
+        <class name="Sanity_Test.Registered_User"/>
+    </classes>
+  </test><!-- Test -->
+  
+  <test name="Test 7">
+ 		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="Firefox"/>
+     <classes>
+     <class name="Sanity_Test.New_User"/>
+   </classes> 
   </test><!--  Test --> 
+  
+  <test name="Test 4">
+  		<parameter name="config" value="SanityTest.conf.json"/>
+        <parameter name="environment" value="Firefox"/>
+     <classes>
+      <class name="Sanity_Test.SQL_Queries"/>
+   </classes> 
+  </test><!--  Test -->
   
 </suite> <!-- Suite -->

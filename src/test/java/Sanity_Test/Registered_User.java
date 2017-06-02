@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BrowserStack;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
 import org.testng.annotations.BeforeTest;
@@ -39,16 +40,18 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User {
-	WebDriver driver;
+public class Registered_User extends BrowserStack {
+	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
 		
+		report = ExtentFactory.getInstance(); 
+		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 		
@@ -106,7 +109,7 @@ public class Registered_User {
 		 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -623,18 +626,16 @@ public class Registered_User {
 		
 		System.out.println("Domain Name Order Started!");
 	}
-	
+/*	
 	  @BeforeTest (groups = {"Sanity"})
 	  public void beforeTest() throws IOException, Exception {
 		
-		 /*----Firefox Driver------*/
+		 /*----Firefox Driver------
 		 //System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
 		// driver = new FirefoxDriver(); 
 		 
 		 System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		 driver = new ChromeDriver();  
-		 
-		 report = ExtentFactory.getInstance(); 
 		 
 		 System.out.println("Registered User Module Test is Running.....");
 		 
@@ -688,7 +689,7 @@ public class Registered_User {
 		 
 		 //User Log Out
 		 Thread.sleep(15000);
-		 driver.findElement(By.linkText("Logout")).click();----*/
+		 driver.findElement(By.linkText("Logout")).click();----
 		 
 	  }
 	  
@@ -703,6 +704,6 @@ public class Registered_User {
 		 System.out.println("Registered User Module Test is Compete!");
 		
   }
-	  
+*/	  
 	
 }

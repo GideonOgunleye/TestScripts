@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import PageFactory.BrowserStack;
 import PageFactory.ExtentFactory;
 
 import org.testng.annotations.BeforeSuite;
@@ -18,8 +19,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries {
-	public WebDriver driver;
+public class SQL_Queries extends BrowserStack {
+	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
 	

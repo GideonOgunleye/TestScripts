@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,12 +49,12 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\Regressiont_Test.xml</span>
+                    <span>C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\config\Sanity_Test.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">2 tests</span>
+                    <span class="test-stats">6 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,36 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">13 methods,   13 passed</span>
+                    <span class="method-stats">26 methods, 4 failed,   22 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Ask_a_question">Ask_a_question</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Domain_Name_Ordering">Domain_Name_Ordering</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Order_RapidSSL">Order_RapidSSL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_Bronchure">Request_a_Bronchure</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,67 +131,112 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL123, Thawte SSL123)">Order_Certificates(Order Products Test --> Order_Thawte SSL123, Thawte SSL123)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Ask_a_question">Ask_a_question</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site EV, Symantec Secure Site EV)">Order_Certificates(Order Products Test --> Order_Symantec Secure Site EV, Symantec Secure Site EV)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Create_User">Create_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site, Symantec Secure Site)">Order_Certificates(Order Products Test --> Order_Symantec Secure Site, Symantec Secure Site)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Create_User">Create_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain)">Order_Certificates(Order Products Test --> GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Domain_Name_Ordering">Domain_Name_Ordering</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Dom...)">Order_Certificates(Order Products Test --> GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Dom...)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Edit_User">Edit_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium)">Order_Certificates(Order Products Test --> GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Edit_User">Edit_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID EV, GeoTrust True BusinessID EV)">Order_Certificates(Order Products Test --> GeoTrust True BusinessID EV, GeoTrust True BusinessID EV)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Get_in_Touch">Get_in_Touch</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV)">Order_Certificates(Order Products Test --> Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Get_in_Touch">Get_in_Touch</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site Pro, Symantec Secure Site Pro)">Order_Certificates(Order Products Test --> Order_Symantec Secure Site Pro, Symantec Secure Site Pro)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Log_Out_New_User">Log_Out_New_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID, GeoTrust True BusinessID)">Order_Certificates(Order Products Test --> GeoTrust True BusinessID, GeoTrust True BusinessID)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Log_Out_New_User">Log_Out_New_User</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV)">Order_Certificates(Order Products Test --> Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.Registered_User" hash-for-method="Order_RapidSSL">Order_RapidSSL</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.Order_Products" hash-for-method="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL Web Server, Thawte SSL Web Server)">Order_Certificates(Order Products Test --> Order_Thawte SSL Web Server, Thawte SSL Web Server)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_Bronchure">Request_a_Bronchure</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Regression_Test.SQL_Queries" hash-for-method="SQL_Certificate_Order">SQL_Certificate_Order</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_PenTest_Proposal">Request_a_PenTest_Proposal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="Request_a_PenTest_Proposal">Request_a_PenTest_Proposal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_Certificate_Order">SQL_Certificate_Order</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_Certificate_Order">SQL_Certificate_Order</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_DeleteAccount">SQL_DeleteAccount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_DeleteAccount">SQL_DeleteAccount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_DeleteUser">SQL_DeleteUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.SQL_Queries" hash-for-method="SQL_DeleteUser">SQL_DeleteUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="User_Registration">User_Registration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Sanity_Test.New_User" hash-for-method="User_Registration">User_Registration</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -177,106 +251,214 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Regression_Test.Order_Products</span>
+              <img src="failed.png"/>
+              <span class="class-name">Sanity_Test.Registered_User</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL123, Thawte SSL123)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Thawte SSL123, Thawte SSL123) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Thawte SSL123, Thawte SSL123)</span>
+                  <a name="Domain_Name_Ordering">
+                  </a> <!-- Domain_Name_Ordering -->
+                  <span class="method-name">Domain_Name_Ordering</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to locate element: #checkoutLink
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;185-200-103-159&apos;, ip: &apos;185.200.103.159&apos;, os.name: &apos;windows&apos;, os.arch: &apos;x86&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+*** Element info: {Using=id, value=checkoutLink}
+Command duration or timeout: 40.86 seconds
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.Domain_Name_Ordering(Registered_User.java:512)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 31 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: #checkoutLink
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;185-200-103-159&apos;, ip: &apos;185.200.103.159&apos;, os.name: &apos;windows&apos;, os.arch: &apos;x86&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+*** Element info: {Using=id, value=checkoutLink}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;192.168.232.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: driver.version: EventFiringWebDriver
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:453)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 36 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site EV, Symantec Secure Site EV)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Symantec Secure Site EV, Symantec Secure Site EV) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Symantec Secure Site EV, Symantec Secure Site EV)</span>
+                  <a name="Order_RapidSSL">
+                  </a> <!-- Order_RapidSSL -->
+                  <span class="method-name">Order_RapidSSL</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at Sanity_Test.Registered_User.Order_RapidSSL(Registered_User.java:304)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Sanity_Test.New_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Ask_a_question">
+                  </a> <!-- Ask_a_question -->
+                  <span class="method-name">Ask_a_question</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: .//*[@id=&apos;contactform&apos;]/div[2]/div[1]/div/select (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;192.168.232.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0, moz:accessibilityChecks=false, webdriver.remote.sessionid=c0949ea1fee545b44e7f8232fe7501b6b71fb75a, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, platformName=windows_nt, cssSelectorsEnabled=true}]
+Session ID: c0949ea1fee545b44e7f8232fe7501b6b71fb75a
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at Sanity_Test.New_User.Ask_a_question(New_User.java:330)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site, Symantec Secure Site)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Symantec Secure Site, Symantec Secure Site) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Symantec Secure Site, Symantec Secure Site)</span>
+                  <a name="Request_a_Bronchure">
+                  </a> <!-- Request_a_Bronchure -->
+                  <span class="method-name">Request_a_Bronchure</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: 
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;185-129-71-95&apos;, ip: &apos;185.129.71.95&apos;, os.name: &apos;windows&apos;, os.arch: &apos;x86&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 7e67b14e-422e-4c1c-a8cb-b5bc0de548c7
+Command duration or timeout: 974 milliseconds
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.ui.Select.setSelected(Select.java:324)
+	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:120)
+	at Sanity_Test.New_User.Request_a_Bronchure(New_User.java:379)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 31 more
+Caused by: org.openqa.selenium.ElementNotInteractableException: 
+Build info: version: &apos;3.4.0&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;185-129-71-95&apos;, ip: &apos;185.129.71.95&apos;, os.name: &apos;windows&apos;, os.arch: &apos;x86&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 7e67b14e-422e-4c1c-a8cb-b5bc0de548c7
+Build info: version: &apos;3.3.1&apos;, revision: &apos;5234b325d5&apos;, time: &apos;2017-03-10 09:10:29 +0000&apos;
+System info: host: &apos;SSL247DEV004&apos;, ip: &apos;192.168.232.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_121&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:272)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:332)
+	at com.sun.proxy.$Proxy5.click(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.click(EventFiringWebDriver.java:345)
+	at org.openqa.selenium.remote.server.KnownElements$1.invoke(KnownElements.java:64)
+	at com.sun.proxy.$Proxy6.click(Unknown Source)
+	at org.openqa.selenium.remote.server.handler.ClickElement.call(ClickElement.java:30)
+	at org.openqa.selenium.remote.server.handler.ClickElement.call(ClickElement.java:22)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 39 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Sanity_Test.Registered_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Create_User">
+                  </a> <!-- Create_User -->
+                  <span class="method-name">Create_User</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain)">
-                  </a> <!-- Order_Certificates(Order Products Test -> GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain)</span>
+                  <a name="Create_User">
+                  </a> <!-- Create_User -->
+                  <span class="method-name">Create_User</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Dom...)">
-                  </a> <!-- Order_Certificates(Order Products Test -> GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Dom...) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Domain EV)</span>
+                  <a name="Domain_Name_Ordering">
+                  </a> <!-- Domain_Name_Ordering -->
+                  <span class="method-name">Domain_Name_Ordering</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium)">
-                  </a> <!-- Order_Certificates(Order Products Test -> GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium)</span>
+                  <a name="Edit_User">
+                  </a> <!-- Edit_User -->
+                  <span class="method-name">Edit_User</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID EV, GeoTrust True BusinessID EV)">
-                  </a> <!-- Order_Certificates(Order Products Test -> GeoTrust True BusinessID EV, GeoTrust True BusinessID EV) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> GeoTrust True BusinessID EV, GeoTrust True BusinessID EV)</span>
+                  <a name="Edit_User">
+                  </a> <!-- Edit_User -->
+                  <span class="method-name">Edit_User</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site Pro, Symantec Secure Site Pro)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Symantec Secure Site Pro, Symantec Secure Site Pro) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Symantec Secure Site Pro, Symantec Secure Site Pro)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; GeoTrust True BusinessID, GeoTrust True BusinessID)">
-                  </a> <!-- Order_Certificates(Order Products Test -> GeoTrust True BusinessID, GeoTrust True BusinessID) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> GeoTrust True BusinessID, GeoTrust True BusinessID)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Order_Certificates(Order Products Test --&gt; Order_Thawte SSL Web Server, Thawte SSL Web Server)">
-                  </a> <!-- Order_Certificates(Order Products Test -> Order_Thawte SSL Web Server, Thawte SSL Web Server) -->
-                  <span class="method-name">Order_Certificates</span>
-                  <span class="parameters">(Order Products Test --> Order_Thawte SSL Web Server, Thawte SSL Web Server)</span>
+                  <a name="Order_RapidSSL">
+                  </a> <!-- Order_RapidSSL -->
+                  <span class="method-name">Order_RapidSSL</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -284,7 +466,85 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">Regression_Test.SQL_Queries</span>
+              <span class="class-name">Sanity_Test.New_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Ask_a_question">
+                  </a> <!-- Ask_a_question -->
+                  <span class="method-name">Ask_a_question</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Get_in_Touch">
+                  </a> <!-- Get_in_Touch -->
+                  <span class="method-name">Get_in_Touch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Get_in_Touch">
+                  </a> <!-- Get_in_Touch -->
+                  <span class="method-name">Get_in_Touch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Log_Out_New_User">
+                  </a> <!-- Log_Out_New_User -->
+                  <span class="method-name">Log_Out_New_User</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Log_Out_New_User">
+                  </a> <!-- Log_Out_New_User -->
+                  <span class="method-name">Log_Out_New_User</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_Bronchure">
+                  </a> <!-- Request_a_Bronchure -->
+                  <span class="method-name">Request_a_Bronchure</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_PenTest_Proposal">
+                  </a> <!-- Request_a_PenTest_Proposal -->
+                  <span class="method-name">Request_a_PenTest_Proposal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_PenTest_Proposal">
+                  </a> <!-- Request_a_PenTest_Proposal -->
+                  <span class="method-name">Request_a_PenTest_Proposal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="User_Registration">
+                  </a> <!-- User_Registration -->
+                  <span class="method-name">User_Registration</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="User_Registration">
+                  </a> <!-- User_Registration -->
+                  <span class="method-name">User_Registration</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Sanity_Test.SQL_Queries</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -294,12 +554,47 @@
                   <span class="method-name">SQL_Certificate_Order</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_Certificate_Order">
+                  </a> <!-- SQL_Certificate_Order -->
+                  <span class="method-name">SQL_Certificate_Order</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteAccount">
+                  </a> <!-- SQL_DeleteAccount -->
+                  <span class="method-name">SQL_DeleteAccount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteAccount">
+                  </a> <!-- SQL_DeleteAccount -->
+                  <span class="method-name">SQL_DeleteAccount</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteUser">
+                  </a> <!-- SQL_DeleteUser -->
+                  <span class="method-name">SQL_DeleteUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SQL_DeleteUser">
+                  </a> <!-- SQL_DeleteUser -->
+                  <span class="method-name">SQL_DeleteUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\Regressiont_Test.xml</span>
+            <span class="header-content">C:\Users\Gideon Okunleye\workspace\AutomationTestScripts\config\Sanity_Test.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -308,20 +603,52 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
   &lt;groups&gt;
     &lt;run&gt;
-      &lt;include name=&quot;Regression&quot;/&gt;
+      &lt;include name=&quot;Sanity&quot;/&gt;
       &lt;include name=&quot;SQL&quot;/&gt;
     &lt;/run&gt;
   &lt;/groups&gt;
   &lt;test name=&quot;Test 2&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Regression_Test.Order_Products&quot;/&gt;
+      &lt;class name=&quot;Sanity_Test.Registered_User&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test 2 --&gt;
   &lt;test name=&quot;Test 3&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Regression_Test.SQL_Queries&quot;/&gt;
+      &lt;class name=&quot;Sanity_Test.New_User&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test 3 --&gt;
+  &lt;test name=&quot;Test 5&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Sanity_Test.SQL_Queries&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test 5 --&gt;
+  &lt;test name=&quot;Test 6&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;Firefox&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Sanity_Test.Registered_User&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test 6 --&gt;
+  &lt;test name=&quot;Test 7&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;Firefox&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Sanity_Test.New_User&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test 7 --&gt;
+  &lt;test name=&quot;Test 4&quot;&gt;
+    &lt;parameter name=&quot;environment&quot; value=&quot;Firefox&quot;/&gt;
+    &lt;parameter name=&quot;config&quot; value=&quot;SanityTest.conf.json&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Sanity_Test.SQL_Queries&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test 4 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -338,6 +665,18 @@
               <li>
                 <span class="test-name">Test 3 (1 class)</span>
               </li>
+              <li>
+                <span class="test-name">Test 5 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test 6 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test 7 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test 4 (1 class)</span>
+              </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -347,18 +686,62 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">Regression</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">Order_Certificates</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
-            <div class="test-group">
               <span class="test-group-name">SQL</span>
               <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">SQL_Certificate_Order</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">SQL_DeleteAccount</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">SQL_DeleteUser</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">Sanity</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">Ask_a_question</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Create_User</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Domain_Name_Ordering</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Edit_User</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Get_in_Touch</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Log_Out_New_User</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Order_RapidSSL</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_Bronchure</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_PenTest_Proposal</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">User_Registration</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -378,64 +761,116 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(13);
+data.addRows(26);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Order_Certificates')
-data.setCell(0, 2, 'Regression_Test.Order_Products')
-data.setCell(0, 3, 144443);
+data.setCell(0, 1, 'Order_RapidSSL')
+data.setCell(0, 2, 'Sanity_Test.Registered_User')
+data.setCell(0, 3, 127587);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Order_Certificates')
-data.setCell(1, 2, 'Regression_Test.Order_Products')
-data.setCell(1, 3, 141101);
+data.setCell(1, 1, 'Order_RapidSSL')
+data.setCell(1, 2, 'Sanity_Test.Registered_User')
+data.setCell(1, 3, 95678);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'Order_Certificates')
-data.setCell(2, 2, 'Regression_Test.Order_Products')
-data.setCell(2, 3, 135624);
+data.setCell(2, 1, 'Domain_Name_Ordering')
+data.setCell(2, 2, 'Sanity_Test.Registered_User')
+data.setCell(2, 3, 75772);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'Order_Certificates')
-data.setCell(3, 2, 'Regression_Test.Order_Products')
-data.setCell(3, 3, 132159);
+data.setCell(3, 1, 'Domain_Name_Ordering')
+data.setCell(3, 2, 'Sanity_Test.Registered_User')
+data.setCell(3, 3, 67157);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'Order_Certificates')
-data.setCell(4, 2, 'Regression_Test.Order_Products')
-data.setCell(4, 3, 132147);
+data.setCell(4, 1, 'Edit_User')
+data.setCell(4, 2, 'Sanity_Test.Registered_User')
+data.setCell(4, 3, 52176);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'Order_Certificates')
-data.setCell(5, 2, 'Regression_Test.Order_Products')
-data.setCell(5, 3, 131941);
+data.setCell(5, 1, 'User_Registration')
+data.setCell(5, 2, 'Sanity_Test.New_User')
+data.setCell(5, 3, 46275);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'Order_Certificates')
-data.setCell(6, 2, 'Regression_Test.Order_Products')
-data.setCell(6, 3, 131140);
+data.setCell(6, 1, 'Edit_User')
+data.setCell(6, 2, 'Sanity_Test.Registered_User')
+data.setCell(6, 3, 46224);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'Order_Certificates')
-data.setCell(7, 2, 'Regression_Test.Order_Products')
-data.setCell(7, 3, 124278);
+data.setCell(7, 1, 'Ask_a_question')
+data.setCell(7, 2, 'Sanity_Test.New_User')
+data.setCell(7, 3, 40918);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'Order_Certificates')
-data.setCell(8, 2, 'Regression_Test.Order_Products')
-data.setCell(8, 3, 113387);
+data.setCell(8, 1, 'User_Registration')
+data.setCell(8, 2, 'Sanity_Test.New_User')
+data.setCell(8, 3, 38926);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'Order_Certificates')
-data.setCell(9, 2, 'Regression_Test.Order_Products')
-data.setCell(9, 3, 107593);
+data.setCell(9, 1, 'Create_User')
+data.setCell(9, 2, 'Sanity_Test.Registered_User')
+data.setCell(9, 3, 23555);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'Order_Certificates')
-data.setCell(10, 2, 'Regression_Test.Order_Products')
-data.setCell(10, 3, 105527);
+data.setCell(10, 1, 'Create_User')
+data.setCell(10, 2, 'Sanity_Test.Registered_User')
+data.setCell(10, 3, 17708);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'Order_Certificates')
-data.setCell(11, 2, 'Regression_Test.Order_Products')
-data.setCell(11, 3, 100033);
+data.setCell(11, 1, 'Get_in_Touch')
+data.setCell(11, 2, 'Sanity_Test.New_User')
+data.setCell(11, 3, 15491);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'SQL_Certificate_Order')
-data.setCell(12, 2, 'Regression_Test.SQL_Queries')
-data.setCell(12, 3, 1128);
+data.setCell(12, 1, 'Get_in_Touch')
+data.setCell(12, 2, 'Sanity_Test.New_User')
+data.setCell(12, 3, 11447);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'Ask_a_question')
+data.setCell(13, 2, 'Sanity_Test.New_User')
+data.setCell(13, 3, 9794);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'Request_a_PenTest_Proposal')
+data.setCell(14, 2, 'Sanity_Test.New_User')
+data.setCell(14, 3, 8422);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'Request_a_Bronchure')
+data.setCell(15, 2, 'Sanity_Test.New_User')
+data.setCell(15, 3, 8215);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'Request_a_PenTest_Proposal')
+data.setCell(16, 2, 'Sanity_Test.New_User')
+data.setCell(16, 3, 8188);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'Request_a_Bronchure')
+data.setCell(17, 2, 'Sanity_Test.New_User')
+data.setCell(17, 3, 5310);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'SQL_Certificate_Order')
+data.setCell(18, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(18, 3, 827);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'SQL_Certificate_Order')
+data.setCell(19, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(19, 3, 793);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'SQL_DeleteAccount')
+data.setCell(20, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(20, 3, 487);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'SQL_DeleteAccount')
+data.setCell(21, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(21, 3, 351);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'SQL_DeleteUser')
+data.setCell(22, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(22, 3, 306);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'SQL_DeleteUser')
+data.setCell(23, 2, 'Sanity_Test.SQL_Queries')
+data.setCell(23, 3, 281);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'Log_Out_New_User')
+data.setCell(24, 2, 'Sanity_Test.New_User')
+data.setCell(24, 3, 197);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'Log_Out_New_User')
+data.setCell(25, 2, 'Sanity_Test.New_User')
+data.setCell(25, 3, 193);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 minutes</span>
+              <span class="suite-total-time">Total running time: 11 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -461,166 +896,296 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Regression_Test.Order_Products</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Sanity_Test.Registered_User</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest</span>
+                <span class="method-name">setUp(SanityTest.conf.json, chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">2794 ms</span>
+                <span class="method-start">6995 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Symantec Secure Site, Symantec Secure Site)</span>
-                <span class="method-start">18744 ms</span>
+                <span class="method-name">Order_RapidSSL</span>
+                <span class="method-start">25944 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">150893 ms</span>
+                <span class="method-name">User_Logout([TestResult name=Order_RapidSSL status=SUCCESS method=Registered_User.Order_RapidSSL()[pri:1, instan...)</span>
+                <span class="method-start">153533 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">169321 ms</span>
+                <span class="method-start">172411 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Symantec Secure Site EV, Symantec Secure Site EV)</span>
-                <span class="method-start">184262 ms</span>
+                <span class="method-name">Create_User</span>
+                <span class="method-start">188764 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">308541 ms</span>
+                <span class="method-name">User_Logout([TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:San...)</span>
+                <span class="method-start">206474 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">326007 ms</span>
+                <span class="method-start">225163 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Symantec Secure Site Pro, Symantec Secure Site Pro)</span>
-                <span class="method-start">351550 ms</span>
+                <span class="method-name">Edit_User</span>
+                <span class="method-start">241704 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">495998 ms</span>
+                <span class="method-name">User_Logout([TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_...)</span>
+                <span class="method-start">287929 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">User_Login</span>
-                <span class="method-start">514760 ms</span>
+                <span class="method-start">306150 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Symantec Secure Site Pro EV, Symantec Secure Site Pro EV)</span>
-                <span class="method-start">531182 ms</span>
+                <span class="method-name">Domain_Name_Ordering</span>
+                <span class="method-start">325646 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">636710 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">654314 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Thawte SSL Web Server, Thawte SSL Web Server)</span>
-                <span class="method-start">668413 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">800355 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">817922 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Thawte SSL Web Server EV, Thawte SSL Web Server EV)</span>
-                <span class="method-start">831833 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">931867 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">949328 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> Order_Thawte SSL123, Thawte SSL123)</span>
-                <span class="method-start">963130 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1094271 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">1111931 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> GeoTrust QuickSSL Premium, GeoTrust QuickSSL Premium)</span>
-                <span class="method-start">1128839 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1264464 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">1283381 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> GeoTrust True BusinessID, GeoTrust True BusinessID)</span>
-                <span class="method-start">1300408 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1441511 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">1460669 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> GeoTrust True BusinessID EV, GeoTrust True BusinessID EV)</span>
-                <span class="method-start">1477604 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1585198 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">1602673 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> GeoTrust True BusinessID Multi-Domain, GeoTrust True BusinessID Multi-Domain)</span>
-                <span class="method-start">1616983 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1749143 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">User_Login</span>
-                <span class="method-start">1767636 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">Order_Certificates(Order Products Test --> GeoTrust True BusinessID Multi-Domain EV, GeoTrust True BusinessID Multi-Dom...)</span>
-                <span class="method-start">1785403 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">User_Logout([TestResult name=Order_Certificates status=SUCCESS method=Order_Products.Order_Certificates(java.lan...)</span>
-                <span class="method-start">1898791 ms</span>
+                <span class="method-name">User_Logout([TestResult name=Domain_Name_Ordering status=SUCCESS method=Registered_User.Domain_Name_Ordering()[p...)</span>
+                <span class="method-start">392805 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest</span>
-                <span class="method-start">1917354 ms</span>
+                <span class="method-name">tearDown</span>
+                <span class="method-start">411151 ms</span>
               </div> <!-- configuration-test after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">Regression_Test.SQL_Queries</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Sanity_Test.New_User</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(SanityTest.conf.json, chrome)</span>
+                <span class="method-start">418377 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">User_Registration</span>
+                <span class="method-start">424711 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instanc...)</span>
+                <span class="method-start">470988 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Log_Out_New_User</span>
+                <span class="method-start">478094 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:...)</span>
+                <span class="method-start">478288 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Get_in_Touch</span>
+                <span class="method-start">488606 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_T...)</span>
+                <span class="method-start">504099 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Ask_a_question</span>
+                <span class="method-start">512311 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sani...)</span>
+                <span class="method-start">522106 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Request_a_Bronchure</span>
+                <span class="method-start">529497 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, ins...)</span>
+                <span class="method-start">537714 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Request_a_PenTest_Proposal</span>
+                <span class="method-start">546409 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposa...)</span>
+                <span class="method-start">554832 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">563673 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Sanity_Test.SQL_Queries</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(SanityTest.conf.json, chrome)</span>
+                <span class="method-start">570724 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">SQL_DeleteAccount</span>
+                <span class="method-start">577553 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SQL_DeleteUser</span>
+                <span class="method-start">578041 ms</span>
+              </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">SQL_Certificate_Order</span>
-                <span class="method-start">1919617 ms</span>
+                <span class="method-start">578323 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">579118 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Sanity_Test.Registered_User</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(SanityTest.conf.json, Firefox)</span>
+                <span class="method-start">584536 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="configuration-method before">
+                <span class="method-name">User_Login</span>
+                <span class="method-start">593306 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Order_RapidSSL</span>
+                <span class="method-start">602062 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">User_Logout([TestResult name=Order_RapidSSL status=FAILURE method=Registered_User.Order_RapidSSL()[pri:1, instan...)</span>
+                <span class="method-start">697742 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">User_Login</span>
+                <span class="method-start">713227 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Create_User</span>
+                <span class="method-start">719296 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">User_Logout([TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:San...)</span>
+                <span class="method-start">742852 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">User_Login</span>
+                <span class="method-start">758366 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Edit_User</span>
+                <span class="method-start">765112 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">User_Logout([TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_...)</span>
+                <span class="method-start">817289 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">User_Login</span>
+                <span class="method-start">832757 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Domain_Name_Ordering</span>
+                <span class="method-start">838194 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">User_Logout([TestResult name=Domain_Name_Ordering status=FAILURE method=Registered_User.Domain_Name_Ordering()[p...)</span>
+                <span class="method-start">913970 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">970145 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Sanity_Test.New_User</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(SanityTest.conf.json, Firefox)</span>
+                <span class="method-start">976478 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">User_Registration</span>
+                <span class="method-start">986679 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instanc...)</span>
+                <span class="method-start">1025606 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Log_Out_New_User</span>
+                <span class="method-start">1032932 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:...)</span>
+                <span class="method-start">1033130 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Get_in_Touch</span>
+                <span class="method-start">1041149 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_T...)</span>
+                <span class="method-start">1052597 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Ask_a_question</span>
+                <span class="method-start">1062350 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Ask_a_question status=FAILURE method=New_User.Ask_a_question()[pri:3, instance:Sani...)</span>
+                <span class="method-start">1103269 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Request_a_Bronchure</span>
+                <span class="method-start">1111467 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_Bronchure status=FAILURE method=New_User.Request_a_Bronchure()[pri:4, ins...)</span>
+                <span class="method-start">1116781 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Request_a_PenTest_Proposal</span>
+                <span class="method-start">1126355 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposa...)</span>
+                <span class="method-start">1134544 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">1144230 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Sanity_Test.SQL_Queries</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUp(SanityTest.conf.json, Firefox)</span>
+                <span class="method-start">1150497 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">SQL_DeleteAccount</span>
+                <span class="method-start">1160869 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SQL_DeleteUser</span>
+                <span class="method-start">1161222 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">SQL_Certificate_Order</span>
+                <span class="method-start">1161530 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">1162358 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
