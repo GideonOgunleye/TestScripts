@@ -2,8 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test 2(failed)">
-    <parameter name="environment" value="chrome"/>
-    <parameter name="config" value="Sanity_RegisteredUser.json"/>
     <groups>
       <run>
         <include name="Sanity"/>
@@ -15,9 +13,9 @@
         <methods>
           <include name="Create_User"/>
           <include name="Edit_User"/>
+          <include name="beforeTest"/>
           <include name="User_Login"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
+          <include name="afterTest"/>
           <include name="Domain_Name_Ordering"/>
           <include name="Order_RapidSSL"/>
           <include name="User_Logout"/>
@@ -25,31 +23,7 @@
       </class> <!-- Sanity_Test.Registered_User -->
     </classes>
   </test> <!-- Test 2(failed) -->
-  <test name="Test 5(failed)">
-    <parameter name="environment" value="Firefox"/>
-    <parameter name="config" value="Sanity_RegisteredUser.json"/>
-    <groups>
-      <run>
-        <include name="Sanity"/>
-        <include name="SQL"/>
-      </run>
-    </groups>
-    <classes>
-      <class name="Sanity_Test.Registered_User">
-        <methods>
-          <include name="User_Login"/>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="Domain_Name_Ordering"/>
-          <include name="Order_RapidSSL"/>
-          <include name="User_Logout"/>
-        </methods>
-      </class> <!-- Sanity_Test.Registered_User -->
-    </classes>
-  </test> <!-- Test 5(failed) -->
-  <test name="Test 6(failed)">
-    <parameter name="environment" value="Firefox"/>
-    <parameter name="config" value="Sanity_NewUser.json"/>
+  <test name="Test 3(failed)">
     <groups>
       <run>
         <include name="Sanity"/>
@@ -60,12 +34,16 @@
       <class name="Sanity_Test.New_User">
         <methods>
           <include name="Request_a_Bronchure"/>
+          <include name="beforeTest"/>
           <include name="Ask_a_question"/>
-          <include name="setUp"/>
+          <include name="Log_Out_New_User"/>
           <include name="Aftermethod"/>
-          <include name="tearDown"/>
+          <include name="afterTest"/>
+          <include name="Get_in_Touch"/>
+          <include name="Request_a_PenTest_Proposal"/>
+          <include name="User_Registration"/>
         </methods>
       </class> <!-- Sanity_Test.New_User -->
     </classes>
-  </test> <!-- Test 6(failed) -->
+  </test> <!-- Test 3(failed) -->
 </suite> <!-- Failed suite [Suite] -->
