@@ -5,7 +5,7 @@
 
   "capabilities": {
     "build": "First Build",
-    "name": "Sanity Test",
+    "name": "Registered User_Sanity Test",
     "browserstack.debug": true
     "build": "version1",
   	"project": "newintropage"

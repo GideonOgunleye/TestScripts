@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test 6(failed)">
+  <test name="Test 2(failed)">
+    <parameter name="environment" value="chrome"/>
+    <parameter name="config" value="Sanity_RegisteredUser.json"/>
+    <groups>
+      <run>
+        <include name="Sanity"/>
+        <include name="SQL"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Sanity_Test.Registered_User">
+        <methods>
+          <include name="Create_User"/>
+          <include name="Edit_User"/>
+          <include name="User_Login"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="Domain_Name_Ordering"/>
+          <include name="Order_RapidSSL"/>
+          <include name="User_Logout"/>
+        </methods>
+      </class> <!-- Sanity_Test.Registered_User -->
+    </classes>
+  </test> <!-- Test 2(failed) -->
+  <test name="Test 5(failed)">
     <parameter name="environment" value="Firefox"/>
-    <parameter name="config" value="SanityTest.conf.json"/>
+    <parameter name="config" value="Sanity_RegisteredUser.json"/>
     <groups>
       <run>
         <include name="Sanity"/>
@@ -22,10 +46,10 @@
         </methods>
       </class> <!-- Sanity_Test.Registered_User -->
     </classes>
-  </test> <!-- Test 6(failed) -->
-  <test name="Test 7(failed)">
+  </test> <!-- Test 5(failed) -->
+  <test name="Test 6(failed)">
     <parameter name="environment" value="Firefox"/>
-    <parameter name="config" value="SanityTest.conf.json"/>
+    <parameter name="config" value="Sanity_NewUser.json"/>
     <groups>
       <run>
         <include name="Sanity"/>
@@ -43,5 +67,5 @@
         </methods>
       </class> <!-- Sanity_Test.New_User -->
     </classes>
-  </test> <!-- Test 7(failed) -->
+  </test> <!-- Test 6(failed) -->
 </suite> <!-- Failed suite [Suite] -->

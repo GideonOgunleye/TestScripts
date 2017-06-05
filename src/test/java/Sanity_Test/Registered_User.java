@@ -51,7 +51,7 @@ public class Registered_User extends BrowserStack {
 		report = ExtentFactory.getInstance(); 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 		
@@ -82,7 +82,7 @@ public class Registered_User extends BrowserStack {
 		
 	    //Take Screen Shots
 	    String filename = result.getMethod().getMethodName() +".png";
-	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Sanity ScreenShots\\";
+	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));
@@ -109,7 +109,7 @@ public class Registered_User extends BrowserStack {
 		 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
