@@ -88,7 +88,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>config/Sanity_Test.xml</suiteXmlFile>
+                                <suiteXmlFile>config/Sanity_TestChrome.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
