@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BrowserStack;
 import PageFactory.ExtentFactory;
 
 import org.testng.annotations.BeforeMethod;
@@ -38,16 +39,16 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User {
-	public WebDriver driver;
+public class New_User extends BrowserStack {
+	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
-	
-/*	@BeforeMethod
+/*	
+	@BeforeMethod
 	public void Enter_Url () throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -61,13 +62,13 @@ public class New_User {
 		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
 		Thread.sleep(5000);
 		
-	}---------------------------------*/
-	
+	}
+*/	
 	@AfterMethod (groups = {"Sanity"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
 		String filename = result.getMethod().getMethodName() +".png";
-	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Sanity ScreenShots\\";
+	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));
@@ -119,9 +120,19 @@ public class New_User {
 	  public void User_Registration() throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
+
+		driver.get(prop.getProperty("Url")); 
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		String title = driver.getTitle();				 
+		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+		Thread.sleep(5000);
+		//driver.findElement(By.id("cookiesStatus")).click();
+		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
+		Thread.sleep(5000);
 		
 		report = ExtentFactory.getInstance(); 
 		
@@ -415,11 +426,11 @@ public class New_User {
 	test.log(LogStatus.PASS, "Form Sent Successfully");
 	//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   }
-  
+ /* 
   @BeforeTest (groups = {"Sanity"})
   public void BeforeTest() throws IOException, Exception {
 	
-	 /*----Firefox Driver------*/
+	 /*----Firefox Driver------
 	 //System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
 	// driver = new FirefoxDriver(); 
 	 
@@ -458,4 +469,5 @@ public class New_User {
 	 
 	
   }
+  */
 }

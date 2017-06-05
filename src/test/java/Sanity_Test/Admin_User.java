@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BrowserStack;
 import PageFactory.ExtentFactory;
 
 import org.testng.annotations.BeforeMethod;
@@ -36,8 +37,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User {
-  WebDriver driver;
+public class Admin_User extends BrowserStack {
+  //WebDriver driver;
   ExtentReports report;
   ExtentTest test;
 	
@@ -46,7 +47,7 @@ public class Admin_User {
 	  
 	//Log in As Administrator
 		 Properties prop = new Properties();
-		 FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDrivingAdmin.properties");
+		 FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
 		 
 		 //test = report.startTest("Admin_Login");
 		 //test.log(LogStatus.INFO, "Browser Started...");
@@ -657,7 +658,8 @@ public class Admin_User {
 	*/
 		 
   }
-  
+ 
+  /*
   @BeforeTest (groups = {"Sanity"})
   public void beforeTest() {
 	  
@@ -683,5 +685,5 @@ public class Admin_User {
 	  System.out.println("Admin Module Test is Complete!");
 		
   }
- 
+ */
 }
