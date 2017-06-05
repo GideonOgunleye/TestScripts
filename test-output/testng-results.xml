@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="4" ignored="0" total="26" passed="22">
+<testng-results skipped="3" failed="5" ignored="0" total="26" passed="18">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="1169509" started-at="2017-06-02T16:13:34Z" finished-at="2017-06-02T16:33:04Z">
+  <suite name="Suite" duration-ms="1088043" started-at="2017-06-05T05:11:33Z" finished-at="2017-06-05T05:29:41Z">
     <groups>
       <group name="Sanity">
-        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@73ad2d6]" name="Create_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@73ad2d6]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@73ad2d6]" name="Edit_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@73ad2d6]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5025a98f]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5025a98f]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5025a98f]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5025a98f]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5025a98f]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="User_Registration" class="Sanity_Test.New_User"/>
-        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@31dc339b]" name="Create_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@31dc339b]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@31dc339b]" name="Edit_User" class="Sanity_Test.Registered_User"/>
-        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@31dc339b]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@4e1d422d]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@4e1d422d]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@4e1d422d]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@4e1d422d]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@4e1d422d]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="User_Registration" class="Sanity_Test.New_User"/>
+        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@5cb9f472]" name="Create_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@5cb9f472]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@5cb9f472]" name="Edit_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@5cb9f472]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
+        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@544fe44c]" name="Ask_a_question" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@544fe44c]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@544fe44c]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@544fe44c]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@544fe44c]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
+        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="User_Registration" class="Sanity_Test.New_User"/>
+        <method signature="Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Create_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Domain_Name_Ordering" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Edit_User" class="Sanity_Test.Registered_User"/>
+        <method signature="Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Order_RapidSSL" class="Sanity_Test.Registered_User"/>
+        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@527740a2]" name="Ask_a_question" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@527740a2]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@527740a2]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@527740a2]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
+        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@527740a2]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
+        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@527740a2]" name="User_Registration" class="Sanity_Test.New_User"/>
       </group> <!-- Sanity -->
       <group name="SQL">
-        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
+        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
       </group> <!-- SQL -->
     </groups>
-    <test name="Test 2" duration-ms="418350" started-at="2017-06-02T16:13:34Z" finished-at="2017-06-02T16:20:33Z">
+    <test name="Test 2" duration-ms="323864" started-at="2017-06-05T05:11:33Z" finished-at="2017-06-05T05:16:57Z">
       <class name="Sanity_Test.Registered_User">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="setUp" is-config="true" duration-ms="6983" started-at="2017-06-02T17:13:34Z" finished-at="2017-06-02T17:13:41Z">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="setUp" is-config="true" duration-ms="13768" started-at="2017-06-05T06:11:33Z" finished-at="2017-06-05T06:11:47Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[SanityTest.conf.json]]>
+                <![CDATA[Sanity_RegisteredUser.json]]>
               </value>
             </param>
             <param index="1">
@@ -53,95 +53,620 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Login" is-config="true" duration-ms="18949" started-at="2017-06-02T17:13:41Z" finished-at="2017-06-02T17:14:00Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="User_Login" is-config="true" duration-ms="32495" started-at="2017-06-05T06:11:47Z" finished-at="2017-06-05T06:12:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@73ad2d6]" name="Order_RapidSSL" duration-ms="127587" started-at="2017-06-02T17:14:00Z" finished-at="2017-06-02T17:16:08Z">
+        <test-method status="FAIL" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@5cb9f472]" name="Order_RapidSSL" duration-ms="223856" started-at="2017-06-05T06:12:20Z" finished-at="2017-06-05T06:16:04Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"html/body/div[4]/p[1]"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.03 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=xpath, value=html/body/div[4]/p[1]}
+Command duration or timeout: 30.97 seconds]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"html/body/div[4]/p[1]"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.03 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=xpath, value=html/body/div[4]/p[1]}
+Command duration or timeout: 30.97 seconds
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:476)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.Order_RapidSSL(Registered_User.java:303)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 31 more
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"html/body/div[4]/p[1]"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.03 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=xpath, value=html/body/div[4]/p[1]}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Order_RapidSSL -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Logout" is-config="true" duration-ms="18876" started-at="2017-06-02T17:16:08Z" finished-at="2017-06-02T17:16:27Z">
+        <test-method status="FAIL" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="User_Logout" is-config="true" duration-ms="46082" started-at="2017-06-05T06:16:04Z" finished-at="2017-06-05T06:16:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Order_RapidSSL status=SUCCESS method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@73ad2d6] output={null}]]]>
+                <![CDATA[[TestResult name=Order_RapidSSL status=FAILURE method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@5cb9f472] output={null}]]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.User_Logout(Registered_User.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:723)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Login" is-config="true" duration-ms="16353" started-at="2017-06-02T17:16:27Z" finished-at="2017-06-02T17:16:43Z">
+        <test-method status="SKIP" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="User_Login" is-config="true" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@73ad2d6]" name="Create_User" duration-ms="17708" started-at="2017-06-02T17:16:43Z" finished-at="2017-06-02T17:17:01Z">
+        <test-method status="SKIP" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@5cb9f472]" name="Create_User" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.User_Logout(Registered_User.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:723)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Create_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Logout" is-config="true" duration-ms="18688" started-at="2017-06-02T17:17:01Z" finished-at="2017-06-02T17:17:20Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@73ad2d6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Login" is-config="true" duration-ms="16541" started-at="2017-06-02T17:17:20Z" finished-at="2017-06-02T17:17:36Z">
+        <test-method status="SKIP" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="User_Login" is-config="true" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@73ad2d6]" name="Edit_User" duration-ms="46224" started-at="2017-06-02T17:17:36Z" finished-at="2017-06-02T17:18:22Z">
+        <test-method status="SKIP" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@5cb9f472]" name="Edit_User" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.User_Logout(Registered_User.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:723)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Edit_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Logout" is-config="true" duration-ms="18221" started-at="2017-06-02T17:18:22Z" finished-at="2017-06-02T17:18:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@73ad2d6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Login" is-config="true" duration-ms="19496" started-at="2017-06-02T17:18:41Z" finished-at="2017-06-02T17:19:00Z">
+        <test-method status="SKIP" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="User_Login" is-config="true" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@73ad2d6]" name="Domain_Name_Ordering" duration-ms="67157" started-at="2017-06-02T17:19:00Z" finished-at="2017-06-02T17:20:07Z">
+        <test-method status="SKIP" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@5cb9f472]" name="Domain_Name_Ordering" duration-ms="0" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:50Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+Command duration or timeout: 30.89 seconds
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at Sanity_Test.Registered_User.User_Logout(Registered_User.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:723)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:142)
+	... 33 more
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Logout"}
+  (Session info: chrome=57.0.2987.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.05 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 17:00:58'
+System info: host: '185-44-128-217', ip: '185.44.128.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Windows\proxy\scoped_dir6032_16415}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.110, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 104451888f4e3b2baa9fb505fdf8f9e8
+*** Element info: {Using=link text, value=Logout}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:246)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at sun.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:103)
+	at com.sun.proxy.$Proxy1.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:1)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Domain_Name_Ordering -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="User_Logout" is-config="true" duration-ms="18345" started-at="2017-06-02T17:20:07Z" finished-at="2017-06-02T17:20:26Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Domain_Name_Ordering status=SUCCESS method=Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@73ad2d6] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.Registered_User@73ad2d6]" name="tearDown" is-config="true" duration-ms="7193" started-at="2017-06-02T17:20:26Z" finished-at="2017-06-02T17:20:33Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.Registered_User@5cb9f472]" name="tearDown" is-config="true" duration-ms="7630" started-at="2017-06-05T06:16:50Z" finished-at="2017-06-05T06:16:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.Registered_User -->
     </test> <!-- Test 2 -->
-    <test name="Test 3" duration-ms="152338" started-at="2017-06-02T16:20:33Z" finished-at="2017-06-02T16:23:05Z">
+    <test name="Test 3" duration-ms="152297" started-at="2017-06-05T05:16:57Z" finished-at="2017-06-05T05:19:30Z">
       <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="setUp" is-config="true" duration-ms="6332" started-at="2017-06-02T17:20:33Z" finished-at="2017-06-02T17:20:39Z">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="setUp" is-config="true" duration-ms="7170" started-at="2017-06-05T06:16:57Z" finished-at="2017-06-05T06:17:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[SanityTest.conf.json]]>
+                <![CDATA[Sanity_NewUser.json]]>
               </value>
             </param>
             <param index="1">
@@ -153,145 +678,125 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="User_Registration" duration-ms="46275" started-at="2017-06-02T17:20:39Z" finished-at="2017-06-02T17:21:25Z">
+        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="User_Registration" duration-ms="47318" started-at="2017-06-05T06:17:04Z" finished-at="2017-06-05T06:17:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="7105" started-at="2017-06-02T17:21:25Z" finished-at="2017-06-02T17:21:33Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="7868" started-at="2017-06-05T06:17:52Z" finished-at="2017-06-05T06:18:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5025a98f]" name="Log_Out_New_User" duration-ms="193" started-at="2017-06-02T17:21:33Z" finished-at="2017-06-02T17:21:33Z">
+        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@544fe44c]" name="Log_Out_New_User" duration-ms="2396" started-at="2017-06-05T06:18:00Z" finished-at="2017-06-05T06:18:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out_New_User -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="10317" started-at="2017-06-02T17:21:33Z" finished-at="2017-06-02T17:21:43Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="7572" started-at="2017-06-05T06:18:02Z" finished-at="2017-06-05T06:18:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5025a98f]" name="Get_in_Touch" duration-ms="15491" started-at="2017-06-02T17:21:43Z" finished-at="2017-06-02T17:21:59Z">
+        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@544fe44c]" name="Get_in_Touch" duration-ms="14058" started-at="2017-06-05T06:18:10Z" finished-at="2017-06-05T06:18:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="8212" started-at="2017-06-02T17:21:59Z" finished-at="2017-06-02T17:22:07Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="9872" started-at="2017-06-05T06:18:24Z" finished-at="2017-06-05T06:18:34Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5025a98f]" name="Ask_a_question" duration-ms="9794" started-at="2017-06-02T17:22:07Z" finished-at="2017-06-02T17:22:17Z">
+        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@544fe44c]" name="Ask_a_question" duration-ms="8739" started-at="2017-06-05T06:18:34Z" finished-at="2017-06-05T06:18:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="7390" started-at="2017-06-02T17:22:17Z" finished-at="2017-06-02T17:22:24Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="7521" started-at="2017-06-05T06:18:42Z" finished-at="2017-06-05T06:18:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5025a98f]" name="Request_a_Bronchure" duration-ms="8215" started-at="2017-06-02T17:22:24Z" finished-at="2017-06-02T17:22:32Z">
+        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@544fe44c]" name="Request_a_Bronchure" duration-ms="8222" started-at="2017-06-05T06:18:50Z" finished-at="2017-06-05T06:18:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="8694" started-at="2017-06-02T17:22:32Z" finished-at="2017-06-02T17:22:41Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="8944" started-at="2017-06-05T06:18:58Z" finished-at="2017-06-05T06:19:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5025a98f]" name="Request_a_PenTest_Proposal" duration-ms="8422" started-at="2017-06-02T17:22:41Z" finished-at="2017-06-02T17:22:49Z">
+        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@544fe44c]" name="Request_a_PenTest_Proposal" duration-ms="7760" started-at="2017-06-05T06:19:07Z" finished-at="2017-06-05T06:19:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="Aftermethod" is-config="true" duration-ms="8841" started-at="2017-06-02T17:22:49Z" finished-at="2017-06-02T17:22:58Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="Aftermethod" is-config="true" duration-ms="8765" started-at="2017-06-05T06:19:15Z" finished-at="2017-06-05T06:19:24Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@5025a98f] output={null}]]]>
+                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@544fe44c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.New_User@5025a98f]" name="tearDown" is-config="true" duration-ms="7041" started-at="2017-06-02T17:22:58Z" finished-at="2017-06-02T17:23:05Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.New_User@544fe44c]" name="tearDown" is-config="true" duration-ms="6085" started-at="2017-06-05T06:19:24Z" finished-at="2017-06-05T06:19:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.New_User -->
     </test> <!-- Test 3 -->
-    <test name="Test 5" duration-ms="13804" started-at="2017-06-02T16:23:05Z" finished-at="2017-06-02T16:23:19Z">
+    <test name="Test 4" duration-ms="2198" started-at="2017-06-05T05:19:30Z" finished-at="2017-06-05T05:19:32Z">
       <class name="Sanity_Test.SQL_Queries">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="setUp" is-config="true" duration-ms="6829" started-at="2017-06-02T17:23:05Z" finished-at="2017-06-02T17:23:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[SanityTest.conf.json]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_DeleteAccount" duration-ms="487" started-at="2017-06-02T17:23:12Z" finished-at="2017-06-02T17:23:12Z">
+        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_DeleteAccount" duration-ms="512" started-at="2017-06-05T06:19:30Z" finished-at="2017-06-05T06:19:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteAccount -->
-        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_DeleteUser" duration-ms="281" started-at="2017-06-02T17:23:12Z" finished-at="2017-06-02T17:23:13Z">
+        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_DeleteUser" duration-ms="371" started-at="2017-06-05T06:19:30Z" finished-at="2017-06-05T06:19:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteUser -->
-        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="SQL_Certificate_Order" duration-ms="793" started-at="2017-06-02T17:23:13Z" finished-at="2017-06-02T17:23:14Z">
+        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@78c03f1f]" name="SQL_Certificate_Order" duration-ms="1313" started-at="2017-06-05T06:19:31Z" finished-at="2017-06-05T06:19:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_Certificate_Order -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.SQL_Queries@6e1ec318]" name="tearDown" is-config="true" duration-ms="5409" started-at="2017-06-02T17:23:14Z" finished-at="2017-06-02T17:23:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.SQL_Queries -->
-    </test> <!-- Test 5 -->
-    <test name="Test 6" duration-ms="391918" started-at="2017-06-02T16:23:19Z" finished-at="2017-06-02T16:29:51Z">
+    </test> <!-- Test 4 -->
+    <test name="Test 5" duration-ms="427482" started-at="2017-06-05T05:19:32Z" finished-at="2017-06-05T05:26:39Z">
       <class name="Sanity_Test.Registered_User">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="setUp" is-config="true" duration-ms="8769" started-at="2017-06-02T17:23:19Z" finished-at="2017-06-02T17:23:28Z">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="setUp" is-config="true" duration-ms="9741" started-at="2017-06-05T06:19:32Z" finished-at="2017-06-05T06:19:42Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[SanityTest.conf.json]]>
+                <![CDATA[Sanity_RegisteredUser.json]]>
               </value>
             </param>
             <param index="1">
@@ -303,11 +808,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Login" is-config="true" duration-ms="8756" started-at="2017-06-02T17:23:28Z" finished-at="2017-06-02T17:23:37Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Login" is-config="true" duration-ms="9598" started-at="2017-06-05T06:19:42Z" finished-at="2017-06-05T06:19:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="FAIL" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@31dc339b]" name="Order_RapidSSL" duration-ms="95678" started-at="2017-06-02T17:23:37Z" finished-at="2017-06-02T17:25:12Z">
+        <test-method status="FAIL" signature="Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Order_RapidSSL" duration-ms="104325" started-at="2017-06-05T06:19:51Z" finished-at="2017-06-05T06:21:35Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -320,9 +825,9 @@
 	at org.testng.Assert.assertTrue(Assert.java:51)
 	at Sanity_Test.Registered_User.Order_RapidSSL(Registered_User.java:304)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -350,86 +855,86 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Order_RapidSSL -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Logout" is-config="true" duration-ms="15485" started-at="2017-06-02T17:25:12Z" finished-at="2017-06-02T17:25:28Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Logout" is-config="true" duration-ms="15941" started-at="2017-06-05T06:21:35Z" finished-at="2017-06-05T06:21:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Order_RapidSSL status=FAILURE method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@31dc339b] output={null}]]]>
+                <![CDATA[[TestResult name=Order_RapidSSL status=FAILURE method=Registered_User.Order_RapidSSL()[pri:1, instance:Sanity_Test.Registered_User@6fc6f14e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Login" is-config="true" duration-ms="6069" started-at="2017-06-02T17:25:28Z" finished-at="2017-06-02T17:25:34Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Login" is-config="true" duration-ms="6407" started-at="2017-06-05T06:21:51Z" finished-at="2017-06-05T06:21:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@31dc339b]" name="Create_User" duration-ms="23555" started-at="2017-06-02T17:25:34Z" finished-at="2017-06-02T17:25:57Z">
+        <test-method status="PASS" signature="Create_User()[pri:2, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Create_User" duration-ms="26273" started-at="2017-06-05T06:21:58Z" finished-at="2017-06-05T06:22:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Create_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Logout" is-config="true" duration-ms="15513" started-at="2017-06-02T17:25:57Z" finished-at="2017-06-02T17:26:13Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Logout" is-config="true" duration-ms="18638" started-at="2017-06-05T06:22:24Z" finished-at="2017-06-05T06:22:43Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@31dc339b] output={null}]]]>
+                <![CDATA[[TestResult name=Create_User status=SUCCESS method=Registered_User.Create_User()[pri:2, instance:Sanity_Test.Registered_User@6fc6f14e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Login" is-config="true" duration-ms="6746" started-at="2017-06-02T17:26:13Z" finished-at="2017-06-02T17:26:20Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Login" is-config="true" duration-ms="18402" started-at="2017-06-05T06:22:43Z" finished-at="2017-06-05T06:23:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@31dc339b]" name="Edit_User" duration-ms="52176" started-at="2017-06-02T17:26:20Z" finished-at="2017-06-02T17:27:12Z">
+        <test-method status="PASS" signature="Edit_User()[pri:3, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Edit_User" duration-ms="53148" started-at="2017-06-05T06:23:01Z" finished-at="2017-06-05T06:23:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Edit_User -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Logout" is-config="true" duration-ms="15468" started-at="2017-06-02T17:27:12Z" finished-at="2017-06-02T17:27:27Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Logout" is-config="true" duration-ms="15823" started-at="2017-06-05T06:23:54Z" finished-at="2017-06-05T06:24:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@31dc339b] output={null}]]]>
+                <![CDATA[[TestResult name=Edit_User status=SUCCESS method=Registered_User.Edit_User()[pri:3, instance:Sanity_Test.Registered_User@6fc6f14e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Login" is-config="true" duration-ms="5437" started-at="2017-06-02T17:27:27Z" finished-at="2017-06-02T17:27:33Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Login" is-config="true" duration-ms="6522" started-at="2017-06-05T06:24:10Z" finished-at="2017-06-05T06:24:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="FAIL" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@31dc339b]" name="Domain_Name_Ordering" duration-ms="75772" started-at="2017-06-02T17:27:33Z" finished-at="2017-06-02T17:28:48Z">
+        <test-method status="FAIL" signature="Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@6fc6f14e]" name="Domain_Name_Ordering" duration-ms="77200" started-at="2017-06-05T06:24:17Z" finished-at="2017-06-05T06:25:34Z">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
               <![CDATA[Unable to locate element: #checkoutLink
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=id, value=checkoutLink}
-Command duration or timeout: 40.86 seconds]]>
+Command duration or timeout: 41.11 seconds]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: #checkoutLink
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=id, value=checkoutLink}
-Command duration or timeout: 40.86 seconds
+Command duration or timeout: 41.11 seconds
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
@@ -439,9 +944,9 @@ Command duration or timeout: 40.86 seconds
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
 	at Sanity_Test.Registered_User.Domain_Name_Ordering(Registered_User.java:512)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -469,14 +974,14 @@ Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been 
 Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: #checkoutLink
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=id, value=checkoutLink}
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'SSL247DEV004', ip: '192.168.232.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: driver.version: EventFiringWebDriver
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -511,11 +1016,11 @@ Driver info: driver.version: EventFiringWebDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Domain_Name_Ordering -->
-        <test-method status="FAIL" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="User_Logout" is-config="true" duration-ms="56169" started-at="2017-06-02T17:28:48Z" finished-at="2017-06-02T17:29:45Z">
+        <test-method status="FAIL" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="User_Logout" is-config="true" duration-ms="57781" started-at="2017-06-05T06:25:34Z" finished-at="2017-06-05T06:26:32Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Domain_Name_Ordering status=FAILURE method=Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@31dc339b] output={null}]]]>
+                <![CDATA[[TestResult name=Domain_Name_Ordering status=FAILURE method=Registered_User.Domain_Name_Ordering()[pri:5, instance:Sanity_Test.Registered_User@6fc6f14e] output={null}]]]>
               </value>
             </param>
           </params>
@@ -524,27 +1029,27 @@ Driver info: driver.version: EventFiringWebDriver
               <![CDATA[Unable to locate element: Logout
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=link text, value=Logout}
-Command duration or timeout: 40.79 seconds]]>
+Command duration or timeout: 42.22 seconds]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: Logout
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=link text, value=Logout}
-Command duration or timeout: 40.79 seconds
+Command duration or timeout: 42.22 seconds
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
@@ -554,9 +1059,9 @@ Command duration or timeout: 40.79 seconds
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
 	at Sanity_Test.Registered_User.User_Logout(Registered_User.java:96)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
 	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
@@ -586,14 +1091,14 @@ Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been 
 Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: Logout
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-200-103-159', ip: '185.200.103.159', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-129-68-217', ip: '185.129.68.217', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.tRwyhsQnVcvg, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6384.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 42d535cd-2cda-45e9-866f-fc7941869bda
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.zcklAaSlDlVy, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=3336.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 6fb6a302-8c99-434e-9434-854d7b66bc06
 *** Element info: {Using=link text, value=Logout}
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'SSL247DEV004', ip: '192.168.232.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: driver.version: EventFiringWebDriver
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -628,19 +1133,19 @@ Driver info: driver.version: EventFiringWebDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.Registered_User@31dc339b]" name="tearDown" is-config="true" duration-ms="6309" started-at="2017-06-02T17:29:45Z" finished-at="2017-06-02T17:29:51Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.Registered_User@6fc6f14e]" name="tearDown" is-config="true" duration-ms="7675" started-at="2017-06-05T06:26:32Z" finished-at="2017-06-05T06:26:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.Registered_User -->
-    </test> <!-- Test 6 -->
-    <test name="Test 7" duration-ms="174002" started-at="2017-06-02T16:29:51Z" finished-at="2017-06-02T16:32:45Z">
+    </test> <!-- Test 5 -->
+    <test name="Test 6" duration-ms="178491" started-at="2017-06-05T05:26:39Z" finished-at="2017-06-05T05:29:38Z">
       <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="setUp" is-config="true" duration-ms="10200" started-at="2017-06-02T17:29:51Z" finished-at="2017-06-02T17:30:01Z">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="setUp" is-config="true" duration-ms="9488" started-at="2017-06-05T06:26:39Z" finished-at="2017-06-05T06:26:49Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[SanityTest.conf.json]]>
+                <![CDATA[Sanity_NewUser.json]]>
               </value>
             </param>
             <param index="1">
@@ -652,75 +1157,75 @@ Driver info: driver.version: EventFiringWebDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="User_Registration" duration-ms="38926" started-at="2017-06-02T17:30:01Z" finished-at="2017-06-02T17:30:40Z">
+        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@527740a2]" name="User_Registration" duration-ms="38333" started-at="2017-06-05T06:26:49Z" finished-at="2017-06-05T06:27:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="7326" started-at="2017-06-02T17:30:40Z" finished-at="2017-06-02T17:30:47Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="7815" started-at="2017-06-05T06:27:27Z" finished-at="2017-06-05T06:27:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@4e1d422d]" name="Log_Out_New_User" duration-ms="197" started-at="2017-06-02T17:30:47Z" finished-at="2017-06-02T17:30:48Z">
+        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@527740a2]" name="Log_Out_New_User" duration-ms="247" started-at="2017-06-05T06:27:35Z" finished-at="2017-06-05T06:27:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out_New_User -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="8018" started-at="2017-06-02T17:30:48Z" finished-at="2017-06-02T17:30:56Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="9473" started-at="2017-06-05T06:27:35Z" finished-at="2017-06-05T06:27:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@4e1d422d]" name="Get_in_Touch" duration-ms="11447" started-at="2017-06-02T17:30:56Z" finished-at="2017-06-02T17:31:07Z">
+        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@527740a2]" name="Get_in_Touch" duration-ms="11143" started-at="2017-06-05T06:27:45Z" finished-at="2017-06-05T06:27:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="9752" started-at="2017-06-02T17:31:07Z" finished-at="2017-06-02T17:31:17Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="10447" started-at="2017-06-05T06:27:56Z" finished-at="2017-06-05T06:28:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="FAIL" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@4e1d422d]" name="Ask_a_question" duration-ms="40918" started-at="2017-06-02T17:31:17Z" finished-at="2017-06-02T17:31:58Z">
+        <test-method status="FAIL" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@527740a2]" name="Ask_a_question" duration-ms="41265" started-at="2017-06-05T06:28:06Z" finished-at="2017-06-05T06:28:48Z">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: .//*[@id='contactform']/div[2]/div[1]/div/select (tried for 40 second(s) with 500 MILLISECONDS interval)
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'SSL247DEV004', ip: '192.168.232.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0, moz:accessibilityChecks=false, webdriver.remote.sessionid=c0949ea1fee545b44e7f8232fe7501b6b71fb75a, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, platformName=windows_nt, cssSelectorsEnabled=true}]
-Session ID: c0949ea1fee545b44e7f8232fe7501b6b71fb75a]]>
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.C7U5cZYlAMi7, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0, moz:accessibilityChecks=false, webdriver.remote.sessionid=f3f917b192b54f9418ea7bf19fa83804c7ec36b5, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6504, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, platformName=windows_nt, cssSelectorsEnabled=true}]
+Session ID: f3f917b192b54f9418ea7bf19fa83804c7ec36b5]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: .//*[@id='contactform']/div[2]/div[1]/div/select (tried for 40 second(s) with 500 MILLISECONDS interval)
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'SSL247DEV004', ip: '192.168.232.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0, moz:accessibilityChecks=false, webdriver.remote.sessionid=c0949ea1fee545b44e7f8232fe7501b6b71fb75a, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, platformName=windows_nt, cssSelectorsEnabled=true}]
-Session ID: c0949ea1fee545b44e7f8232fe7501b6b71fb75a
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.C7U5cZYlAMi7, rotatable=false, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0, moz:accessibilityChecks=false, webdriver.remote.sessionid=f3f917b192b54f9418ea7bf19fa83804c7ec36b5, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6504, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, platformName=windows_nt, cssSelectorsEnabled=true}]
+Session ID: f3f917b192b54f9418ea7bf19fa83804c7ec36b5
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
 	at Sanity_Test.New_User.Ask_a_question(New_User.java:330)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -748,40 +1253,40 @@ Session ID: c0949ea1fee545b44e7f8232fe7501b6b71fb75a
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="8197" started-at="2017-06-02T17:31:58Z" finished-at="2017-06-02T17:32:06Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="9484" started-at="2017-06-05T06:28:48Z" finished-at="2017-06-05T06:28:57Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Ask_a_question status=FAILURE method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=Ask_a_question status=FAILURE method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="FAIL" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@4e1d422d]" name="Request_a_Bronchure" duration-ms="5310" started-at="2017-06-02T17:32:06Z" finished-at="2017-06-02T17:32:11Z">
+        <test-method status="FAIL" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@527740a2]" name="Request_a_Bronchure" duration-ms="5744" started-at="2017-06-05T06:28:57Z" finished-at="2017-06-05T06:29:03Z">
           <exception class="org.openqa.selenium.ElementNotInteractableException">
             <message>
               <![CDATA[
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-129-71-95', ip: '185.129.71.95', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-200-103-135', ip: '185.200.103.135', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 7e67b14e-422e-4c1c-a8cb-b5bc0de548c7
-Command duration or timeout: 974 milliseconds]]>
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.C7U5cZYlAMi7, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6504.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0d0a08e6-78d8-4fa2-9bc5-a199a174a2f3
+Command duration or timeout: 1.76 seconds]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.ElementNotInteractableException: 
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-129-71-95', ip: '185.129.71.95', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-200-103-135', ip: '185.200.103.135', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 7e67b14e-422e-4c1c-a8cb-b5bc0de548c7
-Command duration or timeout: 974 milliseconds
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.C7U5cZYlAMi7, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6504.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0d0a08e6-78d8-4fa2-9bc5-a199a174a2f3
+Command duration or timeout: 1.76 seconds
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
@@ -791,9 +1296,9 @@ Command duration or timeout: 974 milliseconds
 	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:120)
 	at Sanity_Test.New_User.Request_a_Bronchure(New_User.java:379)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -820,12 +1325,12 @@ Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been 
 	... 31 more
 Caused by: org.openqa.selenium.ElementNotInteractableException: 
 Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: '185-129-71-95', ip: '185.129.71.95', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: '185-200-103-135', ip: '185.200.103.135', os.name: 'windows', os.arch: 'x86', os.version: '10.0', java.version: '1.8.0_121'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.LBUjAMEYoFaS, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6892.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 7e67b14e-422e-4c1c-a8cb-b5bc0de548c7
+Capabilities [{moz:profile=C:\Windows\proxy\rust_mozprofile.C7U5cZYlAMi7, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=53.0, platformVersion=10.0, moz:processID=6504.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0d0a08e6-78d8-4fa2-9bc5-a199a174a2f3
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'SSL247DEV004', ip: '192.168.232.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_121'
+System info: host: 'LAPTOP-27SQ7D8S', ip: '172.16.0.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
 Driver info: driver.version: RemoteWebDriver
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -863,73 +1368,53 @@ Driver info: driver.version: RemoteWebDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="9574" started-at="2017-06-02T17:32:11Z" finished-at="2017-06-02T17:32:21Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="9484" started-at="2017-06-05T06:29:03Z" finished-at="2017-06-05T06:29:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Request_a_Bronchure status=FAILURE method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=Request_a_Bronchure status=FAILURE method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@4e1d422d]" name="Request_a_PenTest_Proposal" duration-ms="8188" started-at="2017-06-02T17:32:21Z" finished-at="2017-06-02T17:32:29Z">
+        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@527740a2]" name="Request_a_PenTest_Proposal" duration-ms="8932" started-at="2017-06-05T06:29:12Z" finished-at="2017-06-05T06:29:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="Aftermethod" is-config="true" duration-ms="9686" started-at="2017-06-02T17:32:29Z" finished-at="2017-06-02T17:32:39Z">
+        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@527740a2]" name="Aftermethod" is-config="true" duration-ms="10251" started-at="2017-06-05T06:29:21Z" finished-at="2017-06-05T06:29:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@4e1d422d] output={null}]]]>
+                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@527740a2] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.New_User@4e1d422d]" name="tearDown" is-config="true" duration-ms="6250" started-at="2017-06-02T17:32:39Z" finished-at="2017-06-02T17:32:45Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.New_User@527740a2]" name="tearDown" is-config="true" duration-ms="6381" started-at="2017-06-05T06:29:31Z" finished-at="2017-06-05T06:29:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.New_User -->
-    </test> <!-- Test 7 -->
-    <test name="Test 4" duration-ms="19007" started-at="2017-06-02T16:32:45Z" finished-at="2017-06-02T16:33:04Z">
+    </test> <!-- Test 6 -->
+    <test name="Test 7" duration-ms="3626" started-at="2017-06-05T05:29:38Z" finished-at="2017-06-05T05:29:41Z">
       <class name="Sanity_Test.SQL_Queries">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.SQL_Queries@5383967b]" name="setUp" is-config="true" duration-ms="10372" started-at="2017-06-02T17:32:45Z" finished-at="2017-06-02T17:32:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[SanityTest.conf.json]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_DeleteAccount" duration-ms="351" started-at="2017-06-02T17:32:55Z" finished-at="2017-06-02T17:32:56Z">
+        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_DeleteAccount" duration-ms="488" started-at="2017-06-05T06:29:38Z" finished-at="2017-06-05T06:29:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteAccount -->
-        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_DeleteUser" duration-ms="306" started-at="2017-06-02T17:32:56Z" finished-at="2017-06-02T17:32:56Z">
+        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_DeleteUser" duration-ms="1002" started-at="2017-06-05T06:29:38Z" finished-at="2017-06-05T06:29:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_DeleteUser -->
-        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@5383967b]" name="SQL_Certificate_Order" duration-ms="827" started-at="2017-06-02T17:32:56Z" finished-at="2017-06-02T17:32:57Z">
+        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@6536e911]" name="SQL_Certificate_Order" duration-ms="2133" started-at="2017-06-05T06:29:39Z" finished-at="2017-06-05T06:29:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SQL_Certificate_Order -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.SQL_Queries@5383967b]" name="tearDown" is-config="true" duration-ms="7145" started-at="2017-06-02T17:32:57Z" finished-at="2017-06-02T17:33:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
       </class> <!-- Sanity_Test.SQL_Queries -->
-    </test> <!-- Test 4 -->
+    </test> <!-- Test 7 -->
   </suite> <!-- Suite -->
 </testng-results>
