@@ -17,12 +17,15 @@ import java.sql.Statement;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries extends BrowserStack {
-	//public WebDriver driver;
+public class SQL_Queries {
+	public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
+	
+	
 	
 	@Test (priority = 1, groups = {"SQL"})
 	  public void SQL_DeleteAccount () throws SQLException, ClassNotFoundException {
@@ -48,6 +51,7 @@ public class SQL_Queries extends BrowserStack {
 	  	Statement stmt = con.createStatement();	
 	  	stmt.execute(query2);
 	  	System.out.println("Account Has Been Deleted");
+	  	con.close();
 	  	
 	/*
 			//Create Statement Object		
@@ -63,8 +67,7 @@ public class SQL_Queries extends BrowserStack {
 	                  System. out.println(AccCode+"  "+name);		
 	          }		
 	*/		
-			 // closing DB Connection		
-			con.close();		
+			 // closing DB Connection				
 		  
 	  }
 	  

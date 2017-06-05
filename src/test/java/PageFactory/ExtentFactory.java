@@ -8,7 +8,7 @@ public class ExtentFactory {
 	public static ExtentReports getInstance() {
 		ExtentReports extent;
 
-		String Path = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\Extent Reports\\Sanity Test.html";
+		String Path = "C:\\ExtentReport\\Sanity Test.html";
 
 		extent = new ExtentReports (Path, false);
 		
@@ -20,7 +20,7 @@ public class ExtentFactory {
 	public static ExtentReports getInstance2() {
 		ExtentReports extent;
 
-		String Path = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\Extent Reports\\Regression Test.html";
+		String Path = "C:\\ExtentReport\\Regression Test.html";
 
 		extent = new ExtentReports (Path, false);
 		

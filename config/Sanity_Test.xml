@@ -18,7 +18,7 @@
   </test> Test -->
   
   <test name="Test 2">
-  		<parameter name="config" value="SanityTest.conf.json"/>
+  		<parameter name="config" value="Sanity_RegisteredUser.json"/>
         <parameter name="environment" value="chrome"/>  
     <classes>
         <class name="Sanity_Test.Registered_User"/>
@@ -26,40 +26,36 @@
   </test><!-- Test -->
   
   <test name="Test 3">
- 		<parameter name="config" value="SanityTest.conf.json"/>
+ 		<parameter name="config" value="Sanity_NewUser.json"/>
         <parameter name="environment" value="chrome"/>
-     <classes>
-     <class name="Sanity_Test.New_User"/>
-   </classes> 
-  </test><!--  Test --> 
-  
-  <test name="Test 5">
-  		<parameter name="config" value="SanityTest.conf.json"/>
-        <parameter name="environment" value="chrome"/>
-     <classes>
-      <class name="Sanity_Test.SQL_Queries"/>
-   </classes> 
-  </test><!--  Test -->
-  
-<test name="Test 6">
-  		<parameter name="config" value="SanityTest.conf.json"/>
-        <parameter name="environment" value="Firefox"/>  
-    <classes>
-        <class name="Sanity_Test.Registered_User"/>
-    </classes>
-  </test><!-- Test -->
-  
-  <test name="Test 7">
- 		<parameter name="config" value="SanityTest.conf.json"/>
-        <parameter name="environment" value="Firefox"/>
      <classes>
      <class name="Sanity_Test.New_User"/>
    </classes> 
   </test><!--  Test --> 
   
   <test name="Test 4">
-  		<parameter name="config" value="SanityTest.conf.json"/>
+     <classes>
+      <class name="Sanity_Test.SQL_Queries"/>
+   </classes> 
+  </test><!--  Test -->
+  
+<test name="Test 5">
+  		<parameter name="config" value="Sanity_RegisteredUser.json"/>
+        <parameter name="environment" value="Firefox"/>  
+    <classes>
+        <class name="Sanity_Test.Registered_User"/>
+    </classes>
+  </test><!-- Test -->
+  
+  <test name="Test 6">
+ 		<parameter name="config" value="Sanity_NewUser.json"/>
         <parameter name="environment" value="Firefox"/>
+     <classes>
+     <class name="Sanity_Test.New_User"/>
+   </classes> 
+  </test><!--  Test --> 
+  
+  <test name="Test 7">
      <classes>
       <class name="Sanity_Test.SQL_Queries"/>
    </classes> 
