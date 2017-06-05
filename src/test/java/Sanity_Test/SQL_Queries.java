@@ -19,7 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries extends BrowserStack {
+public class SQL_Queries {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -164,7 +164,7 @@ public class SQL_Queries extends BrowserStack {
 	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
 	  	Statement stmt = con.createStatement();	
 	  	stmt.execute(query2);
-	  	System.out.println("User Has Been Deleted");		
+	  	System.out.println("Certificates Have Been Deleted");		
 		con.close();		
 		  
 	  }	
