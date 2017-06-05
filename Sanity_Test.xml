@@ -12,10 +12,10 @@
   <test name="Test 1">
    <classes>
       <class name="Sanity_Test.Admin_User"/>
-    </classes>    
+    </classes>  
   </test><!-- Test -->
   
-  <test name="Test 2">  
+  <test name="Test 2">
     <classes>
         <class name="Sanity_Test.Registered_User"/>
     </classes>
@@ -23,16 +23,14 @@
   
   <test name="Test 3">
      <classes>
-     <class name="Sanity_Test.New_User"/>
-   </classes> 
-  </test><!--  Test --> 
-  
-  <test name="Test 4">
-     <classes>
-      <class name="Sanity_Test.SQL_Queries"/>
+      <class name="Sanity_Test.New_User"/>
    </classes> 
   </test><!--  Test -->
   
-
+ <test name="Test 4">
+     <classes>
+      <class name="Sanity_Test.SQL_Queries"/>
+   </classes> 
+  </test><!--  Test --> 
   
 </suite> <!-- Suite -->
