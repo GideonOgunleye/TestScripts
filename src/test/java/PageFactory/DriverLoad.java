@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
 public class DriverLoad {
@@ -18,15 +19,19 @@ public class DriverLoad {
 	
 	
 
-  @BeforeTest (groups = {"Sanity"})
+  @BeforeTest (groups = {"Sanity","SQL"} )
   public void beforeTest() throws IOException  {
+	
 	  
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	  driver = new ChromeDriver();  
-	  
+/*	  
+	  System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
+	  driver = new FirefoxDriver(); 
+*/	  
   }
 
-  @AfterTest (groups = {"Sanity"})
+  @AfterTest (groups = {"Sanity","SQL"})
   public void afterTest() throws Exception {
 	  
 	  Thread.sleep(10000);

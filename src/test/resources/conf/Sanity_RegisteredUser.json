@@ -1,7 +1,7 @@
 {
  "server": "hub-cloud.browserstack.com",
-  "user": "tommyogunleye1",
-  "key": "nsXdfRmQ7PiEC9aTDq37",
+  "user": "qatester76",
+  "key": "hXsgHFoauzuyeqBZsyyr",
 
   "capabilities": {
     "build": "First Build",
@@ -24,7 +24,7 @@
     	"os": "Windows",
     	"os_version": "10",
     	"browser": "Firefox",
-    	"browser_version": "53.0",
+    	"browser_version": "46.0",
     	"resolution": "1280x1024"
     }
     

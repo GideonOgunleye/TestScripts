@@ -41,7 +41,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends DriverLoad  {
+public class Registered_User extends BrowserStack  {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -63,7 +63,7 @@ public class Registered_User extends DriverLoad  {
 		String title = driver.getTitle();				 
 		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 1000);
 		
 		WebElement Login;
 		Login = wait.until(ExpectedConditions.visibilityOfElementLocated (By.linkText("Login")));
@@ -75,6 +75,12 @@ public class Registered_User extends DriverLoad  {
 		driver.findElement(By.name("data[User][password]")).sendKeys(prop.getProperty("Password"));
 		driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
 		
+		Thread.sleep(5000);
+/*		
+		WebElement LoginStatus;
+		LoginStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
+		Assert.assertTrue(LoginStatus.getText().contains("You are now logged in"));
+*/		
 	}
 
 	
@@ -299,10 +305,10 @@ public class Registered_User extends DriverLoad  {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-		
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	String SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
-	  	Assert.assertTrue(SendStatus.contains("The certificate has been saved and is pending submission with the CA"));
+			
+		WebElement SendStatus;
+		SendStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
+		SendStatus.click();
 	  	
 	  	System.out.println("Order Cert Completed!");
 				

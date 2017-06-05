@@ -40,7 +40,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends DriverLoad  {
+public class New_User extends BrowserStack  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -326,15 +326,26 @@ public class New_User extends DriverLoad  {
 	FormLink.click();
 
 	//Fill in form fields
-	WebDriverWait wait2 = new WebDriverWait(driver, 40);	
+	Thread.sleep(1000);	
 	WebElement TitleField;
-	TitleField = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select")));
+	
+	TitleField = driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select"));
+	//TitleField = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select")));
 	//TitleField.click();
 	
-    if (driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select")).isDisplayed()) {
+    if (TitleField.isDisplayed()) {
 		
 		System.out.println("Driver Found Title Element");
 		test.log(LogStatus.PASS, " Title Element Found");
+		Select Tl = new Select(TitleField);
+		Tl.selectByVisibleText("Mrs");
+		driver.findElement(By.name("first_name")).sendKeys("Qatester");
+		driver.findElement(By.name("last_name")).sendKeys("Qatester");
+		driver.findElement(By.name("email")).sendKeys("Qatester");
+		driver.findElement(By.name("description")).sendKeys("Qatester");
+		driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
+		test.log(LogStatus.PASS, "Form Sent Successfully");
+		
 		
 	}else {
 		
@@ -345,7 +356,7 @@ public class New_User extends DriverLoad  {
 	
 	//Thread.sleep(1000);
 	//WebElement Title = driver.findElement(By.xpath(".//*[@id='title']"));
-	Select Tl = new Select(TitleField);
+/*	Select Tl = new Select(TitleField);
 	Tl.selectByVisibleText("Mrs");
 	driver.findElement(By.name("first_name")).sendKeys("Qatester");
 	driver.findElement(By.name("last_name")).sendKeys("Qatester");
@@ -354,7 +365,9 @@ public class New_User extends DriverLoad  {
 	driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
 	test.log(LogStatus.PASS, "Form Sent Successfully");
 	//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
+*/
+    
+    
   }
   
   @Test (priority = 4, groups = {"Sanity"})

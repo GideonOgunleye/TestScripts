@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import PageFactory.DriverLoad;
+
 import org.testng.annotations.BeforeSuite;
 
 import java.sql.Connection;
@@ -16,7 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries {
+public class SQL_Queries extends DriverLoad {
 	
 	
 	@Test (priority = 1, groups = {"SQL"})

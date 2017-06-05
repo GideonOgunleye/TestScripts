@@ -83,7 +83,8 @@ public class BrowserStack {
 
     @AfterTest(alwaysRun=true, groups = {"Sanity"})
     public void tearDown() throws Exception {
+    	driver.manage().deleteAllCookies();
         driver.quit();
-        if(l != null) l.stop();
+        //if(l != null) l.stop();
     }
 }
