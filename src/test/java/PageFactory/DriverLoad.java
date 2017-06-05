@@ -22,13 +22,13 @@ public class DriverLoad {
   @BeforeTest (groups = {"Sanity","SQL"} )
   public void beforeTest() throws IOException  {
 	
-	  
+ /*	  
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	  driver = new ChromeDriver();  
-/*	  
+*/	  
 	  System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
 	  driver = new FirefoxDriver(); 
-*/	  
+	  
   }
 
   @AfterTest (groups = {"Sanity","SQL"})
