@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BrowserStack;
+import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 
 import org.testng.annotations.BeforeMethod;
@@ -39,7 +40,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends BrowserStack {
+public class New_User extends DriverLoad  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -120,7 +121,7 @@ public class New_User extends BrowserStack {
 	  public void User_Registration() throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -426,7 +427,7 @@ public class New_User extends BrowserStack {
 	test.log(LogStatus.PASS, "Form Sent Successfully");
 	//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   }
- /* 
+/*  
   @BeforeTest (groups = {"Sanity"})
   public void BeforeTest() throws IOException, Exception {
 	
@@ -439,7 +440,9 @@ public class New_User extends BrowserStack {
 	 
 	
 	 System.out.println("New User Module Test is Running.....");
+*/	 
 	 
+/*	 
 	 Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
 				 
@@ -454,10 +457,12 @@ public class New_User extends BrowserStack {
 		//driver.findElement(By.id("cookiesStatus")).click();
 		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
 		Thread.sleep(5000);
+	
 	 
   }
-
-  
+*/
+ 
+/*  
   @AfterTest (groups = {"Sanity"})
   public void AfterTest() throws Exception {
 	  
@@ -469,5 +474,6 @@ public class New_User extends BrowserStack {
 	 
 	
   }
-  */
+*/  
+  
 }

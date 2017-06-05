@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BrowserStack;
+import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
 import org.testng.annotations.BeforeTest;
@@ -40,7 +41,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends BrowserStack {
+public class Registered_User extends DriverLoad  {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -51,7 +52,7 @@ public class Registered_User extends BrowserStack {
 		report = ExtentFactory.getInstance(); 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 		
@@ -109,7 +110,7 @@ public class Registered_User extends BrowserStack {
 		 
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -630,10 +631,10 @@ public class Registered_User extends BrowserStack {
 	  @BeforeTest (groups = {"Sanity"})
 	  public void beforeTest() throws IOException, Exception {
 		
-		 /*----Firefox Driver------
+		 /*----Firefox Driver-----
 		 //System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
 		// driver = new FirefoxDriver(); 
-		 
+
 		 System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		 driver = new ChromeDriver();  
 		 
@@ -692,7 +693,9 @@ public class Registered_User extends BrowserStack {
 		 driver.findElement(By.linkText("Logout")).click();----
 		 
 	  }
+*/
 	  
+/*	  
 	  @AfterTest (groups = {"Sanity"})
 	  public void afterTest() throws Exception {
 		  

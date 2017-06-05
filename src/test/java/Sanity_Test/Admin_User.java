@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BrowserStack;
+import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 
 import org.testng.annotations.BeforeMethod;
@@ -37,7 +38,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User extends BrowserStack {
+public class Admin_User extends DriverLoad {
   //WebDriver driver;
   ExtentReports report;
   ExtentTest test;
