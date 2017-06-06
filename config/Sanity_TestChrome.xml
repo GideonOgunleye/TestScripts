@@ -9,13 +9,11 @@
     </run>
  </groups> 
    
-<!--  <test name="Test 1">
-  		<parameter name="config" value="SanityTest.conf.json"/>
-        <parameter name="environment" value="chrome"/>
+  <test name="Test 1">
    <classes>
       <class name="Sanity_Test.Admin_User"/>
     </classes>  
-  </test> Test -->
+  </test><!-- Test -->
   
   <test name="Test 2">
   		<parameter name="config" value="Sanity_RegisteredUser.json"/>
