@@ -10,6 +10,8 @@ import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
+import PageFactory.LoginPage;
+
 import org.testng.annotations.BeforeTest;
 //import org.json.simple.parser.JSONParser;
 
@@ -41,15 +43,17 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends BrowserStack  {
+public class Registered_User extends DriverLoad  {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
+	LoginPage PageElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
+		PageElements = new LoginPage(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -63,24 +67,13 @@ public class Registered_User extends BrowserStack  {
 		String title = driver.getTitle();				 
 		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
 		
-		WebDriverWait wait = new WebDriverWait(driver, 1000);
-		
-		WebElement Login;
-		Login = wait.until(ExpectedConditions.visibilityOfElementLocated (By.linkText("Login")));
-		Login.click();
-		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		//driver.findElement(By.linkText("Login")).click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.findElement(By.name("data[User][email]")).sendKeys(prop.getProperty("Username"));
-		driver.findElement(By.name("data[User][password]")).sendKeys(prop.getProperty("Password"));
-		driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
-		
+		PageElements.clickLoginLink();
+		PageElements.EnterUserName(prop.getProperty("Username"));
+		PageElements.EnterPassword(prop.getProperty("Password"));
+		PageElements.ClickLoginButton();
+			
 		Thread.sleep(5000);
-/*		
-		WebElement LoginStatus;
-		LoginStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-		Assert.assertTrue(LoginStatus.getText().contains("You are now logged in"));
-*/		
+		
 	}
 
 	
@@ -100,7 +93,8 @@ public class Registered_User extends BrowserStack  {
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
 		Thread.sleep(15000);
-		driver.findElement(By.linkText("Logout")).click();
+		//driver.findElement(By.linkText("Logout")).click();
+		PageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
 		
 		report.endTest(test);

@@ -15,7 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
 public class DriverLoad {
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	
 
