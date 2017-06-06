@@ -47,19 +47,18 @@ public class Registered_User extends DriverLoad  {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
-	LoginPage PageElements;
+	LoginPage 	LoginPageElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
-		PageElements = new LoginPage(driver);
+		LoginPageElements = new LoginPage(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
-		
 		
 		driver.get(prop.getProperty("Url")); 
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -67,10 +66,10 @@ public class Registered_User extends DriverLoad  {
 		String title = driver.getTitle();				 
 		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
 		
-		PageElements.clickLoginLink();
-		PageElements.EnterUserName(prop.getProperty("Username"));
-		PageElements.EnterPassword(prop.getProperty("Password"));
-		PageElements.ClickLoginButton();
+		LoginPageElements.clickLoginLink();
+		LoginPageElements.EnterUserName(prop.getProperty("Username"));
+		LoginPageElements.EnterPassword(prop.getProperty("Password"));
+		LoginPageElements.ClickLoginButton();
 			
 		Thread.sleep(5000);
 		
@@ -94,7 +93,7 @@ public class Registered_User extends DriverLoad  {
 		
 		Thread.sleep(15000);
 		//driver.findElement(By.linkText("Logout")).click();
-		PageElements.ClickLogoutButton();
+		LoginPageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
 		
 		report.endTest(test);

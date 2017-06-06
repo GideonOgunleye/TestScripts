@@ -22,7 +22,9 @@ import org.testng.annotations.AfterTest;
 
 public class LoginPage extends DriverLoad {
 	
-	@FindBy(linkText = "Login")
+	DriverLoad LoadDriver;
+	
+	@FindBy(xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[1]")
 	WebElement LoginLink;
 	
 	@FindBy (name="data[User][email]")
@@ -34,7 +36,7 @@ public class LoginPage extends DriverLoad {
 	@FindBy (xpath=".//*[@id='UserMysslLoginForm']/button")
 	WebElement LoginButton;
 	
-	@FindBy (linkText = "Logout")
+	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[2]")
 	WebElement LogoutButton;
 	
 	public LoginPage(WebDriver driver){
