@@ -66,7 +66,7 @@ public class Registered_User extends BrowserStack  {
 		WebDriverWait wait = new WebDriverWait(driver, 1000);
 		
 		WebElement Login;
-		Login = wait.until(ExpectedConditions.visibilityOfElementLocated (By.linkText("Login")));
+		Login = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[1]")));
 		Login.click();
 		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		//driver.findElement(By.linkText("Login")).click();

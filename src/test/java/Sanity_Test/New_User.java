@@ -141,7 +141,7 @@ public class New_User extends BrowserStack  {
 	    test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	
 		//Click on User Registration Link
-		driver.findElement(By.linkText("Register")).click();
+		driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
 		Thread.sleep(10000);
 		/*driver.findElement(By.id("ackCookies")).click();*/
 		
@@ -178,7 +178,7 @@ public class New_User extends BrowserStack  {
   @Test (priority = 1, groups = {"Sanity"})
   public void Log_Out_New_User (){
 	  
-	  driver.findElement(By.linkText("Logout")).click();
+	  driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
 	  test.log(LogStatus.INFO, "User Logged Out");
   }
 
