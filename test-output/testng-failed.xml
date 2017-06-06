@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test 3(failed)">
-    <groups>
-      <run>
-        <include name="Sanity"/>
-        <include name="SQL"/>
-      </run>
-    </groups>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
       <class name="Sanity_Test.New_User">
         <methods>
           <include name="Request_a_Bronchure"/>
-          <include name="beforeTest"/>
           <include name="Ask_a_question"/>
+          <include name="setUp"/>
           <include name="Log_Out_New_User"/>
           <include name="Aftermethod"/>
-          <include name="afterTest"/>
+          <include name="tearDown"/>
           <include name="Get_in_Touch"/>
           <include name="Request_a_PenTest_Proposal"/>
           <include name="User_Registration"/>
         </methods>
       </class> <!-- Sanity_Test.New_User -->
     </classes>
-  </test> <!-- Test 3(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
