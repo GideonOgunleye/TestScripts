@@ -28,12 +28,12 @@
     	"resolution": "1280x1024"
     }
     
-    "IE": {
+    "Edge": {
     	"os": "Windows",
     	"os_version": "10",
-    	"browser": "IE",
-    	"browser_version": "11.0",
-    	"resolution": "1280x1024"
+   	 	"browser": "Edge",
+    	"browser_version": "15.0",
+    	"resolution": "1024x768"
     }
     
   }
