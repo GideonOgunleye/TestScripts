@@ -2,6 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test 3(failed)">
+    <parameter name="environment" value="Edge"/>
+    <parameter name="config" value="Sanity_NewUser.json"/>
     <groups>
       <run>
         <include name="Sanity"/>
@@ -11,15 +13,11 @@
     <classes>
       <class name="Sanity_Test.New_User">
         <methods>
-          <include name="Request_a_Bronchure"/>
-          <include name="beforeTest"/>
           <include name="Ask_a_question"/>
+          <include name="setUp"/>
           <include name="Log_Out_New_User"/>
           <include name="Aftermethod"/>
-          <include name="afterTest"/>
-          <include name="Get_in_Touch"/>
-          <include name="Request_a_PenTest_Proposal"/>
-          <include name="User_Registration"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- Sanity_Test.New_User -->
     </classes>
