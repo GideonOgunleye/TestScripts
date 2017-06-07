@@ -46,7 +46,6 @@ import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
 public class Registered_User extends DriverLoad  {
-	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
