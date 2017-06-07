@@ -3,12 +3,14 @@ PageFactory\DriverLoad.class
 Regression_Test\Admin_User.class
 Slickets_Test\Master_Release_19_Slickets.class
 Regression_Test\Order_Products.class
+PageFactory\LoginPage.class
 Regression_Test\Order_Products_Data.class
 Regression_Test\Test_Data.class
 Sanity_Test\SingleTest.class
 Sanity_Test\SQL_Queries.class
 PageFactory\BrowserStack.class
 Sanity_Test\New_User.class
+PageFactory\BillingPage.class
 Lead_Forms_Test\Lead_Forms.class
 Sanity_Test\Admin_User.class
 Sanity_Test\Registered_User.class
