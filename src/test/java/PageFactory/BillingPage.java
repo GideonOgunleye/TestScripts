@@ -5,12 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class BillingPage extends DriverLoad {
-/*	
+	
 	@FindBy(name = "data[BasketContact][firstname]")
-	WebElement Firstnmae;
+	WebElement Firstname;
 	
 	@FindBy (name="data[BasketContact][lastname]")
 	public static WebElement Lastname;
@@ -31,12 +32,13 @@ public class BillingPage extends DriverLoad {
 	WebElement Country;
 	
 	@FindBy (id = "notUsaStateInput")
-	WebElement Region;
+	WebElement State;
 	
 	@FindBy (id = "BasketContactPostcode")
 	WebElement Postcode;
 	
-	
+	@FindBy (xpath = ".//*[@id='BasketContactForm']/div[8]/button")
+	WebElement ConfirmButton;
 	
 	
 	
@@ -49,32 +51,64 @@ public class BillingPage extends DriverLoad {
 		
 	}
 	
-	public void clickLoginLink(){
+	public void FillFirstname(String Fname){
 		
-		LoginLink.click();
+		Firstname.clear();
+		Firstname.sendKeys(Fname);
 	}
 	
-	public void EnterUserName(String name){
-			
-		Username.sendKeys(name);
-	}
-	
-	public void EnterPassword(String Pword) {
+	public void FillLastname(String Lname){
 		
-		Password.sendKeys(Pword);
+		Lastname.clear();
+		Lastname.sendKeys(Lname);
 	}
 	
-	public void ClickLoginButton() {
+	public void FillPhoneNumber(String Number) {
 		
-		LoginButton.click();
+		PhoneNumber.clear();
+		PhoneNumber.sendKeys(Number);
 	}
 	
-	public void ClickLogoutButton() {
+	public void FillEmail(String EmailAdd) {
 		
-		LogoutButton.click();
+		Email.clear();
+		Email.sendKeys(EmailAdd);
 	}
 	
-*/	
+	public void FillAddress1(String Address) {
+		
+		Address1.clear();
+		Address1.sendKeys(Address);
+	}
+	
+	public void FillCity(String CityName) {
+		
+		City.clear();
+		City.sendKeys(CityName);
+	}
+	
+	public void SelectCountry(String CountryyName) {
+		
+		Select CountryName = new Select(Country);
+		CountryName.selectByVisibleText(CountryyName);
+	}
+	
+	public void FillState(String StateName) {
+		
+		State.clear();
+		State.sendKeys(StateName);
+	}
+	
+	public void FillPostcode(String PostcodeN) {
+		
+		Postcode.clear();
+		Postcode.sendKeys(PostcodeN);
+	}
+	
+	public void ClickConfirmButton() {
+		
+		ConfirmButton.click();
+	}
 	
 	
   @Test
