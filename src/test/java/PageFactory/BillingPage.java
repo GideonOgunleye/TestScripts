@@ -110,8 +110,4 @@ public class BillingPage extends DriverLoad {
 		ConfirmButton.click();
 	}
 	
-	
-  @Test
-  public void f() {
-  }
 }

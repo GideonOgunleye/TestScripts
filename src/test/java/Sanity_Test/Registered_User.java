@@ -12,6 +12,7 @@ import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
+import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeTest;
 //import org.json.simple.parser.JSONParser;
@@ -50,6 +51,7 @@ public class Registered_User extends DriverLoad  {
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
+	sslDashBoard sslDashBoardElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
@@ -57,6 +59,7 @@ public class Registered_User extends DriverLoad  {
 		report = ExtentFactory.getInstance(); 
 		LoginPageElements = new LoginPage(driver);
 		BillingPageElements = new BillingPage(driver);
+		sslDashBoardElements = new sslDashBoard(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -122,8 +125,9 @@ public class Registered_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//Navigate to product page//
-		Thread.sleep(15000);
-		driver.findElement(By.linkText("My Products")).click();
+		//Thread.sleep(15000);
+		sslDashBoardElements.ClickMyProductsLink();
+	
 				
 		//Click to Order RapidSSL Product
 		Thread.sleep(15000);
@@ -323,6 +327,7 @@ public class Registered_User extends DriverLoad  {
 		
 		//Thread.sleep(15000);
 		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
+		sslDashBoardElements.ClickMyUsersLink();
 				
 		//2-Navigate and Click on New Users
 		Thread.sleep(5000);
@@ -366,10 +371,7 @@ public class Registered_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "User Logged in");
 	    
 		//Navigate to User Profiles
-		WebDriverWait wait = new WebDriverWait(driver, 20);	
-		WebElement Myusers;
-		Myusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")));
-		Myusers.click();
+		sslDashBoardElements.ClickMyUsersLink();
 	    test.log(LogStatus.INFO, "User Profiles Page Opened");
 		
 		Thread.sleep(15000);
@@ -445,10 +447,14 @@ public class Registered_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//Navigate Domain Names Link on side bar
+	    
+	    sslDashBoardElements.ClickMyDomainNamesLink();
+	    sslDashBoardElements.ClickRegisterDomainLink();
+/*	    
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.cssSelector("a[href*='domain-names']")).click();
 		test.log(LogStatus.INFO, "Domain Names Page Opened");
-				
+*/				
 		//Enter Domain Name to check availability
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.id("check-domain-name")).sendKeys("ssl247.net");
