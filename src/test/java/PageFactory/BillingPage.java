@@ -8,21 +8,38 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.testng.annotations.Test;
 
 public class BillingPage extends DriverLoad {
+/*	
+	@FindBy(name = "data[BasketContact][firstname]")
+	WebElement Firstnmae;
 	
-	@FindBy(xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[1]")
-	WebElement LoginLink;
-	
-	@FindBy (name="data[User][email]")
-	public static WebElement Username;
+	@FindBy (name="data[BasketContact][lastname]")
+	public static WebElement Lastname;
 
-	@FindBy (name="data[User][password]")
-	WebElement Password;
+	@FindBy (name="data[BasketContact][phone]")
+	WebElement PhoneNumber;
 	
-	@FindBy (xpath=".//*[@id='UserMysslLoginForm']/button")
-	WebElement LoginButton;
+	@FindBy (name="data[BasketContact][email]")
+	WebElement Email;
 	
-	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[2]")
-	WebElement LogoutButton;
+	@FindBy (name = "data[BasketContact][address_1]")
+	WebElement Address1;
+	
+	@FindBy (name = "data[BasketContact][city]")
+	WebElement City;
+	
+	@FindBy (name = "data[BasketContact][country]")
+	WebElement Country;
+	
+	@FindBy (id = "notUsaStateInput")
+	WebElement Region;
+	
+	@FindBy (id = "BasketContactPostcode")
+	WebElement Postcode;
+	
+	
+	
+	
+	
 	
 	public BillingPage(WebDriver driver){
 		
@@ -57,7 +74,7 @@ public class BillingPage extends DriverLoad {
 		LogoutButton.click();
 	}
 	
-	
+*/	
 	
 	
   @Test
