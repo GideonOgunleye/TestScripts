@@ -9,17 +9,17 @@
     </run>
  </groups> 
    
- <!--  <test name="Test 1">
+  <test name="Test 1">
    <classes>
       <class name="Sanity_Test.Admin_User"/>
     </classes>    
-  </test> Test -->
+  </test> <!-- Test -->
   
-<!-- <test name="Test 2">  
+ <test name="Test 2">  
     <classes>
         <class name="Sanity_Test.Registered_User"/>
     </classes>
-  </test>  Test -->
+  </test><!--  Test -->
   
   <test name="Test 3">
      <classes>
