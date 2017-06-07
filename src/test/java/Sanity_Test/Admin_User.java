@@ -11,6 +11,7 @@ import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
+import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -46,12 +47,14 @@ public class Admin_User extends DriverLoad {
   ExtentTest test;
   LoginPage 	LoginPageElements;
   BillingPage BillingPageElements;
+  sslDashBoard sslDashBoardElements;
 	
   @BeforeMethod (groups = {"Sanity"})
   public void Admin_Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
+	  sslDashBoardElements = new sslDashBoard(driver);
 	  
 	//Log in As Administrator
 		 Properties prop = new Properties();
@@ -147,13 +150,14 @@ public class Admin_User extends DriverLoad {
 	     Mouse.click();
 	     Mouse.perform();
 	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
-		  
-		 WebDriverWait wait = new WebDriverWait(driver, 20);	
-		 WebElement Endusers;
-		 Endusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[7]/div[1]/ul/li[22]/a")));
-		 Endusers.click();
+		 
+	     /*
+	      * Click on My Users Link
+	      */
+	     sslDashBoardElements.ClickAccountEndUsersLink();
 		 test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
-		  
+		 
+		 
 		 String UserVal = "Quality Assurance Tester";
 		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
 		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
@@ -306,7 +310,7 @@ public class Admin_User extends DriverLoad {
 			Thread.sleep(10000);
 			
 			//Navigate to Proposals Section 
-			driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[1]/ul/li[17]/a")).click();
+			sslDashBoardElements.ClickMyProposalsLink();
 			Thread.sleep(10000);
 			test.log(LogStatus.INFO, "Proposal Page Opened");
 			
@@ -374,19 +378,17 @@ public class Admin_User extends DriverLoad {
 	  	WebElement ForField = driver.findElement(By.xpath(".//*[@id='CertificateField']"));
 		Select Options = new Select(ForField);
 		Options.selectByVisibleText("Account name");
-		//test.log(LogStatus.INFO, "Select Account Name from For Field");
+	
 		
 		//Select Issued from Status Field
 		WebElement StatusField = driver.findElement(By.xpath(".//*[@id='CertificateStatusId']"));
 		Select StatusOptions = new Select(StatusField);
 		StatusOptions.selectByVisibleText("Issued");
-		//test.log(LogStatus.INFO, "Select Issued from Status Field");
+	
 		
 	    //Enter Account Name into form field and Click Search
 		driver.findElement(By.xpath(".//*[@id='CertificateQuery']")).sendKeys("UK Test");
 		driver.findElement(By.xpath(".//*[@id='CertificateAdminIndexForm']/div[2]/div[2]/div[5]/button[1]")).click();	
-		//test.log(LogStatus.INFO, "Enter UK Test into Account Name Field and Click Search Butoon");
-		//Thread.sleep(5000);
 		
 		
 		//Wait for Certificate page to appear 
@@ -512,22 +514,7 @@ public class Admin_User extends DriverLoad {
 	  
 	    test = report.startTest("Admin Test --> Change Password Request Email");
 	    test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-/*		//Navigate to User Account, Search for User and Click View
-		driver.findElement(By.linkText("Client accounts")).click();
-		test.log(LogStatus.INFO, "CLick on Client Account Link");
-		
-		driver.findElement(By.name("data[Account][query]")).sendKeys("uk test");
-		test.log(LogStatus.INFO, "Type 'UK Test' in Search Query Field");
-		
-		driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();	
-		test.log(LogStatus.INFO, "Click on Update Button");
-		Thread.sleep(10000);
-		
-		driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
-		test.log(LogStatus.INFO, "Click on Uk Test Account in result Column to View");
-		Thread.sleep(10000);
-*/		
+	  		
 		//Navigate to User Profiles
 		//Search For UK Test User
 		 driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[2]/a")).click();
@@ -549,11 +536,9 @@ public class Admin_User extends DriverLoad {
 	     Mouse.click();
 	     Mouse.perform();
 	     test.log(LogStatus.INFO, "UK Test Account Found and Opened");
-		  
-		 WebDriverWait wait = new WebDriverWait(driver, 20);	
-		 WebElement Endusers;
-		 Endusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[7]/div[1]/ul/li[22]/a")));
-		 Endusers.click();
+		 
+	     /*Click Account End Users Link*/
+		 sslDashBoardElements.ClickAccountEndUsersLink();
 		 test.log(LogStatus.INFO, "Opened Account End Users Page");
 		  
 		 String UserVal = "Quality Assurance Tester";
