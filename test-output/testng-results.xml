@@ -1,160 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="192802" started-at="2017-06-06T15:58:21Z" finished-at="2017-06-06T16:01:34Z">
+  <suite name="Default suite" duration-ms="283107" started-at="2017-06-07T09:39:15Z" finished-at="2017-06-07T09:43:59Z">
     <groups>
       <group name="Sanity">
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@cb644e]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@cb644e]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@cb644e]" name="Log_Out_New_User" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@cb644e]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@cb644e]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@cb644e]" name="User_Registration" class="Sanity_Test.New_User"/>
+        <method signature="Admin_User.Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Create_Proposal" class="Sanity_Test.Admin_User"/>
+        <method signature="Admin_User.Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
+        <method signature="Admin_User.Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Send_Change_Password_Request_Email" class="Sanity_Test.Admin_User"/>
+        <method signature="Admin_User.Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Send_Fulfillment_Email" class="Sanity_Test.Admin_User"/>
       </group> <!-- Sanity -->
-      <group name="SQL">
-        <method signature="SQL_Queries.SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_Certificate_Order" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_DeleteAccount" class="Sanity_Test.SQL_Queries"/>
-        <method signature="SQL_Queries.SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_DeleteUser" class="Sanity_Test.SQL_Queries"/>
-      </group> <!-- SQL -->
     </groups>
-    <test name="Test 3" duration-ms="177850" started-at="2017-06-06T15:58:21Z" finished-at="2017-06-06T16:01:19Z">
-      <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="setUp" is-config="true" duration-ms="6064" started-at="2017-06-06T16:58:21Z" finished-at="2017-06-06T16:58:27Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Sanity_NewUser.json]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Edge]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@cb644e]" name="User_Registration" duration-ms="61186" started-at="2017-06-06T16:58:27Z" finished-at="2017-06-06T16:59:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="9121" started-at="2017-06-06T16:59:28Z" finished-at="2017-06-06T16:59:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=User_Registration status=SUCCESS method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@cb644e]" name="Log_Out_New_User" duration-ms="317" started-at="2017-06-06T16:59:37Z" finished-at="2017-06-06T16:59:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Log_Out_New_User -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="10663" started-at="2017-06-06T16:59:38Z" finished-at="2017-06-06T16:59:48Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Log_Out_New_User status=SUCCESS method=New_User.Log_Out_New_User()[pri:1, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@cb644e]" name="Get_in_Touch" duration-ms="14422" started-at="2017-06-06T16:59:48Z" finished-at="2017-06-06T17:00:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="10345" started-at="2017-06-06T17:00:03Z" finished-at="2017-06-06T17:00:13Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@cb644e]" name="Ask_a_question" duration-ms="7332" started-at="2017-06-06T17:00:13Z" finished-at="2017-06-06T17:00:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="9342" started-at="2017-06-06T17:00:21Z" finished-at="2017-06-06T17:00:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@cb644e]" name="Request_a_Bronchure" duration-ms="9559" started-at="2017-06-06T17:00:30Z" finished-at="2017-06-06T17:00:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="11131" started-at="2017-06-06T17:00:39Z" finished-at="2017-06-06T17:00:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@cb644e]" name="Request_a_PenTest_Proposal" duration-ms="10328" started-at="2017-06-06T17:00:51Z" finished-at="2017-06-06T17:01:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@cb644e]" name="Aftermethod" is-config="true" duration-ms="11243" started-at="2017-06-06T17:01:01Z" finished-at="2017-06-06T17:01:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@cb644e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Sanity_Test.New_User@cb644e]" name="tearDown" is-config="true" duration-ms="6769" started-at="2017-06-06T17:01:12Z" finished-at="2017-06-06T17:01:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- Sanity_Test.New_User -->
-    </test> <!-- Test 3 -->
-    <test name="Test 4" duration-ms="14919" started-at="2017-06-06T16:01:19Z" finished-at="2017-06-06T16:01:34Z">
-      <class name="Sanity_Test.SQL_Queries">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="beforeTest" is-config="true" duration-ms="2297" started-at="2017-06-06T17:01:19Z" finished-at="2017-06-06T17:01:21Z">
+    <test name="Default test" duration-ms="283107" started-at="2017-06-07T09:39:15Z" finished-at="2017-06-07T09:43:59Z">
+      <class name="Sanity_Test.Admin_User">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="beforeTest" is-config="true" duration-ms="2746" started-at="2017-06-07T10:39:15Z" finished-at="2017-06-07T10:39:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="SQL_DeleteAccount()[pri:1, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_DeleteAccount" duration-ms="505" started-at="2017-06-06T17:01:21Z" finished-at="2017-06-06T17:01:22Z">
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Admin_Login" is-config="true" duration-ms="10110" started-at="2017-06-07T10:39:18Z" finished-at="2017-06-07T10:39:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SQL_DeleteAccount -->
-        <test-method status="PASS" signature="SQL_DeleteUser()[pri:2, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_DeleteUser" duration-ms="276" started-at="2017-06-06T17:01:22Z" finished-at="2017-06-06T17:01:22Z">
+        </test-method> <!-- Admin_Login -->
+        <test-method status="PASS" signature="Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Create_Proposal" duration-ms="81782" started-at="2017-06-07T10:39:28Z" finished-at="2017-06-07T10:40:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SQL_DeleteUser -->
-        <test-method status="PASS" signature="SQL_Certificate_Order()[pri:4, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="SQL_Certificate_Order" duration-ms="784" started-at="2017-06-06T17:01:22Z" finished-at="2017-06-06T17:01:23Z">
+        </test-method> <!-- Create_Proposal -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Log_Out" is-config="true" duration-ms="17532" started-at="2017-06-07T10:40:50Z" finished-at="2017-06-07T10:41:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Create_Proposal status=SUCCESS method=Admin_User.Create_Proposal()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SQL_Certificate_Order -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.SQL_Queries@4e1d422d]" name="afterTest" is-config="true" duration-ms="11052" started-at="2017-06-06T17:01:23Z" finished-at="2017-06-06T17:01:34Z">
+        </test-method> <!-- Log_Out -->
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Admin_Login" is-config="true" duration-ms="8366" started-at="2017-06-07T10:41:08Z" finished-at="2017-06-07T10:41:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Admin_Login -->
+        <test-method status="PASS" signature="Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Edit_Account_User" duration-ms="27904" started-at="2017-06-07T10:41:16Z" finished-at="2017-06-07T10:41:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Edit_Account_User -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Log_Out" is-config="true" duration-ms="17748" started-at="2017-06-07T10:41:44Z" finished-at="2017-06-07T10:42:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Edit_Account_User status=SUCCESS method=Admin_User.Edit_Account_User()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Log_Out -->
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Admin_Login" is-config="true" duration-ms="7687" started-at="2017-06-07T10:42:02Z" finished-at="2017-06-07T10:42:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Admin_Login -->
+        <test-method status="PASS" signature="Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Send_Change_Password_Request_Email" duration-ms="25949" started-at="2017-06-07T10:42:09Z" finished-at="2017-06-07T10:42:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Send_Change_Password_Request_Email -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Log_Out" is-config="true" duration-ms="17186" started-at="2017-06-07T10:42:35Z" finished-at="2017-06-07T10:42:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Send_Change_Password_Request_Email status=SUCCESS method=Admin_User.Send_Change_Password_Request_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Log_Out -->
+        <test-method status="PASS" signature="Admin_Login()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Admin_Login" is-config="true" duration-ms="7453" started-at="2017-06-07T10:42:53Z" finished-at="2017-06-07T10:43:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Admin_Login -->
+        <test-method status="PASS" signature="Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Send_Fulfillment_Email" duration-ms="30433" started-at="2017-06-07T10:43:00Z" finished-at="2017-06-07T10:43:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Send_Fulfillment_Email -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="Log_Out" is-config="true" duration-ms="17258" started-at="2017-06-07T10:43:30Z" finished-at="2017-06-07T10:43:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Send_Fulfillment_Email status=SUCCESS method=Admin_User.Send_Fulfillment_Email()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Log_Out -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@56ac3a89]" name="afterTest" is-config="true" duration-ms="10929" started-at="2017-06-07T10:43:48Z" finished-at="2017-06-07T10:43:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.SQL_Queries -->
-    </test> <!-- Test 4 -->
-  </suite> <!-- Suite -->
+      </class> <!-- Sanity_Test.Admin_User -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
