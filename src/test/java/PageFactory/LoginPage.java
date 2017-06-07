@@ -27,6 +27,9 @@ public class LoginPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[1]")
 	WebElement LoginLink;
 	
+	@FindBy(xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[2]")
+	WebElement RegisterLink;
+	
 	@FindBy (name="data[User][email]")
 	public static WebElement Username;
 
@@ -39,6 +42,9 @@ public class LoginPage extends DriverLoad {
 	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[2]")
 	WebElement LogoutButton;
 	
+	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[3]")
+	WebElement AdminLogoutButton;
+	
 	public LoginPage(WebDriver driver){
 		
 		this.driver = driver;
@@ -50,6 +56,11 @@ public class LoginPage extends DriverLoad {
 	public void clickLoginLink(){
 		
 		LoginLink.click();
+	}
+	
+	public void ClickRegisterLink(){
+		
+		RegisterLink.click();
 	}
 	
 	public void EnterUserName(String name){
@@ -70,5 +81,10 @@ public class LoginPage extends DriverLoad {
 	public void ClickLogoutButton() {
 		
 		LogoutButton.click();
+	}
+	
+	public void ClickAdminLogoutButton() {
+		
+		AdminLogoutButton.click();
 	}
 }

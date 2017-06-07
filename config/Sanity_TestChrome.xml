@@ -9,7 +9,7 @@
     </run>
  </groups> 
    
-  <test name="Test 1">
+ <test name="Test 1">
    <classes>
       <class name="Sanity_Test.Admin_User"/>
     </classes>  

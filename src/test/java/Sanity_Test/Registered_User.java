@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
@@ -48,12 +49,14 @@ public class Registered_User extends DriverLoad  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
+	BillingPage BillingPageElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
 		LoginPageElements = new LoginPage(driver);
+		BillingPageElements = new BillingPage(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -92,7 +95,7 @@ public class Registered_User extends DriverLoad  {
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
 		Thread.sleep(15000);
-		//driver.findElement(By.linkText("Logout")).click();
+		
 		LoginPageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
 		
@@ -149,33 +152,23 @@ public class Registered_User extends DriverLoad  {
 				
 		//Confirm Order Details
 		driver.findElement(By.id("checkoutLink")).click();
-				
-		//Fill In Billing Retails
-		driver.findElement(By.name("data[BasketContact][firstname]")).clear();
-		driver.findElement(By.name("data[BasketContact][firstname]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[BasketContact][lastname]")).clear();
-	    driver.findElement(By.name("data[BasketContact][lastname]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[BasketContact][phone]")).clear();
-		
-		driver.findElement(By.name("data[BasketContact][phone]")).sendKeys("0203MMM7610541");
-	    driver.findElement(By.name("data[BasketContact][email]")).clear();
-		driver.findElement(By.name("data[BasketContact][email]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[BasketContact][address_1]")).clear();
-		driver.findElement(By.name("data[BasketContact][address_1]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[BasketContact][city]")).clear();
-		driver.findElement(By.name("data[BasketContact][city]")).sendKeys("Lagos");
-		WebElement Country = driver.findElement(By.name("data[BasketContact][country]"));
-		Select CountryName = new Select(Country);
-		CountryName.selectByVisibleText("Nigeria");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.findElement(By.id("notUsaStateInput")).clear();
-		driver.findElement(By.id("notUsaStateInput")).sendKeys("Lagos");
-		driver.findElement(By.id("BasketContactPostcode")).clear();
-		driver.findElement(By.id("BasketContactPostcode")).sendKeys("EC1V 3RP");
-		test.log(LogStatus.PASS, "Billing Page Completed and Order Confirmed");
-				
+		
+		//Fill In Billing Retails
+		System.out.println("Start Billing Page");
+		
+		BillingPageElements.FillFirstname("Quality");
+		BillingPageElements.FillLastname("Assurance Tester");
+		BillingPageElements.FillPhoneNumber("0203MMM7610541");
+		BillingPageElements.FillEmail("qa@ssl247.co.uk");
+		BillingPageElements.FillAddress1("63 Lisson St, Marylebone");
+		BillingPageElements.FillCity("London");
+		BillingPageElements.SelectCountry("United Kingdom");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		BillingPageElements.FillPostcode("NW1 5DD");
+		
 		//Confirm input
-		driver.findElement(By.xpath(".//*[@id='BasketContactForm']/div[8]/button")).click();
+		BillingPageElements.ClickConfirmButton();
 		
 		/*----Complete Order----*/
 		WebDriverWait wait = new WebDriverWait(driver, 50);	

@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test 3(failed)">
-    <parameter name="environment" value="Edge"/>
-    <parameter name="config" value="Sanity_NewUser.json"/>
-    <groups>
-      <run>
-        <include name="Sanity"/>
-        <include name="SQL"/>
-      </run>
-    </groups>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="Sanity_Test.New_User">
+      <class name="Sanity_Test.Admin_User">
         <methods>
-          <include name="Ask_a_question"/>
-          <include name="setUp"/>
-          <include name="Log_Out_New_User"/>
-          <include name="Aftermethod"/>
-          <include name="tearDown"/>
+          <include name="Send_Change_Password_Request_Email"/>
+          <include name="beforeTest"/>
+          <include name="Admin_Login"/>
+          <include name="Log_Out"/>
+          <include name="Send_Fulfillment_Email"/>
+          <include name="Edit_Account_User"/>
+          <include name="afterTest"/>
         </methods>
-      </class> <!-- Sanity_Test.New_User -->
+      </class> <!-- Sanity_Test.Admin_User -->
     </classes>
-  </test> <!-- Test 3(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

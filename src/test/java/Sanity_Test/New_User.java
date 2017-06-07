@@ -6,9 +6,11 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
+import PageFactory.LoginPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -44,6 +46,8 @@ public class New_User extends DriverLoad  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
+	LoginPage 	LoginPageElements;
+	BillingPage BillingPageElements;
 /*	
 	@BeforeMethod
 	public void Enter_Url () throws Exception {
@@ -120,6 +124,8 @@ public class New_User extends DriverLoad  {
 	@Test (priority = 0, groups = {"Sanity"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 		
+		LoginPageElements = new LoginPage(driver);
+		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
@@ -141,9 +147,8 @@ public class New_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	
 		//Click on User Registration Link
-		driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+		LoginPageElements.ClickRegisterLink();
 		Thread.sleep(10000);
-		/*driver.findElement(By.id("ackCookies")).click();*/
 		
 		//Your Details Section
 		driver.findElement(By.name("data[User][firstname]")).sendKeys(prop.getProperty("Firstname"));
@@ -178,7 +183,10 @@ public class New_User extends DriverLoad  {
   @Test (priority = 1, groups = {"Sanity"})
   public void Log_Out_New_User (){
 	  
-	  driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+	  LoginPageElements = new LoginPage(driver);
+	  
+	  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+	  LoginPageElements.ClickLogoutButton();
 	  test.log(LogStatus.INFO, "User Logged Out");
   }
 

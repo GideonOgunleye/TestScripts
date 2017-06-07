@@ -6,9 +6,11 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
+import PageFactory.LoginPage;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -42,9 +44,14 @@ public class Admin_User extends DriverLoad {
   //WebDriver driver;
   ExtentReports report;
   ExtentTest test;
+  LoginPage 	LoginPageElements;
+  BillingPage BillingPageElements;
 	
   @BeforeMethod (groups = {"Sanity"})
   public void Admin_Login() throws Exception {
+	  
+	  LoginPageElements = new LoginPage(driver);
+	  BillingPageElements = new BillingPage(driver);
 	  
 	//Log in As Administrator
 		 Properties prop = new Properties();
@@ -62,7 +69,7 @@ public class Admin_User extends DriverLoad {
 		 driver.manage().window().maximize();
 		 String title = driver.getTitle();				 
 		 Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-						
+/*						
 		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 driver.findElement(By.linkText("Login")).click();
 		// test.log(LogStatus.INFO, "Click on login Link");
@@ -76,6 +83,11 @@ public class Admin_User extends DriverLoad {
 		 
 		 driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
 		 //test.log(LogStatus.INFO, "Click on Login Button");
+*/		 
+		 LoginPageElements.clickLoginLink();
+		 LoginPageElements.EnterUserName(prop.getProperty("Username"));
+		 LoginPageElements.EnterPassword(prop.getProperty("Password"));
+		 LoginPageElements.ClickLoginButton();
 		 
 		 
   }
@@ -98,7 +110,7 @@ public class Admin_User extends DriverLoad {
 	  
 	  /*User Log Out*/
 	  Thread.sleep(15000);
-	  driver.findElement(By.linkText("Logout")).click();
+	  LoginPageElements.ClickAdminLogoutButton();
 	  test.log(LogStatus.INFO, "Admin User Logged Out");
 	  
 	  report.endTest(test);
