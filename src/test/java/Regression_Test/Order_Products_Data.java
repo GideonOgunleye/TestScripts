@@ -8,7 +8,7 @@ public class Order_Products_Data {
 	
 	@DataProvider (name ="OrderProduct_Data")
 	public static Object[][] testData(){
-		Object[][] obj = new Object[12][2];
+		Object[][] obj = new Object[13][2];
 		
 		/*---------1st Parameter-------------*/	
 		//Product Name
@@ -82,6 +82,11 @@ public class Order_Products_Data {
 		//Product Link
 		obj[11][1]= "GeoTrust True BusinessID Multi-Domain EV";
 		
+		/*---------13th Parameter-------------*/	
+		//Product Name
+		obj[12][0]="Order Products Test --> GlobalSign DomainSSL";
+		//Product Link
+		obj[12][1]= "GlobalSign DomainSSL";
 		
 	    
 		return obj;
