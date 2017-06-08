@@ -633,24 +633,22 @@ public class Order_Products extends DriverLoad {
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		//System.out.println(ProductLink + " Order Has Ended!!");
-		
-	  	WebElement SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]"));
-	  	String Status = "The certificate has been saved and is pending submission with the CA";
-	  	//Assert.assertTrue(SendStatus.contains("The certificate has been saved and is pending submission with the CA"));
 	  	
-	  	if (SendStatus.getText().contains(Status)) {
-	  		
-	  		test.log(LogStatus.PASS, "Product Successfully Ordered with CA");
-	  		System.out.println(ProductLink + " Successfully Ordered With CA");
-	  		System.out.println(ProductLink + " Order Has Ended!!");
-	  		
-	  	}else {
-	  		
-	  		test.log(LogStatus.FAIL, "Product NOT Successfully Ordered with CA");
-	  		System.out.println(ProductLink + " NOT Successfully Ordered With CA");
-	  		System.out.println(ProductLink + " Order Has Ended!!");
-	  	}
+	  	try {
+			
+			if (driver.findElement(By.xpath("html/body/div[4]/p[1]")).isDisplayed()) {
+			
+				String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();
+			  	Assert.assertTrue(OrderStatus.contains("Product Successfully Ordered with CA"));
+			  	test.log(LogStatus.PASS, " Order Placed");
+		  		System.out.println(ProductLink + " Order Placed");
+			}
+		
+		}catch(Exception e) {
+			
+			System.out.println(ProductLink + " Product Not Successfully Ordered with CA or Status Alert not Displayed");
+	  	
+		}
 	  	
 		// Log Out
 		//Thread.sleep(15000);

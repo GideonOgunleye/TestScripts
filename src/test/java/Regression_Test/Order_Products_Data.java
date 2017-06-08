@@ -15,25 +15,25 @@ public class Order_Products_Data {
 		//Product Name
 		obj[0][0]="Order Products Test --> Order_Symantec Secure Site";
 		//Product Link
-		obj[0][1]= "Order_Symantec Secure Site";
+		obj[0][1]= "Symantec Secure Site";
 		
 		/*---------2rd Parameter-------------*/	
 		//Product Name
 		obj[1][0]="Order Products Test --> Order_Symantec Secure Site EV";
 		//Product Link
-		obj[1][1]= "Order_Symantec Secure Site EV";
+		obj[1][1]= "Symantec Secure Site EV";
 		
 		/*---------3rd Parameter-------------*/	
 		//Product Name
 		obj[2][0]="Order Products Test --> Order_Symantec Secure Site Pro";
 		//Product Link
-		obj[2][1]= "Order_Symantec Secure Site Pro";
+		obj[2][1]= "Symantec Secure Site Pro";
 		
 		/*---------4th Parameter-------------*/	
 		//Product Name
 		obj[3][0]="Order Products Test --> Order_Symantec Secure Site Pro EV";
 		//Product Link
-		obj[3][1]= "Comodo Wildcard SSL Premium";
+		obj[3][1]= "Symantec Secure Site Pro EV";
 		
 		/*---------5th Parameter-------------*/	
 		//Product Name
