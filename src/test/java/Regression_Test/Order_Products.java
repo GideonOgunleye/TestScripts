@@ -96,6 +96,9 @@ public class Order_Products extends DriverLoad {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
+		driver.navigate().refresh();
+		Thread.sleep(1000);
+		
 		LoginPageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
 		
@@ -143,6 +146,19 @@ public class Order_Products extends DriverLoad {
 		WebElement Link11 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[11]/td[1]"));
 		WebElement Link12 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[12]/td[1]"));
 		WebElement Link13 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[13]/td[1]"));
+		WebElement Link14 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[14]/td[1]"));
+		WebElement Link15 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[15]/td[1]"));
+		WebElement Link16 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[1]"));
+		WebElement Link17 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[17]/td[1]"));
+		WebElement Link18 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[18]/td[1]"));
+		WebElement Link19 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[19]/td[1]"));
+		WebElement Link20 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[20]/td[1]"));
+		WebElement Link21 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[21]/td[1]"));
+		WebElement Link22 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[22]/td[1]"));
+		WebElement Link23 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[23]/td[1]"));
+		WebElement Link24 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[24]/td[1]"));
+		WebElement Link25 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[25]/td[1]"));
+		//WebElement Link26 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[13]/td[1]"));
 		//WebElement Link16 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[1]"));
 		
 		if (Link1.getText().contains(ProductLink)) {
@@ -225,31 +241,78 @@ public class Order_Products extends DriverLoad {
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[13]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 			
-/*			
-			}else if () {
 			
-			}else if () {
+			}else if (Link14.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[14]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
+				
+			}else if (Link15.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[15]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link16.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link17.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[17]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link18.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[18]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link19.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[19]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link20.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[20]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link21.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[21]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link22.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[22]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link23.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[23]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
+			}else if (Link24.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[24]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if () {
-			*/
+			}else if (Link25.getText().contains(ProductLink)) {
+				
+				System.out.println(ProductLink + " Found");
+				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[25]/td[2]/a")).click();
+				test.log(LogStatus.INFO, "Product Page Opened");
 		}else {
 			
 			System.out.println("Product Not Found");
@@ -264,11 +327,29 @@ public class Order_Products extends DriverLoad {
 		test.log(LogStatus.INFO, "Product Page Opened");
 	*/	
 		//Check Domain Name
+		driver.findElement(By.name("data[Basket][common_name]")).clear();
 		driver.findElement(By.name("data[Basket][common_name]")).sendKeys("ssl247.net");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.id("check-cn-btn")).click();
 		Thread.sleep(10000);
-		driver.findElement(By.xpath(".//*[@id='BasketAddCertificateForm']/div[12]/input[1]")).click();
+		
+		try {
+			
+			if (driver.findElement(By.xpath(".//*[@id='BasketAddCertificateForm']/div[12]/input[1]")).isDisplayed()) {
+			
+				driver.findElement(By.xpath(".//*[@id='BasketAddCertificateForm']/div[12]/input[1]")).click();
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  	System.out.println("SAN Option Present");
+		  		
+			}
+		
+		}catch(Exception e) {
+			System.out.println("SAN Option Not Present");
+		
+			}
+		
+		//driver.findElement(By.xpath(".//*[@id='BasketAddCertificateForm']/div[12]/input[1]")).click();
+		//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
 /*		
 		//Choose 3year Duration Option
@@ -277,10 +358,21 @@ public class Order_Products extends DriverLoad {
 */
 		
 		//Select Apache 2 Server and Add to basket
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		WebElement Servertype = driver.findElement(By.xpath(".//*[@id='BasketServerType']"));
-		Select Type = new Select(Servertype);
-		Type.selectByVisibleText("Apache 2");
+		try {
+			
+			if (driver.findElement(By.xpath(".//*[@id='BasketServerType']")).isDisplayed()) {
+			
+				WebElement Servertype = driver.findElement(By.xpath(".//*[@id='BasketServerType']"));
+				Select Type = new Select(Servertype);
+				Type.selectByVisibleText("Apache 2");
+				
+			}
+		
+		}catch(Exception e) {
+			System.out.println("Years and Apache Selection Options Not Available");
+			
+			}
+		
 		driver.findElement(By.id("addCertificateToBasket")).click();
 		Thread.sleep(10000);
 		test.log(LogStatus.INFO, "Rapid SSL Pro Added To Basket");
@@ -303,11 +395,30 @@ public class Order_Products extends DriverLoad {
 	  			
 		//Confirm input
 		BillingPageElements.ClickConfirmButton();
-		
+		WebDriverWait wait = new WebDriverWait(driver, 100);
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	WebElement OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]"));
-	  	String CheckStatus = "Thank You. Your order has been placed.";
+	  	//WebElement OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]"));
+	  	//WebElement OrderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
+	  	//String CheckStatus = "Thank You. Your order has been placed.";
+	  	
+	  	try {
+			
+			if (driver.findElement(By.xpath("html/body/div[4]/p[1]")).isDisplayed()) {
+			
+				String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();
+			  	Assert.assertTrue(OrderStatus.contains("Thank You. Your order has been placed."));
+			  	test.log(LogStatus.PASS, " Order Placed");
+		  		System.out.println(ProductLink + " Order Placed");
+			}
+		
+		}catch(Exception e) {
+			
+			System.out.println(ProductLink + " Order NOT Placed or Status Alert not Displayed");
+	  	
+		}
+	  	
+/*	  	
 	  	
 	  	if (OrderStatus.getText().contains(CheckStatus)) {
 	  		
@@ -322,13 +433,11 @@ public class Order_Products extends DriverLoad {
 	  		
 	  	}
 	  	
-	  	
+*/	  	
 	  	
 	  
 		/*----Complete Order----*/
-
-  	
-		WebDriverWait wait = new WebDriverWait(driver, 50);	
+	
 		
 /*		WebElement Button;
 		Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
@@ -393,7 +502,7 @@ public class Order_Products extends DriverLoad {
 		Decoder.click();
 		
 		WebElement DecoderStatus;
-		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.id("useCsrInfo")));
+		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='modal-footer']/a[1]")));
 		DecoderStatus.click();
 		Thread.sleep(10000);
 		
@@ -402,7 +511,7 @@ public class Order_Products extends DriverLoad {
 		//JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-250)", "");
 		
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 		
 		
 		/*-----Fillm in Admin Tab-----------------------*/
@@ -439,36 +548,51 @@ public class Order_Products extends DriverLoad {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		
 		/*-----Fill in Tech Tab-----------------------------*/
-		WebElement Techtab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[3]/a"));
-		Techtab.click();
 		
-		WebElement TechOrganization = driver.findElement(By.id("CertificateTechOrganisation"));
-		TechOrganization.clear();
-		TechOrganization.sendKeys("SSL247 Ltd");
+		try {
+			
+			if (driver.findElement(By.xpath(".//*[@class='tabbable v-margin5']/ul/li[3]/a")).isDisplayed()) {
+			
+				System.out.println("Tech Tab is Present");
+				WebElement Techtab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[3]/a"));
+				Techtab.click();
+				
+				WebElement TechOrganization = driver.findElement(By.id("CertificateTechOrganisation"));
+				TechOrganization.clear();
+				TechOrganization.sendKeys("SSL247 Ltd");
+				
+				WebElement TechTitle = driver.findElement(By.id("CertificateTechTitle"));
+				Select TechInitials = new Select(TechTitle);
+				TechInitials.selectByVisibleText("Dr");
+				
+				WebElement TechFirstname = driver.findElement(By.id("CertificateTechFirstname"));
+				TechFirstname.clear();
+				TechFirstname.sendKeys("Gideon");
+				
+				WebElement TechLastname = driver.findElement(By.id("CertificateTechLastname"));
+				TechLastname.clear();
+				TechLastname.sendKeys("Ogunleye");
+				
+				WebElement TechEmail = driver.findElement(By.id("CertificateTechEmail"));
+				TechEmail.clear();
+				TechEmail.sendKeys("qa@ssl247.co.uk");
+				
+				WebElement TechPhone = driver.findElement(By.id("CertificateTechPhone"));
+				TechPhone.clear();
+				TechPhone.sendKeys("02037610541");
+			}
 		
-		WebElement TechTitle = driver.findElement(By.id("CertificateTechTitle"));
-		Select TechInitials = new Select(TechTitle);
-		TechInitials.selectByVisibleText("Dr");
+		}catch(Exception e) {
+			System.out.println("Tech Tab is not Present");
 		
-		WebElement TechFirstname = driver.findElement(By.id("CertificateTechFirstname"));
-		TechFirstname.clear();
-		TechFirstname.sendKeys("Gideon");
+			}
 		
-		WebElement TechLastname = driver.findElement(By.id("CertificateTechLastname"));
-		TechLastname.clear();
-		TechLastname.sendKeys("Ogunleye");
 		
-		WebElement TechEmail = driver.findElement(By.id("CertificateTechEmail"));
-		TechEmail.clear();
-		TechEmail.sendKeys("qa@ssl247.co.uk");
 		
-		WebElement TechPhone = driver.findElement(By.id("CertificateTechPhone"));
-		TechPhone.clear();
-		TechPhone.sendKeys("02037610541");
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		
-		
+		/*-----Fill in Organisation Tab-----------------------------*/
 		
 		try {
 				if (driver.findElement(By.xpath(".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[4]/a")).isDisplayed()) {
@@ -508,10 +632,9 @@ public class Order_Products extends DriverLoad {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-		
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		//System.out.println(ProductLink + " Order Has Ended!!");
 		
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	WebElement SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]"));
 	  	String Status = "The certificate has been saved and is pending submission with the CA";
 	  	//Assert.assertTrue(SendStatus.contains("The certificate has been saved and is pending submission with the CA"));
