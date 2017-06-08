@@ -19,7 +19,7 @@ public class DriverLoad {
 	
 	
 
-  @BeforeTest (groups = {"Sanity","SQL"} )
+  @BeforeTest (groups = {"Sanity","SQL","Regression"} )
   public void beforeTest() throws IOException  {
 	
  	  
@@ -32,7 +32,7 @@ public class DriverLoad {
 */	  
   }
 
-  @AfterTest (groups = {"Sanity","SQL"})
+  @AfterTest (groups = {"Sanity","SQL","Regression"})
   public void afterTest() throws Exception {
 	  
 	  Thread.sleep(10000);
