@@ -578,28 +578,21 @@ public class Registered_User extends DriverLoad  {
 		//Click on Save Changes
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
-		
-			
-		try {
-			
-			if (driver.findElement(By.xpath("html/body/div[4]/p[1]")).isDisplayed()) {
-			
-				String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();
-			  	Assert.assertTrue(OrderStatus.contains("Thank You. Your order has been placed."));
-			  	test.log(LogStatus.PASS, " Order Placed");
-		  		System.out.println("Domain Name Order Sucessfull");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		String Alertnote = "Validation Complete";
+		WebElement OrderStatus = driver.findElement(By.xpath(".//*[@id='detailsTab']/table/tbody/tr[5]/td"));
+			  	
+		if (OrderStatus.getText().contains(Alertnote)) {
+					
+				test.log(LogStatus.PASS, "Domain Name Order Successfull");
+			  	System.out.println("Domain Name Order Successfull");
+					
+			}else {
+					
+				System.out.println("Domain Name Order Not Successfull");
+				test.log(LogStatus.FAIL, "Domain Name Order Not Successfull");	
 			}
 		
-		}catch(Exception e) {
-			
-			System.out.println("Domain Name Order NOT Successfull or Status Alert not Displayed");
-			test.log(LogStatus.FAIL, "Domain Name Order NOT Successfull or Status Alert not Displayed");
-	  	
-			}
-				
-		
-		
-		System.out.println("Domain Name Order Started!");
 	}
 /*	
 	  @BeforeTest (groups = {"Sanity"})
