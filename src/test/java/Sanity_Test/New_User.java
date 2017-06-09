@@ -69,7 +69,7 @@ public class New_User extends DriverLoad  {
 		
 	}
 */	
-	@AfterMethod (groups = {"Sanity"},alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
 		String filename = result.getMethod().getMethodName() +".png";
@@ -121,7 +121,7 @@ public class New_User extends DriverLoad  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Sanity"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Sanity","Smoke"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 		
 		LoginPageElements = new LoginPage(driver);
@@ -180,7 +180,7 @@ public class New_User extends DriverLoad  {
 		
 	}
 	
-  @Test (priority = 1, groups = {"Sanity"})
+  @Test (priority = 1, groups = {"Sanity","Smoke"})
   public void Log_Out_New_User (){
 	  
 	  LoginPageElements = new LoginPage(driver);
@@ -284,7 +284,7 @@ public class New_User extends DriverLoad  {
  */
  
  
-  @Test (priority = 2, groups = {"Sanity"})
+  @Test (priority = 2, groups = {"Smoke"})
   public void Get_in_Touch () throws Exception {
 	  
 	  
@@ -316,7 +316,7 @@ public class New_User extends DriverLoad  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  }
 	  
-  @Test (priority = 3, groups = {"Sanity"})
+  @Test (priority = 3, groups = {"Smoke"})
   public void Ask_a_question () throws Exception {
 	  
 	 report = ExtentFactory.getInstance(); 
@@ -378,7 +378,7 @@ public class New_User extends DriverLoad  {
     
   }
   
-  @Test (priority = 4, groups = {"Sanity"})
+  @Test (priority = 4, groups = {"Sanity","Smoke"})
   public void Request_a_Bronchure () throws Exception {
 	  
 	report = ExtentFactory.getInstance(); 
@@ -414,7 +414,7 @@ public class New_User extends DriverLoad  {
 	  
   }
   
-  @Test (priority = 5, groups = {"Sanity"})
+  @Test (priority = 5, groups = {"Sanity","Smoke"})
   public void Request_a_PenTest_Proposal() throws Exception{
 	  
 	report = ExtentFactory.getInstance(); 

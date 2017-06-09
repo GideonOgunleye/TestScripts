@@ -288,7 +288,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @Test (groups = {"Sanity"})
+  @Test (groups = {"Sanity","Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
