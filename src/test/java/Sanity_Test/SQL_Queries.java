@@ -65,7 +65,7 @@ public class SQL_Queries extends DriverLoad {
 		  
 	  }
 	  
-	  @Test (priority = 2, groups = {"SQL"})
+	  @Test (priority = 2, groups = {"SQL","Smoke"})
 	  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		

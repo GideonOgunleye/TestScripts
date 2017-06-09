@@ -11,6 +11,7 @@ import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
+import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
@@ -48,6 +49,7 @@ public class New_User extends DriverLoad  {
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
+	sslDashBoard sslDashBoardElements;
 /*	
 	@BeforeMethod
 	public void Enter_Url () throws Exception {
@@ -125,6 +127,7 @@ public class New_User extends DriverLoad  {
 	  public void User_Registration() throws Exception {
 		
 		LoginPageElements = new LoginPage(driver);
+		sslDashBoardElements = new sslDashBoard(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -176,12 +179,12 @@ public class New_User extends DriverLoad  {
 		driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/input")).click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
-		String StatusMsg = "MySSL® » Dashboard";
-		String StatusMsg2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2")).getText();
-		WebElement Status = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2"));
+		String StatusMsg = "MySSL® » Dashboard";	
+		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2")).getText();
+		//WebElement Status = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2"));
 		
 		
-		if (Status.getText().contains(StatusMsg)) {
+		if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
 			
 			test.log(LogStatus.PASS, "User Sucessfully Registered");
 			
@@ -190,7 +193,8 @@ public class New_User extends DriverLoad  {
 			test.log(LogStatus.FAIL, "User not Sucessfully Registered");
 		}
 		
-		Assert.assertTrue(StatusMsg2.contains("MySSL® » Dashboard"));
+		Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
+		
 		
 	}
 	
@@ -206,7 +210,7 @@ public class New_User extends DriverLoad  {
 
  
  
-  @Test (priority = 2, groups = {"Smoke"})
+  @Test (priority = 2, groups = {"Smoke","Sanity"})
   public void Get_in_Touch () throws Exception {
 	  
 	  
@@ -238,7 +242,7 @@ public class New_User extends DriverLoad  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  }
 	  
-  @Test (priority = 3, groups = {"Smoke"})
+  @Test (priority = 3, groups = {"Smoke","Sanity"})
   public void Ask_a_question () throws Exception {
 	  
 	 report = ExtentFactory.getInstance(); 
