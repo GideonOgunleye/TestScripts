@@ -585,6 +585,7 @@ public class Registered_User extends DriverLoad  {
 		String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();					 
 		Assert.assertTrue(OrderStatus.contains("Validation complete, order will be processed shortly, thank you.")); 				
 */
+/*		
 		WebElement OrderStatus;
 		OrderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
 		String StatusVal = "Validation complete, order will be processed shortly, thank you.";
@@ -599,7 +600,27 @@ public class Registered_User extends DriverLoad  {
 					test.log(LogStatus.FAIL, "Domain Name Order Failed");
 					
 					 }
-				
+	*/			
+		try {
+			
+			if (driver.findElement(By.xpath("html/body/div[4]/p[1]")).isDisplayed()) {
+			
+				String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();
+			  	Assert.assertTrue(OrderStatus.contains("Thank You. Your order has been placed."));
+			  	test.log(LogStatus.PASS, " Order Placed");
+		  		System.out.println("Domain Name Order Sucessfull");
+			}
+		
+		}catch(Exception e) {
+			
+			System.out.println("Domain Name Order NOT Successfull or Status Alert not Displayed");
+			test.log(LogStatus.FAIL, "Domain Name Order NOT Successfull or Status Alert not Displayed");
+	  	
+			}
+		
+		
+		
+		
 				
 	/*			
 		//Click Payment required link 
