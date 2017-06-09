@@ -579,28 +579,7 @@ public class Registered_User extends DriverLoad  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
 		
-		
-		//Confirm Order is completed
-/*		
-		String OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();					 
-		Assert.assertTrue(OrderStatus.contains("Validation complete, order will be processed shortly, thank you.")); 				
-*/
-/*		
-		WebElement OrderStatus;
-		OrderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-		String StatusVal = "Validation complete, order will be processed shortly, thank you.";
-				
-		if(OrderStatus.getText().contains(StatusVal)){
-					
-			test.log(LogStatus.PASS, "Domain Name Order Successfull");
 			
-				}else {
-					
-					System.out.println("Order Status is:"+OrderStatus.getText());
-					test.log(LogStatus.FAIL, "Domain Name Order Failed");
-					
-					 }
-	*/			
 		try {
 			
 			if (driver.findElement(By.xpath("html/body/div[4]/p[1]")).isDisplayed()) {
@@ -617,30 +596,7 @@ public class Registered_User extends DriverLoad  {
 			test.log(LogStatus.FAIL, "Domain Name Order NOT Successfull or Status Alert not Displayed");
 	  	
 			}
-		
-		
-		
-		
 				
-	/*			
-		//Click Payment required link 
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[1]/div/div[1]/table/tbody/tr[5]/td/a")).click();
-				
-		//Confirm That Payment Page Opens
-		String AssertPage = "Ledger";
-		WebElement Ledger = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2"));
-				
-		if (Ledger.getText().equals(AssertPage)){
-					
-			System.out.println("Payment Page Loaded");
-					
-					
-		}else {
-					
-			System.out.println("Payment Page didnt load");
-		}
-	*/			
 		
 		
 		System.out.println("Domain Name Order Started!");
