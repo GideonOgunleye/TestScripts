@@ -165,5 +165,33 @@ public class SQL_Queries extends DriverLoad {
 		con.close();		
 		  
 	  }	
+	  
+	  @Test (priority = 5, groups = {"SQL"})
+	  public void SQL_DomainName_Order () throws SQLException, ClassNotFoundException {
+		  
+			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
+	      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+
+			//Database Username		
+			String username = "gogunleye";	
+	      
+			//Database Password		
+			String password = "n8hY5HqCkd7suLSM";				
+
+			//Query to Execute		
+			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
+			String query2 = "delete from bakewell_staging_go.domain_names where domain_name = 'ssl247.net';";
+	      
+		    //Load mysql jdbc driver		
+	 	    Class.forName("com.mysql.jdbc.Driver");			
+	 
+	 		//Create Connection to DB		
+	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
+	  	Statement stmt = con.createStatement();	
+	  	stmt.execute(query2);
+	  	System.out.println("Ordered Domain Names Have Been Deleted");		
+		con.close();		
+		  
+	  }	
 	 
 }
