@@ -50,27 +50,7 @@ public class New_User extends DriverLoad  {
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
-/*	
-	@BeforeMethod
-	public void Enter_Url () throws Exception {
-		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
 
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		Thread.sleep(5000);
-		//driver.findElement(By.id("cookiesStatus")).click();
-		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
-		Thread.sleep(5000);
-		
-	}
-*/	
 	@AfterMethod (groups = {"Sanity","Smoke"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
@@ -89,32 +69,7 @@ public class New_User extends DriverLoad  {
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		
-		
-/*		
-	if (result.getStatus() == ITestResult.FAILURE) {	
-			String path = destination;
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, "Test Failed", imagePath);
-			
-			Thread.sleep(5000);
-			driver.navigate().refresh();
-			
-		}else if(result.getStatus() == ITestResult.SUCCESS){
-			
-			String path = destination;
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, "Test Passed", imagePath);
-			
-			Thread.sleep(5000);
-			driver.navigate().refresh();
-			
-		}else {
-			
-			Thread.sleep(5000);
-			driver.navigate().refresh();
-		}
 	
-*/	
 	test.log(LogStatus.INFO, "Browser Refreshed");
 	report.endTest(test);
 	report.flush();

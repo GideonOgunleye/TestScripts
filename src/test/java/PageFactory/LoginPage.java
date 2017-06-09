@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +19,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class LoginPage extends DriverLoad {
@@ -52,6 +54,24 @@ public class LoginPage extends DriverLoad {
 		//PageFactory.initElements(driver, this);
 		
 	}
+	
+	
+	public void LoadLoginPage () throws Exception {
+		
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+				 
+		prop.load(fis);
+
+		driver.get(prop.getProperty("Url")); 
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		String title = driver.getTitle();				 
+		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+		Thread.sleep(5000);
+		
+	}
+	
 	
 	public void clickLoginLink(){
 		
