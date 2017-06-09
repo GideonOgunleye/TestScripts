@@ -49,7 +49,7 @@ public class Admin_User extends DriverLoad {
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
 	
-  @BeforeMethod (groups = {"Sanity"})
+  @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Admin_Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
@@ -95,7 +95,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Somke"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
