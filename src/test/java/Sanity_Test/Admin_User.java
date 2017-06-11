@@ -56,41 +56,13 @@ public class Admin_User extends DriverLoad {
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  
-	//Log in As Administrator
-		 Properties prop = new Properties();
-		 FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
+	  LoginPageElements.AdminLoadLoginPage();
 		 
-		 //test = report.startTest("Admin_Login");
-		 //test.log(LogStatus.INFO, "Browser Started...");
-		 
-		 prop.load(fis);
-		 
-		 report = ExtentFactory.getInstance(); 
-
-		 driver.get(prop.getProperty("Url")); 
-		 driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		 driver.manage().window().maximize();
-		 String title = driver.getTitle();				 
-		 Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-/*						
-		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		 driver.findElement(By.linkText("Login")).click();
-		// test.log(LogStatus.INFO, "Click on login Link");
-		 
-		 driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		 driver.findElement(By.name("data[User][email]")).sendKeys(prop.getProperty("Username"));
-		 //test.log(LogStatus.INFO, "Enter Admin Username");
-		 
-		 driver.findElement(By.name("data[User][password]")).sendKeys(prop.getProperty("Password"));
-		 //test.log(LogStatus.INFO, "Enter Admin Password");
-		 
-		 driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
-		 //test.log(LogStatus.INFO, "Click on Login Button");
-*/		 
-		 LoginPageElements.clickLoginLink();
-		 LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		 LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		 LoginPageElements.ClickLoginButton();
+	  report = ExtentFactory.getInstance(); 
+	  LoginPageElements.clickLoginLink();
+	 // LoginPageElements.EnterUserName(prop.getProperty("Username"));
+	 // LoginPageElements.EnterPassword(prop.getProperty("Password"));
+	  LoginPageElements.ClickLoginButton();
 		 
 		 
   }
@@ -112,7 +84,9 @@ public class Admin_User extends DriverLoad {
 	  
 	  
 	  /*User Log Out*/
-	  Thread.sleep(15000);
+	  driver.navigate().refresh();
+	  Thread.sleep(5000);
+	  
 	  LoginPageElements.ClickAdminLogoutButton();
 	  test.log(LogStatus.INFO, "Admin User Logged Out");
 	  
