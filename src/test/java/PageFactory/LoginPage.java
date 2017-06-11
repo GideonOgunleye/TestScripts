@@ -89,7 +89,7 @@ public class LoginPage extends DriverLoad {
 		ClickLoginLink();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		EnterUserName(prop.getProperty("Username"));
-		EnterUserName(prop.getProperty("Password"));
+		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
 		
@@ -112,7 +112,7 @@ public class LoginPage extends DriverLoad {
 		ClickLoginLink();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		EnterUserName(prop.getProperty("Username"));
-		EnterUserName(prop.getProperty("Password"));
+		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
 		
