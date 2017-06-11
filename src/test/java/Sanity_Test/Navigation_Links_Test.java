@@ -9,7 +9,8 @@ import com.relevantcodes.extentreports.LogStatus;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
-import PageFactory.Navigation;
+//import PageFactory.Navigation;
+import PageFactory.NavigationLinks;
 
 import org.testng.annotations.BeforeMethod;
 
@@ -26,35 +27,22 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class Navigation_Links extends DriverLoad {
+public class Navigation_Links_Test extends DriverLoad {
   
 	ExtentReports report;
 	ExtentTest test;
-	Navigation NavigationElements;
+	NavigationLinks NavigationElements;
 	LoginPage 	LoginPageElements;
 
   @BeforeMethod (groups = {"Smoke"})
   public void beforeMethod() throws Exception {
 	  
-	  NavigationElements = new Navigation(driver);
+	  NavigationElements = new NavigationLinks(driver);
 	  LoginPageElements = new LoginPage(driver);
 	  
-	/*  
-	  Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
-
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		Thread.sleep(5000);
-	*/  
 	  LoginPageElements.LoadLoginPage();
 	  report = ExtentFactory.getInstance();
-	  
+	  //test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	  
   }
 
@@ -85,16 +73,146 @@ public class Navigation_Links extends DriverLoad {
 	  
   }
   
-  @Test (groups = {"Smoke"})
+  @Test (priority = 0, groups = {"Smoke"})
   public void SSL_Certlink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> SSL_Certlink");
-	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	  test = report.startTest("Nav Links Test --> SSL Cert link Test");
 	  
 	  NavigationElements.ClickSslCertificatesLink();
 	  test.log(LogStatus.INFO, "Page Opened");
 	  
+  }
+  
+  @Test (priority = 1, groups = {"Smoke"})
+  public void FreeSsl_Link_Test() {
 	  
+	  test = report.startTest("Nav Links Test --> FreeSsl Link Test");
+	  
+	  NavigationElements.ClickFreeSslLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 2, groups = {"Smoke"})
+  public void ProtectAndSecure_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Protect And Secure Link Test");
+	  
+	  NavigationElements.ClickProtectAndSecureLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 4, groups = {"Smoke"})
+  public void Identify_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Identify Link Test");
+	  
+	  NavigationElements.ClickIdentifyLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 5, groups = {"Smoke"})
+  public void Register_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Register Link Test");
+	  
+	  NavigationElements.ClickRegisterLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 6, groups = {"Smoke"})
+  public void Manage_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Manage Link Test");
+	  
+	  NavigationElements.ClickManageLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 7, groups = {"Smoke"})
+  public void BecomePartner_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
+	  
+	  NavigationElements.ClickBecomePartnerLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 8, groups = {"Smoke"})
+  public void MySsl_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
+	  
+	  NavigationElements.ClickMySslLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 9, groups = {"Smoke"})
+  public void FreeTrials_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Free Trials Link Test");
+	  
+	  NavigationElements.ClickFreeTrialsLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 10, groups = {"Smoke"})
+  public void Wizard_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Wizard Link Test");
+	  
+	  NavigationElements.ClickWizardLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 11, groups = {"Smoke"})
+  public void About_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> About Link Test");
+	  
+	  NavigationElements.ClickAboutLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 12, groups = {"Smoke"})
+  public void Support_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Support Link Test");
+	  
+	  NavigationElements.ClickSupportLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
+  }
+  
+  @Test (priority = 13, groups = {"Smoke"})
+  public void Blog_Link_Test() {
+	  
+	  test = report.startTest("Nav Links Test --> Blog Link Test");
+	  
+	  NavigationElements.ClickBlogLink();
+	  
+	  test.log(LogStatus.INFO, "Page Opened");
+	    
   }
 
 }

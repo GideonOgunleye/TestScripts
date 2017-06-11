@@ -8,6 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
+import PageFactory.CsR;
 import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
@@ -51,6 +52,7 @@ public class Registered_User extends DriverLoad  {
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
+	CsR CsrElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
@@ -59,25 +61,11 @@ public class Registered_User extends DriverLoad  {
 		LoginPageElements = new LoginPage(driver);
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
+		CsrElements = new CsR(driver);
 		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
+		LoginPageElements.ClientLoadLoginPage();
 		
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
-		
-		LoginPageElements.clickLoginLink();
-		LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		LoginPageElements.ClickLoginButton();
-			
-		Thread.sleep(5000);
-		
+		Thread.sleep(5000);		
 	}
 
 	
@@ -96,7 +84,8 @@ public class Registered_User extends DriverLoad  {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		Thread.sleep(15000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
 		
 		LoginPageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
@@ -112,12 +101,12 @@ public class Registered_User extends DriverLoad  {
 	@Test (priority = 1, groups = {"Sanity"})
 	  public void Order_RapidSSL() throws Exception {
 		 
-		
+		/*
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
-
+*/
 		System.out.println("Order Cert Started!");
 		
 		test = report.startTest("Registered User Test --> Order_RapidSSL");
@@ -178,9 +167,10 @@ public class Registered_User extends DriverLoad  {
 		WebElement Button;
 		Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
 		Button.click();
+
 		
 		WebDriverWait wait2 = new WebDriverWait(driver, 50);	
-		WebElement Csr;
+/*		WebElement Csr;
 		Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
 		Csr.sendKeys(prop.getProperty("Para1"));
 		Csr.sendKeys(Keys.ENTER);
@@ -219,18 +209,26 @@ public class Registered_User extends DriverLoad  {
 		
 		WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
 		Decoder.click();
+*/
 		
+		CsrElements.LoadCsR();
+		CsrElements.ClickDecoder();
+		Thread.sleep(10000);
+		CsrElements.ClickDecoderPopUp();
+		Thread.sleep(10000);
+		
+/*		
 		WebElement DecoderStatus;
 		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.id("useCsrInfo")));
 		DecoderStatus.click();
 		Thread.sleep(10000);
-		
+*/		
 		System.out.println("Sleep Over");
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-250)", "");
+		jse.executeScript("window.scrollBy(0,-500)", "");
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		
 		
 		/*-----Fillm in Admin Tab-----------------------*/
@@ -294,11 +292,11 @@ public class Registered_User extends DriverLoad  {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-			
+/*			
 		WebElement SendStatus;
 		SendStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
 		SendStatus.click();
-	  	
+*/	  	
 	  	System.out.println("Order Cert Completed!");
 				
 		// Log Out

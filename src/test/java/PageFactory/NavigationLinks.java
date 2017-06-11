@@ -11,7 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.testng.annotations.Test;
 
-public class Navigation extends DriverLoad {
+import com.relevantcodes.extentreports.LogStatus;
+
+public class NavigationLinks extends DriverLoad {
 	
 	
 	/*****Main Menu*******/
@@ -91,7 +93,7 @@ public class Navigation extends DriverLoad {
 	
 	
 	
-	public Navigation(WebDriver driver){
+	public NavigationLinks(WebDriver driver){
 		
 		this.driver = driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 100), this);
@@ -102,68 +104,93 @@ public class Navigation extends DriverLoad {
 	public void ClickSslCertificatesLink(){
 		
 		SslCertificatesLink.click();
-		//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		//assertTrue(driver.getTitle().contains("SSL247's  SSL Certificates"));
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("SSL247's SSL Certificates"));
+
 	
 	}
 	
 	public void ClickFreeSslLink(){
 		
 		FreeSslLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("GeoTrust Free Trial"));
 	}
 	
 	public void ClickProtectAndSecureLink() {
 		
 		ProtectAndSecureLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Penetration Testing: Advanced professional testing by accredited experts"));
 	}
 	
 	public void ClickIdentifyLink() {
 		
 		IdentifyLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Digital IDs from SSL247"));
 	}
 	
 	public void ClickRegisterLink() {
 		
 		RegisterLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Get your Domain Name Now"));
 	}
 	
 	public void ClickManageLink() {
 		
 		ManageLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Managed Public Key Infrastructure (MPKI) Service by SSL247®"));
 	}
 	
 	public void ClickBecomePartnerLink() {
 		
 		BecomePartnerLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Grow your business by joining our partners programs!"));
 	}
 	
 	public void ClickMySslLink() {
 		
 		MySslLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("MySSL® Account Login"));
 	}
 	
 	public void ClickFreeTrialsLink() {
 		
 		FreeTrialsLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Free trials"));
 	}
 	
 	public void ClickWizardLink() {
 		
 		WizardLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk "));
 	}
 	
 	public void ClickAboutLink() {
 		
 		AboutLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("About SSL247® – The Web Security Consultants"));
 	}
 	
 	public void ClickSupportLink() {
 		
 		SupportLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("Help and Support - Install your SSL Certificate"));
 	}
 	
 	public void ClickBlogLink() {
 		
 		BlogLink.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		assertTrue(driver.getTitle().contains("SSL247 Blog"));
 	}
 }
