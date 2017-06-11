@@ -59,7 +59,7 @@ public class LoginPage extends DriverLoad {
 	public void LoadLoginPage () throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -72,8 +72,54 @@ public class LoginPage extends DriverLoad {
 		
 	}
 	
+	public void ClientLoadLoginPage () throws Exception {
+		
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+				 
+		prop.load(fis);
+
+		driver.get(prop.getProperty("Url")); 
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		String title = driver.getTitle();				 
+		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+		Thread.sleep(5000);
+		
+		ClickLoginLink();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		EnterUserName(prop.getProperty("Username"));
+		EnterUserName(prop.getProperty("Password"));
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		ClickLoginButton();
+		
+	}
 	
-	public void clickLoginLink(){
+	public void AdminLoadLoginPage() throws Exception {
+		
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
+				 
+		prop.load(fis);
+
+		driver.get(prop.getProperty("Url")); 
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		String title = driver.getTitle();				 
+		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+		Thread.sleep(5000);
+		
+		ClickLoginLink();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		EnterUserName(prop.getProperty("Username"));
+		EnterUserName(prop.getProperty("Password"));
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		ClickLoginButton();
+		
+	}
+	
+	
+	public void ClickLoginLink(){
 		
 		LoginLink.click();
 	}

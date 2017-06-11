@@ -59,7 +59,7 @@ public class Admin_User extends DriverLoad {
 	  LoginPageElements.AdminLoadLoginPage();
 		 
 	  report = ExtentFactory.getInstance(); 
-	  LoginPageElements.clickLoginLink();
+	  LoginPageElements.ClickLoginLink();
 	 // LoginPageElements.EnterUserName(prop.getProperty("Username"));
 	 // LoginPageElements.EnterPassword(prop.getProperty("Password"));
 	  LoginPageElements.ClickLoginButton();
