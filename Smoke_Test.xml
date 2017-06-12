@@ -7,18 +7,18 @@
     <include name="Smoke"/>
     </run>
  </groups> 
-   
+ 
   <test name="Test 1">
+   <classes>
+      <class name="Sanity_Test.Navigation_Test"/>
+    </classes>    
+  </test> <!-- Test -->
+   
+  <test name="Test 2">
    <classes>
       <class name="Sanity_Test.Admin_User"/>
     </classes>    
   </test> <!-- Test -->
-  
- <test name="Test 2">  
-    <classes>
-        <class name="Sanity_Test.Registered_User"/>
-    </classes>
-  </test><!--  Test -->
   
   <test name="Test 3">
      <classes>

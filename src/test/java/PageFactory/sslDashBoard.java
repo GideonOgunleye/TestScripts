@@ -69,6 +69,15 @@ public class sslDashBoard extends DriverLoad {
 		
 	}
 	
+	
+	public boolean PageValidation () {
+		
+		return PageHeader.isDisplayed();
+		
+	}
+	
+	
+	
 	public void ClickMyBasketsLink(){
 		
 		MyBasketsLink.click();

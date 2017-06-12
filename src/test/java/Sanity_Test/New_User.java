@@ -8,6 +8,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
+import PageFactory.Cookies;
+import PageFactory.CsR;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
@@ -50,6 +52,26 @@ public class New_User extends DriverLoad  {
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
+	CsR CsrElements;
+	Cookies CookiesElement;
+	
+	@BeforeMethod (groups = {"Sanity","Smoke"})
+	public void Load_Homepage () throws Exception {
+		
+		report = ExtentFactory.getInstance(); 
+		LoginPageElements = new LoginPage(driver);
+		BillingPageElements = new BillingPage(driver);
+		sslDashBoardElements = new sslDashBoard(driver);
+		CsrElements = new CsR(driver);
+		CookiesElement = new Cookies(driver);
+		
+		LoginPageElements.LoadLoginPage();
+		
+		report = ExtentFactory.getInstance();
+		
+		Thread.sleep(5000);		
+	}
+	
 
 	@AfterMethod (groups = {"Sanity","Smoke"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
@@ -78,17 +100,20 @@ public class New_User extends DriverLoad  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Sanity","Smoke"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Smoke"})
 	  public void User_Registration() throws Exception {
-		
+	
+/*		
 		LoginPageElements = new LoginPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
-		
+*/
+		report = ExtentFactory.getInstance3();
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
+/*
 		driver.get(prop.getProperty("Url")); 
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -98,8 +123,8 @@ public class New_User extends DriverLoad  {
 		//driver.findElement(By.id("cookiesStatus")).click();
 		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
 		Thread.sleep(5000);
-		
-		report = ExtentFactory.getInstance(); 
+*/		
+		//report = ExtentFactory.getInstance(); 
 		
 		test = report.startTest("New User Test --> User Registration");
 	    test.log(LogStatus.INFO, "Browser Opened and Url Entered");
@@ -130,39 +155,127 @@ public class New_User extends DriverLoad  {
 		driver.findElement(By.name("data[User][phone]")).sendKeys(prop.getProperty("Phone"));
 		
 		Thread.sleep(5000);
-		//driver.findElement(By.id("cookiesStatus")).click();
-		driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/input")).click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//WebElement Cookies = driver.findElement(By.id("cookiesStatus"));
 		
-		String StatusMsg = "MySSL® » Dashboard";	
+		CookiesElement.CheckCookies();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/input")).click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	
+		//String StatusMsg = "MySSL® » Dashboard";	
 		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2")).getText();
 		//WebElement Status = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/h2"));
 		
+		try {
+			
+			if (sslDashBoardElements.PageValidation()) {
+			
+				Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				test.log(LogStatus.PASS, "User Successfully Registered");
+				System.out.println("Dashboard Page Opened");
+				
+			}
 		
-		if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
-			
-			test.log(LogStatus.PASS, "User Sucessfully Registered");
-			
-		}else {
-			
-			test.log(LogStatus.FAIL, "User not Sucessfully Registered");
-		}
+		}catch(Exception e) {
+			System.out.println("Dashboard Page Not Opened");
+			test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
+		
+			}
 		
 		Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		LoginPageElements.ClickLogoutButton();
-		test.log(LogStatus.INFO, "User Logged Out");
+/*		
+try		{	
+	
+			if (sslDashBoardElements.PageValidation()) {
+			
+				test.log(LogStatus.PASS, "Dashboard Page Opened");
+				
+				try {
+				
+					if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
+					
+					test.log(LogStatus.PASS, "User Sucessfully Registered");
+					Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
+					driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+					LoginPageElements.ClickLogoutButton();
+					test.log(LogStatus.INFO, "User Logged Out");
+					
+				}
+					
+				}catch (Exception e) {
+					
+					test.log(LogStatus.FAIL, "User not Sucessfully Registered");
+				}
+			}
+				
+		}catch (Exception e){
+			
+			test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
+			
+			}
+		
+*/		
 		
 	}
 	
-  @Test (priority = 1, groups = {"Sanity","Smoke"})
+	@Test (priority = 1, groups = {"Smoke"})
+	  public void User_LogOut() throws Exception{
+		
+	/*	  
+		  LoginPageElements = new LoginPage(driver);
+		  sslDashBoardElements = new sslDashBoard(driver);
+		  
+		  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+		   * 
+		   */
+		 
+		 // report = ExtentFactory.getInstance(); 
+		
+		  report = ExtentFactory.getInstance3();
+		  LoginPageElements.ClientLogin();
+			
+		  test = report.startTest("New User Test --> User LogOut");
+		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+		  
+		  Thread.sleep(5000);
+		  
+		  String StatusMsg = "MySSL® » Dashboard";	
+		  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
+				
+				test.log(LogStatus.PASS, "User Sucessfully Registered");
+				LoginPageElements.ClickLogoutButton();
+				test.log(LogStatus.INFO, "User Logged Out");
+				
+			}else {
+				
+				test.log(LogStatus.FAIL, "User Not Sucessfully Registered");
+			}
+		  
+		  
+	  }
+
+	
+  @Test (priority = 2, groups = {"Smoke"})
   public void User_LogIn() throws Exception{
-	  
+/*	  
 	  LoginPageElements = new LoginPage(driver);
+	  sslDashBoardElements = new sslDashBoard(driver);
 	  
 	  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+	   * 
+	   */
+	 
+	 // report = ExtentFactory.getInstance(); 
+	  report = ExtentFactory.getInstance3();
 	  LoginPageElements.ClientLogin();
-	  Thread.sleep(10000);
+		
+	  test = report.startTest("New User Test --> User Login");
+	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	  
+	  Thread.sleep(5000);
 	  
 	  String StatusMsg = "MySSL® » Dashboard";	
 	  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
@@ -179,12 +292,11 @@ public class New_User extends DriverLoad  {
   }
 
  
- 
-  @Test (priority = 2, groups = {"Smoke","Sanity"})
+  @Test (priority = 3, groups = {"Smoke"})
   public void Get_in_Touch () throws Exception {
 	  
 	  
-	    report = ExtentFactory.getInstance(); 
+	   report = ExtentFactory.getInstance3(); 
 	    
 	  	test = report.startTest("New User Test --> Get in Touch Form");
 	    test.log(LogStatus.INFO, "Browser Opened and Url Entered");
@@ -212,10 +324,10 @@ public class New_User extends DriverLoad  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  }
 	  
-  @Test (priority = 3, groups = {"Smoke","Sanity"})
+  @Test (priority = 4, groups = {"Smoke"})
   public void Ask_a_question () throws Exception {
 	  
-	 report = ExtentFactory.getInstance(); 
+	 report = ExtentFactory.getInstance3();
 	  
 	 test = report.startTest("New User Test --> Ask a Question Form");
 	 test.log(LogStatus.INFO, "Browser Opened and Url Entered");
@@ -274,11 +386,10 @@ public class New_User extends DriverLoad  {
     
   }
   
-  @Test (priority = 4, groups = {"Sanity","Smoke"})
+  @Test (priority = 5, groups = {"Smoke"})
   public void Request_a_Bronchure () throws Exception {
-	  
-	report = ExtentFactory.getInstance(); 
-	  
+	   
+	report = ExtentFactory.getInstance3();
 	test = report.startTest("New User Test --> Request a Bronchure Form");
 	test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	  
@@ -310,12 +421,10 @@ public class New_User extends DriverLoad  {
 	  
   }
   
-  @Test (priority = 5, groups = {"Sanity","Smoke"})
-  public void Request_a_PenTest_Proposal() throws Exception{
+  @Test (priority = 6, groups = {"Smoke"})
+  public void Request_a_PenTest_Proposal() throws Exception{ 
 	  
-	report = ExtentFactory.getInstance(); 
-	  
-	  
+	report = ExtentFactory.getInstance3();
 	test = report.startTest("New User Test --> Request a PenTest Form");
 	test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	//Navigate to Support Link

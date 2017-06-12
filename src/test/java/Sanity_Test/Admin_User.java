@@ -50,7 +50,7 @@ public class Admin_User extends DriverLoad {
   sslDashBoard sslDashBoardElements;
 	
   @BeforeMethod (groups = {"Sanity","Smoke"})
-  public void Admin_Login() throws Exception {
+  public void Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
@@ -59,10 +59,10 @@ public class Admin_User extends DriverLoad {
 	  LoginPageElements.AdminLogin();
 		 
 	  report = ExtentFactory.getInstance(); 
-	  LoginPageElements.ClickLoginLink();
+	  //LoginPageElements.ClickLoginLink();
 	 // LoginPageElements.EnterUserName(prop.getProperty("Username"));
 	 // LoginPageElements.EnterPassword(prop.getProperty("Password"));
-	  LoginPageElements.ClickLoginButton();
+	 // LoginPageElements.ClickLoginButton();
 		 
 		 
   }
@@ -94,6 +94,32 @@ public class Admin_User extends DriverLoad {
 	  report.flush();
 	  return destination;
   }
+  
+  @Test (priority = 0, groups = {"Smoke"})
+  public void Admin_LogIn() throws Exception{
+
+	  report = ExtentFactory.getInstance3();
+	 // LoginPageElements.AdminLogin();
+		
+	  test = report.startTest("New User Test --> Admin Login/LogOut");
+	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	  
+	  Thread.sleep(5000);
+	  
+	 // String StatusMsg = "MySSL® » Dashboard";	
+	  if (LoginPageElements.AdminPageValidation()) {
+			
+			test.log(LogStatus.PASS, "Admin Successfully Signed");
+			
+		}else {
+			
+			test.log(LogStatus.FAIL, "Admin not Successfully Signed");
+		}
+	  
+	  //LoginPageElements.ClickAdminLogoutButton();
+	  
+  }
+
   
   @Test (groups = {"Sanity"})
   public void Edit_Account_User() throws Exception{
@@ -262,10 +288,11 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @Test (groups = {"Sanity","Smoke"})
+  @Test (groups = {"Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
+	  		report = ExtentFactory.getInstance3();
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
 	  

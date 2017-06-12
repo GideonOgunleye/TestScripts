@@ -2,6 +2,11 @@ package PageFactory;
 
 import PageFactory.DriverLoad;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import org.testng.annotations.BeforeTest;
 
 import java.io.FileInputStream;
@@ -23,6 +28,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class LoginPage extends DriverLoad {
+	ExtentReports report;
+	ExtentTest test;
 	
 	DriverLoad LoadDriver;
 	
@@ -47,6 +54,9 @@ public class LoginPage extends DriverLoad {
 	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[3]")
 	WebElement AdminLogoutButton;
 	
+	@FindBy (xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[1]")
+	WebElement AdminStatus;
+	
 	public LoginPage(WebDriver driver){
 		
 		this.driver = driver;
@@ -59,7 +69,7 @@ public class LoginPage extends DriverLoad {
 	public void LoadLoginPage () throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -75,7 +85,7 @@ public class LoginPage extends DriverLoad {
 	public void ClientLogin () throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -92,16 +102,16 @@ public class LoginPage extends DriverLoad {
 		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
-	/*	
+		
 		String Status = driver.getTitle();
 		Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
-*/
+
 	}
 	
 	public void AdminLogin() throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
 				 
 		prop.load(fis);
 
@@ -118,6 +128,12 @@ public class LoginPage extends DriverLoad {
 		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
+		
+	}
+	
+	public boolean AdminPageValidation () {
+		
+		return AdminStatus.isDisplayed();
 		
 	}
 	
@@ -150,6 +166,7 @@ public class LoginPage extends DriverLoad {
 	public void ClickLogoutButton() {
 		
 		LogoutButton.click();
+			
 	}
 	
 	public void ClickAdminLogoutButton() {
