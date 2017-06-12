@@ -315,16 +315,17 @@ public class Registered_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//1-Navigate and click on My Users
-		
-		WebDriverWait wait = new WebDriverWait(driver, 20);	
+/*		
+		WebDriverWait wait = new WebDriverWait(driver, 100);	
 		WebElement Myusers;
 		Myusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")));
 		Myusers.click();
 		test.log(LogStatus.INFO, "My End Users Page Opened");
-		
+*/		
 		//Thread.sleep(15000);
 		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
 		sslDashBoardElements.ClickMyUsersLink();
+		test.log(LogStatus.INFO, "My End Users Page Opened");
 				
 		//2-Navigate and Click on New Users
 		Thread.sleep(5000);
@@ -540,19 +541,27 @@ public class Registered_User extends DriverLoad  {
 		Thread.sleep(5000);
 		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[1]/div/div[1]/table/tbody/tr[5]/td/a")).click();
 		driver.findElement(By.xpath(".//*[@class='actions']/a")).click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		
 		//Click on Admin Tab
+		
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-admin-contact-tab']")).click();
 		
 		//Fill in the Required Information
 		WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
 		Select Name = new Select(AdContact);
 		Name.selectByVisibleText("Mr Quality Assurance Tester");
-		
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
+		//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
+		
+		System.out.println("Filled Admin Tab");
 		
 		//Click on Technical Tab
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-technical-contact-tab']")).click();
 		
 		//Fill in Required Information
@@ -563,6 +572,9 @@ public class Registered_User extends DriverLoad  {
 		driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
 		
 		//Click on Owner Tab
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-owner-contact-tab")).click();
 		
 		//Fill in Required Information
@@ -574,6 +586,8 @@ public class Registered_User extends DriverLoad  {
 		test.log(LogStatus.PASS, "Order Completed");
 				
 		//Click on Save Changes
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
