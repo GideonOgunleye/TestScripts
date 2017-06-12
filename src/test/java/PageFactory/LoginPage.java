@@ -72,7 +72,7 @@ public class LoginPage extends DriverLoad {
 		
 	}
 	
-	public void ClientLoadLoginPage () throws Exception {
+	public void ClientLogin () throws Exception {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
@@ -92,10 +92,13 @@ public class LoginPage extends DriverLoad {
 		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
-		
+	/*	
+		String Status = driver.getTitle();
+		Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
+*/
 	}
 	
-	public void AdminLoadLoginPage() throws Exception {
+	public void AdminLogin() throws Exception {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDrivingAdmin.properties");

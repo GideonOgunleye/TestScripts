@@ -149,16 +149,31 @@ public class New_User extends DriverLoad  {
 		}
 		
 		Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
-		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		LoginPageElements.ClickLogoutButton();
+		test.log(LogStatus.INFO, "User Logged Out");
 		
 	}
 	
   @Test (priority = 1, groups = {"Sanity","Smoke"})
-  public void Log_Out_New_User (){
+  public void User_LogIn() throws Exception{
 	  
 	  LoginPageElements = new LoginPage(driver);
 	  
 	  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+	  LoginPageElements.ClientLogin();
+	  Thread.sleep(10000);
+	  
+	  String StatusMsg = "MySSL® » Dashboard";	
+	  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
+			
+			test.log(LogStatus.PASS, "User Sucessfully Signed");
+			
+		}else {
+			
+			test.log(LogStatus.FAIL, "User not Sucessfully Signed");
+		}
+	  
 	  LoginPageElements.ClickLogoutButton();
 	  test.log(LogStatus.INFO, "User Logged Out");
   }

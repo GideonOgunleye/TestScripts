@@ -63,7 +63,7 @@ public class Registered_User extends DriverLoad  {
 		sslDashBoardElements = new sslDashBoard(driver);
 		CsrElements = new CsR(driver);
 		
-		LoginPageElements.ClientLoadLoginPage();
+		LoginPageElements.ClientLogin();
 		
 		Thread.sleep(5000);		
 	}

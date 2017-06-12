@@ -36,7 +36,7 @@ public class BrowserStack {
 	public WebDriver driver;
     private Local l;
     
-    @BeforeTest(alwaysRun=true, groups = {"Sanity"})
+    @BeforeTest(alwaysRun=true, groups = {"Sanity","Smoke","Regression"})
     @org.testng.annotations.Parameters(value={"config", "environment"})
     public void setUp(String config_file, String environment) throws Exception {
         JSONParser parser = new JSONParser();
@@ -81,7 +81,7 @@ public class BrowserStack {
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
 
-    @AfterTest(alwaysRun=true, groups = {"Sanity"})
+    @AfterTest(alwaysRun=true, groups = {"Sanity","Smoke","Regression"})
     public void tearDown() throws Exception {
     	driver.manage().deleteAllCookies();
         driver.quit();

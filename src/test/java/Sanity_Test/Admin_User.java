@@ -56,7 +56,7 @@ public class Admin_User extends DriverLoad {
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  
-	  LoginPageElements.AdminLoadLoginPage();
+	  LoginPageElements.AdminLogin();
 		 
 	  report = ExtentFactory.getInstance(); 
 	  LoginPageElements.ClickLoginLink();
