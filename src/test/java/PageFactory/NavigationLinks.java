@@ -71,6 +71,50 @@ public class NavigationLinks extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[2]/a/span[1]")
 	WebElement VeriSignLink;
 	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[3]/a/span[1]")
+	WebElement GeoTrustLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[4]/a/span[1]")
+	WebElement ThawteLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[5]/a/span[1]")
+	WebElement GlobalSignLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[6]/a/span[1]")
+	WebElement ComodoLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[7]/a/span[1]")
+	WebElement RapidSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[8]/a/span[1]")
+	WebElement EntrustLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[2]/ul/li[1]/a/span[1]")
+	WebElement SanSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[2]/ul/li[2]/a/span[1]")
+	WebElement WildcardSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[2]/ul/li[3]/a/span[1]")
+	WebElement SanWildcardSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[2]/ul/li[4]/a/span[1]")
+	WebElement ECCSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[2]/ul/li[5]/a/span[1]")
+	WebElement IPaddressSslLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[3]/ul/li[1]/a/span[1]")
+	WebElement ExtendedValidationLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[3]/ul/li[2]/a/span[1]")
+	WebElement OrganisationValidationLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[3]/ul/li[3]/a/span[1]")
+	WebElement SymantecReadyIssuanceLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[3]/ul/li[4]/a/span[1]")
+	WebElement SDomainValidationLink;
 	
 	/********Protect and Secure SubMenu Navigation**********/
 	
