@@ -2,22 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test name="Test 3(failed)">
-    <parameter name="environment" value="Edge"/>
-    <parameter name="config" value="Sanity_NewUser.json"/>
     <groups>
       <run>
-        <include name="Sanity"/>
-        <include name="SQL"/>
+        <include name="Smoke"/>
       </run>
     </groups>
     <classes>
       <class name="Sanity_Test.New_User">
         <methods>
-          <include name="Ask_a_question"/>
-          <include name="setUp"/>
-          <include name="Log_Out_New_User"/>
+          <include name="Load_Homepage"/>
+          <include name="beforeTest"/>
           <include name="Aftermethod"/>
-          <include name="tearDown"/>
+          <include name="afterTest"/>
+          <include name="User_Registration"/>
         </methods>
       </class> <!-- Sanity_Test.New_User -->
     </classes>
