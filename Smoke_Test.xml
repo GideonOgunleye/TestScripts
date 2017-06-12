@@ -10,7 +10,7 @@
  
   <test name="Test 1">
    <classes>
-      <class name="Sanity_Test.Navigation_Test"/>
+      <class name="Sanity_Test.MainNav_Test"/>
     </classes>    
   </test> <!-- Test -->
    

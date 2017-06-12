@@ -13,6 +13,7 @@ import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
+import PageFactory.NavigationLinks;
 import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeTest;
@@ -53,6 +54,7 @@ public class Registered_User extends DriverLoad  {
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
 	CsR CsrElements;
+	NavigationLinks NavigationElements;
 	
 	@BeforeMethod (groups = {"Sanity"})
 	public void User_Login () throws Exception {
@@ -62,6 +64,7 @@ public class Registered_User extends DriverLoad  {
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
 		CsrElements = new CsR(driver);
+		NavigationElements = new NavigationLinks(driver);
 		
 		LoginPageElements.ClientLogin();
 		
@@ -114,10 +117,8 @@ public class Registered_User extends DriverLoad  {
 		
 		//Navigate to product page//
 		//Thread.sleep(15000);
+	  //Click to Order RapidSSL Product
 		sslDashBoardElements.ClickMyProductsLink();
-	
-				
-		//Click to Order RapidSSL Product
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[3]/a")).click();
 		test.log(LogStatus.INFO, "Product Page Opened");
@@ -169,60 +170,12 @@ public class Registered_User extends DriverLoad  {
 		Button.click();
 
 		
-		WebDriverWait wait2 = new WebDriverWait(driver, 50);	
-/*		WebElement Csr;
-		Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
-		Csr.sendKeys(prop.getProperty("Para1"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para2"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para3"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para4"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para5"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para6"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para7"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para8"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para9"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para10"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para11"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para12"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para13"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para14"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para15"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para16"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para17"));
-		Csr.sendKeys(Keys.ENTER);
-		
-		WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
-		Decoder.click();
-*/
-		
 		CsrElements.LoadCsR();
 		CsrElements.ClickDecoder();
 		Thread.sleep(10000);
 		CsrElements.ClickDecoderPopUp();
 		Thread.sleep(10000);
-		
-/*		
-		WebElement DecoderStatus;
-		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.id("useCsrInfo")));
-		DecoderStatus.click();
-		Thread.sleep(10000);
-*/		
+			
 		System.out.println("Sleep Over");
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -292,17 +245,9 @@ public class Registered_User extends DriverLoad  {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-/*			
-		WebElement SendStatus;
-		SendStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-		SendStatus.click();
-*/	  	
+  	
 	  	System.out.println("Order Cert Completed!");
 				
-		// Log Out
-		//Thread.sleep(15000);
-		//driver.findElement(By.linkText("Logout")).click();
-		//Thread.sleep(15000);
 		
 	 }
 	
@@ -315,15 +260,6 @@ public class Registered_User extends DriverLoad  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//1-Navigate and click on My Users
-/*		
-		WebDriverWait wait = new WebDriverWait(driver, 100);	
-		WebElement Myusers;
-		Myusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")));
-		Myusers.click();
-		test.log(LogStatus.INFO, "My End Users Page Opened");
-*/		
-		//Thread.sleep(15000);
-		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
 		sslDashBoardElements.ClickMyUsersLink();
 		test.log(LogStatus.INFO, "My End Users Page Opened");
 				
@@ -383,8 +319,6 @@ public class Registered_User extends DriverLoad  {
 		driver.findElement(By.name("data[User][firstname]")).sendKeys("qa@ssl247.co.uk");
 		
 		WebElement address = driver.findElement(By.xpath(".//*[@id='UserRole']"));
-		//builder.click(address);
-		//builder.build().perform();
 		Select Role = new Select(address);
 		Role.selectByIndex(0);
 		

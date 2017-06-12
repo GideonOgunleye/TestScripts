@@ -53,7 +53,7 @@ public class CsR extends DriverLoad {
 	public void LoadCsR () throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 		

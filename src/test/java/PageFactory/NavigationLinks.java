@@ -6,15 +6,19 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.testng.annotations.Test;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class NavigationLinks extends DriverLoad {
-	
+	ExtentReports report;
+	ExtentTest test;
 	
 	/*****Main Menu*******/
 	@FindBy(xpath = ".//*[@id='mainNavigation']/li[2]/a")
@@ -56,11 +60,16 @@ public class NavigationLinks extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainNavigation']/li[14]/a")
 	WebElement BlogLink;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
+	WebElement PageHeader;
 	
 	
 	/********SSL Certificates SubMenu Navigation**********/
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
-	WebElement PageHeader;
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[1]/a/span[1]")
+	WebElement SymantecLink;
+	
+	@FindBy(xpath = ".//*[@id='special-ul']/li[1]/ul/li[2]/a/span[1]")
+	WebElement VeriSignLink;
 	
 	
 	/********Protect and Secure SubMenu Navigation**********/
@@ -192,5 +201,33 @@ public class NavigationLinks extends DriverLoad {
 		BlogLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		assertTrue(driver.getTitle().contains("SSL247 Blog"));
+	}
+	
+	public void ClickSynmantecLink() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(SymantecLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	assertTrue(driver.getTitle().contains("Symantec SSL Certificates"));
+
+	}
+	
+	public void ClickVeriSignLink() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(VeriSignLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	assertTrue(driver.getTitle().contains("VeriSign SSL Certificates"));
+
 	}
 }
