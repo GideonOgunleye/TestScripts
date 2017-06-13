@@ -99,7 +99,7 @@ public class New_User extends BrowserStack  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Sanity","Smoke","BS_Sanity"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Smoke"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 	
 /*		
@@ -220,41 +220,10 @@ try		{
 		
 	}
 	
-  @Test (priority = 1, groups = {"Sanity","Smoke","BS_Sanity"})
-  public void Log_Out_New_User () throws Exception{
-	  
-	  LoginPageElements = new LoginPage(driver);
-	  sslDashBoardElements = new sslDashBoard(driver);
-	  
-	  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
-	  
-	 
-	 // report = ExtentFactory.getInstance(); 
-	  report = ExtentFactory.getInstance3();
-	  LoginPageElements.ClientLogin();
-		
-	  test = report.startTest("New User Test --> User Login");
-	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
-	  
-	  Thread.sleep(5000);
-	  
-	  String StatusMsg = "MySSL® » Dashboard";	
-	  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
-			
-			test.log(LogStatus.PASS, "User Sucessfully Signed");
-			
-		}else {
-			
-			test.log(LogStatus.FAIL, "User not Sucessfully Signed");
-		}
-	  
-	  LoginPageElements.ClickLogoutButton();
-	  test.log(LogStatus.INFO, "User Logged Out");
-  }
-
+  
  
  
-  @Test (priority = 2, groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (priority = 2, groups = {"Sanity","BS_Sanity"})
   public void Get_in_Touch () throws Exception {
 	  
 	  
@@ -286,7 +255,7 @@ try		{
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  }
 	  
-  @Test (priority = 3, groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
   public void Ask_a_question () throws Exception {
 	  
 	 report = ExtentFactory.getInstance3();
@@ -348,7 +317,7 @@ try		{
     
   }
   
-  @Test (priority = 4, groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (priority = 4, groups = {"Sanity","BS_Sanity"})
   public void Request_a_Bronchure () throws Exception {
 	   
 	report = ExtentFactory.getInstance3();
@@ -383,7 +352,7 @@ try		{
 	  
   }
   
-  @Test (priority = 5, groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (priority = 5, groups = {"Sanity","BS_Sanity"})
   public void Request_a_PenTest_Proposal() throws Exception{
 	  
 	report = ExtentFactory.getInstance3();

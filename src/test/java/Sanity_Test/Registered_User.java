@@ -56,7 +56,7 @@ public class Registered_User extends BrowserStack  {
 	CsR CsrElements;
 	NavigationLinks NavigationElements;
 	
-	@BeforeMethod (groups = {"Sanity","BS_Sanity"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -72,7 +72,7 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity", "BS_Sanity"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	    //Take Screen Shots
@@ -99,6 +99,39 @@ public class Registered_User extends BrowserStack  {
 		return destination;
 		
 	}
+	
+	@Test (priority = 0, groups = {"Smoke"})
+	  public void LogIn_User () throws Exception{
+		  
+		  LoginPageElements = new LoginPage(driver);
+		  sslDashBoardElements = new sslDashBoard(driver);
+		  
+		  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
+		  
+		 
+		 // report = ExtentFactory.getInstance(); 
+		  report = ExtentFactory.getInstance3();
+		  LoginPageElements.ClientLogin();
+			
+		  test = report.startTest("New User Test --> User Login");
+		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+		  
+		  Thread.sleep(5000);
+		  
+		  String StatusMsg = "MySSL® » Dashboard";	
+		  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
+				
+				test.log(LogStatus.PASS, "User Sucessfully Signed");
+				
+			}else {
+				
+				test.log(LogStatus.FAIL, "User not Sucessfully Signed");
+			}
+		  
+		  LoginPageElements.ClickLogoutButton();
+		  test.log(LogStatus.INFO, "User Logged Out");
+	  }
+
 	
 	
 	@Test (priority = 1, groups = {"Sanity","BS_Sanity"})
