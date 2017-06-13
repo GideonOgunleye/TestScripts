@@ -37,7 +37,7 @@ public class DriverLoad {
 	  Thread.sleep(10000);
 		 //report.endTest(test);
 		 
-	//driver.quit();
+	driver.quit();
 
 	  
   }
