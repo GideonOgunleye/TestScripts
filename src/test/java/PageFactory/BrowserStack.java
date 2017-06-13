@@ -21,8 +21,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.DataProvider;
@@ -32,11 +34,11 @@ import org.testng.Assert;
 
 //import net.sf.cglib.core.Local;
 
-public class BrowserStack {
-	public WebDriver driver;
+public class BrowserStack extends DriverLoad  {
+	//public WebDriver driver;
     private Local l;
     
-    @BeforeTest(alwaysRun=true, groups = {"Sanity"})
+    @BeforeClass(groups = {"BS_Sanity", "BS_Regression"})
     @org.testng.annotations.Parameters(value={"config", "environment"})
     public void setUp(String config_file, String environment) throws Exception {
         JSONParser parser = new JSONParser();
@@ -81,7 +83,7 @@ public class BrowserStack {
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }
 
-    @AfterTest(alwaysRun=true, groups = {"Sanity"})
+    @AfterClass(groups = {"BS_Sanity", "BS_Regression"})
     public void tearDown() throws Exception {
     	driver.manage().deleteAllCookies();
         driver.quit();

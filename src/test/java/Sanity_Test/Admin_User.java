@@ -41,7 +41,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User extends DriverLoad {
+public class Admin_User extends BrowserStack {
   //WebDriver driver;
   ExtentReports report;
   ExtentTest test;

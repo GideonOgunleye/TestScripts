@@ -1,14 +1,15 @@
 {
  "server": "hub-cloud.browserstack.com",
-  "user": "tommyogunleye1",
-  "key": "nsXdfRmQ7PiEC9aTDq37",
+  "user": "developmentteam12",
+  "key": "AKNscSG2dLkmDUkzTRyJ",
 
   "capabilities": {
     "build": "First Build",
     "name": "Sanity Test",
     "browserstack.debug": true
     "build": "version1",
-  	"project": "newintropage"
+  	"project": "Bakewell 20"
+  	"browserstack.chrome.enablePopups": false
   },
 
   "environments": {

@@ -15,9 +15,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
 public class DriverLoad {
+	
+	
 	public WebDriver driver;
 	
-	
+
 
   @BeforeTest (groups = {"Sanity","SQL","Regression"} )
   public void beforeTest() throws IOException  {
@@ -26,10 +28,7 @@ public class DriverLoad {
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	  driver = new ChromeDriver();  
 	  
-/*	  
-	  System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
-	  driver = new FirefoxDriver(); 
-*/	  
+   
   }
 
   @AfterTest (groups = {"Sanity","SQL","Regression"})
@@ -38,10 +37,11 @@ public class DriverLoad {
 	  Thread.sleep(10000);
 		 //report.endTest(test);
 		 
-	driver.quit();
+	//driver.quit();
+
 	  
   }
 
-  
+ 
   
 }

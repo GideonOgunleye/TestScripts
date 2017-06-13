@@ -45,14 +45,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends DriverLoad  {
+public class Registered_User extends BrowserStack  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
 	
-	@BeforeMethod (groups = {"Sanity"})
+	@BeforeMethod (groups = {"Sanity","BS_Sanity"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -81,7 +81,7 @@ public class Registered_User extends DriverLoad  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity", "BS_Sanity", "BS_Regression"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	    //Take Screen Shots
@@ -109,7 +109,7 @@ public class Registered_User extends DriverLoad  {
 	}
 	
 	
-	@Test (priority = 1, groups = {"Sanity"})
+	@Test (priority = 1, groups = {"Sanity","BS_Sanity"})
 	  public void Order_RapidSSL() throws Exception {
 		 
 		
@@ -308,7 +308,7 @@ public class Registered_User extends DriverLoad  {
 		
 	 }
 	
-	@Test (priority = 2, groups = {"Sanity"})
+	@Test (priority = 2, groups = {"Sanity","BS_Sanity"})
 	  public void Create_User() throws Exception {
 		 
 
@@ -360,7 +360,7 @@ public class Registered_User extends DriverLoad  {
 		
 	}
 	
-	@Test (priority = 3, groups = {"Sanity"}) 
+	@Test (priority = 3, groups = {"Sanity","BS_Sanity"}) 
 	  public void Edit_User () throws Exception {
 		
 
@@ -436,7 +436,7 @@ public class Registered_User extends DriverLoad  {
 */	
 	
 	
-	@Test (priority = 5, groups = {"Sanity"})
+	@Test (priority = 5, groups = {"Sanity","BS_Sanity"})
 	public void Domain_Name_Ordering () throws Exception {
 		
 

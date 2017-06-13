@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
+import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 
 import org.testng.annotations.BeforeSuite;
@@ -18,10 +19,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries extends DriverLoad {
+public class SQL_Queries extends BrowserStack {
 	
 	
-	@Test (priority = 1, groups = {"SQL"})
+	@Test (priority = 1, groups = {"SQL","BS_Sanity"})
 	  public void SQL_DeleteAccount () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -65,7 +66,7 @@ public class SQL_Queries extends DriverLoad {
 		  
 	  }
 	  
-	  @Test (priority = 2, groups = {"SQL"})
+	  @Test (priority = 2, groups = {"SQL","BS_Sanity"})
 	  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -138,7 +139,7 @@ public class SQL_Queries extends DriverLoad {
 	  }	
 */
 	  
-	  @Test (priority = 4, groups = {"SQL"})
+	  @Test (priority = 4, groups = {"SQL","BS_Sanity"})
 	  public void SQL_Certificate_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -166,7 +167,7 @@ public class SQL_Queries extends DriverLoad {
 		  
 	  }	
 	  
-	  @Test (priority = 5, groups = {"SQL"})
+	  @Test (priority = 5, groups = {"SQL","BS_Sanity"})
 	  public void SQL_DomainName_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
