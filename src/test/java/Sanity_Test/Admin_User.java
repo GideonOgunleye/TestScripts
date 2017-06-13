@@ -49,53 +49,25 @@ public class Admin_User extends BrowserStack {
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
 	
-  @BeforeMethod (groups = {"Sanity"})
-  public void Admin_Login() throws Exception {
+  @BeforeMethod (groups = {"Sanity","Smoke"})
+  public void Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  
-	//Log in As Administrator
-		 Properties prop = new Properties();
-		 FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
+	  LoginPageElements.AdminLogin();
 		 
-		 //test = report.startTest("Admin_Login");
-		 //test.log(LogStatus.INFO, "Browser Started...");
-		 
-		 prop.load(fis);
-		 
-		 report = ExtentFactory.getInstance(); 
-
-		 driver.get(prop.getProperty("Url")); 
-		 driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		 driver.manage().window().maximize();
-		 String title = driver.getTitle();				 
-		 Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-/*						
-		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		 driver.findElement(By.linkText("Login")).click();
-		// test.log(LogStatus.INFO, "Click on login Link");
-		 
-		 driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		 driver.findElement(By.name("data[User][email]")).sendKeys(prop.getProperty("Username"));
-		 //test.log(LogStatus.INFO, "Enter Admin Username");
-		 
-		 driver.findElement(By.name("data[User][password]")).sendKeys(prop.getProperty("Password"));
-		 //test.log(LogStatus.INFO, "Enter Admin Password");
-		 
-		 driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
-		 //test.log(LogStatus.INFO, "Click on Login Button");
-*/		 
-		 LoginPageElements.clickLoginLink();
-		 LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		 LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		 LoginPageElements.ClickLoginButton();
+	  report = ExtentFactory.getInstance(); 
+	  //LoginPageElements.ClickLoginLink();
+	 // LoginPageElements.EnterUserName(prop.getProperty("Username"));
+	 // LoginPageElements.EnterPassword(prop.getProperty("Password"));
+	 // LoginPageElements.ClickLoginButton();
 		 
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Somke"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -112,7 +84,9 @@ public class Admin_User extends BrowserStack {
 	  
 	  
 	  /*User Log Out*/
-	  Thread.sleep(15000);
+	  driver.navigate().refresh();
+	  Thread.sleep(5000);
+	  
 	  LoginPageElements.ClickAdminLogoutButton();
 	  test.log(LogStatus.INFO, "Admin User Logged Out");
 	  
@@ -120,6 +94,32 @@ public class Admin_User extends BrowserStack {
 	  report.flush();
 	  return destination;
   }
+  
+  @Test (priority = 0, groups = {"Smoke"})
+  public void Admin_LogIn() throws Exception{
+
+	  report = ExtentFactory.getInstance3();
+	 // LoginPageElements.AdminLogin();
+		
+	  test = report.startTest("New User Test --> Admin Login/LogOut");
+	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	  
+	  Thread.sleep(5000);
+	  
+	 // String StatusMsg = "MySSL® » Dashboard";	
+	  if (LoginPageElements.AdminPageValidation()) {
+			
+			test.log(LogStatus.PASS, "Admin Successfully Signed");
+			
+		}else {
+			
+			test.log(LogStatus.FAIL, "Admin not Successfully Signed");
+		}
+	  
+	  //LoginPageElements.ClickAdminLogoutButton();
+	  
+  }
+
   
   @Test (groups = {"Sanity"})
   public void Edit_Account_User() throws Exception{
@@ -288,10 +288,11 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @Test (groups = {"Sanity"})
+  @Test (groups = {"Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
+	  		report = ExtentFactory.getInstance3();
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
 	  

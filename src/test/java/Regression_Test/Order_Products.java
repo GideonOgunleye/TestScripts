@@ -71,7 +71,7 @@ public class Order_Products extends DriverLoad {
 		String title = driver.getTitle();				 
 		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
 		
-		LoginPageElements.clickLoginLink();
+		LoginPageElements.ClickLoginLink();
 		LoginPageElements.EnterUserName(prop.getProperty("Username"));
 		LoginPageElements.EnterPassword(prop.getProperty("Password"));
 		LoginPageElements.ClickLoginButton();

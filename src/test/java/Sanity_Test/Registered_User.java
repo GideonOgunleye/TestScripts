@@ -8,10 +8,12 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
+import PageFactory.CsR;
 import PageFactory.DriverLoad;
 //import net.sf.cglib.core.Local;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
+import PageFactory.NavigationLinks;
 import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeTest;
@@ -51,6 +53,8 @@ public class Registered_User extends BrowserStack  {
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
+	CsR CsrElements;
+	NavigationLinks NavigationElements;
 	
 	@BeforeMethod (groups = {"Sanity","BS_Sanity"})
 	public void User_Login () throws Exception {
@@ -59,25 +63,12 @@ public class Registered_User extends BrowserStack  {
 		LoginPageElements = new LoginPage(driver);
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
+		CsrElements = new CsR(driver);
+		NavigationElements = new NavigationLinks(driver);
 		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
+		LoginPageElements.ClientLogin();
 		
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
-		
-		LoginPageElements.clickLoginLink();
-		LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		LoginPageElements.ClickLoginButton();
-			
-		Thread.sleep(5000);
-		
+		Thread.sleep(5000);		
 	}
 
 	
@@ -96,7 +87,8 @@ public class Registered_User extends BrowserStack  {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		Thread.sleep(15000);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
 		
 		LoginPageElements.ClickLogoutButton();
 		test.log(LogStatus.INFO, "User Logged Out");
@@ -112,12 +104,12 @@ public class Registered_User extends BrowserStack  {
 	@Test (priority = 1, groups = {"Sanity","BS_Sanity"})
 	  public void Order_RapidSSL() throws Exception {
 		 
-		
+		/*
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
-
+*/
 		System.out.println("Order Cert Started!");
 		
 		test = report.startTest("Registered User Test --> Order_RapidSSL");
@@ -125,10 +117,8 @@ public class Registered_User extends BrowserStack  {
 		
 		//Navigate to product page//
 		//Thread.sleep(15000);
+	  //Click to Order RapidSSL Product
 		sslDashBoardElements.ClickMyProductsLink();
-	
-				
-		//Click to Order RapidSSL Product
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[3]/a")).click();
 		test.log(LogStatus.INFO, "Product Page Opened");
@@ -178,59 +168,20 @@ public class Registered_User extends BrowserStack  {
 		WebElement Button;
 		Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
 		Button.click();
+
 		
-		WebDriverWait wait2 = new WebDriverWait(driver, 50);	
-		WebElement Csr;
-		Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
-		Csr.sendKeys(prop.getProperty("Para1"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para2"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para3"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para4"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para5"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para6"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para7"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para8"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para9"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para10"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para11"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para12"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para13"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para14"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para15"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para16"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para17"));
-		Csr.sendKeys(Keys.ENTER);
-		
-		WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
-		Decoder.click();
-		
-		WebElement DecoderStatus;
-		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.id("useCsrInfo")));
-		DecoderStatus.click();
+		CsrElements.LoadCsR();
+		CsrElements.ClickDecoder();
 		Thread.sleep(10000);
-		
+		CsrElements.ClickDecoderPopUp();
+		Thread.sleep(10000);
+			
 		System.out.println("Sleep Over");
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-250)", "");
+		jse.executeScript("window.scrollBy(0,-500)", "");
 		
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		
 		
 		/*-----Fillm in Admin Tab-----------------------*/
@@ -294,17 +245,9 @@ public class Registered_User extends BrowserStack  {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-			
-		WebElement SendStatus;
-		SendStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-		SendStatus.click();
-	  	
+  	
 	  	System.out.println("Order Cert Completed!");
 				
-		// Log Out
-		//Thread.sleep(15000);
-		//driver.findElement(By.linkText("Logout")).click();
-		//Thread.sleep(15000);
 		
 	 }
 	
@@ -317,16 +260,8 @@ public class Registered_User extends BrowserStack  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//1-Navigate and click on My Users
-		
-		WebDriverWait wait = new WebDriverWait(driver, 20);	
-		WebElement Myusers;
-		Myusers = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")));
-		Myusers.click();
-		test.log(LogStatus.INFO, "My End Users Page Opened");
-		
-		//Thread.sleep(15000);
-		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
 		sslDashBoardElements.ClickMyUsersLink();
+		test.log(LogStatus.INFO, "My End Users Page Opened");
 				
 		//2-Navigate and Click on New Users
 		Thread.sleep(5000);
@@ -384,8 +319,6 @@ public class Registered_User extends BrowserStack  {
 		driver.findElement(By.name("data[User][firstname]")).sendKeys("qa@ssl247.co.uk");
 		
 		WebElement address = driver.findElement(By.xpath(".//*[@id='UserRole']"));
-		//builder.click(address);
-		//builder.build().perform();
 		Select Role = new Select(address);
 		Role.selectByIndex(0);
 		
@@ -542,19 +475,27 @@ public class Registered_User extends BrowserStack  {
 		Thread.sleep(5000);
 		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[1]/div/div[1]/table/tbody/tr[5]/td/a")).click();
 		driver.findElement(By.xpath(".//*[@class='actions']/a")).click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		
 		//Click on Admin Tab
+		
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-admin-contact-tab']")).click();
 		
 		//Fill in the Required Information
 		WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
 		Select Name = new Select(AdContact);
 		Name.selectByVisibleText("Mr Quality Assurance Tester");
-		
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
+		//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
+		
+		System.out.println("Filled Admin Tab");
 		
 		//Click on Technical Tab
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-technical-contact-tab']")).click();
 		
 		//Fill in Required Information
@@ -565,6 +506,9 @@ public class Registered_User extends BrowserStack  {
 		driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
 		
 		//Click on Owner Tab
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-owner-contact-tab")).click();
 		
 		//Fill in Required Information
@@ -576,6 +520,8 @@ public class Registered_User extends BrowserStack  {
 		test.log(LogStatus.PASS, "Order Completed");
 				
 		//Click on Save Changes
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(5000);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);

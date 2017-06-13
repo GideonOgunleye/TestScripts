@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test 3(failed)">
-    <parameter name="environment" value="Edge"/>
-    <parameter name="config" value="Sanity_NewUser.json"/>
+  <test name="Test 2(failed)">
     <groups>
       <run>
         <include name="Sanity"/>
@@ -11,15 +9,15 @@
       </run>
     </groups>
     <classes>
-      <class name="Sanity_Test.New_User">
+      <class name="Sanity_Test.Registered_User">
         <methods>
-          <include name="Ask_a_question"/>
-          <include name="setUp"/>
-          <include name="Log_Out_New_User"/>
-          <include name="Aftermethod"/>
-          <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="User_Login"/>
+          <include name="afterTest"/>
+          <include name="Order_RapidSSL"/>
+          <include name="User_Logout"/>
         </methods>
-      </class> <!-- Sanity_Test.New_User -->
+      </class> <!-- Sanity_Test.Registered_User -->
     </classes>
-  </test> <!-- Test 3(failed) -->
+  </test> <!-- Test 2(failed) -->
 </suite> <!-- Failed suite [Suite] -->

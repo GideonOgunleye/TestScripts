@@ -32,7 +32,7 @@ public class ExtentFactory {
 	public static ExtentReports getInstance3() {
 		ExtentReports extent;
 
-		String Path = "C:\\Users\\Gideon Okunleye\\workspace\\SSL247_Test\\test-output\\Extent Report\\Sanity Test Live.html";
+		String Path = "C:\\ExtentReport\\Smoke Test.html";
 
 		extent = new ExtentReports (Path, false);
 		

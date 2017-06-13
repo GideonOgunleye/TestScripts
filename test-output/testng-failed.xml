@@ -3,17 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Sanity_Test.Admin_User">
+      <class name="Sanity_Test.SubNav_Test">
         <methods>
-          <include name="Send_Change_Password_Request_Email"/>
+          <include name="beforeMethod"/>
           <include name="beforeTest"/>
-          <include name="Admin_Login"/>
-          <include name="Log_Out"/>
-          <include name="Send_Fulfillment_Email"/>
-          <include name="Edit_Account_User"/>
+          <include name="VerSign_Link_Test"/>
           <include name="afterTest"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- Sanity_Test.Admin_User -->
+      </class> <!-- Sanity_Test.SubNav_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

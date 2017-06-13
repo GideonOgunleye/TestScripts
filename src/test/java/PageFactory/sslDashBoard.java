@@ -1,15 +1,27 @@
 package PageFactory;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import org.testng.Assert;
 
 
 public class sslDashBoard extends DriverLoad {
+	ExtentReports report;
+	ExtentTest test;
 	
+	
+	/*****Side Nave*******/
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]/a")
 	WebElement MyBasketsLink;
 	
@@ -44,6 +56,11 @@ public class sslDashBoard extends DriverLoad {
 	WebElement AccountEndUsersLink;
 	
 	
+	/********Page Elements**********/
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
+	WebElement PageHeader;
+	
+	
 	public sslDashBoard(WebDriver driver){
 		
 		this.driver = driver;
@@ -51,6 +68,15 @@ public class sslDashBoard extends DriverLoad {
 		//PageFactory.initElements(driver, this);
 		
 	}
+	
+	
+	public boolean PageValidation () {
+		
+		return PageHeader.isDisplayed();
+		
+	}
+	
+	
 	
 	public void ClickMyBasketsLink(){
 		
@@ -99,12 +125,20 @@ public class sslDashBoard extends DriverLoad {
 	
 	public void ClickMyUsersLink() {
 		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)", "");
 		MyUsersLink.click();
 	}
 	
 	public void ClickAccountEndUsersLink() {
 		
 		AccountEndUsersLink.click();
+	}
+	
+	public String PageHeaderAssert() {
+		
+		return PageHeader.getText();
+	
 	}
 
 }
