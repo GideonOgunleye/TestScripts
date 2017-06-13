@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
@@ -27,7 +28,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class MainNav_Test extends DriverLoad {
+public class MainNav_Test extends BrowserStack {
   
 	ExtentReports report;
 	ExtentTest test;

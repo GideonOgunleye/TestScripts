@@ -72,7 +72,7 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity", "BS_Sanity", "BS_Regression"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity", "BS_Sanity"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	    //Take Screen Shots

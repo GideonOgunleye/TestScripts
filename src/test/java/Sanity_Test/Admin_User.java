@@ -67,7 +67,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Somke"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -95,7 +95,7 @@ public class Admin_User extends BrowserStack {
 	  return destination;
   }
   
-  @Test (priority = 0, groups = {"Smoke"})
+  @Test (priority = 0, groups = {"Sanity","Smoke"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -288,7 +288,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @Test (groups = {"Smoke"})
+  @Test (groups = {"Sanity","Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View

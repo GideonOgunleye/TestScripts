@@ -55,7 +55,7 @@ public class New_User extends BrowserStack  {
 	CsR CsrElements;
 	Cookies CookiesElement;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
 	public void Load_Homepage () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -71,8 +71,8 @@ public class New_User extends BrowserStack  {
 		
 		Thread.sleep(5000);		
 	}
-*/	
-	@AfterMethod (groups = {"Sanity","BS_Sanity"},alwaysRun = true)
+	
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
 		String filename = result.getMethod().getMethodName() +".png";
@@ -99,7 +99,7 @@ public class New_User extends BrowserStack  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Sanity","BS_Sanity"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Sanity","Smoke","BS_Sanity"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 	
 /*		
@@ -220,15 +220,14 @@ try		{
 		
 	}
 	
-  @Test (priority = 1, groups = {"Sanity","BS_Sanity"})
-  public void Log_Out_New_User (){
+  @Test (priority = 1, groups = {"Sanity","Smoke","BS_Sanity"})
+  public void Log_Out_New_User () throws Exception{
 	  
 	  LoginPageElements = new LoginPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  
 	  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
-	   * 
-	   */
+	  
 	 
 	 // report = ExtentFactory.getInstance(); 
 	  report = ExtentFactory.getInstance3();
@@ -254,80 +253,8 @@ try		{
   }
 
  
- 		//Create Connection to DB		
-  	Connection con = DriverManager.getConnection(dbUrl,username,password);
-  	Statement stmt = con.createStatement();	
-  	stmt.execute(query2);
-  	System.out.println("Account Has Been Deleted");
-  	
-/*
-		//Create Statement Object		
-	   Statement stmt = con.createStatement();	
-	   	   
-			// Execute the SQL Query. Store results in ResultSet		
-		ResultSet rs= stmt.executeQuery(query2);							
-
-		// While Loop to iterate through all data and print results		
-		while (rs.next()){
-	        	  String AccCode = rs.getString("account_code");								        
-                  String name = rs.getString("name");					                               
-                  System. out.println(AccCode+"  "+name);		
-          }		
-		
-		 // closing DB Connection		
-		con.close();		  
-  }
-  
-  
-  
-  @Test (priority = 2, groups = {"SQL"})
-  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
-	  
-		//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
-      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
-
-		//Database Username		
-		String username = "gogunleye";	
-      
-		//Database Password		
-		String password = "n8hY5HqCkd7suLSM";				
-
-		//Query to Execute		
-		//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
-		String query2 = "delete from bakewell_staging_go.users Where email ='QATester2@ssl247-test.com';";
-      
-	    //Load mysql jdbc driver		
- 	    Class.forName("com.mysql.jdbc.Driver");			
  
- 		//Create Connection to DB		
-  	Connection con = DriverManager.getConnection(dbUrl,username,password);
-  	Statement stmt = con.createStatement();	
-  	stmt.execute(query2);
-  	System.out.println("User Has Been Deleted");
-  	
-/*
-		//Create Statement Object		
-	   Statement stmt = con.createStatement();	
-	   	   
-			// Execute the SQL Query. Store results in ResultSet		
-		ResultSet rs= stmt.executeQuery(query2);							
-
-		// While Loop to iterate through all data and print results		
-		while (rs.next()){
-	        	  String AccCode = rs.getString("account_code");								        
-                  String name = rs.getString("name");					                               
-                  System. out.println(AccCode+"  "+name);		
-          }		
-		
-		 // closing DB Connection		
-		con.close();		
-	  
-  }
-	
- */
- 
- 
-  @Test (priority = 2, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 2, groups = {"Sanity","Smoke","BS_Sanity"})
   public void Get_in_Touch () throws Exception {
 	  
 	  
@@ -359,7 +286,7 @@ try		{
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  }
 	  
-  @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 3, groups = {"Sanity","Smoke","BS_Sanity"})
   public void Ask_a_question () throws Exception {
 	  
 	 report = ExtentFactory.getInstance3();
@@ -421,7 +348,7 @@ try		{
     
   }
   
-  @Test (priority = 4, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 4, groups = {"Sanity","Smoke","BS_Sanity"})
   public void Request_a_Bronchure () throws Exception {
 	   
 	report = ExtentFactory.getInstance3();
@@ -456,7 +383,7 @@ try		{
 	  
   }
   
-  @Test (priority = 5, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 5, groups = {"Sanity","Smoke","BS_Sanity"})
   public void Request_a_PenTest_Proposal() throws Exception{
 	  
 	report = ExtentFactory.getInstance3();
