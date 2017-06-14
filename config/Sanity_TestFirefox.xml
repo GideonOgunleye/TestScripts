@@ -9,13 +9,13 @@
  </groups> 
    
   
- <test name="Test 2">
+ <!--<test name="Test 2">
   		<parameter name="config" value="Sanity_RegisteredUser.json"/>
         <parameter name="environment" value="Firefox"/>  
     <classes>
         <class name="Sanity_Test.Registered_User"/>
     </classes>
-  </test> <!-- Test -->
+  </test>  Test -->
   
   <test name="Test 3">
  		<parameter name="config" value="Sanity_NewUser.json"/>
@@ -25,11 +25,11 @@
    </classes> 
   </test><!--  Test --> 
   
-  <test name="Test 4">
+ <!-- <test name="Test 4">
      <classes>
       <class name="Sanity_Test.SQL_Queries"/>
    </classes> 
-  </test><!--  Test -->
+  </test>  Test -->
   
   
 </suite> <!-- Suite -->

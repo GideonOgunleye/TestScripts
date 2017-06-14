@@ -102,7 +102,7 @@ public class LoginPage extends DriverLoad {
 		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
-		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		String Status = driver.getTitle();
 		Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
 
@@ -161,9 +161,24 @@ public class LoginPage extends DriverLoad {
 	public void ClickLoginButton() {
 		
 		LoginButton.click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		
 	}
 	
+	public void LogoutAssert () {
+		
+		Assert.assertTrue(LogoutButton.getText().contains("Logout"));
+	}
+	
+	public boolean LogoutButtonIsVisible () {
+		
+		return LogoutButton.getText().contains("Logout");
+		
+	}
+	
+	
 	public void ClickLogoutButton() {
+		
 		
 		LogoutButton.click();
 			
@@ -172,5 +187,7 @@ public class LoginPage extends DriverLoad {
 	public void ClickAdminLogoutButton() {
 		
 		AdminLogoutButton.click();
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		Assert.assertTrue(driver.getTitle().contains("MySSL® Account Login"));
 	}
 }

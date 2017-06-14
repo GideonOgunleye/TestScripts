@@ -1,5 +1,7 @@
 package PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -64,18 +66,36 @@ public class sslDashBoard extends DriverLoad {
 	public sslDashBoard(WebDriver driver){
 		
 		this.driver = driver;
-		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 100), this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
 		//PageFactory.initElements(driver, this);
 		
 	}
 	
 	
-	public boolean PageValidation () {
+	public boolean PageIsVisible() {
 		
 		return PageHeader.isDisplayed();
 		
-	}
+		/*
+		try {
+  			
+  			if (PageHeader.isDisplayed()) {
+  				
+  				PageHeaderAssert();
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				System.out.println("Dashboard Page Opened");
+				
+  			}
+           
+        } catch(Exception e) {
+        	
+        	System.out.println("Dashboard Page Not Opened");
 	
+        }
+		
+		*/
+	}
+
 	
 	
 	public void ClickMyBasketsLink(){
@@ -135,9 +155,9 @@ public class sslDashBoard extends DriverLoad {
 		AccountEndUsersLink.click();
 	}
 	
-	public String PageHeaderAssert() {
+	public void PageHeaderAssert() {
 		
-		return PageHeader.getText();
+		Assert.assertTrue(driver.getTitle().contains("MySSL® » Dashboard"));
 	
 	}
 

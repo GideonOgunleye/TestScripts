@@ -47,7 +47,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends BrowserStack  {
+public class Registered_User extends DriverLoad  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -111,25 +111,52 @@ public class Registered_User extends BrowserStack  {
 		 
 		 // report = ExtentFactory.getInstance(); 
 		  report = ExtentFactory.getInstance3();
-		  LoginPageElements.ClientLogin();
 			
 		  test = report.startTest("New User Test --> User Login");
 		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 		  
+		  //LoginPageElements.ClientLogin();
+		  
 		  Thread.sleep(5000);
 		  
-		  String StatusMsg = "MySSL® » Dashboard";	
-		  if (sslDashBoardElements.PageHeaderAssert().contains(StatusMsg)) {
+		  try {
 				
-				test.log(LogStatus.PASS, "User Sucessfully Signed");
+				if (sslDashBoardElements.PageIsVisible()) {
 				
-			}else {
-				
-				test.log(LogStatus.FAIL, "User not Sucessfully Signed");
-			}
+					sslDashBoardElements.PageHeaderAssert();
+					driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+					test.log(LogStatus.PASS, "User Successfully Registered");
+					System.out.println("Dashboard Page Opened");
+					LoginPageElements.ClickLogoutButton();
+					
+				}
+			
+			}catch(Exception e) {
+				System.out.println("Dashboard Page Not Opened");
+				test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
+				sslDashBoardElements.PageHeaderAssert();
+			
+				}
+		    
 		  
-		  LoginPageElements.ClickLogoutButton();
-		  test.log(LogStatus.INFO, "User Logged Out");
+/*		 
+				
+				if (LoginPageElements.LogoutButtonIsVisible()) {
+				
+					LoginPageElements.ClickLogoutButton();
+					test.log(LogStatus.PASS, "User Successfully Logged Out");
+					LoginPageElements.LogoutAssert();
+				
+			
+			}else {
+				System.out.println("LogOut Button Not Visible");
+				test.log(LogStatus.FAIL, "User Logged Out Not Successfull");
+				LoginPageElements.LogoutAssert();
+			
+				}
+	*/		
+			
+		  
 	  }
 
 	
