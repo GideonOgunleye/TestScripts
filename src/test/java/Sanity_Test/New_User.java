@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.AlertBox;
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.Cookies;
@@ -46,7 +47,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends DriverLoad  {
+public class New_User extends BrowserStack  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -56,6 +57,7 @@ public class New_User extends DriverLoad  {
 	CsR CsrElements;
 	Cookies CookiesElements;
 	NavigationLinks NavigationElements;
+	AlertBox AlertBoxElements;
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
 	public void Load_Homepage () throws Exception {
@@ -67,6 +69,7 @@ public class New_User extends DriverLoad  {
 		CsrElements = new CsR(driver);
 		CookiesElements = new Cookies(driver);
 		NavigationElements = new NavigationLinks(driver);
+		AlertBoxElements = new AlertBox(driver);
 		
 		LoginPageElements.LoadLoginPage();
 		
@@ -90,8 +93,8 @@ public class New_User extends DriverLoad  {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		Thread.sleep(5000);
 		driver.navigate().refresh();
+		Thread.sleep(1000);
 		System.out.println("Page Refreshed");
 		
 	
@@ -164,113 +167,70 @@ public class New_User extends DriverLoad  {
 	  	
 		}
 		
+		/*Verify Registration*/
 		
-		try {
-			
-			if (sslDashBoardElements.PageIsVisible()) {
-			
-				sslDashBoardElements.PageHeaderAssert();
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				test.log(LogStatus.PASS, "User Successfully Registered");
-				System.out.println("Dashboard Page Opened");
+		//WebDriverWait wait = new WebDriverWait(driver, 20);	
+		String LoginMsg = "Thank you for registering, you are now logged into your MySSL account";
+		String LogOutMsg = "You are now logged out of your MySSL® account";
+	    ///Thread.sleep(100);
+	    
+	    try {
+	    	  
+	    	if (AlertBoxElements.AlertIsVisible()) {
+	    		
+	    		test.log(LogStatus.PASS, "Submit Message Displayed");
+	    	}
+	    		
+	    		}catch (Exception e) {
+	    			
+	    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
+	    			Assert.assertTrue(AlertBoxElements.VerifyAlert(LoginMsg));
+	    		}
+	    
+	 
+	    try {
+		  
+	    	
+	    	if (AlertBoxElements.VerifyAlert(LoginMsg)) {
 				
-			}
-		
-		}catch(Exception e) {
-			System.out.println("Dashboard Page Not Opened");
-			test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
-			sslDashBoardElements.PageHeaderAssert();
-		
-			}
-	
-		
-	
-	/*		
-			if (driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/inputzzz")).isDisplayed()) {
+				test.log(LogStatus.PASS, "Form Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(LoginMsg));
+	    	}
 			
-				driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/inputzzz")).click();
-				driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		  		System.out.println(" Submit Button Clicked");
-			
-		
-		}else {
-			
-			System.out.println("Submit Button Not Visible");
-			test.log(LogStatus.FAIL, "Submit Button Not Visible");
-	  	
-		}
-*/		
-
-/*		
-		try {
-			
-			if (Submit.isDisplayed()) {
-			
-				Submit.click();
-				driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		  		System.out.println(" Submit Button Clicked");
-		  		
-		  		try {
-		  			
-		  			if (sslDashBoardElements.PageIsVisible()) {
-		  				
-		  				sslDashBoardElements.PageHeaderAssert();
-						driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-						test.log(LogStatus.PASS, "User Successfully Registered");
-						System.out.println("Dashboard Page Opened");
-						driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-						LoginPageElements.ClickLogoutButton();
-		  			}
-		           
-		        } catch(Exception e) {
-		        	
-		        	System.out.println("Dashboard Page Not Opened");
-					test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
-		        }
-			}
-		
-		}catch(Exception e) {
-			
-			System.out.println("Page Not Opened");
-			test.log(LogStatus.FAIL, "Page Not Opened");
-	  	
-		}
-	*/	
-		
-	
-/*	
-		try {
-			
-			if (sslDashBoardElements.PageValidation()) {
-			
-				Assert.assertTrue(sslDashBoardElements.PageHeaderAssert().contains("MySSL® » Dashboard"));
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				test.log(LogStatus.PASS, "User Successfully Registered");
-				System.out.println("Dashboard Page Opened");
+				}catch (Exception e) {
 				
-			}
-		
-		}catch(Exception e) {
-			System.out.println("Dashboard Page Not Opened");
-			test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
-		
-			}
-*/		
+					test.log(LogStatus.FAIL, "Form Not Submitted");
+					Assert.assertTrue(AlertBoxElements.VerifyAlert(LoginMsg));
+				}
+	
+				
 	
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	
 	
-		
+		/*Verify Logout*/
 		if (LoginPageElements.LogoutButtonIsVisible()) {
 		
 			LoginPageElements.ClickLogoutButton();
-			test.log(LogStatus.PASS, "Client Log Out Sucessfull");
-			LoginPageElements.LogoutAssert();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			AlertBoxElements.AlertPrint();
+			
+			
+			if (AlertBoxElements.VerifyAlert(LogOutMsg)){
+				
+				test.log(LogStatus.PASS, "Log Out Message Does Not Match");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
+				
+			}else {
+				
+				test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
+			}
 	
-	}else {
-		System.out.println("LogOut Button Not Visible");
-		test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
-		LoginPageElements.LogoutAssert();
+		}else {
+			System.out.println("LogOut Button Not Visible");
+			test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
 	
 		}
 
@@ -317,46 +277,39 @@ public class New_User extends DriverLoad  {
 	    Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
 		
-		WebDriverWait wait = new WebDriverWait(driver, 40);	
+		
 		String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
-		WebElement Alert = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-		CookiesElements.CheckCookies();
-		System.out.println("Status Message is:" + Alert.getText());
-		 
-			if (Alert.getText().contains(StatusMsg)) {
-					
-					test.log(LogStatus.PASS, "Form Submitted");
-					 Assert.assertTrue(Alert.getText().contains(StatusMsg));
-				
-				
-				}else {
-					
-					test.log(LogStatus.FAIL, "Form Not Submitted");
-					Assert.assertTrue(Alert.getText().contains(StatusMsg));
-				}
 		
-		
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		
-/*		
-	
-		if (GetInTouchForm.isDisplayed()) {
-			
-			test.log(LogStatus.FAIL, "Form Not Sent Sucessfully");
-			
+		try {
+	    	  
+	    	if (AlertBoxElements.AlertIsVisible()) {
+	    		
+	    			
+	    			test.log(LogStatus.PASS, "Submit Message Displayed");
+	    	}
+	    		
+	    		}catch (Exception e) {
+	    			
+	    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
+	    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+	    		}
 
-		
-	}else {
+	 
+	    try {
+		  
+	    	
+	    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
+				
+				test.log(LogStatus.PASS, "Form Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+	    	}
 			
-			test.log(LogStatus.PASS, "Form Sent Sucessfully");
-		}
-*/		
-		
-/*	
-	WebDriverWait wait = new WebDriverWait(driver, 40);	
-	WebElement Statusmessage = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-    Assert.assertTrue(Statusmessage.getText().contains("Your query is being processed - we will be in touch with a response shortly."));
-*/			
+				}catch (Exception e) {
+				
+					test.log(LogStatus.FAIL, "Form Not Submitted");
+					Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+				}
+				
 	  }
 	  
   @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
@@ -404,23 +357,38 @@ public class New_User extends DriverLoad  {
 		
 	}
    	
-    //driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
-    WebElement Alert = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
     Thread.sleep(100);
-    System.out.println("Status Message is:" + Alert.getText());
+    
+    try {
+  	  
+    	if (AlertBoxElements.AlertIsVisible()) {
+    		
+    			
+    			test.log(LogStatus.PASS, "Submit Message Displayed");
+    	}
+    		
+    		}catch (Exception e) {
+    			
+    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
+    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    		}
+
  
-	if (Alert.getText().contains(StatusMsg)) {
+    try {
+	  
+    	
+    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
 			
 			test.log(LogStatus.PASS, "Form Submitted");
-			 Assert.assertTrue(Alert.getText().contains(StatusMsg));
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    	}
 		
-		
-		}else {
+			}catch (Exception e) {
 			
-			test.log(LogStatus.FAIL, "Form Not Submitted");
-			Assert.assertTrue(Alert.getText().contains(StatusMsg));
-		}
+				test.log(LogStatus.FAIL, "Form Not Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+			}
     
     
   }
@@ -442,11 +410,11 @@ public class New_User extends DriverLoad  {
 	//Fill in the form
 	Thread.sleep(1000);
 	WebDriverWait wait = new WebDriverWait(driver, 20);	
-	String StatusMsg = "Request a Brochure";
-	WebElement BronchureForm = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
+	String Msg = "Request a Brochure";
+	WebElement BronchureForm = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='requestBrochureForm']/div[1]/h3")));
 	System.out.println("Status Message is:" + BronchureForm.getText());
 	
-	if (BronchureForm.getText().contains(StatusMsg)) {
+	if (BronchureForm.getText().contains(Msg)) {
 		
 		test.log(LogStatus.PASS, "Form Opened");
 		
@@ -461,24 +429,47 @@ public class New_User extends DriverLoad  {
 	driver.findElement(By.name("request_brochure_firstname")).sendKeys("Gideon");
 	driver.findElement(By.name("request_brochure_lastname")).sendKeys("Ogunleye");
 	driver.findElement(By.name("request_brochure_email")).sendKeys("qa@ssl247.co.uk");
-	driver.findElement(By.name("request_brochure_address_1")).sendKeys("Qatester");
-	driver.findElement(By.name("request_brochure_city")).sendKeys("Qatester");
-	driver.findElement(By.name("request_brochure_postcode")).sendKeys("Qatester");
-	Thread.sleep(1000);
+	driver.findElement(By.name("request_brochure_address_1")).sendKeys("63 Lisson St, Marylebone");
+	driver.findElement(By.name("request_brochure_city")).sendKeys("London");
+	driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
+	Thread.sleep(5000);
 	driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
-	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[1]")).click();
 	
-	if (BronchureForm.isDisplayed()) {
+	String StatusMsg = "Thank you, your brochure has been requested";
+    
+    
+  	  
+	try {
+  	  
+    	if (AlertBoxElements.AlertIsVisible()) {
+    		
+    		test.log(LogStatus.PASS, "Submit Message Displayed");
+    	}
+    		
+    		}catch (Exception e) {
+    			
+    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
+    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    		}
+
+
+    try {
+	  
+    	
+    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
+			
+    		AlertBoxElements.AlertPrint();
+			test.log(LogStatus.PASS, "Form Submitted");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    	}
 		
-		test.log(LogStatus.FAIL, "Form Not Submitted");
-		
-	}else {
-		
-		test.log(LogStatus.PASS, "Form Submitted");
-	}
-	
-	//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			}catch (Exception e) {
+			
+				test.log(LogStatus.FAIL, "Form Not Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+			}
+
+    
 	  
   }
   
@@ -498,10 +489,10 @@ public class New_User extends DriverLoad  {
 			
 	//Fill in the form
 	Thread.sleep(1000);
-	String StatusMsg = "Request a Free proposal";
+	String Msg = "Request a Free proposal";
 	WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[1]/h3"));
 	
-	if (ProposalForm.getText().contains(StatusMsg)) {
+	if (ProposalForm.getText().contains(Msg)) {
 		
 		test.log(LogStatus.PASS, "Form Opened");
 		
@@ -513,28 +504,50 @@ public class New_User extends DriverLoad  {
 	WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
 	Select Tl = new Select(Title);
 	Tl.selectByVisibleText("Mrs");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[2]/div/input")).sendKeys("Quality");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[3]/div/input")).sendKeys("Assurance Tester");
+	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[2]/div/input")).sendKeys("Gideon");
+	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[3]/div/input")).sendKeys("Ogunleye");
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[5]/div/input")).sendKeys("qa@ssl247.co.uk");
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[6]/div/input")).sendKeys("0123456789");
 	WebElement RequiredBx = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[7]/div/label[3]/input"));
 	RequiredBx.click();
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[8]/div/textarea")).sendKeys("This message is for testing purposes and only. thanks");
+	Thread.sleep(5000);
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
-	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[2]")).click();
 	
-	if (ProposalForm.isDisplayed()) {
+	String StatusMsg = "Your query is being processed";
+    Thread.sleep(100);
+    
+	try {
+  	  
+    	if (AlertBoxElements.AlertIsVisible()) {
+    		
+    		test.log(LogStatus.PASS, "Submit Message Displayed");
+    	}
+    		
+    		}catch (Exception e) {
+    			
+    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
+    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    		}
+
+ 
+    try {
+	  
+    	
+    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
+			
+			test.log(LogStatus.PASS, "Form Submitted");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+    	}
 		
-		test.log(LogStatus.FAIL, "Form Not Sent Successfully");
-		
-	}else {
-		
-		test.log(LogStatus.PASS, "Form Sent Successfully");
-	}
+			}catch (Exception e) {
+			
+				test.log(LogStatus.FAIL, "Form Not Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+			}
+
+
 	
-	
-	//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   }
 /*  
   @BeforeTest (groups = {"Sanity"})

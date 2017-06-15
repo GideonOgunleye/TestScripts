@@ -48,6 +48,8 @@ public class Cookies extends DriverLoad {
 	}
 	
 	public void CheckCookies() {
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			
 		try {
 			
@@ -63,33 +65,17 @@ public class Cookies extends DriverLoad {
 			}
 		
 
-/*		
-		String Message = "Cookies";
 		
-		try {
-			
-			if (CookiesMsg.getText().contains(Message)) {
-			
-				CookiesButton2.click();
-				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				System.out.println("Cookies Displayed");
-			}
-		
-		}catch(Exception e) {
-			System.out.println("Cookies Not Displayed");
-			
-			}
-*/		
 	}
 	
 	public void CheckCookies2() {
 		
-	
-		String Message = "Cookies";
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		//String Message = "Cookies";
 		
 		try {
 			
-			if (CookiesMsg.getText().contains(Message)) {
+			if (CookiesButton2.isDisplayed()) {
 			
 				CookiesButton2.click();
 				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
