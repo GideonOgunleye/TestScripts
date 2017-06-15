@@ -54,7 +54,7 @@ public class New_User extends DriverLoad  {
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
 	CsR CsrElements;
-	Cookies CookiesElement;
+	Cookies CookiesElements;
 	NavigationLinks NavigationElements;
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
@@ -65,7 +65,7 @@ public class New_User extends DriverLoad  {
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
 		CsrElements = new CsR(driver);
-		CookiesElement = new Cookies(driver);
+		CookiesElements = new Cookies(driver);
 		NavigationElements = new NavigationLinks(driver);
 		
 		LoginPageElements.LoadLoginPage();
@@ -143,7 +143,7 @@ public class New_User extends DriverLoad  {
 		driver.findElement(By.name("data[User][phone]")).sendKeys(prop.getProperty("Phone"));
 		
 		Thread.sleep(5000);
-		CookiesElement.CheckCookies();
+		CookiesElements.CheckCookies();
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		//WebElement Submit = driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/inputzzz"));
 		//driver.findElement(By.xpath(".//*[@id='UserMysslRegisterForm']/div[8]/div[2]/input")).click();
@@ -316,6 +316,26 @@ public class New_User extends DriverLoad  {
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[6]/div/textarea")).sendKeys("Testing!!!");
 	    Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 40);	
+		String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
+		WebElement Alert = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
+		CookiesElements.CheckCookies();
+		System.out.println("Status Message is:" + Alert.getText());
+		 
+			if (Alert.getText().contains(StatusMsg)) {
+					
+					test.log(LogStatus.PASS, "Form Submitted");
+					 Assert.assertTrue(Alert.getText().contains(StatusMsg));
+				
+				
+				}else {
+					
+					test.log(LogStatus.FAIL, "Form Not Submitted");
+					Assert.assertTrue(Alert.getText().contains(StatusMsg));
+				}
+		
+		
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 /*		
@@ -368,10 +388,13 @@ public class New_User extends DriverLoad  {
 		test.log(LogStatus.PASS, " Form Opened");
 		Select Tl = new Select(QuestionForm);
 		Tl.selectByVisibleText("Mrs");
-		driver.findElement(By.name("first_name")).sendKeys("QA");
-		driver.findElement(By.name("last_name")).sendKeys("Tester");
+		driver.findElement(By.name("first_name")).sendKeys("Gideon");
+		driver.findElement(By.name("last_name")).sendKeys("Ogunleye");
 		driver.findElement(By.name("email")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("description")).sendKeys("Testing Testing");
+		driver.findElement(By.name("description")).sendKeys("This is is a Message");
+		CookiesElements.CheckCookies();
+		CookiesElements.CheckCookies2();
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
 		
 	}else {
@@ -380,11 +403,12 @@ public class New_User extends DriverLoad  {
 		test.log(LogStatus.FAIL, " Form Not Opened");
 		
 	}
-	
+   	
     //driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
     WebElement Alert = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-    //System.out.println("Status Message is:" + Alert.getText());
+    Thread.sleep(100);
+    System.out.println("Status Message is:" + Alert.getText());
  
 	if (Alert.getText().contains(StatusMsg)) {
 			
@@ -434,9 +458,9 @@ public class New_User extends DriverLoad  {
 	WebElement Title = driver.findElement(By.xpath(".//*[@id='request_brochure_title']"));
 	Select Tl = new Select(Title);
 	Tl.selectByVisibleText("Mrs");
-	driver.findElement(By.name("request_brochure_firstname")).sendKeys("Qatester");
-	driver.findElement(By.name("request_brochure_lastname")).sendKeys("Qatester");
-	driver.findElement(By.name("request_brochure_email")).sendKeys("Qatester");
+	driver.findElement(By.name("request_brochure_firstname")).sendKeys("Gideon");
+	driver.findElement(By.name("request_brochure_lastname")).sendKeys("Ogunleye");
+	driver.findElement(By.name("request_brochure_email")).sendKeys("qa@ssl247.co.uk");
 	driver.findElement(By.name("request_brochure_address_1")).sendKeys("Qatester");
 	driver.findElement(By.name("request_brochure_city")).sendKeys("Qatester");
 	driver.findElement(By.name("request_brochure_postcode")).sendKeys("Qatester");

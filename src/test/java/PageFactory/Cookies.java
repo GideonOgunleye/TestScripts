@@ -31,6 +31,13 @@ public class Cookies extends DriverLoad {
 	@FindBy (id="cookiesStatus")
 	public static WebElement CookiesButton;
 	
+	@FindBy (xpath="html/body/div[4]/p[1]")
+	public static WebElement CookiesMsg;
+	
+	@FindBy (xpath=".//*[@id='ackCookies']")
+	public static WebElement CookiesButton2;
+	
+	
 	
 	public Cookies(WebDriver driver){
 		
@@ -41,8 +48,7 @@ public class Cookies extends DriverLoad {
 	}
 	
 	public void CheckCookies() {
-		
-		
+			
 		try {
 			
 			if (CookiesButton.isDisplayed()) {
@@ -56,12 +62,56 @@ public class Cookies extends DriverLoad {
 			
 			}
 		
+
+/*		
+		String Message = "Cookies";
+		
+		try {
+			
+			if (CookiesMsg.getText().contains(Message)) {
+			
+				CookiesButton2.click();
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				System.out.println("Cookies Displayed");
+			}
+		
+		}catch(Exception e) {
+			System.out.println("Cookies Not Displayed");
+			
+			}
+*/		
+	}
+	
+	public void CheckCookies2() {
+		
+	
+		String Message = "Cookies";
+		
+		try {
+			
+			if (CookiesMsg.getText().contains(Message)) {
+			
+				CookiesButton2.click();
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				System.out.println("Cookies Displayed");
+			}
+		
+		}catch(Exception e) {
+			System.out.println("Cookies Not Displayed");
+			
+			}
+	
 	}
 	
 	
 	public void ClickCookiesButton(){
 			
 		CookiesButton.click();
+	}
+	
+	public void ClickCookiesButton2(){
+		
+		CookiesButton2.click();
 	}
 	
 
