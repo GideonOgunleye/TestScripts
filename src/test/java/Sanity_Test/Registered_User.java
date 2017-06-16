@@ -47,7 +47,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends DriverLoad  {
+public class Registered_User extends BrowserStack  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
