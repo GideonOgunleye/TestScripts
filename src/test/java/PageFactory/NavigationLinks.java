@@ -154,6 +154,20 @@ public class NavigationLinks extends BrowserStack {
 		
 	}
 	
+	public boolean ValidatePage(String Msg){
+		
+		return driver.getTitle().contains(Msg);
+
+	
+	}
+	
+	public void PrintPageTitle() {
+		
+		System.out.println("Title is:" + driver.getTitle());
+		
+
+	}
+	
 	public void ClickSslCertificatesLink(){
 		
 		SslCertificatesLink.click();

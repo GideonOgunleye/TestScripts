@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.AlertBox;
 import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
 import PageFactory.ExtentFactory;
@@ -34,12 +35,14 @@ public class MainNav_Test extends BrowserStack {
 	ExtentTest test;
 	NavigationLinks NavigationElements;
 	LoginPage 	LoginPageElements;
+	AlertBox AlertBoxElements;
 
   @BeforeMethod (groups = {"Smoke"})
   public void beforeMethod() throws Exception {
 	  
 	  NavigationElements = new NavigationLinks(driver);
 	  LoginPageElements = new LoginPage(driver);
+	  AlertBoxElements = new AlertBox(driver);
 	  
 	  LoginPageElements.LoadLoginPage();
 	  report = ExtentFactory.getInstance3();
@@ -82,6 +85,31 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickSslCertificatesLink();
 	  test.log(LogStatus.INFO, "Page Opened");
 	  
+	  String PageTitle = "SSL247's SSL Certificates";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
+
+	  
+	  
+	  
   }
   
   @Test (priority = 1, groups = {"Smoke"})
@@ -92,6 +120,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickFreeSslLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "GeoTrust Free Trial";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -103,6 +153,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickProtectAndSecureLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Penetration Testing: Advanced professional testing by accredited experts";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -114,6 +186,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickIdentifyLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Digital IDs from SSL247";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -125,6 +219,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickRegisterLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Get your Domain Name Now";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -136,6 +252,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickManageLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Managed Public Key Infrastructure (MPKI) Service by SSL247®";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -147,6 +285,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickBecomePartnerLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Grow your business by joining our partners programs!";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -158,6 +318,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickMySslLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "MySSL® Account Login";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -169,6 +351,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickFreeTrialsLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Free trials";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -180,6 +384,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickWizardLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -191,6 +417,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickAboutLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "About SSL247® – The Web Security Consultants";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -202,6 +450,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickSupportLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "Help and Support - Install your SSL Certificate";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
   
@@ -213,6 +483,28 @@ public class MainNav_Test extends BrowserStack {
 	  NavigationElements.ClickBlogLink();
 	  
 	  test.log(LogStatus.INFO, "Page Opened");
+	  
+	  String PageTitle = "SSL247 Blog";
+		
+	  try {
+	  			    	
+	  		if (NavigationElements.ValidatePage(PageTitle)) {
+	  						
+	  				test.log(LogStatus.PASS, "Validation Complete");
+	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
+	  			    System.out.println("Validation Complete!");
+	  		}else{
+	  				NavigationElements.PrintPageTitle();	
+	  				test.log(LogStatus.FAIL, "Validation Failed");
+	  				Assert.fail("Validation Failed ");
+	  			    	
+	  		}
+	  	
+	  }catch (Exception e) {
+	  						
+	  		test.log(LogStatus.FAIL, "Validation Failed");
+	  		Assert.fail("Exception " + e);
+	  }
 	    
   }
 
