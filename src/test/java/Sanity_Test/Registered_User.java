@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.AlertBox;
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.CsR;
@@ -47,7 +48,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends BrowserStack  {
+public class Registered_User extends DriverLoad  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -55,6 +56,8 @@ public class Registered_User extends BrowserStack  {
 	sslDashBoard sslDashBoardElements;
 	CsR CsrElements;
 	NavigationLinks NavigationElements;
+	AlertBox AlertBoxElements;
+	
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
 	public void User_Login () throws Exception {
@@ -65,6 +68,7 @@ public class Registered_User extends BrowserStack  {
 		sslDashBoardElements = new sslDashBoard(driver);
 		CsrElements = new CsR(driver);
 		NavigationElements = new NavigationLinks(driver);
+		AlertBoxElements = new AlertBox(driver);
 		
 		LoginPageElements.ClientLogin();
 		
@@ -125,16 +129,23 @@ public class Registered_User extends BrowserStack  {
 				
 					sslDashBoardElements.PageHeaderAssert();
 					driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-					test.log(LogStatus.PASS, "User Successfully Registered");
+					test.log(LogStatus.PASS, "User Successfully Logged In");
 					System.out.println("Dashboard Page Opened");
 					LoginPageElements.ClickLogoutButton();
 					
+				}else{
+			    	
+					test.log(LogStatus.FAIL, "Validation Failed");
+					AlertBoxElements.AlertPrint();
+					Assert.fail("Validation Failed ");
+			    	
 				}
+
 			
 			}catch(Exception e) {
 				System.out.println("Dashboard Page Not Opened");
 				test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
-				sslDashBoardElements.PageHeaderAssert();
+				Assert.fail("Exception " + e);
 			
 				}
 		    
@@ -306,8 +317,31 @@ public class Registered_User extends BrowserStack  {
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
   	
-	  	System.out.println("Order Cert Completed!");
-				
+		String Alertnote = "The certificate has been saved and is pending submission with the CA";
+		
+		try {
+				  
+			AlertBoxElements.AlertWait();
+			    	
+		if (AlertBoxElements.VerifyAlert(Alertnote)) {
+						
+			    	test.log(LogStatus.PASS, "Validation Complete");
+			    	Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+			    	System.out.println("Order Cert Completed!");
+			    	
+			    }else{
+			    	
+			    	test.log(LogStatus.FAIL, "Validation Failed");
+			    	AlertBoxElements.AlertPrint();
+					Assert.fail("Validation Failed ");
+			    }
+	
+			}catch (Exception e) {
+						
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+		}
+	
 		
 	 }
 	
@@ -382,16 +416,44 @@ public class Registered_User extends BrowserStack  {
 		Select Role = new Select(address);
 		Role.selectByIndex(0);
 		
+		driver.findElement(By.name("data[User][firstname]")).clear();
+		driver.findElement(By.name("data[User][firstname]")).sendKeys("Gideon");
 		driver.findElement(By.name("data[User][lastname]")).clear();
-		driver.findElement(By.name("data[User][lastname]")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("data[User][lastname]")).sendKeys("Ogunleye");
 		driver.findElement(By.name("data[User][phone]")).clear();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.name("data[User][phone]")).sendKeys("02037610541");
-		test = report.startTest("Registered User Test --> Create User");
-	    test.log(LogStatus.PASS, "Test User Edited and Saved");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
+		
+		String Alertnote = "Contact has been updated";
+		
+		try {
+				  
+			AlertBoxElements.AlertWait();
+			    	
+			if (AlertBoxElements.VerifyAlert(Alertnote)) {
+				
+					test.log(LogStatus.PASS, "Validation Complete");
+					Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+					System.out.println("Validation Complete!");
+			 }else{
+						    	
+				  	test.log(LogStatus.FAIL, "Validation Failed");
+				  	AlertBoxElements.AlertPrint();
+				  	Assert.fail("Validation Failed ");		    	
+			 }
+
+		}catch (Exception e) {
+						
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+			}	
+
+
+		
 	    
 	    
-	    System.out.println("Edit User Completed!");
 		
 	}	
 /*	
@@ -545,7 +607,7 @@ public class Registered_User extends BrowserStack  {
 		//Fill in the Required Information
 		WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
 		Select Name = new Select(AdContact);
-		Name.selectByVisibleText("Mr Quality Assurance Tester");
+		Name.selectByVisibleText("Mr Quality Assured");
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
 		//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
@@ -561,7 +623,7 @@ public class Registered_User extends BrowserStack  {
 		//Fill in Required Information
 		WebElement TechContact = driver.findElement(By.xpath(".//*[@id='TechnicalContactUser']"));
 		Select TechName = new Select(TechContact);
-		TechName.selectByVisibleText("Mr Quality Assurance Tester");
+		TechName.selectByVisibleText("Mr Quality Assured");
 		
 		driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
 		
@@ -574,7 +636,7 @@ public class Registered_User extends BrowserStack  {
 		//Fill in Required Information
 		WebElement Owner = driver.findElement(By.xpath(".//*[@id='OwnerContactUser']"));
 		Select OwnerName = new Select(Owner);
-		OwnerName.selectByVisibleText("Mr Quality Assurance Tester");
+		OwnerName.selectByVisibleText("Mr Quality Assured");
 				
 		driver.findElement(By.id("OwnerContactDialingCode")).sendKeys("475");
 		test.log(LogStatus.PASS, "Order Completed");
@@ -585,19 +647,33 @@ public class Registered_User extends BrowserStack  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		String Alertnote = "Validation Complete";
-		WebElement OrderStatus = driver.findElement(By.xpath(".//*[@id='detailsTab']/table/tbody/tr[5]/td"));
-			  	
-		if (OrderStatus.getText().contains(Alertnote)) {
+		String Alertnote = "Validation complete, order will be processed shortly, thank you";
+		
+		try {
+		  
+				//AlertBoxElements.AlertWait();
+	    	
+				if (AlertBoxElements.VerifyAlert(Alertnote)) {
 					
-				test.log(LogStatus.PASS, "Domain Name Order Successfull");
-			  	System.out.println("Domain Name Order Successfull");
+					test.log(LogStatus.PASS, "Validation Complete");
+					Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+					System.out.println("Validation Complete!");
 					
-			}else {
-					
-				System.out.println("Domain Name Order Not Successfull");
-				test.log(LogStatus.FAIL, "Domain Name Order Not Successfull");	
-			}
+				 }else{
+							    	
+					 test.log(LogStatus.FAIL, "Validation Failed");
+					 AlertBoxElements.AlertPrint();
+					 Assert.fail("Validation Failed ");
+							    	
+				}
+
+			}catch (Exception e) {
+				
+					test.log(LogStatus.FAIL, "Validation Failed");
+					Assert.fail("Exception " + e);
+				}
+
+
 		
 	}
 /*	
