@@ -434,40 +434,31 @@ public class New_User extends BrowserStack  {
 	driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
 	Thread.sleep(5000);
 	driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
-	
 	String StatusMsg = "Thank you, your brochure has been requested";
-    
-    
-  	  
-	try {
-  	  
-    	if (AlertBoxElements.AlertIsVisible()) {
-    		
-    		test.log(LogStatus.PASS, "Submit Message Displayed");
-    	}
-    		
-    		}catch (Exception e) {
-    			
-    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
-    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    		}
-
-
+	
     try {
 	  
     	
+    	AlertBoxElements.AlertWait();
+    	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
 			
-    		AlertBoxElements.AlertPrint();
 			test.log(LogStatus.PASS, "Form Submitted");
 			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    	}
+    	}else{
+    		
+    		AlertBoxElements.AlertPrint();	
+    	  	test.log(LogStatus.FAIL, "Validation Failed");
+    	  	Assert.fail("Validation Failed ");
+    	  			    	
+    	  }
 		
-			}catch (Exception e) {
+	}catch (Exception e) {
 			
-				test.log(LogStatus.FAIL, "Form Not Submitted");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-			}
+			test.log(LogStatus.FAIL, "Form Not Submitted");
+			Assert.fail("Exception " + e);
+			
+		}
 
     
 	  
@@ -515,36 +506,30 @@ public class New_User extends BrowserStack  {
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
 	
 	String StatusMsg = "Your query is being processed";
-    Thread.sleep(100);
-    
-	try {
-  	  
-    	if (AlertBoxElements.AlertIsVisible()) {
-    		
-    		test.log(LogStatus.PASS, "Submit Message Displayed");
-    	}
-    		
-    		}catch (Exception e) {
-    			
-    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
-    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    		}
-
+    //Thread.sleep(100);
  
     try {
 	  
+    	AlertBoxElements.AlertWait();
     	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
 			
 			test.log(LogStatus.PASS, "Form Submitted");
 			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    	}
-		
-			}catch (Exception e) {
 			
-				test.log(LogStatus.FAIL, "Form Not Submitted");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-			}
+    	}else{
+    		
+    		AlertBoxElements.AlertPrint();	
+    	  	test.log(LogStatus.FAIL, "Validation Failed");
+    	  	Assert.fail("Validation Failed ");
+    	  	
+    	  }
+		
+	}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Form Not Submitted");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+		}
 
 
 	

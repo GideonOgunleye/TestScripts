@@ -5,12 +5,13 @@
 
   "capabilities": {
     "build": "First Build",
-    "name": "Registered User - Sanity Test",
+    "name": "Sub Navigation - SanityTest",
     "browserstack.debug": true
     "build": "Sanity Test",
   	"project": "Bakewell 20"
   	"browserstack.chrome.enablePopups": false
   },
+
 
   "environments": {
     "chrome": {

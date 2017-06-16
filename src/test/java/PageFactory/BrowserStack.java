@@ -81,6 +81,7 @@ public class BrowserStack extends DriverLoad  {
         }
 
         driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
+       
     }
 
     @AfterClass(groups = {"BS_Sanity", "BS_Regression"})

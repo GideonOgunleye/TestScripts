@@ -12,7 +12,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
 public class DriverLoad {
 	
@@ -21,7 +23,7 @@ public class DriverLoad {
 	
 
 
-  @BeforeTest (groups = {"Sanity","SQL","Regression","Smoke"} )
+  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke"} )
   public void beforeTest() throws IOException  {
 	
  	  
@@ -31,7 +33,7 @@ public class DriverLoad {
    
   }
 
-  @AfterTest (groups = {"Sanity","SQL","Regression","Smoke"})
+  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke"})
   public void afterTest() throws Exception {
 	  
 	  Thread.sleep(10000);

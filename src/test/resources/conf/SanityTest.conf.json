@@ -5,9 +5,9 @@
 
   "capabilities": {
     "build": "First Build",
-    "name": "Sanity Test",
+    "name": "SQL",
     "browserstack.debug": true
-    "build": "version1",
+    "build": "Sanity Test",
   	"project": "Bakewell 20"
   	"browserstack.chrome.enablePopups": false
   },

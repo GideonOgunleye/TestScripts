@@ -35,7 +35,7 @@ public class AlertBox extends DriverLoad {
 	public AlertBox(WebDriver driver){
 		
 		this.driver = driver;
-		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 50), this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 100), this);
 		//PageFactory.initElements(driver, this);
 		
 	}
@@ -56,7 +56,7 @@ public class AlertBox extends DriverLoad {
 	
 	public boolean AlertWait() {
 		
-		WebDriverWait wait = new WebDriverWait(driver, 20);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		WebElement Status = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
 		
 		return Status.isDisplayed();

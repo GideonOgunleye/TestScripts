@@ -114,7 +114,7 @@ public class NavigationLinks extends BrowserStack {
 	WebElement SymantecReadyIssuanceLink;
 	
 	@FindBy(xpath = ".//*[@id='special-ul']/li[3]/ul/li[4]/a/span[1]")
-	WebElement SDomainValidationLink;
+	WebElement DomainValidationLink;
 	
 	/********Protect and Secure SubMenu Navigation**********/
 	
@@ -261,7 +261,12 @@ public class NavigationLinks extends BrowserStack {
 		assertTrue(driver.getTitle().contains("SSL247 Blog"));
 	}
 	
-	public void ClickSynmantecLink() {
+	
+	/*
+	 *-------------------- SSL Certificates Sublinks--------------------------
+	 */
+	
+	public void SynmantecLinkClick() {
 		
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Actions  actions=new Actions(driver);
@@ -275,7 +280,7 @@ public class NavigationLinks extends BrowserStack {
 
 	}
 	
-	public void ClickVeriSignLink() {
+	public void VeriSignLinkClick() {
 		
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Actions  actions=new Actions(driver);
@@ -288,4 +293,216 @@ public class NavigationLinks extends BrowserStack {
 	  	assertTrue(driver.getTitle().contains("VeriSign SSL Certificates"));
 
 	}
+	
+	public void GeoTrustLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(GeoTrustLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void ThawteLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(ThawteLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void GlobalSignLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(GlobalSignLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void ComodoLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(ComodoLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void RapidSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(RapidSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void EntrustLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(EntrustLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void SanSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(SanSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void WildcardSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(WildcardSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void SanWildcardSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(SanWildcardSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void ECCSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(ECCSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void IPaddressSslLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(IPaddressSslLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void ExtendedValidationLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(ExtendedValidationLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void OrganisationValidationLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(OrganisationValidationLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void SymantecReadyIssuanceLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(SymantecReadyIssuanceLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	public void DomainValidationLinkClick() {
+		
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		Actions  actions=new Actions(driver);
+	  	actions.moveToElement(SslCertificatesLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    actions.moveToElement(DomainValidationLink);
+	  	actions.click();
+	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	PrintPageTitle();
+
+	}
+	
+	
 }

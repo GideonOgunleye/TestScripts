@@ -29,6 +29,12 @@
   
   <test name="Test 4">
      <classes>
+     <class name="Sanity_Test.SubNavigation_Test"/>
+   </classes> 
+  </test> <!-- Test --> 
+  
+  <test name="Test 5">
+     <classes>
       <class name="Sanity_Test.SQL_Queries"/>
    </classes> 
   </test><!-- Test -->

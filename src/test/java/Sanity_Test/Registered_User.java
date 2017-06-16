@@ -48,7 +48,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends DriverLoad  {
+public class Registered_User extends BrowserStack  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -424,12 +424,20 @@ public class Registered_User extends DriverLoad  {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.name("data[User][phone]")).sendKeys("02037610541");
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
-		
-		String Alertnote = "Contact has been updated";
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		Thread.sleep(100);
 		
 		try {
-				  
+			
+			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[3]/ul/li[2]/a")).click();
+			Thread.sleep(100);
+			driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+			driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
+			
+			String Alertnote = "Contact has been updated";
 			AlertBoxElements.AlertWait();
 			    	
 			if (AlertBoxElements.VerifyAlert(Alertnote)) {
