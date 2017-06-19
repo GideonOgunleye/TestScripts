@@ -8,9 +8,7 @@
     </run>
  </groups> 
  
- 
- 
-  <test name="Test 1">
+  <test name="Test 2">
  		<parameter name="config" value="Sanity_SubNavigation.json"/>
         <parameter name="environment" value="chrome"/>
      <classes>
@@ -18,7 +16,7 @@
    </classes> 
   </test><!--  Test -->   
    
- <test name="Test 2">
+ <test name="Test 3">
  		<parameter name="config" value="Sanity_NewUser.json"/>
         <parameter name="environment" value="chrome"/>
      <classes>
@@ -26,7 +24,7 @@
    </classes> 
   </test> <!--  Test -->    
    
-  <test name="Test 3">
+  <test name="Test 4">
   		
   		<parameter name="config" value="Sanity_RegisteredUser.json"/>
         <parameter name="environment" value="chrome"/>  
@@ -35,7 +33,7 @@
     </classes>
   </test><!-- Test -->
   
- <test name="Test 4">
+ <test name="Test 5">
  		<parameter name="config" value="SanityTest.conf.json"/>
      	<parameter name="environment" value="chrome"/>  
      <classes>

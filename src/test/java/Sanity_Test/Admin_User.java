@@ -41,7 +41,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User extends BrowserStack {
+public class Admin_User extends DriverLoad {
   //WebDriver driver;
   ExtentReports report;
   ExtentTest test;
@@ -49,7 +49,7 @@ public class Admin_User extends BrowserStack {
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
 	
-  @BeforeMethod (groups = {"Sanity","Smoke"})
+  @BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
   public void Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
@@ -67,7 +67,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Sanity"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -95,7 +95,7 @@ public class Admin_User extends BrowserStack {
 	  return destination;
   }
   
-  @Test (priority = 0, groups = {"Sanity","Smoke"})
+  @Test (priority = 0, groups = {"Sanity","Smoke","BS_Sanity"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -121,7 +121,7 @@ public class Admin_User extends BrowserStack {
   }
 
   
-  @Test (groups = {"Sanity"})
+  @Test (groups = {"Sanity","BS_Sanity"})
   public void Edit_Account_User() throws Exception{
 	  
 	//Search For UK Test User
@@ -288,7 +288,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @Test (groups = {"Sanity","Smoke"})
+  @Test (groups = {"Sanity","Smoke","BS_Sanity"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
@@ -357,7 +357,7 @@ public class Admin_User extends BrowserStack {
 			test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
   
-  @Test (groups = {"Sanity"})
+  @Test (groups = {"Sanity","BS_Sanity"})
   public void Send_Fulfillment_Email() throws Exception {
 	  
 	    test = report.startTest("Admin Test -->  Send Fullfillement Email");
@@ -510,7 +510,7 @@ public class Admin_User extends BrowserStack {
   }
   
   
-  @Test (groups = {"Sanity"})
+  @Test (groups = {"Sanity","BS_Sanity"})
   public void Send_Change_Password_Request_Email() throws Exception {
 	  
 	    test = report.startTest("Admin Test --> Change Password Request Email");
