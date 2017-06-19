@@ -30,6 +30,8 @@ public class DriverLoad {
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	  driver = new ChromeDriver();  
 	  
+	  
+	  
    
   }
 

@@ -1,0 +1,42 @@
+{
+ "server": "hub-cloud.browserstack.com",
+  "user": "developmentteam12",
+  "key": "AKNscSG2dLkmDUkzTRyJ",
+
+  "capabilities": {
+    "build": "First Build",
+    "name": "New User - SmokeTest",
+    "browserstack.debug": true
+    "build": "Smoke Test",
+  	"project": "Bakewell 20"
+  	"browserstack.chrome.enablePopups": false
+  },
+
+
+  "environments": {
+    "chrome": {
+    	"os": "Windows",
+    	"os_version": "10",
+    	"browser": "Chrome",
+    	"browser_version": "57.0",
+    	"resolution": "1280x1024"
+    }
+    
+    "Firefox": {
+    	"os": "Windows",
+    	"os_version": "10",
+    	"browser": "Firefox",
+    	"browser_version": "46.0",
+    	"resolution": "1280x1024"
+    }
+    
+    "Edge": {
+    	"os": "Windows",
+    	"os_version": "10",
+   	 	"browser": "Edge",
+    	"browser_version": "14.0",
+    	"resolution": "1280x1024"
+    }
+    
+  }
+}

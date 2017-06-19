@@ -37,7 +37,7 @@ public class MainNav_Test extends BrowserStack {
 	LoginPage 	LoginPageElements;
 	AlertBox AlertBoxElements;
 
-  @BeforeMethod (groups = {"Smoke"})
+  @BeforeMethod (groups = {"Smoke","BS_Smoke"})
   public void beforeMethod() throws Exception {
 	  
 	  NavigationElements = new NavigationLinks(driver);
@@ -50,7 +50,7 @@ public class MainNav_Test extends BrowserStack {
 	  
   }
 
-  @AfterMethod (groups = {"Smoke"})
+  @AfterMethod (groups = {"Smoke","BS_Smoke"})
   public String afterMethod(ITestResult result) throws IOException, Exception {
 	  
 	  String filename = result.getMethod().getMethodName() +".png";
@@ -77,7 +77,7 @@ public class MainNav_Test extends BrowserStack {
 	  
   }
   
-  @Test (priority = 0, groups = {"Smoke"})
+  @Test (priority = 0, groups = {"Smoke","BS_Smoke"})
   public void SSL_Certlink_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> SSL Cert link Test");
@@ -112,7 +112,7 @@ public class MainNav_Test extends BrowserStack {
 	  
   }
   
-  @Test (priority = 1, groups = {"Smoke"})
+  @Test (priority = 1, groups = {"Smoke","BS_Smoke"})
   public void FreeSsl_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> FreeSsl Link Test");
@@ -145,7 +145,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 2, groups = {"Smoke"})
+  @Test (priority = 2, groups = {"Smoke","BS_Smoke"})
   public void ProtectAndSecure_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Protect And Secure Link Test");
@@ -178,7 +178,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 4, groups = {"Smoke"})
+  @Test (priority = 4, groups = {"Smoke","BS_Smoke"})
   public void Identify_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Identify Link Test");
@@ -211,7 +211,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 5, groups = {"Smoke"})
+  @Test (priority = 5, groups = {"Smoke","BS_Smoke"})
   public void Register_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Register Link Test");
@@ -244,7 +244,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 6, groups = {"Smoke"})
+  @Test (priority = 6, groups = {"Smoke","BS_Smoke"})
   public void Manage_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Manage Link Test");
@@ -277,7 +277,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 7, groups = {"Smoke"})
+  @Test (priority = 7, groups = {"Smoke","BS_Smoke"})
   public void BecomePartner_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
@@ -310,7 +310,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 8, groups = {"Smoke"})
+  @Test (priority = 8, groups = {"Smoke","BS_Smoke"})
   public void MySsl_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
@@ -343,7 +343,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 9, groups = {"Smoke"})
+  @Test (priority = 9, groups = {"Smoke","BS_Smoke"})
   public void FreeTrials_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Free Trials Link Test");
@@ -376,7 +376,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 10, groups = {"Smoke"})
+  @Test (priority = 10, groups = {"Smoke","BS_Smoke"})
   public void Wizard_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Wizard Link Test");
@@ -409,7 +409,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 11, groups = {"Smoke"})
+  @Test (priority = 11, groups = {"Smoke","BS_Smoke"})
   public void About_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> About Link Test");
@@ -442,7 +442,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 12, groups = {"Smoke"})
+  @Test (priority = 12, groups = {"Smoke","BS_Smoke"})
   public void Support_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Support Link Test");
@@ -475,7 +475,7 @@ public class MainNav_Test extends BrowserStack {
 	    
   }
   
-  @Test (priority = 13, groups = {"Smoke"})
+  @Test (priority = 13, groups = {"Smoke","BS_Smoke"})
   public void Blog_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Blog Link Test");

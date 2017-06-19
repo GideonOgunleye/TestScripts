@@ -49,7 +49,7 @@ public class Admin_User extends DriverLoad {
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
 	
-  @BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
+  @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Login() throws Exception {
 	  
 	  LoginPageElements = new LoginPage(driver);
@@ -58,16 +58,11 @@ public class Admin_User extends DriverLoad {
 	  
 	  LoginPageElements.AdminLogin();
 		 
-	  report = ExtentFactory.getInstance(); 
-	  //LoginPageElements.ClickLoginLink();
-	 // LoginPageElements.EnterUserName(prop.getProperty("Username"));
-	 // LoginPageElements.EnterPassword(prop.getProperty("Password"));
-	 // LoginPageElements.ClickLoginButton();
-		 
+	  report = ExtentFactory.getInstance(); 	 
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Sanity"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -95,7 +90,7 @@ public class Admin_User extends DriverLoad {
 	  return destination;
   }
   
-  @Test (priority = 0, groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (priority = 0, groups = {"Smoke"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -158,7 +153,7 @@ public class Admin_User extends DriverLoad {
 		 test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 		 
 		 
-		 String UserVal = "Quality Assurance Tester";
+		 String UserVal = "Gideon Ogunleye";
 		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
 		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
 		 WebElement User3 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/strong[1]"));
@@ -288,7 +283,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @Test (groups = {"Sanity","Smoke","BS_Sanity"})
+  @Test (groups = {"Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
@@ -542,7 +537,7 @@ public class Admin_User extends DriverLoad {
 		 sslDashBoardElements.ClickAccountEndUsersLink();
 		 test.log(LogStatus.INFO, "Opened Account End Users Page");
 		  
-		 String UserVal = "Quality Assurance Tester";
+		 String UserVal = "Gideon Ogunleye";
 		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
 		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
 		 WebElement User3 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/strong[1]"));
@@ -641,20 +636,6 @@ public class Admin_User extends DriverLoad {
 		 Assert.assertTrue(EmailCol.contains("qa@ssl247.co.uk"));
 		 test.log(LogStatus.PASS, "Email Found in Outgoing Emails");
 	
-	/*	 
-		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		 driver.findElement(By.cssSelector("a[href*='view']")).click();
-		 
-		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		 driver.findElement(By.cssSelector("a[href*='send']")).click();	
-		 
-		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		 driver.switchTo().alert().accept();
-		 
-		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		 String SendConfirm = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
-		 Assert.assertTrue(SendConfirm.contains("Email was sent"));
-	*/
 		 
   }
  

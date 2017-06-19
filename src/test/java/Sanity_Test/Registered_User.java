@@ -59,7 +59,7 @@ public class Registered_User extends BrowserStack  {
 	AlertBox AlertBoxElements;
 	
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -76,7 +76,7 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity","BS_Smoke"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	    //Take Screen Shots
@@ -104,7 +104,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 	
-	@Test (priority = 0, groups = {"Smoke"})
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke"})
 	  public void LogIn_User () throws Exception{
 		  
 		  LoginPageElements = new LoginPage(driver);
@@ -659,7 +659,7 @@ public class Registered_User extends BrowserStack  {
 		
 		try {
 		  
-				//AlertBoxElements.AlertWait();
+				AlertBoxElements.AlertWait();
 	    	
 				if (AlertBoxElements.VerifyAlert(Alertnote)) {
 					

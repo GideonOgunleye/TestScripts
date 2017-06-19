@@ -66,7 +66,7 @@ public class SQL_Queries extends BrowserStack {
 		  
 	  }
 	  
-	  @Test (priority = 2, groups = {"SQL","BS_Sanity"})
+	  @Test (priority = 2, groups = {"SQL","BS_Sanity","BS_Smoke"})
 	  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		

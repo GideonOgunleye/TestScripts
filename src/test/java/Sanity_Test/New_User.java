@@ -59,7 +59,7 @@ public class New_User extends BrowserStack  {
 	NavigationLinks NavigationElements;
 	AlertBox AlertBoxElements;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"})
 	public void Load_Homepage () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -78,7 +78,7 @@ public class New_User extends BrowserStack  {
 		Thread.sleep(5000);		
 	}
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity"},alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
 		String filename = result.getMethod().getMethodName() +".png";
@@ -106,7 +106,7 @@ public class New_User extends BrowserStack  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Smoke"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 	
 /*		
@@ -279,7 +279,7 @@ public class New_User extends BrowserStack  {
 		
 		
 		String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
-		
+/*		
 		try {
 	    	  
 	    	if (AlertBoxElements.AlertIsVisible()) {
@@ -309,7 +309,36 @@ public class New_User extends BrowserStack  {
 					test.log(LogStatus.FAIL, "Form Not Submitted");
 					Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
 				}
+*/	
+		
+		try {
+			  
+	    	
+	    	AlertBoxElements.AlertWait();
+	    	
+	    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
 				
+				test.log(LogStatus.PASS, "Form Submitted");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+	    	}else{
+	    		
+	    		AlertBoxElements.AlertPrint();	
+	    	  	test.log(LogStatus.FAIL, "Validation Failed");
+	    	  	Assert.fail("Validation Failed ");
+	    	  			    	
+	    	  }
+			
+		}catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "Form Not Submitted");
+				Assert.fail("Exception " + e);
+				
+			}
+
+		
+		
+		
+		
 	  }
 	  
   @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
@@ -358,38 +387,32 @@ public class New_User extends BrowserStack  {
 	}
    	
     String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
-    Thread.sleep(100);
+    //Thread.sleep(100);
     
-    try {
-  	  
-    	if (AlertBoxElements.AlertIsVisible()) {
-    		
-    			
-    			test.log(LogStatus.PASS, "Submit Message Displayed");
-    	}
-    		
-    		}catch (Exception e) {
-    			
-    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
-    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    		}
-
- 
-    try {
+ try {
 	  
+    	
+    	AlertBoxElements.AlertWait();
     	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
 			
 			test.log(LogStatus.PASS, "Form Submitted");
 			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-    	}
+    	}else{
+    		
+    		AlertBoxElements.AlertPrint();	
+    	  	test.log(LogStatus.FAIL, "Validation Failed");
+    	  	Assert.fail("Validation Failed ");
+    	  			    	
+    	  }
 		
-			}catch (Exception e) {
+	}catch (Exception e) {
 			
-				test.log(LogStatus.FAIL, "Form Not Submitted");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-			}
-    
+			test.log(LogStatus.FAIL, "Form Not Submitted");
+			Assert.fail("Exception " + e);
+			
+		}
+
     
   }
   
