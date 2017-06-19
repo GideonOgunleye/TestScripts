@@ -313,7 +313,7 @@ public class MainNav_Test extends BrowserStack {
   @Test (priority = 8, groups = {"Smoke","BS_Smoke"})
   public void MySsl_Link_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
+	  test = report.startTest("Nav Links Test --> MySsl Link Test");
 	  
 	  NavigationElements.ClickMySslLink();
 	  
