@@ -1,11 +1,12 @@
 package PageFactory;
 
-import PageFactory.DriverLoad;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+import BaseUtilities.DriverLoad;
 
 import org.testng.annotations.BeforeTest;
 

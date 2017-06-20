@@ -6,10 +6,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import BaseUtilities.DriverLoad;
+import BaseUtilities.ExtentFactory;
 import PageFactory.BillingPage;
-import PageFactory.DriverLoad;
-//import net.sf.cglib.core.Local;
-import PageFactory.ExtentFactory;
 import PageFactory.LoginPage;
 import PageFactory.sslDashBoard;
 

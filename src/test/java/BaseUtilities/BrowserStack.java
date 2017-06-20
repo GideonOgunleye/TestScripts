@@ -1,4 +1,4 @@
-package PageFactory;
+package BaseUtilities;
 import com.browserstack.local.Local;
 
 import java.io.File;

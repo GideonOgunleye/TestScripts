@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import PageFactory.BrowserStack;
-import PageFactory.DriverLoad;
+import BaseUtilities.BrowserStack;
+import BaseUtilities.DriverLoad;
 
 import org.testng.annotations.BeforeSuite;
 

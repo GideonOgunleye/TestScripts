@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import PageFactory.BrowserStack;
+import BaseUtilities.BrowserStack;
 
 public class SingleTest extends BrowserStack {
   @Test

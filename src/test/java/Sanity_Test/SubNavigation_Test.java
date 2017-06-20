@@ -6,9 +6,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import PageFactory.BrowserStack;
-import PageFactory.DriverLoad;
-import PageFactory.ExtentFactory;
+import BaseUtilities.BrowserStack;
+import BaseUtilities.DriverLoad;
+import BaseUtilities.ExtentFactory;
 import PageFactory.LoginPage;
 //import PageFactory.Navigation;
 import PageFactory.NavigationLinks;

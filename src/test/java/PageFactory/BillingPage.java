@@ -8,6 +8,8 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import BaseUtilities.DriverLoad;
+
 public class BillingPage extends DriverLoad {
 	
 	@FindBy(name = "data[BasketContact][firstname]")

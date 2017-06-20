@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
-import PageFactory.ExtentFactory;
+import BaseUtilities.ExtentFactory;
 
 import org.testng.annotations.BeforeSuite;
 

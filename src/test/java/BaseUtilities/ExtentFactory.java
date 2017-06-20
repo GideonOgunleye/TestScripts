@@ -1,4 +1,4 @@
-package PageFactory;
+package BaseUtilities;
 import org.openqa.selenium.WebDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
