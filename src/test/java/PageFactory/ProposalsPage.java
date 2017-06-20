@@ -20,54 +20,35 @@ import BaseUtilities.DriverLoad;
 import org.testng.Assert;
 
 
-public class sslDashBoard extends DriverLoad {
+public class ProposalsPage extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	
 	
-	/*****Side Nave*******/
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]/a")
-	WebElement MyBasketsLink;
+	/********Proposal Page*******/
+	@FindBy(xpath = ".//*[@class='tabbable outer']/ul[1]/li[1]/a")
+	WebElement UnIssuedTab;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[5]/a")
-	WebElement MyProductsLink;
+	@FindBy(xpath = ".//*[@class='tabbable outer']/ul[1]/li[2]/a")
+	WebElement IssuedTab;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[7]/a")
-	WebElement MysslCertificatessLink;
+	@FindBy(xpath = ".//*[@id='InvoiceAdminAccountIndexForm']/table/tbody/tr[1]/td[6]/a/i")
+	WebElement ViewTopResult;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/a")
-	WebElement MyDomainNamesLink;
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/a[5]")
+	WebElement IssueProposalTab;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/ul/li[1]/a/span")
-	WebElement RegisterDomainLink;
+	@FindBy(xpath = ".//*[@id='FormAdminIssue']/div[3]/div[1]/div/div/button")
+	WebElement ConfirmCheckBoxOne;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[17]/a")
-	WebElement MyProposalsLink;
+	@FindBy(xpath = ".//*[@id='FormAdminIssue']/div[3]/div[2]/div/div[2]/button")
+	WebElement ConfirmCheckBoxTwo;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[18]/a")
-	WebElement MyOrderHistoryLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[19]/a")
-	WebElement MyLedgerLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[20]/a")
-	WebElement MyAccountLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[21]/a")
-	WebElement MyUsersLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[22]/a")
-	WebElement AccountEndUsersLink;
+	@FindBy(xpath = ".//*[@id='adminIssueInvoiceValidation']")
+	WebElement IssueProposalButton;
 	
 	
-	/********Page Elements**********/
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
-	WebElement PageHeader;
-	
-	
-	
-	
-	public sslDashBoard(WebDriver driver){
+	public ProposalsPage(WebDriver driver){
 		
 		this.driver = driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
@@ -75,7 +56,45 @@ public class sslDashBoard extends DriverLoad {
 		
 	}
 	
+	public void ValidatePage() {
+		
+		String Status = driver.getTitle();
+		System.out.println("Page Title is:"  + Status);
+		Assert.assertTrue(Status.contains("Proposals"));
+		
+	}
 	
+	public void UnIssuedTabClink(){
+		
+		UnIssuedTab.click();
+	}
+	
+	public void IssueProposalTabClink(){
+		
+		IssueProposalTab.click();
+	}
+	
+	public void ViewTopResult(){
+		
+		ViewTopResult.click();
+	}
+	
+	public void ConfirmCheckBoxOneClink(){
+		
+		ConfirmCheckBoxOne.click();
+	}
+	
+	public void ConfirmCheckBoxTwoClink(){
+		
+		ConfirmCheckBoxTwo.click();
+	}
+	
+	public void IssueProposalButtonClink(){
+		
+		IssueProposalButton.click();
+	}
+	
+	/*
 	public boolean PageIsVisible() {
 		
 		return PageHeader.isDisplayed();
@@ -148,5 +167,7 @@ public class sslDashBoard extends DriverLoad {
 		System.out.println("Page Title is:"  + Status);
 		
 	}
+	
+	*/
 
 }

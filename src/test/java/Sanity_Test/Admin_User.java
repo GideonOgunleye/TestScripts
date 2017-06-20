@@ -6,12 +6,13 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
-import PageFactory.AlertBox;
 import PageFactory.BillingPage;
 import PageFactory.LoginPage;
+import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 
 import org.testng.annotations.BeforeMethod;
@@ -51,6 +52,7 @@ public class Admin_User extends DriverLoad {
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
   AlertBox AlertBoxElements;
+  ProposalsPage ProposalsPageElements;
 	
   @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Login() throws Exception {
@@ -59,6 +61,7 @@ public class Admin_User extends DriverLoad {
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  AlertBoxElements = new AlertBox(driver);
+	  ProposalsPageElements = new ProposalsPage(driver);
 	  
 	  LoginPageElements.AdminLogin();
 		 
@@ -405,6 +408,69 @@ public class Admin_User extends DriverLoad {
 			//test.log(LogStatus.INFO, "Click on Save Proposal Button");
 			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
+  
+  @Test (groups = {"Sanity"})
+  public void IssueProposal () throws Exception {
+	  
+	  test = report.startTest("Admin Test -->  Issue a Proposal");
+	  test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	  driver.findElement(By.linkText("Client accounts")).click();
+	  //test.log(LogStatus.INFO, "Click on User Account Link");
+		
+	  driver.findElement(By.name("data[Account][query]")).sendKeys("uk test");
+	  //test.log(LogStatus.INFO, "Enter UK Test Account in Query Field");
+		
+	  driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();	
+	  //test.log(LogStatus.INFO, "Click on Update Button");
+		
+	  Thread.sleep(10000);
+	  driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
+	  test.log(LogStatus.INFO, "User Account Page Opened");
+	  Thread.sleep(10000);
+	  
+	  sslDashBoardElements.ClickMyProposalsLink();
+	  ProposalsPageElements.ValidatePage();
+	  ProposalsPageElements.UnIssuedTabClink();
+	  ProposalsPageElements.ViewTopResult();
+	  ProposalsPageElements.IssueProposalTabClink();
+	  ProposalsPageElements.ConfirmCheckBoxOneClink();
+	  Thread.sleep(1000);
+	  ProposalsPageElements.ConfirmCheckBoxTwoClink();
+	  Thread.sleep(1000);
+	  ProposalsPageElements.IssueProposalButtonClink();
+	  
+	  try {
+			String Alertnote = "issued";  
+			AlertBoxElements.AlertWait();
+					    	
+		  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+								
+			test.log(LogStatus.PASS, "Validation Complete");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+			System.out.println("Validation Complete!");
+			
+		  }else{
+					    	
+		test.log(LogStatus.FAIL, "Validation Failed");
+			AlertBoxElements.AlertPrint();
+			Assert.fail("Validation Failed ");
+					    	
+			}
+			
+		}catch (Exception e) {
+								
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+
+		}
+
+	  
+	  
+	  
+	  
+  }
+  
   
   @Test (groups = {"Sanity","BS_Sanity"})
   public void Send_Fulfillment_Email() throws Exception {

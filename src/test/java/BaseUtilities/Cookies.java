@@ -1,9 +1,6 @@
-package PageFactory;
+package BaseUtilities;
 
 import org.testng.annotations.Test;
-
-import BaseUtilities.DriverLoad;
-
 import org.testng.annotations.BeforeTest;
 
 import java.io.FileInputStream;
