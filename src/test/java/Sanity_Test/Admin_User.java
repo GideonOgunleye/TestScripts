@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import PageFactory.AlertBox;
 import PageFactory.BillingPage;
 import PageFactory.BrowserStack;
 import PageFactory.DriverLoad;
@@ -25,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -48,6 +50,7 @@ public class Admin_User extends DriverLoad {
   LoginPage 	LoginPageElements;
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
+  AlertBox AlertBoxElements;
 	
   @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Login() throws Exception {
@@ -55,6 +58,7 @@ public class Admin_User extends DriverLoad {
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
+	  AlertBoxElements = new AlertBox(driver);
 	  
 	  LoginPageElements.AdminLogin();
 		 
@@ -149,7 +153,13 @@ public class Admin_User extends DriverLoad {
 	     /*
 	      * Click on My Users Link
 	      */
+	     
+	     
 	     sslDashBoardElements.ClickAccountEndUsersLink();
+	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	     JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
+	     Thread.sleep(1000);
 		 test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 		 
 		 
@@ -266,20 +276,35 @@ public class Admin_User extends DriverLoad {
 				
 			 }
   
+		
+		 /*Test Validation*/
 		 
-		 
-		 //File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		// Now you can do whatever you need to do with it, for example copy somewhere
-		//FileUtils.copyFile(scrFile, new File("c:\\tmp\\screenshot.png"));
-		//Reporter.log(path);
-/*		
-		 String filename = "User_Edit.png";
-		 String Directory = "c:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\Test ScreenShots\\";
-		  
-		 File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		 FileUtils.copyFile(sourceFile, new File(Directory + filename));
-*/		  
+		 try {
+				String Alertnote = "User details have been updated";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+				
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
 
+			}
+
+		 	 		
 		 
   }
   
@@ -348,8 +373,37 @@ public class Admin_User extends DriverLoad {
 			
 			//Click Save
 			driver.findElement(By.id("ProposalSave")).click();
-			test.log(LogStatus.INFO, "Click on Save Proposal Button");
-			test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
+			//driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+			//driver.switchTo().alert().accept();
+			
+			try {
+				String Alertnote = "Proposal saved";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
+			
+			
+			//test.log(LogStatus.INFO, "Click on Save Proposal Button");
+			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
   
   @Test (groups = {"Sanity","BS_Sanity"})
@@ -490,18 +544,42 @@ public class Admin_User extends DriverLoad {
 	  	Assert.assertTrue(SubjectCol.contains("Your 1 year(s) GlobalSign DomainSSL SSL certificate for *.ssl247.co.uk has been issued"));
 	  	test.log(LogStatus.PASS, "Varified email is present");
 	  	
-	  //Delete Outgoing Emails Afterwards
+	    //Delete Outgoing Emails Afterwards
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[5]/a")).click();
 	  	
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	driver.switchTo().alert().accept();
 	  	
+	  	 try {
+				String Alertnote = "Email deleted";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+	  /*	
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	String Confirmation = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
 	  	Assert.assertTrue(Confirmation.contains("Email deleted"));
 	  	test.log(LogStatus.INFO, "Deleted Email from Outgoing emails");
-	  
+	  */
   }
   
   
@@ -535,6 +613,9 @@ public class Admin_User extends DriverLoad {
 		 
 	     /*Click Account End Users Link*/
 		 sslDashBoardElements.ClickAccountEndUsersLink();
+		 JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
+	     Thread.sleep(1000);
 		 test.log(LogStatus.INFO, "Opened Account End Users Page");
 		  
 		 String UserVal = "Gideon Ogunleye";
@@ -611,15 +692,40 @@ public class Admin_User extends DriverLoad {
 		 
 		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 driver.switchTo().alert().accept();
-		 
+/*		 
 		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		 String Confirmation = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
 		 Assert.assertTrue(Confirmation.contains("A reset password has been sent to qa@ssl247.co.uk"));
 		 test.log(LogStatus.PASS, "Send Change Password Email Request Successfully Sent");
+*/		 
+		 try {
+				String Alertnote = "A reset password has been sent to qa@ssl247.co.uk";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
 		 
 		 
 		 /*--------Force Email Out to User from test environment------------*/
-		 
+/*		 
 		//Navigate to Outgoing Emails Link
 		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 Actions  action2=new Actions(driver);
@@ -635,7 +741,7 @@ public class Admin_User extends DriverLoad {
 		 String EmailCol = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[2]")).getText();		
 		 Assert.assertTrue(EmailCol.contains("qa@ssl247.co.uk"));
 		 test.log(LogStatus.PASS, "Email Found in Outgoing Emails");
-	
+	*/
 		 
   }
  
