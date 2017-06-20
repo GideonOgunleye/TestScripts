@@ -126,7 +126,7 @@ public class Registered_User extends BrowserStack  {
 				
 				if (sslDashBoardElements.PageIsVisible()) {
 				
-					sslDashBoardElements.PageHeaderAssert();
+					sslDashBoardElements.ClientDashboardValidation();
 					driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 					test.log(LogStatus.PASS, "User Successfully Logged In");
 					System.out.println("Dashboard Page Opened");

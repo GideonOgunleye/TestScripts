@@ -10,8 +10,11 @@ import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import PageFactory.AdminNavigationLinks;
 import PageFactory.BillingPage;
+import PageFactory.ClientAccountsPage;
 import PageFactory.LoginPage;
+import PageFactory.NavigationLinks;
 import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 
@@ -49,10 +52,14 @@ public class Admin_User extends DriverLoad {
   ExtentReports report;
   ExtentTest test;
   LoginPage 	LoginPageElements;
+  AdminNavigationLinks AdminNavigationLinksElements;
+  NavigationLinks NavigationLinksElements;
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
   AlertBox AlertBoxElements;
   ProposalsPage ProposalsPageElements;
+  ClientAccountsPage ClientAccountsPageElements;
+  
 	
   @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Login() throws Exception {
@@ -62,6 +69,9 @@ public class Admin_User extends DriverLoad {
 	  sslDashBoardElements = new sslDashBoard(driver);
 	  AlertBoxElements = new AlertBox(driver);
 	  ProposalsPageElements = new ProposalsPage(driver);
+	  NavigationLinksElements = new NavigationLinks(driver);
+	  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
+	  ClientAccountsPageElements = new ClientAccountsPage(driver);
 	  
 	  LoginPageElements.AdminLogin();
 		 
@@ -130,34 +140,28 @@ public class Admin_User extends DriverLoad {
 	     test = report.startTest("Admin Test --> Edit User");
 	     test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	  
-		 driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[2]/a")).click();
+	     AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
 		 test.log(LogStatus.INFO, "Click on clients Accounts Link");
 		 
-		 driver.findElement(By.name("data[Account][query]")).sendKeys("Uk Test");
+		 ClientAccountsPageElements.ValidatePage();
+		 ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
 		 test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
 		 
-		 driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();
+		 ClientAccountsPageElements.UpdateButtonClink();
 		 test.log(LogStatus.INFO, "Click on Update Button");
 		 
-		 Thread.sleep(15000);
+		 Thread.sleep(1000);
+		 ClientAccountsPageElements.ValidateResults("UK Test");
 		 test.log(LogStatus.INFO, "Search Resusult is Displayed");
-		 
-		 Actions  Mouse=new Actions(driver);
-	     WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[9]/div/button"));
-	     Mouse.click(Dropdown);
-	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	     WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[9]/div/ul/li[1]/a"));
-	     Mouse.moveToElement(EyeIcon);
-	     Mouse.click();
-	     Mouse.perform();
+		 ClientAccountsPageElements.ViewAccount();
 	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	     sslDashBoardElements.AdminDashboardValidation();
+	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
+	     
 		 
 	     /*
 	      * Click on My Users Link
 	      */
-	     
-	     
 	     sslDashBoardElements.ClickAccountEndUsersLink();
 	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	     JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -412,58 +416,65 @@ public class Admin_User extends DriverLoad {
   @Test (groups = {"Sanity"})
   public void IssueProposal () throws Exception {
 	  
-	  test = report.startTest("Admin Test -->  Issue a Proposal");
+	  test = report.startTest("Admin Test --> Issue a Proposal");
 	  test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	  driver.findElement(By.linkText("Client accounts")).click();
-	  //test.log(LogStatus.INFO, "Click on User Account Link");
-		
-	  driver.findElement(By.name("data[Account][query]")).sendKeys("uk test");
-	  //test.log(LogStatus.INFO, "Enter UK Test Account in Query Field");
-		
-	  driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();	
-	  //test.log(LogStatus.INFO, "Click on Update Button");
-		
-	  Thread.sleep(10000);
-	  driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
-	  test.log(LogStatus.INFO, "User Account Page Opened");
+	  AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
+	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	  ClientAccountsPageElements.ValidatePage();
+	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	  ClientAccountsPageElements.UpdateButtonClink();
+	  test.log(LogStatus.INFO, "Click on Update Button");
+		 
+	  Thread.sleep(1000);
+	  ClientAccountsPageElements.ValidateResults("UK Test");
+	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  ClientAccountsPageElements.ViewAccount();
+	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
 	  Thread.sleep(10000);
 	  
-	  sslDashBoardElements.ClickMyProposalsLink();
-	  ProposalsPageElements.ValidatePage();
-	  ProposalsPageElements.UnIssuedTabClink();
-	  ProposalsPageElements.ViewTopResult();
-	  ProposalsPageElements.IssueProposalTabClink();
-	  ProposalsPageElements.ConfirmCheckBoxOneClink();
-	  Thread.sleep(1000);
-	  ProposalsPageElements.ConfirmCheckBoxTwoClink();
-	  Thread.sleep(1000);
-	  ProposalsPageElements.IssueProposalButtonClink();
+	try {
+	 
+	  		sslDashBoardElements.AdminDashboardValidation();
+	  		test.log(LogStatus.INFO, "DashBord Page Opened");
+	  		sslDashBoardElements.ClickMyProposalsLink();
+	  		ProposalsPageElements.ValidatePage();
+		  	ProposalsPageElements.UnIssuedTabClink();
+		  	ProposalsPageElements.ViewTopResult();
+		  	ProposalsPageElements.IssueProposalTabClink();
+		  	ProposalsPageElements.ConfirmCheckBoxOneClink();
+		  	Thread.sleep(1000);
+		  	ProposalsPageElements.ConfirmCheckBoxTwoClink();
+		  	Thread.sleep(1000);
+		  	ProposalsPageElements.IssueProposalButtonClink();
 	  
-	  try {
+	  
 			String Alertnote = "issued";  
 			AlertBoxElements.AlertWait();
 					    	
-		  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+			if (AlertBoxElements.VerifyAlert(Alertnote)) {
 								
-			test.log(LogStatus.PASS, "Validation Complete");
-			Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-			System.out.println("Validation Complete!");
-			
-		  }else{
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+				
+			}else{
 					    	
-		test.log(LogStatus.FAIL, "Validation Failed");
-			AlertBoxElements.AlertPrint();
-			Assert.fail("Validation Failed ");
+				test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
 					    	
 			}
 			
-		}catch (Exception e) {
+	}catch (Exception e) {
 								
 			test.log(LogStatus.FAIL, "Validation Failed");
 			Assert.fail("Exception " + e);
 
-		}
+	}
 
 	  
 	  

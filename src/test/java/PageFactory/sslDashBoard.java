@@ -141,10 +141,18 @@ public class sslDashBoard extends DriverLoad {
 		AccountEndUsersLink.click();
 	}
 	
-	public void PageHeaderAssert() {
+	public void ClientDashboardValidation() {
 		
-		String Status = driver.getTitle();
-		//Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
+		String Status = "MySSL® » Dashboard";
+		Assert.assertTrue(driver.getTitle().contains(Status));
+		System.out.println("Page Title is:"  + Status);
+		
+	}
+	
+	public void AdminDashboardValidation() {
+		
+		String Status = "Account Overview";
+		Assert.assertTrue(driver.getTitle().contains(Status));
 		System.out.println("Page Title is:"  + Status);
 		
 	}
