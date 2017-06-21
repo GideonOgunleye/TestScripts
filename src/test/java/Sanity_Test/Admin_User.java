@@ -359,23 +359,29 @@ try {
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
+	  
 	  		report = ExtentFactory.getInstance3();
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-			driver.findElement(By.linkText("Client accounts")).click();
-			//test.log(LogStatus.INFO, "Click on User Account Link");
-			
-			driver.findElement(By.name("data[Account][query]")).sendKeys("uk test");
-			//test.log(LogStatus.INFO, "Enter UK Test Account in Query Field");
-			
-			driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();	
-			//test.log(LogStatus.INFO, "Click on Update Button");
-			
-			Thread.sleep(10000);
-			driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
-			test.log(LogStatus.INFO, "User Account Page Opened");
-			Thread.sleep(10000);
+	 	
+			AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
+			test.log(LogStatus.INFO, "Click on clients Accounts Link");
+			 
+			ClientAccountsPageElements.ValidatePage();
+			ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+			test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+			 
+			ClientAccountsPageElements.UpdateButtonClink();
+			test.log(LogStatus.INFO, "Click on Update Button");
+			 
+			Thread.sleep(5000);
+			ClientAccountsPageElements.ValidateResults("UK Test");
+			test.log(LogStatus.INFO, "Search Resusult is Displayed");
+			ClientAccountsPageElements.ViewAccount();
+		    test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+		    Thread.sleep(1000);
+		    sslDashBoardElements.AdminDashboardValidation();
+		  	test.log(LogStatus.INFO, "DashBord Page Opened");
 			
 			//Navigate to Proposals Section 
 			sslDashBoardElements.ClickMyProposalsLink();
@@ -383,46 +389,41 @@ try {
 			test.log(LogStatus.INFO, "Proposal Page Opened");
 			
 			//Click on New Proposal
-			driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[1]/div[2]/div/div/a")).click();
+			ProposalsPageElements.ValidatePage();
+			ProposalsPageElements.NewProposalButtonClink();
 			Thread.sleep(10000);
-			//test.log(LogStatus.INFO, "Click on New Proposal Button");
 			
 			//Fill in required information
-			WebElement Product = driver.findElement(By.id("BasketItem1ProductTypeId"));
-			Select ProductName = new Select(Product);
-			ProductName.selectByVisibleText("SSL Certificate");
-			//test.log(LogStatus.INFO, "Select SSL Certificate");
+			ProposalsPageElements.ProductTypeFieldSelect("SSL Certificate");
+			test.log(LogStatus.INFO, "Select Product Type");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		
+			ProposalsPageElements.ProductFieldSelect("RapidSSL Pro");
+			test.log(LogStatus.INFO, "Select Product Name");
+			Thread.sleep(10000);
+				
+			ProposalsPageElements.QuantityFieldClear();
+			ProposalsPageElements.QuantityFieldSenkeys("3");
+			test.log(LogStatus.INFO, "Enter Quantity ");
+			
+			ProposalsPageElements.DurationFieldSelect("3 years");
+			test.log(LogStatus.INFO, "Select Number of Years");
+			Thread.sleep(10000);		
+			
+			ProposalsPageElements.CommonNameFieldClear();
+			ProposalsPageElements.CommonNameFieldSendKeys("ssl247-testing.co.uk");
+			test.log(LogStatus.INFO, "Fill in Common Name");
 			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			
-			WebElement ProductType = driver.findElement(By.id("productSelect1"));
-			Select Type = new Select(ProductType);
-			Type.selectByVisibleText("RapidSSL Pro");
-			//test.log(LogStatus.INFO, "Select RapidSSL Pro");
-			Thread.sleep(10000);
-			
-			driver.findElement(By.name("data[BasketItem][1][quantity]")).clear();
-			driver.findElement(By.name("data[BasketItem][1][quantity]")).sendKeys("3");
-			//test.log(LogStatus.INFO, "Enter 3 in Quantity Field");
-			
-			WebElement Duration = driver.findElement(By.name("data[BasketItem][1][years]"));
-			Select DurationNo = new Select(Duration);
-			DurationNo.selectByVisibleText("3 years");
-			//test.log(LogStatus.INFO, "Select 3 Years in Years Field");
-			Thread.sleep(10000);
-			
-			driver.findElement(By.id("BasketItem1CommonName")).sendKeys("ssl247-testing.co.uk");
-			//test.log(LogStatus.INFO, "Fill in Common Name Field");
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			
-			driver.findElement(By.id("ProposalCalculatePrices")).click();
-			//test.log(LogStatus.INFO, "Click on Calculate Prices Button");
+			ProposalsPageElements.CalculatePricesButtonClink();
+			test.log(LogStatus.INFO, "Click on Calculate Prices Button");
 			Thread.sleep(10000);
 			
 			//Click Save
-			driver.findElement(By.id("ProposalSave")).click();
-			//driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-			//driver.switchTo().alert().accept();
+			ProposalsPageElements.SaveProposalButtonButtonClink();
 			
+			
+			//Validate Test
 			try {
 				String Alertnote = "Proposal saved";  
 				AlertBoxElements.AlertWait();

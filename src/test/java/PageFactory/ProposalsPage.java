@@ -2,6 +2,7 @@ package PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -46,6 +47,30 @@ public class ProposalsPage extends DriverLoad {
 	
 	@FindBy(xpath = ".//*[@id='adminIssueInvoiceValidation']")
 	WebElement IssueProposalButton;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[1]/div[2]/div/div/a")
+	WebElement NewProposalButton;
+	
+	@FindBy(xpath = ".//*[@id='BasketItem1ProductTypeId']")
+	WebElement ProductTypeField;
+	
+	@FindBy(xpath = ".//*[@id='productSelect1']")
+	WebElement ProductField;
+	
+	@FindBy(xpath = ".//*[@id='BasketItem1Quantity']")
+	WebElement QuantityField;
+	
+	@FindBy(xpath = ".//*[@id='Product1Years']/select")
+	WebElement DurationField;
+	
+	@FindBy(xpath = ".//*[@id='BasketItem1CommonName']")
+	WebElement CommonNameField;
+	
+	@FindBy(xpath = ".//*[@id='ProposalCalculatePrices']")
+	WebElement CalculatePricesButton;
+	
+	@FindBy(xpath = ".//*[@id='ProposalSave']")
+	WebElement SaveProposalButton;
 	
 	
 	public ProposalsPage(WebDriver driver){
@@ -95,4 +120,56 @@ public class ProposalsPage extends DriverLoad {
 	}
 	
 
+	public void NewProposalButtonClink(){
+		
+		NewProposalButton.click();
+	}
+	
+	public void ProductTypeFieldSelect(String Product){
+		
+		Select ProductName = new Select(ProductTypeField);
+		ProductName.selectByVisibleText(Product);
+	}
+	
+	public void ProductFieldSelect(String ProductType){
+	
+		Select Type = new Select(ProductField);
+		Type.selectByVisibleText(ProductType);
+	}
+	
+	public void QuantityFieldClear(){
+		
+		QuantityField.clear();
+	}
+	
+	public void QuantityFieldSenkeys(String Quantity){
+		
+		QuantityField.sendKeys(Quantity);
+	}
+	
+	public void DurationFieldSelect(String Duration){
+		
+		Select DurationNo = new Select(DurationField);
+		DurationNo.selectByVisibleText(Duration);
+	}
+	
+	public void CommonNameFieldClear(){
+		
+		CommonNameField.clear();
+	}
+	
+	public void CommonNameFieldSendKeys(String CommonName){
+		
+		CommonNameField.sendKeys(CommonName);
+	}
+	
+	public void CalculatePricesButtonClink(){
+		
+		CalculatePricesButton.click();
+	}
+	
+	public void SaveProposalButtonButtonClink(){
+		
+		SaveProposalButton.click();
+	}
 }

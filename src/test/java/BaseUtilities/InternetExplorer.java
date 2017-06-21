@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
@@ -27,15 +28,8 @@ public class InternetExplorer {
   @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke"} )
   public void beforeTest() throws IOException  {
 	
- 	 /* 
-	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-	  driver = new ChromeDriver();  
-	 */ 
-	  //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-	  System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
-	  //System.setProperty("webdriver.firefox.driver","C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
-	  //driver = new FirefoxDriver(capabilities);
-	  driver = new FirefoxDriver();
+	  System.setProperty("webdriver.ie.driver", "C:\\IEDriverServer.exe");
+	  driver = new InternetExplorerDriver();
 	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  
    

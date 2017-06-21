@@ -17,7 +17,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
-public class DriverLoad extends Chrome {
+public class DriverLoad extends InternetExplorer {
 	
 	/*
 	public WebDriver driver;
