@@ -133,7 +133,7 @@ public class Admin_User extends DriverLoad {
   }
 
   
-  @Test (groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 1, groups = {"Sanity","BS_Sanity"})
   public void Edit_Account_User() throws Exception{
 	  
 	//Search For UK Test User
@@ -150,11 +150,12 @@ public class Admin_User extends DriverLoad {
 		 ClientAccountsPageElements.UpdateButtonClink();
 		 test.log(LogStatus.INFO, "Click on Update Button");
 		 
-		 Thread.sleep(1000);
+		 Thread.sleep(5000);
 		 ClientAccountsPageElements.ValidateResults("UK Test");
 		 test.log(LogStatus.INFO, "Search Resusult is Displayed");
 		 ClientAccountsPageElements.ViewAccount();
 	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	     Thread.sleep(1000);
 	     sslDashBoardElements.AdminDashboardValidation();
 	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
 	     
@@ -169,7 +170,7 @@ public class Admin_User extends DriverLoad {
 	     Thread.sleep(1000);
 		 test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 		 
-		 
+try {		 
 		 String UserVal = "Gideon Ogunleye";
 		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
 		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
@@ -194,6 +195,14 @@ public class Admin_User extends DriverLoad {
 			 Select Level = new Select(AccessLevel);
 			 Level.selectByVisibleText("Super User");
 			 test.log(LogStatus.INFO, "Change Access Level to Super User");
+			 Thread.sleep(1000);
+			 
+			//Edit Optional Details
+			 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+			 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			 
 			//Click Save User
 			 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
@@ -219,6 +228,14 @@ public class Admin_User extends DriverLoad {
 				 Select Level = new Select(AccessLevel);
 				 Level.selectByVisibleText("Super User");
 				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+				 Thread.sleep(1000);
+				 
+				 //Edit Optional Details
+				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
 				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
@@ -244,6 +261,14 @@ public class Admin_User extends DriverLoad {
 				 Select Level = new Select(AccessLevel);
 				 Level.selectByVisibleText("Super User");
 				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+				 Thread.sleep(1000);
+				 
+				//Edit Optional Details
+				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
 				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
@@ -269,6 +294,14 @@ public class Admin_User extends DriverLoad {
 				 Select Level = new Select(AccessLevel);
 				 Level.selectByVisibleText("Super User");
 				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+				 Thread.sleep(1000);
+				 
+				//Edit Optional Details
+				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
 				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
@@ -282,6 +315,13 @@ public class Admin_User extends DriverLoad {
 				System.out.println("Quality Tester User Not Found");
 				
 			 }
+		 
+  	}catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+
+	}
   
 		
 		 /*Test Validation*/
@@ -315,7 +355,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @Test (groups = {"Smoke"})
+  @Test (priority = 2,groups = {"Smoke"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
@@ -413,7 +453,7 @@ public class Admin_User extends DriverLoad {
 			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
   
-  @Test (groups = {"Sanity"})
+  @Test (priority = 3,groups = {"Sanity"})
   public void IssueProposal () throws Exception {
 	  
 	  test = report.startTest("Admin Test --> Issue a Proposal");
@@ -434,7 +474,7 @@ public class Admin_User extends DriverLoad {
 	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
 	  ClientAccountsPageElements.ViewAccount();
 	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
-	  Thread.sleep(10000);
+	  Thread.sleep(1000);
 	  
 	try {
 	 
@@ -445,6 +485,7 @@ public class Admin_User extends DriverLoad {
 		  	ProposalsPageElements.UnIssuedTabClink();
 		  	ProposalsPageElements.ViewTopResult();
 		  	ProposalsPageElements.IssueProposalTabClink();
+		  	Thread.sleep(1000);
 		  	ProposalsPageElements.ConfirmCheckBoxOneClink();
 		  	Thread.sleep(1000);
 		  	ProposalsPageElements.ConfirmCheckBoxTwoClink();
@@ -477,13 +518,10 @@ public class Admin_User extends DriverLoad {
 	}
 
 	  
-	  
-	  
-	  
   }
   
   
-  @Test (groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 4,groups = {"Sanity","BS_Sanity"})
   public void Send_Fulfillment_Email() throws Exception {
 	  
 	    test = report.startTest("Admin Test -->  Send Fullfillement Email");
@@ -660,7 +698,7 @@ public class Admin_User extends DriverLoad {
   }
   
   
-  @Test (groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 5,groups = {"Sanity","BS_Sanity"})
   public void Send_Change_Password_Request_Email() throws Exception {
 	  
 	    test = report.startTest("Admin Test --> Change Password Request Email");

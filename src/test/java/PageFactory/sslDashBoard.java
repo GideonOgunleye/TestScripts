@@ -152,6 +152,7 @@ public class sslDashBoard extends DriverLoad {
 	public void AdminDashboardValidation() {
 		
 		String Status = "Account Overview";
+		System.out.println("Page Title is:"  + driver.getTitle());
 		Assert.assertTrue(driver.getTitle().contains(Status));
 		System.out.println("Page Title is:"  + Status);
 		

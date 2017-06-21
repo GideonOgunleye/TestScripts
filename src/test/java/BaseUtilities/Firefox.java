@@ -17,9 +17,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
-public class DriverLoad extends Chrome {
+public class Firefox {
 	
-	/*
+	
 	public WebDriver driver;
 	
 
@@ -27,9 +27,8 @@ public class DriverLoad extends Chrome {
   @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke"} )
   public void beforeTest() throws IOException  {
 	
- 	 
-	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-	  driver = new ChromeDriver();  
+	  System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+	  driver = new FirefoxDriver();
 	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  
    
@@ -45,7 +44,7 @@ public class DriverLoad extends Chrome {
 
 	  
   }
-*/
+
  
   
 }
