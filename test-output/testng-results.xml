@@ -1,63 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="53471" started-at="2017-06-12T16:07:37Z" finished-at="2017-06-12T16:08:31Z">
+  <suite name="Default suite" duration-ms="73442" started-at="2017-06-21T09:11:43Z" finished-at="2017-06-21T09:12:56Z">
     <groups>
       <group name="Sanity">
-        <method signature="SubNav_Test.SymantecLink_Test()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="SymantecLink_Test" class="Sanity_Test.SubNav_Test"/>
-        <method signature="SubNav_Test.VerSign_Link_Test()[pri:1, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="VerSign_Link_Test" class="Sanity_Test.SubNav_Test"/>
+        <method signature="Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
       </group> <!-- Sanity -->
+      <group name="BS_Sanity">
+        <method signature="Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
+      </group> <!-- BS_Sanity -->
     </groups>
-    <test name="Default test" duration-ms="53471" started-at="2017-06-12T16:07:37Z" finished-at="2017-06-12T16:08:31Z">
-      <class name="Sanity_Test.SubNav_Test">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="beforeTest" is-config="true" duration-ms="3166" started-at="2017-06-12T17:07:37Z" finished-at="2017-06-12T17:07:40Z">
+    <test name="Default test" duration-ms="73442" started-at="2017-06-21T09:11:43Z" finished-at="2017-06-21T09:12:56Z">
+      <class name="Sanity_Test.Admin_User">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="beforeTest" is-config="true" duration-ms="2996" started-at="2017-06-21T10:11:43Z" finished-at="2017-06-21T10:11:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="beforeMethod" is-config="true" duration-ms="10466" started-at="2017-06-12T17:07:40Z" finished-at="2017-06-12T17:07:51Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="Login" is-config="true" duration-ms="17370" started-at="2017-06-21T10:11:46Z" finished-at="2017-06-21T10:12:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="SymantecLink_Test()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="SymantecLink_Test" duration-ms="2913" started-at="2017-06-12T17:07:51Z" finished-at="2017-06-12T17:07:54Z">
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" duration-ms="31849" started-at="2017-06-21T10:12:03Z" finished-at="2017-06-21T10:12:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SymantecLink_Test -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="afterMethod" is-config="true" duration-ms="8017" started-at="2017-06-12T17:07:54Z" finished-at="2017-06-12T17:08:02Z">
+        </test-method> <!-- Edit_Account_User -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="Log_Out" is-config="true" duration-ms="10305" started-at="2017-06-21T10:12:35Z" finished-at="2017-06-21T10:12:45Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SymantecLink_Test status=SUCCESS method=SubNav_Test.SymantecLink_Test()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e] output={null}]]]>
+                <![CDATA[[TestResult name=Edit_Account_User status=SUCCESS method=Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="beforeMethod" is-config="true" duration-ms="8236" started-at="2017-06-12T17:08:02Z" finished-at="2017-06-12T17:08:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="VerSign_Link_Test()[pri:1, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="VerSign_Link_Test" duration-ms="2277" started-at="2017-06-12T17:08:10Z" finished-at="2017-06-12T17:08:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerSign_Link_Test -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="afterMethod" is-config="true" duration-ms="7348" started-at="2017-06-12T17:08:12Z" finished-at="2017-06-12T17:08:20Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerSign_Link_Test status=SUCCESS method=SubNav_Test.VerSign_Link_Test()[pri:1, instance:Sanity_Test.SubNav_Test@31a5c39e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.SubNav_Test@31a5c39e]" name="afterTest" is-config="true" duration-ms="11025" started-at="2017-06-12T17:08:20Z" finished-at="2017-06-12T17:08:31Z">
+        </test-method> <!-- Log_Out -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="afterTest" is-config="true" duration-ms="10903" started-at="2017-06-21T10:12:45Z" finished-at="2017-06-21T10:12:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.SubNav_Test -->
+      </class> <!-- Sanity_Test.Admin_User -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
