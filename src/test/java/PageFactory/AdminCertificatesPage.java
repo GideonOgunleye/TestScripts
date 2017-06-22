@@ -19,57 +19,57 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.BrowserStack;
 
-public class AdminNavigationLinks extends BrowserStack {
+public class AdminCertificatesPage extends BrowserStack {
 	ExtentReports report;
 	ExtentTest test;
 	Actions  actions=new Actions(driver);
 	
-	/*****Main Menu*******/
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[2]/a")
-	WebElement ClientsAccountsLink;
+	/*****Page Elements*******/
+	@FindBy(xpath = ".//*[@id='CertificateQuery']")
+	WebElement SearchField;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[3]/a")
-	WebElement ProductsLink;
+	@FindBy(xpath = ".//*[@id='CertificateField']")
+	WebElement ForField;
 	
-	/********Clients Accounts SubMenu Navigation**********/
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[2]/ul/li[1]/a")
-	WebElement NewAccountLink;
+	@FindBy(xpath = ".//*[@id='CertificateBrandId']")
+	WebElement BrandField;
 	
-
+	@FindBy(xpath = ".//*[@id='CertificateProductId']")
+	WebElement ProductField;
 	
-	/********Products SubMenu Navigation**********/
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[3]/ul/li[1]/a")
-	WebElement CertificatesLink;
+	@FindBy(xpath = ".//*[@id='CertificateStatusId']")
+	WebElement StatusField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDisplayFree']")
+	WebElement ShowFreeSSLField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAccountManagerId']")
+	WebElement ManagerField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateIsUninvoiced']")
+	WebElement InvoicedField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDateRange']")
+	WebElement DateSearchField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateFrom']")
+	WebElement From_Field;
+	
+	@FindBy(xpath = ".//*[@id='CertificateTo']")
+	WebElement To_Field;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminIndexForm']/div[2]/div[2]/div[5]/button[1]")
+	WebElement SearchButton;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminIndexForm']/div[2]/div[2]/div[5]/a")
+	WebElement ClearButton;
+	
+	@FindBy(xpath = ".//*[@id='certificatesExport']")
+	WebElement ExportButton;
 	
 	
-	/********Identify SubMenu Navigation**********/
 	
-	
-	/********Register SubMenu Navigation**********/
-	
-	
-	/********Manage SubMenu Navigation**********/
-	
-	
-	/********Become a Partner SubMenu Navigation**********/
-	
-	
-	/********My SSL SubMenu Navigation**********/
-	
-	
-	/********Free Trials SubMenu Navigation**********/
-	
-	
-	/********About SubMenu Navigation**********/
-	
-	
-	/********Support SubMenu Navigation**********/
-	
-	
-	
-	
-	
-	public AdminNavigationLinks(WebDriver driver){
+	public AdminCertificatesPage(WebDriver driver){
 		
 		this.driver = driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 100), this);
@@ -77,6 +77,8 @@ public class AdminNavigationLinks extends BrowserStack {
 		
 	}
 
+	
+	/*
 	
 	public void ClientsAccountsLinkClick(){
 		

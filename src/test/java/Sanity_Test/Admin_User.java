@@ -140,7 +140,7 @@ public class Admin_User extends DriverLoad {
 	     test = report.startTest("Admin Test --> Edit User");
 	     test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	     AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
+	     AdminNavigationLinksElements.ClientsAccountsLinkClick();
 		 test.log(LogStatus.INFO, "Click on clients Accounts Link");
 		 
 		 ClientAccountsPageElements.ValidatePage();
@@ -364,7 +364,7 @@ try {
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
 	 	
-			AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
+			AdminNavigationLinksElements.ClientsAccountsLinkClick();
 			test.log(LogStatus.INFO, "Click on clients Accounts Link");
 			 
 			ClientAccountsPageElements.ValidatePage();
@@ -460,7 +460,7 @@ try {
 	  test = report.startTest("Admin Test --> Issue a Proposal");
 	  test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	  AdminNavigationLinksElements.ClientsAccountsLinkLinkClick();
+	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
 	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
 		 
 	  ClientAccountsPageElements.ValidatePage();
@@ -530,14 +530,21 @@ try {
 	  
 	    //Navigate to products link
 	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+/*	  	
 	  	Actions  actions=new Actions(driver);
 	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
 	  	actions.moveToElement(ProductsLink);
+*/
+	  	AdminNavigationLinksElements.ProductsLinkMouse();
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	
+/*	  	
 	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
 	    actions.moveToElement(CertificatesLink);
 	  	actions.click();
 	  	actions.perform();
+*/	  	
+	  	AdminNavigationLinksElements.CertificatesLinkClick();
 	  	test.log(LogStatus.INFO, "Opened Search Products Page");
 	  	
 	  	//Select Account Name from for field
