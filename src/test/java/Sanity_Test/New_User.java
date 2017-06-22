@@ -375,7 +375,6 @@ public class New_User extends BrowserStack  {
 		driver.findElement(By.name("email")).sendKeys("qa@ssl247.co.uk");
 		driver.findElement(By.name("description")).sendKeys("This is is a Message");
 		CookiesElements.CheckCookies();
-		CookiesElements.CheckCookies2();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
 		
@@ -503,6 +502,8 @@ public class New_User extends BrowserStack  {
 			
 	//Fill in the form
 	Thread.sleep(1000);
+	CookiesElements.CheckCookies();
+	//CookiesElements.CheckCookies2();
 	String Msg = "Request a Free proposal";
 	WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[1]/h3"));
 	
@@ -514,6 +515,7 @@ public class New_User extends BrowserStack  {
 		
 		test.log(LogStatus.FAIL, "Form Not Opened");
 	}
+	
 	
 	WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
 	Select Tl = new Select(Title);
