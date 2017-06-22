@@ -49,17 +49,42 @@ public class Cookies extends DriverLoad {
 	public void CheckCookies() {
 		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			
+	
+		
 		try {
 			
-			if (CookiesButton.isDisplayed()) {
+			String Status = "Cookies: enabled";
 			
+			if (CookiesButton.getText().contains(Status)) {
+			
+				
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				System.out.println("Cookies Displayed");
+				
+			}else {
+				
 				CookiesButton.click();
+				System.out.println("Cookies Button Clicked Displayed");
+			}
+		
+		}catch(Exception e) {
+			
+			System.out.println("Top Cookies Not Displayed");
+			
+			}
+		
+		
+		
+		try {
+			
+			if (CookiesButton2.isDisplayed()) {
+			
+				CookiesButton2.click();
 				System.out.println("Cookies Button Has Been Clicked");
 			}
 		
 		}catch(Exception e) {
-			System.out.println("Cookies Button Not Displayed");
+			System.out.println("Buttom Cookies Button Not Displayed");
 			
 			}
 		
@@ -67,6 +92,7 @@ public class Cookies extends DriverLoad {
 		
 	}
 	
+	/*
 	public void CheckCookies2() {
 		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -88,7 +114,7 @@ public class Cookies extends DriverLoad {
 	
 	}
 	
-	
+*/	
 	public void ClickCookiesButton(){
 			
 		CookiesButton.click();
