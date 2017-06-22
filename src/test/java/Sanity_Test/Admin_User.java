@@ -10,6 +10,7 @@ import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminNavigationLinks;
 import PageFactory.BillingPage;
 import PageFactory.ClientAccountsPage;
@@ -53,6 +54,7 @@ public class Admin_User extends DriverLoad {
   ExtentTest test;
   LoginPage 	LoginPageElements;
   AdminNavigationLinks AdminNavigationLinksElements;
+  AdminCertificatesPage AdminCertificatesPageElements;
   NavigationLinks NavigationLinksElements;
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
@@ -72,6 +74,7 @@ public class Admin_User extends DriverLoad {
 	  NavigationLinksElements = new NavigationLinks(driver);
 	  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
 	  ClientAccountsPageElements = new ClientAccountsPage(driver);
+	 // AdminCertificatesPageElements = new AdminCertificatesPage(driver);
 	  
 	  LoginPageElements.AdminLogin();
 		 
@@ -554,10 +557,12 @@ try {
 	
 		
 		//Select Issued from Status Field
+		AdminCertificatesPageElements.ForFieldSelect("Issued");
+/*		
 		WebElement StatusField = driver.findElement(By.xpath(".//*[@id='CertificateStatusId']"));
 		Select StatusOptions = new Select(StatusField);
 		StatusOptions.selectByVisibleText("Issued");
-	
+*/	
 		
 	    //Enter Account Name into form field and Click Search
 		driver.findElement(By.xpath(".//*[@id='CertificateQuery']")).sendKeys("UK Test");

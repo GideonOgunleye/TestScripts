@@ -11,6 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -18,8 +19,9 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.BrowserStack;
+import BaseUtilities.DriverLoad;
 
-public class AdminCertificatesPage extends BrowserStack {
+public class AdminCertificatesPage extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	Actions  actions=new Actions(driver);
@@ -78,17 +80,24 @@ public class AdminCertificatesPage extends BrowserStack {
 	}
 
 	
-	/*
 	
-	public void ClientsAccountsLinkClick(){
+	
+	public void SearchFieldSendKeys(String Query){
 		
-		ClientsAccountsLink.click();
+		SearchField.sendKeys(Query);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		assertTrue(driver.getTitle().contains("SSL247 Accounts"));
 
-	
 	}
 	
+	public void ForFieldSelect(String List){
+		
+		Select StatusOptions = new Select(ForField);
+		StatusOptions.selectByVisibleText(List);
+
+	}
+	
+
+/*
 	public void ProductsLinkMouse(){
 		
 	  	actions.moveToElement(ProductsLink);
