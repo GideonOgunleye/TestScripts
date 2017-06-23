@@ -10,6 +10,7 @@ import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.TakeScreenShot;
 import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminNavigationLinks;
 import PageFactory.BillingPage;
@@ -50,6 +51,8 @@ import org.testng.annotations.AfterTest;
 
 public class Admin_User extends DriverLoad {
   //WebDriver driver;
+	
+	
   ExtentReports report;
   ExtentTest test;
   LoginPage 	LoginPageElements;
@@ -61,11 +64,12 @@ public class Admin_User extends DriverLoad {
   AlertBox AlertBoxElements;
   ProposalsPage ProposalsPageElements;
   ClientAccountsPage ClientAccountsPageElements;
+  TakeScreenShot ScreenShot;
   
 	
   @BeforeMethod (groups = {"Sanity","Smoke"})
   public void Login() throws Exception {
-	  
+
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
@@ -74,10 +78,11 @@ public class Admin_User extends DriverLoad {
 	  NavigationLinksElements = new NavigationLinks(driver);
 	  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
 	  ClientAccountsPageElements = new ClientAccountsPage(driver);
-	 // AdminCertificatesPageElements = new AdminCertificatesPage(driver);
-	  
+	  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
+	  ScreenShot = new TakeScreenShot();
+  
 	  LoginPageElements.AdminLogin();
-		 
+ 
 	  report = ExtentFactory.getInstance(); 	 
 		 
   }
@@ -533,48 +538,48 @@ try {
 	  
 	    //Navigate to products link
 	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-/*	  	
-	  	Actions  actions=new Actions(driver);
-	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
-	  	actions.moveToElement(ProductsLink);
-*/
+
 	  	AdminNavigationLinksElements.ProductsLinkMouse();
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	
-/*	  	
-	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
-	    actions.moveToElement(CertificatesLink);
-	  	actions.click();
-	  	actions.perform();
-*/	  	
+	  	  	
 	  	AdminNavigationLinksElements.CertificatesLinkClick();
 	  	test.log(LogStatus.INFO, "Opened Search Products Page");
 	  	
 	  	//Select Account Name from for field
-	  	WebElement ForField = driver.findElement(By.xpath(".//*[@id='CertificateField']"));
-		Select Options = new Select(ForField);
-		Options.selectByVisibleText("Account name");
-	
-		
+	  	AdminCertificatesPageElements.ForFieldFieldSelect("Account name");
+	  	
 		//Select Issued from Status Field
-		AdminCertificatesPageElements.ForFieldSelect("Issued");
-/*		
-		WebElement StatusField = driver.findElement(By.xpath(".//*[@id='CertificateStatusId']"));
-		Select StatusOptions = new Select(StatusField);
-		StatusOptions.selectByVisibleText("Issued");
-*/	
+		AdminCertificatesPageElements.StatusFieldSelect("Issued");
 		
 	    //Enter Account Name into form field and Click Search
-		driver.findElement(By.xpath(".//*[@id='CertificateQuery']")).sendKeys("UK Test");
-		driver.findElement(By.xpath(".//*[@id='CertificateAdminIndexForm']/div[2]/div[2]/div[5]/button[1]")).click();	
+		AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		AdminCertificatesPageElements.SearchButtonClick();		
 		
-		
-		//Wait for Certificate page to appear 
-		WebDriverWait wait = new WebDriverWait(driver, 20);	
-		WebElement Result;
-		Result = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")));
-		Result.getText();
-		//test.log(LogStatus.INFO, "Wait For Result page to appear");
+		//Wait for Result to appear 
+		try {
+			
+			String Message = "records per page";
+			
+			if (AdminCertificatesPageElements.SearchResultValidate().contains(Message)) {
+				
+				test.log(LogStatus.INFO, "Result Is Displayed");
+				
+			}else {
+				
+				System.out.println("Search Result Not Present");
+				//ScreenShot.Image(null);
+				String path = ScreenShot.Image(driver, "SearchResult");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
+					
+			}
+	
+		}catch (Exception e){
+			
+			System.out.println("Search Result Element Not Present");
+			test.log(LogStatus.FAIL, "Result Not Displayed");
+		}
 		
 		String AccountName = "UK Test01";
 		String Status = "Issued";
@@ -702,12 +707,7 @@ try {
 				Assert.fail("Exception " + e);
 
 			}
-	  /*	
-	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	String Confirmation = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
-	  	Assert.assertTrue(Confirmation.contains("Email deleted"));
-	  	test.log(LogStatus.INFO, "Deleted Email from Outgoing emails");
-	  */
+	
   }
   
   

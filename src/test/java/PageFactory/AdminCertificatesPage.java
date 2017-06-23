@@ -22,9 +22,8 @@ import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 
 public class AdminCertificatesPage extends DriverLoad {
-	ExtentReports report;
-	ExtentTest test;
-	Actions  actions=new Actions(driver);
+	
+	
 	
 	/*****Page Elements*******/
 	@FindBy(xpath = ".//*[@id='CertificateQuery']")
@@ -69,7 +68,8 @@ public class AdminCertificatesPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='certificatesExport']")
 	WebElement ExportButton;
 	
-	
+	@FindBy(xpath = ".//*[@id='DataTables_Table_0_wrapper']/div[1]/div[1]")
+	WebElement SearchResult;
 	
 	public AdminCertificatesPage(WebDriver driver){
 		
@@ -89,17 +89,52 @@ public class AdminCertificatesPage extends DriverLoad {
 
 	}
 	
-	public void ForFieldSelect(String List){
+	public void ForFieldFieldSelect(String List){
 		
-		Select StatusOptions = new Select(ForField);
+		Select Options = new Select(ForField);
+		Options.selectByVisibleText(List);
+
+	}
+	
+	public void StatusFieldSelect(String List){
+		
+		Select StatusOptions = new Select(StatusField);
 		StatusOptions.selectByVisibleText(List);
 
+	}
+	
+	public void SearchButtonClick(){
+		
+		SearchButton.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+
+	
+	}
+	
+	public String SearchResultValidate(){
+		
+		return SearchResult.getText();
+		
+		
+		/*	
+			String Message = "records per page";
+			
+			if (SearchResult.getText().contains(Message)) {
+				
+				
+			}else {
+				
+				System.out.println("Search Result Not Present");
+			}
+		*/	
+	
 	}
 	
 
 /*
 	public void ProductsLinkMouse(){
 		
+		Actions  actions=new Actions(driver);
 	  	actions.moveToElement(ProductsLink);
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		assertTrue(driver.getTitle().contains("Products for United Kingdom"));
@@ -109,6 +144,7 @@ public class AdminCertificatesPage extends DriverLoad {
 	
 	public void CertificatesLinkClick(){
 		
+		Actions  actions=new Actions(driver);
 		actions.moveToElement(CertificatesLink);
 	  	actions.click();
 	  	actions.perform();

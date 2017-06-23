@@ -29,10 +29,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class LoginPage extends DriverLoad {
-	ExtentReports report;
-	ExtentTest test;
 	
-	DriverLoad LoadDriver;
+	//DriverLoad LoadDriver;
 	
 	@FindBy(xpath = ".//*[@id='top-panel']/div[1]/span[1]/a[1]")
 	WebElement LoginLink;
@@ -119,7 +117,7 @@ public class LoginPage extends DriverLoad {
 		driver.get(prop.getProperty("Url")); 
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
+		//String title = driver.getTitle();				 
 		//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
 		//Thread.sleep(5000);
 		
@@ -128,6 +126,7 @@ public class LoginPage extends DriverLoad {
 		EnterUserName(prop.getProperty("Username"));
 		EnterPassword(prop.getProperty("Password"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		ClickLoginButton();
 		
 		
 	}
