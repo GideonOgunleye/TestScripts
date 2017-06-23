@@ -5,8 +5,8 @@
     <classes>
       <class name="Sanity_Test.Admin_User">
         <methods>
-          <include name="IssueProposal"/>
           <include name="Log_Out"/>
+          <include name="Send_Fulfillment_Email"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="Login"/>

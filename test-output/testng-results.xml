@@ -2,41 +2,41 @@
 <testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="73442" started-at="2017-06-21T09:11:43Z" finished-at="2017-06-21T09:12:56Z">
+  <suite name="Default suite" duration-ms="62983" started-at="2017-06-23T13:01:18Z" finished-at="2017-06-23T13:02:21Z">
     <groups>
       <group name="Sanity">
-        <method signature="Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
+        <method signature="Admin_User.Send_Fulfillment_Email()[pri:4, instance:Sanity_Test.Admin_User@520a3426]" name="Send_Fulfillment_Email" class="Sanity_Test.Admin_User"/>
       </group> <!-- Sanity -->
       <group name="BS_Sanity">
-        <method signature="Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" class="Sanity_Test.Admin_User"/>
+        <method signature="Admin_User.Send_Fulfillment_Email()[pri:4, instance:Sanity_Test.Admin_User@520a3426]" name="Send_Fulfillment_Email" class="Sanity_Test.Admin_User"/>
       </group> <!-- BS_Sanity -->
     </groups>
-    <test name="Default test" duration-ms="73442" started-at="2017-06-21T09:11:43Z" finished-at="2017-06-21T09:12:56Z">
+    <test name="Default test" duration-ms="62983" started-at="2017-06-23T13:01:18Z" finished-at="2017-06-23T13:02:21Z">
       <class name="Sanity_Test.Admin_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="beforeTest" is-config="true" duration-ms="2996" started-at="2017-06-21T10:11:43Z" finished-at="2017-06-21T10:11:46Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Admin_User@520a3426]" name="beforeTest" is-config="true" duration-ms="2912" started-at="2017-06-23T14:01:18Z" finished-at="2017-06-23T14:01:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="Login" is-config="true" duration-ms="17370" started-at="2017-06-21T10:11:46Z" finished-at="2017-06-21T10:12:03Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:Sanity_Test.Admin_User@520a3426]" name="Login" is-config="true" duration-ms="10320" started-at="2017-06-23T14:01:21Z" finished-at="2017-06-23T14:01:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359]" name="Edit_Account_User" duration-ms="31849" started-at="2017-06-21T10:12:03Z" finished-at="2017-06-21T10:12:35Z">
+        <test-method status="PASS" signature="Send_Fulfillment_Email()[pri:4, instance:Sanity_Test.Admin_User@520a3426]" name="Send_Fulfillment_Email" duration-ms="30737" started-at="2017-06-23T14:01:31Z" finished-at="2017-06-23T14:02:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Edit_Account_User -->
-        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="Log_Out" is-config="true" duration-ms="10305" started-at="2017-06-21T10:12:35Z" finished-at="2017-06-21T10:12:45Z">
+        </test-method> <!-- Send_Fulfillment_Email -->
+        <test-method status="PASS" signature="Log_Out(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Admin_User@520a3426]" name="Log_Out" is-config="true" duration-ms="8038" started-at="2017-06-23T14:02:02Z" finished-at="2017-06-23T14:02:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Edit_Account_User status=SUCCESS method=Admin_User.Edit_Account_User()[pri:1, instance:Sanity_Test.Admin_User@18eed359] output={null}]]]>
+                <![CDATA[[TestResult name=Send_Fulfillment_Email status=SUCCESS method=Admin_User.Send_Fulfillment_Email()[pri:4, instance:Sanity_Test.Admin_User@520a3426] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Log_Out -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@18eed359]" name="afterTest" is-config="true" duration-ms="10903" started-at="2017-06-21T10:12:45Z" finished-at="2017-06-21T10:12:56Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Admin_User@520a3426]" name="afterTest" is-config="true" duration-ms="10957" started-at="2017-06-23T14:02:10Z" finished-at="2017-06-23T14:02:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
