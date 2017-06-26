@@ -7,8 +7,8 @@
         <methods>
           <include name="Log_Out"/>
           <include name="Send_Fulfillment_Email"/>
-          <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="afterTest"/>
           <include name="Login"/>
         </methods>
       </class> <!-- Sanity_Test.Admin_User -->

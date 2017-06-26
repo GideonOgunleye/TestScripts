@@ -23,7 +23,6 @@ import BaseUtilities.DriverLoad;
 public class AdminNavigationLinks extends DriverLoad {
 	
 	
-	
 	/*****Main Menu*******/
 	@FindBy(xpath = ".//*[@id='mainNavigation']/li[2]/a")
 	WebElement ClientsAccountsLink;
@@ -87,14 +86,16 @@ public class AdminNavigationLinks extends DriverLoad {
 	
 	}
 	
-	public void ProductsLinkMouse(){
+	
+	
+	public void  ProductsLinkMouse(){
 		
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		Actions  actions=new Actions(driver);
 		actions.moveToElement(ProductsLink).build().perform();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  	//actions.perform();
+	  	//actions.moveToElement(ProductsLink);
 		//assertTrue(driver.getTitle().contains("Products for United Kingdom"));
-
+		
 	
 	}
 	
@@ -102,8 +103,8 @@ public class AdminNavigationLinks extends DriverLoad {
 		
 		Actions  actions=new Actions(driver);
 		actions.moveToElement(CertificatesLink);
-	  	actions.click().perform();
-	  	//actions.perform();
+	  	actions.click();
+	  	actions.perform();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Products for United Kingdom"));
 

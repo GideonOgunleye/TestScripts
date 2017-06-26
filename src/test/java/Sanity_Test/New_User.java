@@ -12,6 +12,7 @@ import BaseUtilities.Cookies;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
 import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
@@ -58,6 +59,7 @@ public class New_User extends BrowserStack  {
 	Cookies CookiesElements;
 	NavigationLinks NavigationElements;
 	AlertBox AlertBoxElements;
+	TakeScreenShot ScreenShot;
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"})
 	public void Load_Homepage () throws Exception {
@@ -70,6 +72,7 @@ public class New_User extends BrowserStack  {
 		CookiesElements = new Cookies(driver);
 		NavigationElements = new NavigationLinks(driver);
 		AlertBoxElements = new AlertBox(driver);
+		ScreenShot = new TakeScreenShot();
 		
 		LoginPageElements.LoadLoginPage();
 		
@@ -252,20 +255,20 @@ public class New_User extends BrowserStack  {
 		//Navigate to get in touch form
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[6]/div/textarea")).click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				
+		
 		//Fill in form fields
 		Thread.sleep(1000);
+		try {		
+				WebElement GetInTouchForm = driver.findElement(By.xpath(".//*[@id='title']"));
 		
-		WebElement GetInTouchForm = driver.findElement(By.xpath(".//*[@id='title']"));
-		
-		if (GetInTouchForm.isDisplayed()) {
+			if (GetInTouchForm.isDisplayed()) {
 			
-			test.log(LogStatus.PASS, "Form Opened");
+				test.log(LogStatus.PASS, "Form Opened");
 			
-		}else {
+			}else {
 			
-			test.log(LogStatus.FAIL, "Form Not Opened");
-		}
+				test.log(LogStatus.FAIL, "Form Not Opened");
+			}
 		
 		WebElement Title = driver.findElement(By.xpath(".//*[@id='title']"));
 		Select Tl = new Select(Title);
@@ -274,43 +277,24 @@ public class New_User extends BrowserStack  {
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[3]/div/input")).sendKeys("Tester");
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[4]/div/input")).sendKeys("qa@ssl247.co.uk");
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[6]/div/textarea")).sendKeys("Testing!!!");
+		
 	    Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
+		CookiesElements.CheckCookies();
 		
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Form Not Submitted");
+			String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
+			Assert.fail("Exception " + e);
+			driver.quit();
+			
+		}
 		
 		String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
-/*		
-		try {
-	    	  
-	    	if (AlertBoxElements.AlertIsVisible()) {
-	    		
-	    			
-	    			test.log(LogStatus.PASS, "Submit Message Displayed");
-	    	}
-	    		
-	    		}catch (Exception e) {
-	    			
-	    			test.log(LogStatus.FAIL, "Cant Find Submit Message");
-	    			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-	    		}
 
-	 
-	    try {
-		  
-	    	
-	    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
-				
-				test.log(LogStatus.PASS, "Form Submitted");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-	    	}
-			
-				}catch (Exception e) {
-				
-					test.log(LogStatus.FAIL, "Form Not Submitted");
-					Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-				}
-*/	
-		
 		try {
 			  
 	    	

@@ -533,18 +533,23 @@ try {
   @Test (priority = 4,groups = {"Sanity","BS_Sanity"})
   public void Send_Fulfillment_Email() throws Exception {
 	  
-	    test = report.startTest("Admin Test -->  Send Fullfillement Email");
+	  test = report.startTest("Admin Test -->  Send Fullfillement Email");
 	    test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	    //Navigate to products link
+	  //Navigate to products link
 	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-
-	  	AdminNavigationLinksElements.ProductsLinkMouse();
+	  	Actions  actions=new Actions(driver);
+	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
+	  	actions.moveToElement(ProductsLink);
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	  	
-	  	AdminNavigationLinksElements.CertificatesLinkClick();
-	  	test.log(LogStatus.INFO, "Opened Search Products Page");
 	  	
+	  	Thread.sleep(1000);
+	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
+	    actions.moveToElement(CertificatesLink);
+	  	actions.click();
+	  	actions.perform();
+	  	test.log(LogStatus.INFO, "Opened Search Products Page");
+		
 	  	//Select Account Name from for field
 	  	AdminCertificatesPageElements.ForFieldFieldSelect("Account name");
 	  	
@@ -707,6 +712,7 @@ try {
 				Assert.fail("Exception " + e);
 
 			}
+
 	
   }
   

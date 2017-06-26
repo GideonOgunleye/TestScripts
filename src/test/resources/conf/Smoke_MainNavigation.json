@@ -26,7 +26,7 @@
     	"os": "Windows",
     	"os_version": "10",
     	"browser": "Firefox",
-    	"browser_version": "46.0",
+    	"browser_version": "54.0",
     	"resolution": "1280x1024"
     }
     
@@ -37,6 +37,14 @@
     	"browser_version": "14.0",
     	"resolution": "1280x1024"
     }
+    
+     "IE": {
+    	"os": "Windows",
+   	 	"os_version": "10",
+    	"browser": "IE",
+    	"browser_version": "11.0",
+    	"resolution": "1024x768"
+  	}
     
   }
 }
