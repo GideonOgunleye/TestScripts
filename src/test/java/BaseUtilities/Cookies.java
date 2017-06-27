@@ -46,7 +46,7 @@ public class Cookies extends DriverLoad {
 		
 	}
 	
-	public void CheckCookies() {
+	public void CheckCookies() throws Exception {
 		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	
@@ -59,7 +59,7 @@ public class Cookies extends DriverLoad {
 			
 				
 				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				System.out.println("Cookies Displayed");
+				System.out.println("Cookies is Enabled");
 				
 			}else {
 				
@@ -73,7 +73,7 @@ public class Cookies extends DriverLoad {
 			
 			}
 		
-		
+	Thread.sleep(1000);
 		
 		try {
 			
@@ -81,6 +81,11 @@ public class Cookies extends DriverLoad {
 			
 				CookiesButton2.click();
 				System.out.println("Cookies Button Has Been Clicked");
+				
+			}else {
+				
+				System.out.println("Buttom Cookies Not Vissible");
+				
 			}
 		
 		}catch(Exception e) {

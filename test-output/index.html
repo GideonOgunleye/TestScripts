@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse-2136681059\testng-customsuite.xml</span>
+                    <span>C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse-805035545\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="group-Default_suite">
-                    <span>2 groups</span>
+                    <span>4 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.New_User" hash-for-method="User_Registration">User_Registration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +116,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.Admin_User" hash-for-method="Send_Fulfillment_Email">Send_Fulfillment_Email</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.New_User" hash-for-method="Ask_a_question">Ask_a_question</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.New_User" hash-for-method="Get_in_Touch">Get_in_Touch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.New_User" hash-for-method="Request_a_Bronchure">Request_a_Bronchure</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.New_User" hash-for-method="Request_a_PenTest_Proposal">Request_a_PenTest_Proposal</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -117,17 +146,86 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Sanity_Test.Admin_User</span>
+              <img src="failed.png"/>
+              <span class="class-name">Sanity_Test.New_User</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Send_Fulfillment_Email">
-                  </a> <!-- Send_Fulfillment_Email -->
-                  <span class="method-name">Send_Fulfillment_Email</span>
+                  <a name="User_Registration">
+                  </a> <!-- User_Registration -->
+                  <span class="method-name">User_Registration</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at Sanity_Test.New_User.User_Registration(New_User.java:236)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Sanity_Test.New_User</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="Ask_a_question">
+                  </a> <!-- Ask_a_question -->
+                  <span class="method-name">Ask_a_question</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Get_in_Touch">
+                  </a> <!-- Get_in_Touch -->
+                  <span class="method-name">Get_in_Touch</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_Bronchure">
+                  </a> <!-- Request_a_Bronchure -->
+                  <span class="method-name">Request_a_Bronchure</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Request_a_PenTest_Proposal">
+                  </a> <!-- Request_a_PenTest_Proposal -->
+                  <span class="method-name">Request_a_PenTest_Proposal</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -135,7 +233,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse-2136681059\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse-805035545\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -144,11 +242,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Sanity_Test.Admin_User&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;Send_Fulfillment_Email&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- Sanity_Test.Admin_User --&gt;
+      &lt;class name=&quot;Sanity_Test.New_User&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -176,7 +270,27 @@
               <span class="test-group-name">BS_Sanity</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Send_Fulfillment_Email</span>
+                <span class="method-in-group-name">Ask_a_question</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Get_in_Touch</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_Bronchure</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_PenTest_Proposal</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">BS_Smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">User_Registration</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -184,7 +298,27 @@
               <span class="test-group-name">Sanity</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Send_Fulfillment_Email</span>
+                <span class="method-in-group-name">Ask_a_question</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Get_in_Touch</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_Bronchure</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">Request_a_PenTest_Proposal</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">Smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">User_Registration</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -204,16 +338,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Send_Fulfillment_Email')
-data.setCell(0, 2, 'Sanity_Test.Admin_User')
-data.setCell(0, 3, 36204);
+data.setCell(0, 1, 'User_Registration')
+data.setCell(0, 2, 'Sanity_Test.New_User')
+data.setCell(0, 3, 27556);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'Request_a_PenTest_Proposal')
+data.setCell(1, 2, 'Sanity_Test.New_User')
+data.setCell(1, 3, 18006);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Request_a_Bronchure')
+data.setCell(2, 2, 'Sanity_Test.New_User')
+data.setCell(2, 3, 16140);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Get_in_Touch')
+data.setCell(3, 2, 'Sanity_Test.New_User')
+data.setCell(3, 3, 13505);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'Ask_a_question')
+data.setCell(4, 2, 'Sanity_Test.New_User')
+data.setCell(4, 3, 13393);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -228,24 +378,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">5 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">Sanity_Test.Admin_User</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">Send_Change_Password_Request_Email</span>
-                <br/>
-                <span class="ignored-method-name">Admin_LogIn</span>
-                <br/>
-                <span class="ignored-method-name">IssueProposal</span>
-                <br/>
-                <span class="ignored-method-name">Edit_Account_User</span>
-                <br/>
-                <span class="ignored-method-name">Create_Proposal</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -254,26 +389,76 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Sanity_Test.Admin_User</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Sanity_Test.New_User</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">Login</span>
-                <span class="method-start">4562 ms</span>
+                <span class="method-name">Load_Homepage</span>
+                <span class="method-start">2964 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">Send_Fulfillment_Email</span>
-                <span class="method-start">17119 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">User_Registration</span>
+                <span class="method-start">17893 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">Log_Out([TestResult name=Send_Fulfillment_Email status=SUCCESS method=Admin_User.Send_Fulfillment_Email()[pr...)</span>
-                <span class="method-start">53325 ms</span>
+                <span class="method-name">Aftermethod([TestResult name=User_Registration status=FAILURE method=New_User.User_Registration()[pri:0, instanc...)</span>
+                <span class="method-start">45452 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Load_Homepage</span>
+                <span class="method-start">49143 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Get_in_Touch</span>
+                <span class="method-start">61833 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_T...)</span>
+                <span class="method-start">75339 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Load_Homepage</span>
+                <span class="method-start">78925 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Ask_a_question</span>
+                <span class="method-start">91470 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sani...)</span>
+                <span class="method-start">104865 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Load_Homepage</span>
+                <span class="method-start">107415 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Request_a_Bronchure</span>
+                <span class="method-start">119854 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, ins...)</span>
+                <span class="method-start">135995 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Load_Homepage</span>
+                <span class="method-start">139396 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Request_a_PenTest_Proposal</span>
+                <span class="method-start">151897 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Aftermethod([TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposa...)</span>
+                <span class="method-start">169904 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">63120 ms</span>
+                <span class="method-start">173943 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

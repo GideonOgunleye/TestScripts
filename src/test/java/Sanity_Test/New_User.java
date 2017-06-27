@@ -279,8 +279,8 @@ public class New_User extends BrowserStack  {
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[6]/div/textarea")).sendKeys("Testing!!!");
 		
 	    Thread.sleep(5000);
+	    CookiesElements.CheckCookies();
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
-		CookiesElements.CheckCookies();
 		
 		}catch (Exception e) {
 			
@@ -439,12 +439,13 @@ public class New_User extends BrowserStack  {
 	driver.findElement(By.name("request_brochure_city")).sendKeys("London");
 	driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
 	Thread.sleep(5000);
+	CookiesElements.CheckCookies();
 	driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
-	String StatusMsg = "Thank you, your brochure has been requested";
+	
 	
     try {
 	  
-    	
+    	String StatusMsg = "Thank you, your brochure has been requested";
     	AlertBoxElements.AlertWait();
     	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
@@ -481,12 +482,14 @@ public class New_User extends BrowserStack  {
 	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("window.scrollBy(0,500)", "");
+	Thread.sleep(1000);
+	CookiesElements.CheckCookies();
 	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a")).click();
 	
 			
 	//Fill in the form
-	Thread.sleep(1000);
-	CookiesElements.CheckCookies();
+	
+	
 	//CookiesElements.CheckCookies2();
 	String Msg = "Request a Free proposal";
 	WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[1]/h3"));
