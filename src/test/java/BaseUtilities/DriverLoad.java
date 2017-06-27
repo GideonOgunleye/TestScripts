@@ -17,15 +17,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
-public class DriverLoad extends Chrome {
+public class DriverLoad {
 	
-	/*
+	
 	public WebDriver driver;
 	
 
 
-  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke"} )
-  public void beforeTest() throws IOException  {
+  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"} )
+  public void Chrome_BeforeTest() throws IOException  {
 	
  	 
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
@@ -35,8 +35,8 @@ public class DriverLoad extends Chrome {
    
   }
 
-  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke"})
-  public void afterTest() throws Exception {
+  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"})
+  public void Chrome_AfterTest() throws Exception {
 	  
 	  Thread.sleep(10000);
 		 //report.endTest(test);
@@ -45,7 +45,28 @@ public class DriverLoad extends Chrome {
 
 	  
   }
-*/
+  
+  @BeforeClass (groups = {"Smoke_Firefox","Sanity_Firefox","Regression_Firefox"})
+  public void Firefox_beforeTest() throws IOException  {
+	
+ 	 
+	  System.setProperty("webdriver.gecko.driver", "C:\\geckodriver.exe");
+	  driver = new FirefoxDriver();
+	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	  
+   
+  }
+
+  @AfterClass (groups = {"Smoke_Firefox","Sanity_Firefox","Regression_Firefox"})
+  public void Firefox_afterTest() throws Exception {
+	  
+	  Thread.sleep(10000);
+		 //report.endTest(test);
+		 
+	driver.quit();
+	  
+  }
+
  
   
 }

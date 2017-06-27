@@ -61,7 +61,7 @@ public class New_User extends BrowserStack  {
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void Load_Homepage () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -81,7 +81,7 @@ public class New_User extends BrowserStack  {
 		Thread.sleep(5000);		
 	}
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"},alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"},alwaysRun = true)
 	public String Aftermethod (ITestResult result) throws IOException, Exception {
 		
 		String filename = result.getMethod().getMethodName() +".png";
@@ -109,7 +109,7 @@ public class New_User extends BrowserStack  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Smoke","BS_Smoke"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 	
 /*		
@@ -242,7 +242,7 @@ public class New_User extends BrowserStack  {
   
  
  
-  @Test (priority = 2, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Get_in_Touch () throws Exception {
 	  
 	  	test = report.startTest("New User Test --> Get in Touch Form");
@@ -325,7 +325,7 @@ public class New_User extends BrowserStack  {
 		
 	  }
 	  
-  @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Ask_a_question () throws Exception {
 	  
 	 test = report.startTest("New User Test --> Ask a Question Form");
@@ -399,7 +399,7 @@ public class New_User extends BrowserStack  {
     
   }
   
-  @Test (priority = 4, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 4, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Request_a_Bronchure () throws Exception {
 	   
 	test = report.startTest("New User Test --> Request a Bronchure Form");
@@ -471,7 +471,7 @@ public class New_User extends BrowserStack  {
 	  
   }
   
-  @Test (priority = 5, groups = {"Sanity", "BS_Sanity"})
+  @Test (priority = 5, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
   public void Request_a_PenTest_Proposal() throws Exception{
 	  
 	test = report.startTest("New User Test --> Request a PenTest Form");
@@ -543,8 +543,6 @@ public class New_User extends BrowserStack  {
 			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
 		}
 
-
-	
   }
 /*  
   @BeforeTest (groups = {"Sanity"})

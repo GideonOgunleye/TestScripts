@@ -38,7 +38,7 @@ public class BrowserStack extends DriverLoad  {
 	//public WebDriver driver;
     private Local l;
     
-    @BeforeClass(groups = {"BS_Sanity", "BS_Regression","BS_Smoke"})
+    @BeforeClass(groups = {"BS_Sanity", "BS_Regression","BS_Smoke","BS_Regression"})
     @org.testng.annotations.Parameters(value={"config", "environment"})
     public void setUp(String config_file, String environment) throws Exception {
         JSONParser parser = new JSONParser();
@@ -84,7 +84,7 @@ public class BrowserStack extends DriverLoad  {
        
     }
 
-    @AfterClass(groups = {"BS_Sanity", "BS_Regression","BS_Smoke"})
+    @AfterClass(groups = {"BS_Sanity", "BS_Regression","BS_Smoke","BS_Regression"})
     public void tearDown() throws Exception {
     	driver.manage().deleteAllCookies();
         driver.quit();

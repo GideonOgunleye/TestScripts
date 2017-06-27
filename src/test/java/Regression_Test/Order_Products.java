@@ -6,6 +6,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import BaseUtilities.AlertBox;
+import BaseUtilities.BrowserStack;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import PageFactory.BillingPage;
@@ -43,20 +45,22 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Order_Products extends DriverLoad {
+public class Order_Products extends BrowserStack {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
+	AlertBox AlertBoxElements;
 	
-	@BeforeMethod (groups = {"Regression"})
+	@BeforeMethod (groups = {"Regression","BS_Regression"})
 	public void User_Login () throws Exception {
 		 
 		LoginPageElements = new LoginPage(driver);
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
+		AlertBoxElements = new AlertBox(driver);
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -78,13 +82,13 @@ public class Order_Products extends DriverLoad {
 	}
 
 	
-	@AfterMethod (groups = {"Regression"}, alwaysRun = true)
+	@AfterMethod (groups = {"Regression","BS_Regression"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	
 	    //Take Screen Shots
 	    //String filename = result.getMethod().getMethodName() +".png";
-		String filename = result.getEndMillis() + ".png";
+		String filename =  result.getMethod().getMethodName() + result.getEndMillis() + ".png";
 	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -110,7 +114,7 @@ public class Order_Products extends DriverLoad {
 	}
 	
 	
-	@Test (priority = 1, groups = {"Regression"},dataProviderClass = Order_Products_Data.class, dataProvider="OrderProduct_Data")
+	@Test (priority = 1, groups = {"Regression","BS_Regression"},dataProviderClass = Order_Products_Data.class, dataProvider="OrderProduct_Data")
 	  public void Order_Certificates(String Product, String ProductLink) throws Exception {
 		
 		Properties prop = new Properties();
@@ -456,6 +460,7 @@ public class Order_Products extends DriverLoad {
 		}catch(Exception e) {
 			System.out.println("Account Does Not Have Enough Funds");
 			test.log(LogStatus.FAIL, "Account Does Not Have Enough Funds");
+			Assert.fail("Exception " + e);
 		
 			}
 		
@@ -521,7 +526,7 @@ public class Order_Products extends DriverLoad {
 	    
 	    WebElement ContactSelect = driver.findElement(By.xpath(".//*[@id='CertificateAdminContact']"));
 		Select Initials = new Select(ContactSelect);
-		Initials.selectByVisibleText("Quality Assurance Tester");
+		Initials.selectByVisibleText("Gideon Ogunleye");
 	   	
 		WebElement Organization = driver.findElement(By.id("CertificateAdminOrganisation"));
 		Organization.clear();
@@ -631,7 +636,36 @@ public class Order_Products extends DriverLoad {
 		/*-----Click on Submit Button--------*/
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		
+		try {
+			String Alertnote = "The certificate has been saved and is pending submission with the CA";  
+			AlertBoxElements.AlertWait();
+					    	
+		  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+								
+			test.log(LogStatus.PASS, "Validation Complete");
+			Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+			System.out.println("Validation Complete!");
+			
+		  }else{
+					    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+			AlertBoxElements.AlertPrint();
+			Assert.fail("Validation Failed ");
+					    	
+			}
+			
+		}catch (Exception e) {
+								
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+
+		}
+
+		
+		
+	/*	
+		
 	  	
 	  	try {
 			
@@ -648,7 +682,7 @@ public class Order_Products extends DriverLoad {
 			System.out.println(ProductLink + " Product Not Successfully Ordered with CA or Status Alert not Displayed");
 	  	
 		}
-	  	
+*/	  	
 		// Log Out
 		//Thread.sleep(15000);
 		//driver.findElement(By.linkText("Logout")).click();

@@ -19,10 +19,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries extends BrowserStack {
+public class SQL_Queries {
 	
 	
-	@Test (priority = 1, groups = {"SQL","BS_Sanity"})
+	@Test (priority = 1, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
 	  public void SQL_DeleteAccount () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -66,7 +66,7 @@ public class SQL_Queries extends BrowserStack {
 		  
 	  }
 	  
-	  @Test (priority = 2, groups = {"SQL","BS_Sanity","BS_Smoke"})
+	  @Test (priority = 2, groups = {"SQL","BS_Sanity","BS_Smoke","Smoke_Firefox"})
 	  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -139,7 +139,7 @@ public class SQL_Queries extends BrowserStack {
 	  }	
 */
 	  
-	  @Test (priority = 4, groups = {"SQL","BS_Sanity"})
+	  @Test (priority = 4, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
 	  public void SQL_Certificate_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
@@ -167,7 +167,7 @@ public class SQL_Queries extends BrowserStack {
 		  
 	  }	
 	  
-	  @Test (priority = 5, groups = {"SQL","BS_Sanity"})
+	  @Test (priority = 5, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
 	  public void SQL_DomainName_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		

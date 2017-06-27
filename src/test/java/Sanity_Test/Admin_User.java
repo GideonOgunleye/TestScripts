@@ -67,7 +67,7 @@ public class Admin_User extends DriverLoad {
   TakeScreenShot ScreenShot;
   
 	
-  @BeforeMethod (groups = {"Sanity","Smoke"})
+  @BeforeMethod (groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
   public void Login() throws Exception {
 
 	  LoginPageElements = new LoginPage(driver);
@@ -87,7 +87,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -115,7 +115,7 @@ public class Admin_User extends DriverLoad {
 	  return destination;
   }
   
-  @Test (priority = 0, groups = {"Smoke"})
+  @Test (priority = 0, groups = {"Smoke","Smoke_Firefox"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -141,7 +141,7 @@ public class Admin_User extends DriverLoad {
   }
 
   
-  @Test (priority = 1, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Edit_Account_User() throws Exception{
 	  
 	//Search For UK Test User
@@ -363,7 +363,7 @@ try {
 		 
   }
   
-  @Test (priority = 2,groups = {"Smoke"})
+  @Test (priority = 2,groups = {"Smoke","Smoke_Firefox"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
@@ -462,7 +462,7 @@ try {
 			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
   
-  @Test (priority = 3,groups = {"Sanity"})
+  @Test (priority = 3,groups = {"Sanity","Sanity_Chrome"})
   public void IssueProposal () throws Exception {
 	  
 	  test = report.startTest("Admin Test --> Issue a Proposal");
@@ -530,7 +530,7 @@ try {
   }
   
   
-  @Test (priority = 4,groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 4,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Send_Fulfillment_Email() throws Exception {
 	  
 	  test = report.startTest("Admin Test -->  Send Fullfillement Email");
@@ -717,7 +717,7 @@ try {
   }
   
   
-  @Test (priority = 5,groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 5,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Send_Change_Password_Request_Email() throws Exception {
 	  
 	    test = report.startTest("Admin Test --> Change Password Request Email");
@@ -886,8 +886,6 @@ try {
 	     System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		 driver = new ChromeDriver();  
 		
-		 
-
 		//report = new ExtentReports("C:\\Users\\Gideon Okunleye\\workspace\\SSL247_Test\\test-output\\Extent Report\\Admin_User.html"); 
 		 //test = report.startTest("Verify Test");
 		 //test.log(LogStatus.INFO, "Browser Started...");

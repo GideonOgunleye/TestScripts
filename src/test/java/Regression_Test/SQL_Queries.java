@@ -23,7 +23,7 @@ public class SQL_Queries {
 	ExtentReports report;
 	ExtentTest test;
 	
-	  @Test (priority = 1, groups = {"SQL"})
+	  @Test (priority = 1, groups = {"SQL","BS_Regression"})
 	  public void SQL_Certificate_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		

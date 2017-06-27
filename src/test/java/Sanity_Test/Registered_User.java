@@ -58,7 +58,7 @@ public class Registered_User extends BrowserStack  {
 	AlertBox AlertBoxElements;
 	
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -75,7 +75,7 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity","BS_Smoke"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	    //Take Screen Shots
@@ -103,7 +103,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 	
-	@Test (priority = 0, groups = {"Smoke","BS_Smoke"})
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
 	  public void LogIn_User () throws Exception{
 		  
 		  LoginPageElements = new LoginPage(driver);
@@ -171,7 +171,7 @@ public class Registered_User extends BrowserStack  {
 
 	
 	
-	@Test (priority = 1, groups = {"Sanity","BS_Sanity"})
+	@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
 	  public void Order_RapidSSL() throws Exception {
 		 
 		/*
@@ -344,7 +344,7 @@ public class Registered_User extends BrowserStack  {
 		
 	 }
 	
-	@Test (priority = 2, groups = {"Sanity","BS_Sanity"})
+	@Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
 	  public void Create_User() throws Exception {
 		 
 
@@ -388,7 +388,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 	
-	@Test (priority = 3, groups = {"Sanity","BS_Sanity"}) 
+	@Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"}) 
 	  public void Edit_User () throws Exception {
 		
 
