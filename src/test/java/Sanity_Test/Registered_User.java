@@ -8,6 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
@@ -399,106 +400,103 @@ public class Registered_User extends BrowserStack  {
 	    
 		//Navigate to User Profiles
 		sslDashBoardElements.ClickMyUsersLink();
-	    test.log(LogStatus.INFO, "User Profiles Page Opened");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked My Users Link");
 		
-		Thread.sleep(15000);
-		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
+		//Thread.sleep(15000);
+		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[21]/a")).click();
+		//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		//test.log(LogStatus.INFO, "User Profiles Page Opened");
 		
 		//Edit User Profile
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[2]/div[3]/div/address/div/a[1]")).click();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked Edit Button for Tester");
 		Thread.sleep(10000);
-		driver.findElement(By.name("data[User][firstname]")).clear();
-		driver.findElement(By.name("data[User][firstname]")).sendKeys("qa@ssl247.co.uk");
 		
 		WebElement address = driver.findElement(By.xpath(".//*[@id='UserRole']"));
 		Select Role = new Select(address);
 		Role.selectByIndex(0);
 		
 		driver.findElement(By.name("data[User][firstname]")).clear();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Cleared First Name Field");
+	    
 		driver.findElement(By.name("data[User][firstname]")).sendKeys("Gideon");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Entered First Name");
+	    
 		driver.findElement(By.name("data[User][lastname]")).clear();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Cleared Last Name Field");
+		
 		driver.findElement(By.name("data[User][lastname]")).sendKeys("Ogunleye");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Entered Last Name");
+		
 		driver.findElement(By.name("data[User][phone]")).clear();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Cleared Phone Number Field");
+		
 		driver.findElement(By.name("data[User][phone]")).sendKeys("02037610541");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Entered Phone Number");
+		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,-500)", "");
 		Thread.sleep(100);
 		
-		try {
 			
 			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[3]/ul/li[2]/a")).click();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    test.log(LogStatus.INFO, "Clicked Additional Details Tab");
 			Thread.sleep(100);
+			
 			driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    test.log(LogStatus.INFO, "Cleared State Field");
+		    
 			driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
+		    test.log(LogStatus.INFO, "Entered State");
 			
-			String Alertnote = "Contact has been updated";
-			AlertBoxElements.AlertWait();
+			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    test.log(LogStatus.INFO, "Clicked Submit Changes Button");
+			
+			//String Alertnote = "Contact has been updated";
+			//AlertBoxElements.AlertWait();
 			    	
-			if (AlertBoxElements.VerifyAlert(Alertnote)) {
-				
-					test.log(LogStatus.PASS, "Validation Complete");
-					Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-					System.out.println("Validation Complete!");
-			 }else{
+			try {
+				String Alertnote = "Contact has been updated";  
+				AlertBoxElements.AlertWait();
 						    	
-				  	test.log(LogStatus.FAIL, "Validation Failed");
-				  	AlertBoxElements.AlertPrint();
-				  	Assert.fail("Validation Failed ");		    	
-			 }
-
-		}catch (Exception e) {
-						
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+						    		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
 				test.log(LogStatus.FAIL, "Validation Failed");
 				Assert.fail("Exception " + e);
-			}	
 
-
-		
-	    
-	    
+			}
 		
 	}	
-/*	
-	@Test (priority = 5, groups = {"Sanity"}, enabled = false)
-	  public void Order_Secure_SiteEV() throws Exception {
-		
-		report = ExtentFactory.getInstance(); 
 
-		
-		test = report.startTest("Registered User Test --> Order Secure Site Pro");
-	    test.log(LogStatus.INFO, "User Logged in");
-			
-		//Navigate to Certificates
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		Actions  actions=new Actions(driver);
-		WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[2]/a"));
-		actions.moveToElement(menuHoverLink);
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	    WebElement subLink=driver.findElement(By.xpath(".//*[@id='special-ul']/li[1]/ul/li[1]/a/span[1]"));
-		actions.moveToElement(subLink);
-		actions.click();
-		actions.perform();
-		test.log(LogStatus.INFO, "Certificates Page Opened");
-				
-		/*------Proposal for Symantec-Secure Site EV---------
-		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/table/tbody/tr[2]/td/form[2]/table/tbody/tr/td[2]/input")).sendKeys("qa@ssl247.net");
-		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/table/tbody/tr[2]/td/form[2]/table/tbody/tr/td[2]/a")).click();
-		WebElement Yrs = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/table/tbody/tr[2]/td/form[2]/table/tbody/tr/td[3]/select"));
-		Select Amount = new Select(Yrs);
-		Amount.selectByIndex(0);
-		
-		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/table/tbody/tr[2]/td/form[2]/table/tbody/tr/td[6]/button")).click();
-		 test.log(LogStatus.INFO, "Secure Site EV Certificate Ordered");
-	}
-*/	
 	
-	
-	@Test (priority = 5, groups = {"Sanity","BS_Sanity"})
+	@Test (priority = 5, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
 	public void Domain_Name_Ordering () throws Exception {
 		
 

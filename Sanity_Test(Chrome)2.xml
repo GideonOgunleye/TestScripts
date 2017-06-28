@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Sanity Chrome">
+<suite name="Suite">
 
   <groups>
     <run>
@@ -38,7 +38,6 @@
       <class name="Sanity_Test.SQL_Queries"/>
    </classes> 
   </test><!--Test -->
-  
   
 
   

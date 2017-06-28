@@ -278,27 +278,26 @@ public class New_User extends BrowserStack  {
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[3]/div/input")).sendKeys("Tester");
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[4]/div/input")).sendKeys("qa@ssl247.co.uk");
 		driver.findElement(By.xpath(".//*[@id='contactRightFields']/div[6]/div/textarea")).sendKeys("Testing!!!");
-		
+		CookiesElements.CheckCookies();
 	    Thread.sleep(5000);
-	    CookiesElements.CheckCookies();
+	    
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
 		
 		}catch (Exception e) {
 			
-			test.log(LogStatus.FAIL, "Form Not Submitted");
 			String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
 			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
+			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
 			Assert.fail("Exception " + e);
 			driver.quit();
 			
 		}
 		
-		String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
+		
 
 		try {
 			  
-	    	
+			String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
 	    	AlertBoxElements.AlertWait();
 	    	
 	    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
@@ -309,14 +308,12 @@ public class New_User extends BrowserStack  {
 	    		
 	    		AlertBoxElements.AlertPrint();	
 	    	  	test.log(LogStatus.FAIL, "Validation Failed");
-	    	  	Assert.fail("Validation Failed ");
 	    	  			    	
 	    	  }
 			
 		}catch (Exception e) {
 				
-				test.log(LogStatus.FAIL, "Form Not Submitted");
-				Assert.fail("Exception " + e);
+				test.log(LogStatus.FAIL, "Alert Not Displayed");
 				
 			}
 
@@ -349,26 +346,37 @@ public class New_User extends BrowserStack  {
 	//TitleField = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select")));
 	//TitleField.click();
 	
-    if (QuestionForm.isDisplayed()) {
+	try {
+	    if (QuestionForm.isDisplayed()) {
+				
+			System.out.println("Form Opened");
+			test.log(LogStatus.PASS, " Form Opened");
+			Select Tl = new Select(QuestionForm);
+			Tl.selectByVisibleText("Mrs");
+			driver.findElement(By.name("first_name")).sendKeys("Gideon");
+			driver.findElement(By.name("last_name")).sendKeys("Ogunleye");
+			driver.findElement(By.name("email")).sendKeys("qa@ssl247.co.uk");
+			driver.findElement(By.name("description")).sendKeys("This is is a Message");
+			CookiesElements.CheckCookies();
+			Thread.sleep(5000);
+			driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
 			
-		System.out.println("Form Opened");
-		test.log(LogStatus.PASS, " Form Opened");
-		Select Tl = new Select(QuestionForm);
-		Tl.selectByVisibleText("Mrs");
-		driver.findElement(By.name("first_name")).sendKeys("Gideon");
-		driver.findElement(By.name("last_name")).sendKeys("Ogunleye");
-		driver.findElement(By.name("email")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("description")).sendKeys("This is is a Message");
-		CookiesElements.CheckCookies();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
+		}else {
+			
+			System.out.println("Form Not Opened");
+			test.log(LogStatus.FAIL, " Form Not Opened");
+		}
+	    
+	}catch (Exception e) {
 		
-	}else {
+		String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+		Assert.fail("Exception " + e);
+		driver.quit();
 		
-		System.out.println("Form Not Opened");
-		test.log(LogStatus.FAIL, " Form Not Opened");
-		
-	}
+	}   
+	    
    	
     String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
     //Thread.sleep(100);
@@ -386,14 +394,12 @@ public class New_User extends BrowserStack  {
     		
     		AlertBoxElements.AlertPrint();	
     	  	test.log(LogStatus.FAIL, "Validation Failed");
-    	  	Assert.fail("Validation Failed ");
     	  			    	
     	  }
 		
 	}catch (Exception e) {
 			
-			test.log(LogStatus.FAIL, "Form Not Submitted");
-			Assert.fail("Exception " + e);
+			test.log(LogStatus.FAIL, "Alert Not Displayed");
 			
 		}
 
@@ -421,33 +427,45 @@ public class New_User extends BrowserStack  {
 	WebElement BronchureForm = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='requestBrochureForm']/div[1]/h3")));
 	System.out.println("Status Message is:" + BronchureForm.getText());
 	
-	if (BronchureForm.getText().contains(Msg)) {
+	
+	try {
 		
-		test.log(LogStatus.PASS, "Form Opened");
+		if (BronchureForm.getText().contains(Msg)) {
+			
+			test.log(LogStatus.PASS, "Form Opened");
+			
+		}else {
+			
+			System.out.println("Search Result Not Present");
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+			
+		}
 		
-	}else {
+	
+		WebElement Title = driver.findElement(By.xpath(".//*[@id='request_brochure_title']"));
+		Select Tl = new Select(Title);
+		Tl.selectByVisibleText("Mrs");
+		driver.findElement(By.name("request_brochure_firstname")).sendKeys("Gideon");
+		driver.findElement(By.name("request_brochure_lastname")).sendKeys("Ogunleye");
+		driver.findElement(By.name("request_brochure_email")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("request_brochure_address_1")).sendKeys("63 Lisson St, Marylebone");
+		driver.findElement(By.name("request_brochure_city")).sendKeys("London");
+		driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
+		CookiesElements.CheckCookies();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
+	
+	}catch (Exception e) {
 		
-		test.log(LogStatus.FAIL, "Form Not Opened");
-		System.out.println("Search Result Not Present");
-		//ScreenShot.Image(null);
-		String path = ScreenShot.Image(driver, "SearchResult");
+		String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+		Assert.fail("Exception " + e);
+		driver.quit();
 		
 	}
-	
-	WebElement Title = driver.findElement(By.xpath(".//*[@id='request_brochure_title']"));
-	Select Tl = new Select(Title);
-	Tl.selectByVisibleText("Mrs");
-	driver.findElement(By.name("request_brochure_firstname")).sendKeys("Gideon");
-	driver.findElement(By.name("request_brochure_lastname")).sendKeys("Ogunleye");
-	driver.findElement(By.name("request_brochure_email")).sendKeys("qa@ssl247.co.uk");
-	driver.findElement(By.name("request_brochure_address_1")).sendKeys("63 Lisson St, Marylebone");
-	driver.findElement(By.name("request_brochure_city")).sendKeys("London");
-	driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
-	Thread.sleep(5000);
-	CookiesElements.CheckCookies();
-	driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
 	
 	
     try {
@@ -464,14 +482,12 @@ public class New_User extends BrowserStack  {
     		
     		AlertBoxElements.AlertPrint();	
     	  	test.log(LogStatus.FAIL, "Validation Failed");
-    	  	Assert.fail("Validation Failed ");
     	  			    	
     	  }
 		
 	}catch (Exception e) {
 			
-			test.log(LogStatus.FAIL, "Form Not Submitted");
-			Assert.fail("Exception " + e);
+			test.log(LogStatus.FAIL, "Alert Not Displayed");
 			
 		}
 
@@ -502,40 +518,53 @@ public class New_User extends BrowserStack  {
 	String Msg = "Request a Free proposal";
 	WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[1]/h3"));
 	
-	if (ProposalForm.getText().contains(Msg)) {
+	
+	try {
 		
-		test.log(LogStatus.PASS, "Form Opened");
+		if (ProposalForm.getText().contains(Msg)) {
+			
+			test.log(LogStatus.PASS, "Form Opened");
+			
+		}else {
+			
+			System.out.println("Search Result Not Present");
+			//ScreenShot.Image(null);
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+			
+		}
+	
+	
+		WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
+		Select Tl = new Select(Title);
+		Tl.selectByVisibleText("Mrs");
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[2]/div/input")).sendKeys("Gideon");
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[3]/div/input")).sendKeys("Ogunleye");
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[5]/div/input")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[6]/div/input")).sendKeys("0123456789");
+		WebElement RequiredBx = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[7]/div/label[3]/input"));
+		RequiredBx.click();
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[8]/div/textarea")).sendKeys("This message is for testing purposes and only. thanks");
+		Thread.sleep(5000);
+		CookiesElements.CheckCookies();
+		driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
+	
+	}catch (Exception e) {
 		
-	}else {
-		
-		System.out.println("Search Result Not Present");
-		//ScreenShot.Image(null);
-		String path = ScreenShot.Image(driver, "SearchResult");
+		String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+		Assert.fail("Exception " + e);
+		driver.quit();
 		
 	}
 	
-	
-	WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
-	Select Tl = new Select(Title);
-	Tl.selectByVisibleText("Mrs");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[2]/div/input")).sendKeys("Gideon");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[3]/div/input")).sendKeys("Ogunleye");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[5]/div/input")).sendKeys("qa@ssl247.co.uk");
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[6]/div/input")).sendKeys("0123456789");
-	WebElement RequiredBx = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[7]/div/label[3]/input"));
-	RequiredBx.click();
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[8]/div/textarea")).sendKeys("This message is for testing purposes and only. thanks");
-	Thread.sleep(5000);
-	CookiesElements.CheckCookies();
-	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
-	
-	String StatusMsg = "Your query is being processed";
-    //Thread.sleep(100);
+    
  
     try {
 	  
+    	String StatusMsg = "Your query is being processed";
     	AlertBoxElements.AlertWait();
     	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
@@ -553,8 +582,8 @@ public class New_User extends BrowserStack  {
 		
 	}catch (Exception e) {
 			
-			test.log(LogStatus.FAIL, "Form Not Submitted");
-			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+			test.log(LogStatus.FAIL, "Alert Not Displayed");
+			
 		}
 
   }
