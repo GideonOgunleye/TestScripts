@@ -40,7 +40,7 @@ public class SubNavigation_Test extends BrowserStack {
 	NavigationLinks NavigationElements;
 	LoginPage 	LoginPageElements;
 
-  @BeforeMethod (groups = {"Sanity","BS_Sanity"})
+  @BeforeMethod (groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void beforeMethod() throws Exception {
 	  
 	  NavigationElements = new NavigationLinks(driver);
@@ -52,7 +52,7 @@ public class SubNavigation_Test extends BrowserStack {
 	  
   }
 
-  @AfterMethod (groups = {"Sanity","BS_Sanity"})
+  @AfterMethod (groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public String afterMethod(ITestResult result) throws IOException, Exception {
 	  
 	  String filename = result.getMethod().getMethodName() +".png";
@@ -79,7 +79,7 @@ public class SubNavigation_Test extends BrowserStack {
 	  
   }
   
-  @Test (priority = 0, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 0, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SymantecLink_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Symantec Link Test");
@@ -110,7 +110,7 @@ public class SubNavigation_Test extends BrowserStack {
   }
   
   
-  @Test (priority = 1, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void VerSignLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -139,7 +139,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 2, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void GeoTrustLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -168,7 +168,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 3, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ThawteLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -197,7 +197,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 4, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 4, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void GlobalSignLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -226,7 +226,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 5, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 5, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ComodoLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -255,7 +255,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 6, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 6, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void RapidSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -284,7 +284,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 7, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 7, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void EntrustLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -313,7 +313,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 8, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 8, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SanSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -342,7 +342,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 9, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 9, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void WildcardSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -371,7 +371,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 10, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 10, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SanWildcardSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -400,7 +400,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 11, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 11, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ECCSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -429,7 +429,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 12, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 12, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void IPaddressSslLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -458,7 +458,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 13, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 13, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ExtendedValidationLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -487,7 +487,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 14, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 14, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void OrganisationValidationLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -516,7 +516,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 15, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 15, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SymantecReadyIssuanceLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
@@ -545,7 +545,7 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  @Test (priority = 16, groups = {"Sanity","BS_Sanity"})
+  @Test (priority = 16, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void DomainValidationLink_Test() {
 	  
 	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
