@@ -8,6 +8,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.Cookies;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
@@ -48,7 +49,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends BrowserStack  {
+public class New_User extends Chrome  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -427,6 +428,12 @@ public class New_User extends BrowserStack  {
 	}else {
 		
 		test.log(LogStatus.FAIL, "Form Not Opened");
+		System.out.println("Search Result Not Present");
+		//ScreenShot.Image(null);
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+		
 	}
 	
 	WebElement Title = driver.findElement(By.xpath(".//*[@id='request_brochure_title']"));
@@ -452,6 +459,7 @@ public class New_User extends BrowserStack  {
 			
 			test.log(LogStatus.PASS, "Form Submitted");
 			Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
+			
     	}else{
     		
     		AlertBoxElements.AlertPrint();	
@@ -483,8 +491,8 @@ public class New_User extends BrowserStack  {
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("window.scrollBy(0,500)", "");
 	Thread.sleep(1000);
-	CookiesElements.CheckCookies();
 	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a")).click();
+	Thread.sleep(1000);
 	
 			
 	//Fill in the form
@@ -500,7 +508,12 @@ public class New_User extends BrowserStack  {
 		
 	}else {
 		
-		test.log(LogStatus.FAIL, "Form Not Opened");
+		System.out.println("Search Result Not Present");
+		//ScreenShot.Image(null);
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
+		
 	}
 	
 	
@@ -515,6 +528,7 @@ public class New_User extends BrowserStack  {
 	RequiredBx.click();
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[8]/div/textarea")).sendKeys("This message is for testing purposes and only. thanks");
 	Thread.sleep(5000);
+	CookiesElements.CheckCookies();
 	driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
 	
 	String StatusMsg = "Your query is being processed";

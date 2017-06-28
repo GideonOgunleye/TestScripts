@@ -30,11 +30,26 @@ public class TakeScreenShot extends DriverLoad {
 	
 	//public WebDriver driver;
 	//ITestResult result;
+	
+   public static String getRandomString(int length) {
+	   
+		StringBuilder sb = new StringBuilder();
+		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+		for (int i = 0; i < length; i++) {
+			
+			int index = (int) (Math.random() * characters.length());
+			sb.append(characters.charAt(index));
+			
+		}
+		
+		return sb.toString();
+	}
+	
 		
 	public String Image (WebDriver driver, String result) throws Exception {
 	
 		
-		String filename = result + ".png";
+		String filename = result + getRandomString(10) + ".png";
 	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
