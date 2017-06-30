@@ -8,10 +8,15 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.Firefox;
+import BaseUtilities.InternetExplorer;
+import BaseUtilities.TakeScreenShot;
 import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminNavigationLinks;
+import PageFactory.AdminSslDashBoard;
 import PageFactory.BillingPage;
 import PageFactory.ClientAccountsPage;
 import PageFactory.LoginPage;
@@ -48,7 +53,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User2 extends DriverLoad {
+public class Admin_User2 extends InternetExplorer {
   //WebDriver driver;
 	
 	
@@ -60,52 +65,35 @@ public class Admin_User2 extends DriverLoad {
   NavigationLinks NavigationLinksElements;
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
+  AdminSslDashBoard AdminSslDashBoardElements;
   AlertBox AlertBoxElements;
   ProposalsPage ProposalsPageElements;
   ClientAccountsPage ClientAccountsPageElements;
+  TakeScreenShot ScreenShot;
   
 	
-  @BeforeMethod (groups = {"Sanity","Smoke"})
+  @BeforeMethod (groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
   public void Login() throws Exception {
 
-  
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
+	  AdminSslDashBoardElements = new AdminSslDashBoard(driver);
 	  AlertBoxElements = new AlertBox(driver);
 	  ProposalsPageElements = new ProposalsPage(driver);
 	  NavigationLinksElements = new NavigationLinks(driver);
 	  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
 	  ClientAccountsPageElements = new ClientAccountsPage(driver);
 	  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
+	  ScreenShot = new TakeScreenShot();
   
 	  LoginPageElements.AdminLogin();
-
-/*	  
-	  Properties prop = new Properties();
-	  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
-				 
-		prop.load(fis);
-
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		//String title = driver.getTitle();				 
-		//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		//Thread.sleep(5000);
-		
-		LoginPageElements.ClickLoginLink();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		LoginPageElements.ClickLoginButton();
-	*/  
+ 
 	  report = ExtentFactory.getInstance(); 	 
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
   public String Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -133,7 +121,7 @@ public class Admin_User2 extends DriverLoad {
 	  return destination;
   }
   
-  @Test (priority = 0, groups = {"Smoke"})
+  @Test (priority = 0, groups = {"Smoke","Smoke_Firefox"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -158,15 +146,719 @@ public class Admin_User2 extends DriverLoad {
 	  
   }
 
- /*
+  
+  @Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Edit_Account_User() throws Exception{
+	  
+	//Search For UK Test User
+	     test = report.startTest("Admin Test --> Edit User");
+	     
+	     test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	     AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+		 ClientAccountsPageElements.ValidatePage();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+		 ClientAccountsPageElements.UpdateButtonClink();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Click on Update Button");
+		 
+		 Thread.sleep(5000);
+		 ClientAccountsPageElements.ValidateResults("UK Test");
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Search Resusult is Displayed");
+		 ClientAccountsPageElements.ViewAccount();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	     Thread.sleep(1000);
+	     sslDashBoardElements.AdminDashboardValidation();
+	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
+	     
+		 
+	     
+	     //Click on My Users Link
+	     sslDashBoardElements.ClickAccountEndUsersLink();
+	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	     test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
+	     JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
+	     Thread.sleep(1000);
+	     test.log(LogStatus.INFO, "Scrolled Page Down");
+		 
+		 
+try {		 
+		 String UserVal = "Gideon Ogunleye";
+
+		 if(AdminSslDashBoardElements.User1_LinkContains(UserVal)){
+				
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 AdminSslDashBoardElements.User1_EditButton();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		     test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
+		     
+		     //Edit User
+		     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			 Thread.sleep(1000);
+			 
+			//Edit Optional Details
+			 AdminSslDashBoardElements.OptionalDetailsTabClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 AdminSslDashBoardElements.StateFieldFill("London");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 
+			//Click Save User
+			 AdminSslDashBoardElements.SubmitChangesButtonClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Click Submit Chnages Button");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
+			 
+			}else if (AdminSslDashBoardElements.User2_LinkContains(UserVal)) {
+				
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				AdminSslDashBoardElements.User2_EditButton();
+			    test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
+			     
+			     //Edit User
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+				 Thread.sleep(1000);
+				 
+					//Edit Optional Details
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 AdminSslDashBoardElements.StateFieldFill("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 
+				//Click Save User
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
+				 
+			 }else if (AdminSslDashBoardElements.User3_LinkContains(UserVal)) {
+		
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 AdminSslDashBoardElements.User3_EditButton();
+				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
+				 
+				 //Edit User
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+				 Thread.sleep(1000);
+				 
+					//Edit Optional Details
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 AdminSslDashBoardElements.StateFieldFill("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 
+				//Click Save User
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
+				 
+				 
+			 }else if (AdminSslDashBoardElements.User4_LinkContains(UserVal)) {
+				 
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 AdminSslDashBoardElements.User4_EditButton();
+				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
+				 
+				 //Edit User
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+				 Thread.sleep(1000);
+				 
+				//Edit Optional Details
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 AdminSslDashBoardElements.StateFieldFill("London");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 
+				//Click Save User
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
+				 
+			 }else  {
+				 
+				test.log(LogStatus.FAIL, "Test User Account not Found"); 
+				System.out.println("Quality Tester User Not Found");
+				Assert.fail("Quality Tester User Not Found");
+			 }
+		 
+  	}catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+
+	}
+  
+		
+		 /*Test Validation*/
+		 
+		 try {
+				String Alertnote = "User details have been updated";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+				
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
+		 	 		
+		 
+  }
+  
+  @Test (priority = 2,groups = {"Smoke","Smoke_Firefox"})
+  public void Create_Proposal () throws Exception {
+	  
+	//Navigate to User Account, Search for User and Click View
+	  
+	  		report = ExtentFactory.getInstance3();
+	  		test = report.startTest("Admin Test -->  Create a Proposal");
+	  		test.log(LogStatus.INFO, "Admin User Logged in");
+	 	
+			AdminNavigationLinksElements.ClientsAccountsLinkClick();
+			test.log(LogStatus.INFO, "Click on clients Accounts Link");
+			 
+			ClientAccountsPageElements.ValidatePage();
+			ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+			test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+			 
+			ClientAccountsPageElements.UpdateButtonClink();
+			test.log(LogStatus.INFO, "Click on Update Button");
+			 
+			Thread.sleep(5000);
+			ClientAccountsPageElements.ValidateResults("UK Test");
+			test.log(LogStatus.INFO, "Search Resusult is Displayed");
+			ClientAccountsPageElements.ViewAccount();
+		    test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+		    Thread.sleep(1000);
+		    sslDashBoardElements.AdminDashboardValidation();
+		  	test.log(LogStatus.INFO, "DashBord Page Opened");
+			
+			//Navigate to Proposals Section 
+			sslDashBoardElements.ClickMyProposalsLink();
+			Thread.sleep(10000);
+			test.log(LogStatus.INFO, "Proposal Page Opened");
+			
+			//Click on New Proposal
+			ProposalsPageElements.ValidatePage();
+			ProposalsPageElements.NewProposalButtonClink();
+			Thread.sleep(10000);
+			
+			//Fill in required information
+			ProposalsPageElements.ProductTypeFieldSelect("SSL Certificate");
+			test.log(LogStatus.INFO, "Select Product Type");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		
+			ProposalsPageElements.ProductFieldSelect("RapidSSL Pro");
+			test.log(LogStatus.INFO, "Select Product Name");
+			Thread.sleep(10000);
+				
+			ProposalsPageElements.QuantityFieldClear();
+			ProposalsPageElements.QuantityFieldSenkeys("3");
+			test.log(LogStatus.INFO, "Enter Quantity ");
+			
+			ProposalsPageElements.DurationFieldSelect("3 years");
+			test.log(LogStatus.INFO, "Select Number of Years");
+			Thread.sleep(10000);		
+			
+			ProposalsPageElements.CommonNameFieldClear();
+			ProposalsPageElements.CommonNameFieldSendKeys("ssl247-testing.co.uk");
+			test.log(LogStatus.INFO, "Fill in Common Name");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			
+			ProposalsPageElements.CalculatePricesButtonClink();
+			test.log(LogStatus.INFO, "Click on Calculate Prices Button");
+			Thread.sleep(10000);
+			
+			//Click Save
+			ProposalsPageElements.SaveProposalButtonButtonClink();
+			
+			
+			//Validate Test
+			try {
+				String Alertnote = "Proposal saved";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
+			
+			
+			//test.log(LogStatus.INFO, "Click on Save Proposal Button");
+			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
+  } 
+  
+  @Test (priority = 3,groups = {"Sanity","Sanity_Chrome"})
+  public void IssueProposal () throws Exception {
+	  
+	  test = report.startTest("Admin Test --> Issue a Proposal");
+	  test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	  ClientAccountsPageElements.ValidatePage();
+	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	  ClientAccountsPageElements.UpdateButtonClink();
+	  test.log(LogStatus.INFO, "Click on Update Button");
+		 
+	  Thread.sleep(1000);
+	  ClientAccountsPageElements.ValidateResults("UK Test");
+	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  ClientAccountsPageElements.ViewAccount();
+	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
+	  Thread.sleep(1000);
+	  
+	try {
+	 
+	  		sslDashBoardElements.AdminDashboardValidation();
+	  		test.log(LogStatus.INFO, "DashBord Page Opened");
+	  		sslDashBoardElements.ClickMyProposalsLink();
+	  		ProposalsPageElements.ValidatePage();
+		  	ProposalsPageElements.UnIssuedTabClink();
+		  	ProposalsPageElements.ViewTopResult();
+		  	ProposalsPageElements.IssueProposalTabClink();
+		  	Thread.sleep(1000);
+		  	ProposalsPageElements.ConfirmCheckBoxOneClink();
+		  	Thread.sleep(1000);
+		  	ProposalsPageElements.ConfirmCheckBoxTwoClink();
+		  	Thread.sleep(1000);
+		  	ProposalsPageElements.IssueProposalButtonClink();
+	  
+	  
+			String Alertnote = "issued";  
+			AlertBoxElements.AlertWait();
+					    	
+			if (AlertBoxElements.VerifyAlert(Alertnote)) {
+								
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+				
+			}else{
+					    	
+				test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+					    	
+			}
+			
+	}catch (Exception e) {
+								
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+
+	}
+
+	  
+  }
+  
+  
+  @Test (priority = 4,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Send_Fulfillment_Email() throws Exception {
+	  
+	  test = report.startTest("Admin Test -->  Send Fullfillement Email");
+	    test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	  //Navigate to products link
+	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	  	Actions  actions=new Actions(driver);
+	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
+	  	actions.moveToElement(ProductsLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	
+	  	Thread.sleep(1000);
+	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
+	    actions.moveToElement(CertificatesLink);
+	  	actions.click();
+	  	actions.perform();
+	  	test.log(LogStatus.INFO, "Opened Search Products Page");
+		
+	  	//Select Account Name from for field
+	  	AdminCertificatesPageElements.ForFieldFieldSelect("Account name");
+	  	
+		//Select Issued from Status Field
+		AdminCertificatesPageElements.StatusFieldSelect("Issued");
+		
+	    //Enter Account Name into form field and Click Search
+		AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		AdminCertificatesPageElements.SearchButtonClick();		
+		
+		//Wait for Result to appear 
+		try {
+			
+			String Message = "records per page";
+			
+			if (AdminCertificatesPageElements.SearchResultValidate().contains(Message)) {
+				
+				test.log(LogStatus.INFO, "Result Is Displayed");
+				
+			}else {
+				
+				System.out.println("Search Result Not Present");
+				//ScreenShot.Image(null);
+				String path = ScreenShot.Image(driver, "SearchResult");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
+					
+			}
+	
+		}catch (Exception e){
+			
+			System.out.println("Search Result Element Not Present");
+			test.log(LogStatus.FAIL, "Result Not Displayed");
+		}
+		
+		String AccountName = "UK Test01";
+		String Status = "Issued";
+		WebElement Col1 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[2]"));
+		WebElement Col2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[2]"));
+		WebElement StatusCol = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]"));
+		WebElement StatusCo2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[5]"));
+		
+		if (Col1.getText().contains(AccountName)){
+			
+			System.out.println("Account Found in col 1");
+			
+			if (StatusCol.getText().equals(Status)) {
+				
+				System.out.println("issued Cert found in col 1");
+				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
+				test.log(LogStatus.INFO, "Clicked on Issued Certificate in first column of result");
+				
+			}else{
+				
+				System.out.println("No issued cert present in col 1");
+				//driver.close();
+			}
+			
+		}else if(Col2.getText().contains(AccountName)){
+			
+				System.out.println("Account Found in col 2");
+			
+			if (StatusCo2.getText().equals(Status)) {
+				
+				System.out.println("issued Cert found in col 2");
+				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[8]/a/i")).click();
+				test.log(LogStatus.INFO, "Clicked on Issued Certificate in Second column of result");
+				
+			}else {
+				
+				System.out.println("No issued cert present in col 2");
+				//driver.close();
+				}
+			
+		}else  {
+			 
+			System.out.println("Quality Tester User With Issued Cert Not Found");
+			test.log(LogStatus.FAIL, "Test User with Issued Cert Not Found");
+			
+		 }
+
+	
+		//Click on Send Fulfillment Email Link
+		Thread.sleep(10000);
+		driver.findElement(By.cssSelector("a[href*='#sendFulfillmentEmail']")).click();
+		test.log(LogStatus.INFO, "Clicked on Send Fulfillment");
+		
+		//Fill In required information
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).clear();
+		driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).sendKeys("Test Note");
+		
+		
+		WebElement EmailField = driver.findElement(By.xpath(".//*[@id='CertificateEmail']"));
+		Select EmailAdd = new Select(EmailField);
+		EmailAdd.selectByVisibleText("gogunleye@ssl247.co.uk");
+		//test.log(LogStatus.INFO, "Selected Test User from drop down list");
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[@id='CertificateOneOffEmail']")).sendKeys("qa@ssl247.co.uk");
+		//test.log(LogStatus.INFO, "Entered Email in email field");
+		
+		driver.findElement(By.xpath(".//*[@id='sendFulfillmentEmail']/form/div[4]/button")).click();
+		test.log(LogStatus.INFO, "Filled In Required information in form and Clicked");
+		//test.log(LogStatus.INFO, "Clicked on Send Button");
+		
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	String SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
+	  	Assert.assertTrue(SendStatus.contains("Certificate has been emailed to qa@ssl247.co.uk"));
+	  	test.log(LogStatus.PASS, "Message Sent");
+		
+		
+		/*----Verify Sent Email is in Outgoing emails--------*/
+		
+		//Navigate to Outgoing Emails Link
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	  	Actions  action2=new Actions(driver);
+	  	WebElement CMSLink=driver.findElement(By.cssSelector("a[href*='/admin/websites/index']"));
+	  	action2.moveToElement(CMSLink);
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	WebElement OutgoingEmailsLink=driver.findElement(By.cssSelector("a[href*='/admin/outgoing_emails/index']"));
+	    action2.moveToElement(OutgoingEmailsLink);
+	  	action2.click();
+	  	action2.perform();
+	  	test.log(LogStatus.INFO, "Navigated to Outgoing emails Page");
+		
+	  	String SubjectCol = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[1]")).getText();
+	  	
+	  	Assert.assertTrue(SubjectCol.contains("Your 1 year(s) GlobalSign DomainSSL SSL certificate for *.ssl247.co.uk has been issued"));
+	  	test.log(LogStatus.PASS, "Varified email is present");
+	  	
+	    //Delete Outgoing Emails Afterwards
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[5]/a")).click();
+	  	
+	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	driver.switchTo().alert().accept();
+	  	
+	  	 try {
+				String Alertnote = "Email deleted";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
+	
+  }
+  
+  
+  @Test (priority = 5,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Send_Change_Password_Request_Email() throws Exception {
+	  
+	    test = report.startTest("Admin Test --> Change Password Request Email");
+	    test.log(LogStatus.INFO, "Admin User Logged in");
+	  		
+		//Navigate to User Profiles
+		//Search For UK Test User
+		 driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[2]/a")).click();
+		 test.log(LogStatus.INFO, "Account Search Page Opened");
+		 
+		 driver.findElement(By.name("data[Account][query]")).sendKeys("Uk Test");
+		 //test.log(LogStatus.INFO, "Type 'UK Test' in Search Query Field");
+		 
+		 driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();
+		 //test.log(LogStatus.INFO, "Type 'UK Test' in Search Query Field");
+		 Thread.sleep(15000);
+		 
+		 Actions  Mouse=new Actions(driver);
+	     WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[9]/div/button"));
+	     Mouse.click(Dropdown);
+	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	     WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[9]/div/ul/li[1]/a"));
+	     Mouse.moveToElement(EyeIcon);
+	     Mouse.click();
+	     Mouse.perform();
+	     test.log(LogStatus.INFO, "UK Test Account Found and Opened");
+		 
+	     /*Click Account End Users Link*/
+		 sslDashBoardElements.ClickAccountEndUsersLink();
+		 JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
+	     Thread.sleep(1000);
+		 test.log(LogStatus.INFO, "Opened Account End Users Page");
+		  
+		 String UserVal = "Gideon Ogunleye";
+		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
+		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
+		 WebElement User3 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/strong[1]"));
+		 WebElement User4 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[4]/div/address/strong[1]"));
+		 
+		 if(User.getText().equals(UserVal)){
+				
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 Actions  actions=new Actions(driver);
+		     WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/button"));
+		     actions.click(menuHoverLink);
+		     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		     WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
+		     actions.moveToElement(subLink);
+		     actions.click();
+		     actions.perform();
+		     test.log(LogStatus.INFO, "Clicked on Edit Button of UK Test User");
+		     
+				 
+			}else if (User2.getText().equals(UserVal)) {
+				
+				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 Actions  actions=new Actions(driver);
+			     WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/button"));
+			     actions.click(menuHoverLink);
+			     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+			     WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/ul/li[1]/a"));
+			     actions.moveToElement(subLink);
+			     actions.click();
+			     actions.perform();
+			     test.log(LogStatus.INFO, "Clicked on Edit Button of UK Test User");
+			     
+				
+			 }else if (User3.getText().equals(UserVal)) {
+		
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 Actions  actions=new Actions(driver);
+				 WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/button"));
+				 actions.click(menuHoverLink);
+				 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+				 WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/ul/li[1]/a"));
+				 actions.moveToElement(subLink);
+				 actions.click();
+				 actions.perform();
+				 test.log(LogStatus.INFO, "Clicked on Edit Button of UK Test User");
+				 
+		
+			 }else if (User4.getText().equals(UserVal)) {
+				 
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 Actions  actions=new Actions(driver);
+				 WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[]/div/address/div[2]/div/button"));
+				 actions.click(menuHoverLink);
+				 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+				 WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
+				 actions.moveToElement(subLink);
+				 actions.click();
+				 actions.perform();
+				 test.log(LogStatus.INFO, "Clicked on Edit Button of UK Test User");
+				 
+				 
+			 }else  {
+				 
+				System.out.println("Quality Tester User Not Found");
+				test.log(LogStatus.FAIL, "Test User Not Found");
+			 }
+		 
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/a")).click();
+		 //test.log(LogStatus.INFO, "Clicked on Send Change Password Email Button");
+		 
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 driver.switchTo().alert().accept();
+/*		 
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 String Confirmation = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
+		 Assert.assertTrue(Confirmation.contains("A reset password has been sent to qa@ssl247.co.uk"));
+		 test.log(LogStatus.PASS, "Send Change Password Email Request Successfully Sent");
+*/		 
+		 try {
+				String Alertnote = "A reset password has been sent to qa@ssl247.co.uk";  
+				AlertBoxElements.AlertWait();
+						    	
+			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+									
+				test.log(LogStatus.PASS, "Validation Complete");
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				System.out.println("Validation Complete!");
+			  }else{
+						    	
+			test.log(LogStatus.FAIL, "Validation Failed");
+				AlertBoxElements.AlertPrint();
+				Assert.fail("Validation Failed ");
+						    	
+				}
+				
+			}catch (Exception e) {
+									
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+
+			}
+
+		 
+		 
+		 /*--------Force Email Out to User from test environment------------*/
+/*		 
+		//Navigate to Outgoing Emails Link
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 Actions  action2=new Actions(driver);
+		 WebElement CMSLink=driver.findElement(By.cssSelector("a[href*='/admin/websites/index']"));
+		 action2.moveToElement(CMSLink);
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 WebElement OutgoingEmailsLink=driver.findElement(By.cssSelector("a[href*='/admin/outgoing_emails/index']"));
+		 action2.moveToElement(OutgoingEmailsLink);
+		 action2.click();
+		 action2.perform();
+		 test.log(LogStatus.INFO, "Navigateed to Outgoing Emails Page");
+			
+		 String EmailCol = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[2]")).getText();		
+		 Assert.assertTrue(EmailCol.contains("qa@ssl247.co.uk"));
+		 test.log(LogStatus.PASS, "Email Found in Outgoing Emails");
+	*/
+		 
+  }
+ 
+  /*
   @BeforeTest (groups = {"Sanity"})
   public void beforeTest() {
 	  
 	     System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 		 driver = new ChromeDriver();  
 		
-		 
-
 		//report = new ExtentReports("C:\\Users\\Gideon Okunleye\\workspace\\SSL247_Test\\test-output\\Extent Report\\Admin_User.html"); 
 		 //test = report.startTest("Verify Test");
 		 //test.log(LogStatus.INFO, "Browser Started...");

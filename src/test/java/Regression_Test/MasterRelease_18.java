@@ -174,11 +174,128 @@ public class MasterRelease_18 extends Chrome{
 		  	
 	 }
 
-	  
-	  
 	  //Log Out 
 	  LoginPageElements.ClickAdminLogoutButton();
 	  test.log(LogStatus.INFO, "Admin User Logged Out");
+	   
+  }
+  
+  
+  @Test 
+  public void Bulk_Edit_AdminContact () throws Exception {
+	  
+	  //Log in as Administrator
+	  LoginPageElements.AdminLogin();
+	  
+	  report = ExtentFactory.getInstance2();
+	  
+	  //Search For UK Test User
+	  test = report.startTest("Regression Test --> HackAdvert Option Not Available");
+	  test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	  ClientAccountsPageElements.ValidatePage();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	  ClientAccountsPageElements.UpdateButtonClink();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on Update Button");
+		 
+	  Thread.sleep(5000);
+	  ClientAccountsPageElements.ValidateResults("UK Test");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  ClientAccountsPageElements.ViewAccount();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	  Thread.sleep(1000);
+	  sslDashBoardElements.AdminDashboardValidation();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "DashBord Page Opened");
+	  
+	  
+	  //Click on SSL Certificates Link
+	  AdminSslDashBoardElements.ClickMysslCertificatessLink();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked on Certificates Link");
+	  
+	  Thread.sleep(2000);
+	  
+	  //Click on Search Link
+	  AdminSslDashBoardElements.SearchLinkClick();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked on Search Link");
+	  
+	  
+	  //Click on Bulk Edit Contacts Button 
+	  AdminSslDashBoardElements.BulkEditContactsButtonClick();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked on Bulk Edit Contacts Button");
+	  
+	  Thread.sleep(1000);
+	
+	try {  
+		
+	  //Click on Admin Contact Checkbox
+	  AdminSslDashBoardElements.AdminContactCheckboxClick();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked on Admin Contact Checkbox");	  
+	  
+	  AdminSslDashBoardElements.ContactFieldSelect("Gideon Ogunleye");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Selected Name From Contact Field");	 
+	  
+	  AdminSslDashBoardElements.UpdateCertificateButtonClick();
+	  //driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked The Update Button");	
+	  
+	} catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+
+	}
+	
+	try {
+		
+		String Alertnote = "Certificates Updated Successfully";  
+		AlertBoxElements.AlertWait();
+				    	
+	  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+							
+		test.log(LogStatus.PASS, "Validation Complete");
+		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+		System.out.println("Validation Complete!");
+		
+	  }else{
+				    	
+	    test.log(LogStatus.FAIL, "Validation Failed");
+		AlertBoxElements.AlertPrint();
+		Assert.fail("Validation Failed ");
+				    	
+		}
+		
+	}catch (Exception e) {
+							
+		test.log(LogStatus.FAIL, "Validation Failed");
+		System.out.println("Alert NOT Validated");
+
+	}
+
+	
+	
+	  
+	  
+	  
+	  
+	  
+	  
 	  
 	  
   }

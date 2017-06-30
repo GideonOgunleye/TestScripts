@@ -35,26 +35,14 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[5]/a")
 	WebElement MysslCertificatessLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[6]/a")
 	WebElement MyDomainNamesLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/ul/li[1]/a/span")
-	WebElement RegisterDomainLink;
-	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[17]/a")
-	WebElement MyProposalsLink;
+	WebElement ProposalsLink;
 	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[18]/a")
-	WebElement MyOrderHistoryLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[19]/a")
-	WebElement MyLedgerLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[20]/a")
-	WebElement MyAccountLink;
-	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[21]/a")
-	WebElement MyUsersLink;
+	WebElement LedgerLink;
 	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[22]/a")
 	WebElement AccountEndUsersLink;
@@ -69,9 +57,75 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[9]/a")
 	WebElement ExternalLink;
 	
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[1]/a")
+	WebElement SearchLink;
 	
-	/*****NotCraft Certificates Page Elements******/
+	/********Certificates Page**********/
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountIndexForm']/div[2]/div/div[2]/div/a[7]")
+	WebElement BulkEditContactsButton;
 	
+	
+	/**********Bulk Edit Certificates Page**************/
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountEditContactsForm']/table/thead/tr/th[5]/label")
+	WebElement AdminContactCheckbox;
+	
+	@FindBy(xpath = ".//*[@id='CertificateTechContact']")
+	WebElement ContactField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountEditContactsForm']/div[3]/button")
+	WebElement UpdateCertificateButton;
+	
+	
+	/*****Users Page Elements******/
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]")
+	WebElement User1_Link;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/button")
+	WebElement User1_ActionButton;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a")
+	WebElement User1_EditLink;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]")
+	WebElement User2_Link;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/button")
+	WebElement User2_ActionButton;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/ul/li[1]/a")
+	WebElement User2_EditLink;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/strong[1]")
+	WebElement User3_Link;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/button")
+	WebElement User3_ActionButton;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/ul/li[1]/a")
+	WebElement User3_EditLink;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[4]/div/address/strong[1]")
+	WebElement User4_Link;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[]/div/address/div[2]/div/button")
+	WebElement User4_ActionButton;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a")
+	WebElement User4_EditLink;
+	
+	
+	/********Edit User Page**********/
+	@FindBy(xpath = ".//*[@id='UserAccessLevel']")
+	WebElement AccessLevelField;
+	
+	@FindBy(xpath = ".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")
+	WebElement OptionalDetailsTab;
+	
+	@FindBy(xpath = ".//*[@id='UserState']")
+	WebElement StateField;
+	
+	@FindBy(xpath = ".//*[@id='UserAdminEditForm']/div[2]/button")
+	WebElement SubmitChangesButton;
 	
 	
 	
@@ -106,43 +160,60 @@ public class AdminSslDashBoard extends DriverLoad {
 		MysslCertificatessLink.click();
 	}
 	
-	public void ClickMyDomainNamesLink() {
+	public void ExternalLinkClick() {
+		
+		ExternalLink.click();
+	}
+	
+	public void SearchLinkClick() {
+		
+		SearchLink.click();
+	}
+	
+	public void BulkEditContactsButtonClick() {
+		
+		BulkEditContactsButton.click();
+	}
+	
+	public void AdminContactCheckboxClick() {
+		
+		AdminContactCheckbox.click();
+	}
+	
+	public void ContactFieldSelect(String Name){
+		
+		 Select Level = new Select(ContactField);
+		 Level.selectByVisibleText(Name);
+	}
+	
+	public void UpdateCertificateButtonClick() {
+		
+		UpdateCertificateButton.click();
+	}
+	
+	public void DomainNamesLinkClick() {
 		
 		MyDomainNamesLink.click();
 	}
 	
-	public void ClickRegisterDomainLink() {
+	public void ProposalsLinkClick() {
 		
-		RegisterDomainLink.click();
+		ProposalsLink.click();
 	}
 	
-	public void ClickMyProposalsLink() {
+	public void LedgerLinkClick() {
 		
-		MyProposalsLink.click();
+		LedgerLink.click();
 	}
 	
-	public void ClickMyOrderHistoryLink() {
-		
-		MyOrderHistoryLink.click();
-	}
-	
-	public void ClickMyLedgerLink() {
-		
-		MyLedgerLink.click();
-	}
-	
-	public void ClickMyAccountLink() {
-		
-		MyAccountLink.click();
-	}
-	
+/*	
 	public void ClickMyUsersLink() {
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,250)", "");
 		MyUsersLink.click();
 	}
-	
+*/	
 	public void ClickAccountEndUsersLink() {
 		
 		AccountEndUsersLink.click();
@@ -164,11 +235,7 @@ public class AdminSslDashBoard extends DriverLoad {
 		System.out.println("Page Title is:"  + Status);
 		
 	}
-	
-	public void ExternalLinkClick() {
-		
-		ExternalLink.click();
-	}
+
 	
 	public void FirstCertDropDown(){
 		
@@ -182,6 +249,102 @@ public class AdminSslDashBoard extends DriverLoad {
 	    
 	}
 	
+	public boolean User1_LinkContains(String val){
+		
+		return User1_Link.getText().contains(val);
 
+	}
+	
+	public boolean User2_LinkContains(String val){
+		
+		return User2_Link.getText().contains(val);
+	
+	}
+	
+	public boolean User3_LinkContains(String val){
+		
+		return User3_Link.getText().contains(val);
+
+	}
+	
+	public boolean User4_LinkContains(String val){
+		
+		return User4_Link.getText().contains(val);
+
+	}
+	
+	public void User1_EditButton(){
+		
+		 Actions  actions=new Actions(driver);
+		 WebElement User1_ActionButton =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/button"));
+		 actions.click(User1_ActionButton);
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 WebElement User1_EditLink =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
+		 actions.moveToElement(User1_EditLink);
+		 actions.click();
+		 actions.perform();		
+
+	}
+	
+	public void User2_EditButton(){
+		
+		 Actions  actions=new Actions(driver);
+		 WebElement User2_ActionButton =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/button"));
+		 actions.click(User2_ActionButton);
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 WebElement User2_EditLink =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/ul/li[1]/a"));
+		 actions.moveToElement(User2_EditLink);
+		 actions.click();
+		 actions.perform();		
+
+	}
+	
+	public void User3_EditButton(){
+		
+		 Actions  actions=new Actions(driver);
+		 WebElement User3_ActionButton =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/button"));
+		 actions.click(User3_ActionButton);
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 WebElement User3_EditLink =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/ul/li[1]/a"));
+		 actions.moveToElement(User3_EditLink);
+		 actions.click();
+		 actions.perform();		
+
+	}
+	
+	public void User4_EditButton(){
+		
+		 Actions  actions=new Actions(driver);
+		 WebElement User4_ActionButton =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[]/div/address/div[2]/div/button"));
+		 actions.click(User4_ActionButton);
+		 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		 WebElement User4_EditLink =driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
+		 actions.moveToElement(User4_EditLink);
+		 actions.click();
+		 actions.perform();		
+
+	}
+	
+	public void AccessLevelSelect(String Access){
+		
+		 Select Level = new Select(AccessLevelField);
+		 Level.selectByVisibleText(Access);
+	}
+	
+	public void OptionalDetailsTabClick() {
+		
+		OptionalDetailsTab.click();
+	}
+	
+	public void StateFieldFill(String State) {
+		
+		StateField.clear();
+		StateField.sendKeys(State);
+	}
+	
+	public void SubmitChangesButtonClick() {
+		
+		SubmitChangesButton.click();
+	}
 
 }

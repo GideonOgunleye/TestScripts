@@ -13,6 +13,7 @@ import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminNavigationLinks;
+import PageFactory.AdminSslDashBoard;
 import PageFactory.BillingPage;
 import PageFactory.ClientAccountsPage;
 import PageFactory.LoginPage;
@@ -61,6 +62,7 @@ public class Admin_User extends DriverLoad {
   NavigationLinks NavigationLinksElements;
   BillingPage BillingPageElements;
   sslDashBoard sslDashBoardElements;
+  AdminSslDashBoard AdminSslDashBoardElements;
   AlertBox AlertBoxElements;
   ProposalsPage ProposalsPageElements;
   ClientAccountsPage ClientAccountsPageElements;
@@ -73,6 +75,7 @@ public class Admin_User extends DriverLoad {
 	  LoginPageElements = new LoginPage(driver);
 	  BillingPageElements = new BillingPage(driver);
 	  sslDashBoardElements = new sslDashBoard(driver);
+	  AdminSslDashBoardElements = new AdminSslDashBoard(driver);
 	  AlertBoxElements = new AlertBox(driver);
 	  ProposalsPageElements = new ProposalsPage(driver);
 	  NavigationLinksElements = new NavigationLinks(driver);
@@ -144,27 +147,35 @@ public class Admin_User extends DriverLoad {
   @Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Edit_Account_User() throws Exception{
 	  
-	//Search For UK Test User
+		//Search For UK Test User
 	     test = report.startTest("Admin Test --> Edit User");
+	     
 	     test.log(LogStatus.INFO, "Admin User Logged in");
 	  
 	     AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Click on clients Accounts Link");
 		 
 		 ClientAccountsPageElements.ValidatePage();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
 		 
 		 ClientAccountsPageElements.UpdateButtonClink();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Click on Update Button");
 		 
 		 Thread.sleep(5000);
 		 ClientAccountsPageElements.ValidateResults("UK Test");
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Search Resusult is Displayed");
 		 ClientAccountsPageElements.ViewAccount();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
 	     Thread.sleep(1000);
 	     sslDashBoardElements.AdminDashboardValidation();
+	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
 	     
 		 
@@ -172,164 +183,124 @@ public class Admin_User extends DriverLoad {
 	     //Click on My Users Link
 	     sslDashBoardElements.ClickAccountEndUsersLink();
 	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	     test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 	     JavascriptExecutor jse = (JavascriptExecutor)driver;
 	     jse.executeScript("window.scrollBy(0,500)", "");
 	     Thread.sleep(1000);
-		 test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
+	     test.log(LogStatus.INFO, "Scrolled Page Down");
 		 
-try {		 
+		 
+	     try {		 
 		 String UserVal = "Gideon Ogunleye";
-		 WebElement User = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/strong[1]"));
-		 WebElement User2 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/strong[1]"));
-		 WebElement User3 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/strong[1]"));
-		 WebElement User4 = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[4]/div/address/strong[1]"));
-		 
-		 if(User.getText().equals(UserVal)){
+
+		 if(AdminSslDashBoardElements.User1_LinkContains(UserVal)){
 				
 			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			 Actions  actions=new Actions(driver);
-		     WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/button"));
-		     actions.click(menuHoverLink);
-		     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		     WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
-		     actions.moveToElement(subLink);
-		     actions.click();
-		     actions.perform();
+			 AdminSslDashBoardElements.User1_EditButton();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		     test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 		     
 		     //Edit User
-		     WebElement AccessLevel = driver.findElement(By.xpath(".//*[@id='UserAccessLevel']"));
-			 Select Level = new Select(AccessLevel);
-			 Level.selectByVisibleText("Super User");
-			 test.log(LogStatus.INFO, "Change Access Level to Super User");
+		     AdminSslDashBoardElements.AccessLevelSelect("Super User");
 			 Thread.sleep(1000);
 			 
 			//Edit Optional Details
-			 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+			 AdminSslDashBoardElements.OptionalDetailsTabClick();
 			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
-			 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+			 AdminSslDashBoardElements.StateFieldFill("London");
 			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			 
 			//Click Save User
-			 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
+			 AdminSslDashBoardElements.SubmitChangesButtonClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			 test.log(LogStatus.INFO, "Click Submit Chnages Button");
-			 
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
 			 
-			}else if (User2.getText().equals(UserVal)) {
+			}else if (AdminSslDashBoardElements.User2_LinkContains(UserVal)) {
 				
 				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 Actions  actions=new Actions(driver);
-			     WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/button"));
-			     actions.click(menuHoverLink);
-			     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-			     WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[2]/div/address/div[2]/div/ul/li[1]/a"));
-			     actions.moveToElement(subLink);
-			     actions.click();
-			     actions.perform();
-			     test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
+				AdminSslDashBoardElements.User2_EditButton();
+			    test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 			     
 			     //Edit User
-			     WebElement AccessLevel = driver.findElement(By.xpath(".//*[@id='UserAccessLevel']"));
-				 Select Level = new Select(AccessLevel);
-				 Level.selectByVisibleText("Super User");
-				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
 				 Thread.sleep(1000);
 				 
-				 //Edit Optional Details
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+					//Edit Optional Details
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
-				 
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
 				 
-			 }else if (User3.getText().equals(UserVal)) {
+			 }else if (AdminSslDashBoardElements.User3_LinkContains(UserVal)) {
 		
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 Actions  actions=new Actions(driver);
-				 WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/button"));
-				 actions.click(menuHoverLink);
-				 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-				 WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[3]/div/address/div[2]/div/ul/li[1]/a"));
-				 actions.moveToElement(subLink);
-				 actions.click();
-				 actions.perform();
+				 AdminSslDashBoardElements.User3_EditButton();
 				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 				 
 				 //Edit User
-			     WebElement AccessLevel = driver.findElement(By.xpath(".//*[@id='UserAccessLevel']"));
-				 Select Level = new Select(AccessLevel);
-				 Level.selectByVisibleText("Super User");
-				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
 				 Thread.sleep(1000);
 				 
-				//Edit Optional Details
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+					//Edit Optional Details
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
-				 
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
-		
-			 }else if (User4.getText().equals(UserVal)) {
+				 
+				 
+			 }else if (AdminSslDashBoardElements.User4_LinkContains(UserVal)) {
 				 
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 Actions  actions=new Actions(driver);
-				 WebElement menuHoverLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[]/div/address/div[2]/div/button"));
-				 actions.click(menuHoverLink);
-				 driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-				 WebElement subLink=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div[2]/div[1]/div/address/div[2]/div/ul/li[1]/a"));
-				 actions.moveToElement(subLink);
-				 actions.click();
-				 actions.perform();
+				 AdminSslDashBoardElements.User4_EditButton();
 				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 				 
 				 //Edit User
-			     WebElement AccessLevel = driver.findElement(By.xpath(".//*[@id='UserAccessLevel']"));
-				 Select Level = new Select(AccessLevel);
-				 Level.selectByVisibleText("Super User");
-				 test.log(LogStatus.INFO, "Change Access Level to Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
 				 Thread.sleep(1000);
 				 
 				//Edit Optional Details
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[3]/ul/li[2]/a")).click();
+				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).clear();
-				 driver.findElement(By.xpath(".//*[@id='UserState']")).sendKeys("London");
+				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 
 				//Click Save User
-				 driver.findElement(By.xpath(".//*[@id='UserAdminEditForm']/div[2]/button")).click();
+				 AdminSslDashBoardElements.SubmitChangesButtonClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Click Submit Chnages Button");
-				 
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.PASS, "Test User Account Edited and Saved");
 				 
 			 }else  {
 				 
 				test.log(LogStatus.FAIL, "Test User Account not Found"); 
 				System.out.println("Quality Tester User Not Found");
-				
+				Assert.fail("Quality Tester User Not Found");
 			 }
 		 
-  	}catch (Exception e) {
+	}catch (Exception e) {
 		
 		test.log(LogStatus.FAIL, "Validation Failed");
 		Assert.fail("Exception " + e);
 
 	}
-  
+
 		
 		 /*Test Validation*/
 		 
@@ -358,7 +329,7 @@ try {
 
 			}
 
-		 	 		
+		 	 			
 		 
   }
   
