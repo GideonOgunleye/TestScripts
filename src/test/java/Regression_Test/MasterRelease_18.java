@@ -10,7 +10,9 @@ import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
 import BaseUtilities.CsR;
+import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.Firefox;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.AdminNavigationLinks;
 import PageFactory.AdminSslDashBoard;
@@ -37,7 +39,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends Chrome{
+public class MasterRelease_18 extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -100,7 +102,7 @@ public class MasterRelease_18 extends Chrome{
 	  
   }
   
-  @Test (groups = {"Regression","Regression_Chrome"})
+  @Test (priority = 0, groups = {"Regression","Regression_Chrome"})
   public void HackAdvertOption_Not_Available() throws Exception {
 	  
 	  //Log in as Administrator
@@ -181,7 +183,7 @@ public class MasterRelease_18 extends Chrome{
   }
   
   
-  @Test 
+  @Test (priority = 1, groups = {"Regression","Regression_Chrome"})
   public void Bulk_Edit_AdminContact () throws Exception {
 	  
 	  //Log in as Administrator
@@ -190,7 +192,7 @@ public class MasterRelease_18 extends Chrome{
 	  report = ExtentFactory.getInstance2();
 	  
 	  //Search For UK Test User
-	  test = report.startTest("Regression Test --> HackAdvert Option Not Available");
+	  test = report.startTest("Regression Test --> Bulk_Edit_AdminContact");
 	  test.log(LogStatus.INFO, "Admin User Logged in");
 	  
 	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
@@ -287,16 +289,114 @@ public class MasterRelease_18 extends Chrome{
 		System.out.println("Alert NOT Validated");
 
 	}
+	
+	
+  }
 
-	
-	
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+	@Test (priority = 2, groups = {"Regression","Regression_Chrome"})
+	public void Validate_UserTitle () throws Exception {
+		  
+		//Log in as Administrator
+		LoginPageElements.AdminLogin();
+		  
+		report = ExtentFactory.getInstance2();
+		  
+		//Search For UK Test User
+		test = report.startTest("Regression Test --> Validate_UserTitle");
+		test.log(LogStatus.INFO, "Admin User Logged in");
+		  
+		AdminNavigationLinksElements.ClientsAccountsLinkClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Click on clients Accounts Link");
+			 
+		ClientAccountsPageElements.ValidatePage();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+			 
+		ClientAccountsPageElements.UpdateButtonClink();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Click on Update Button");
+			 
+		Thread.sleep(5000);
+		ClientAccountsPageElements.ValidateResults("UK Test");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Search Resusult is Displayed");
+		ClientAccountsPageElements.ViewAccount();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+		Thread.sleep(1000);
+		sslDashBoardElements.AdminDashboardValidation();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "DashBord Page Opened");
+		  
+		  
+		//Click on SSL Certificates Link
+		AdminSslDashBoardElements.ClickMysslCertificatessLink();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Certificates Link");
+		  
+		Thread.sleep(2000);
+		  
+		//Click on Incomplete Link
+		AdminSslDashBoardElements.IncompleteLinkClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Incomplete Link");
+		
+		//Click on First Cert on the top of list
+		AdminSslDashBoardElements.FirstCertEditIconClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on First cert on the list");
+		
+		
+		try {
+			
+		//Click on Admin Tab
+		AdminSslDashBoardElements.AdminTabClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Admin Tab");
+		
+		Thread.sleep(2000);
+		
+		//Select User from Drop Down List
+		AdminSslDashBoardElements.AccountAdminContactFieldSelect("Rosanna Bullivant");
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Selected Contact");
+		
+		}catch (Exception e){
+			
+			test.log(LogStatus.FAIL, "Test Failed");
+			Assert.fail("Exception" + e);
+		}
+		
+		//Validate title of Selected User
+		
+		try {
+			
+			
+			if (AdminSslDashBoardElements.MissTitleIsDisplayed()) {
+				
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				test.log(LogStatus.PASS, "Test Validated");
+				
+			}else {
+				
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				AdminSslDashBoardElements.AdminTitleTextPrint();
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("User Title Not Validated");
+			}
+			
+			
+		}catch (Exception e){
+			
+			
+			test.log(LogStatus.FAIL, "Test Failed");
+			Assert.fail("Exception" + e);
+		}
+		
+  
 	  
   }
 

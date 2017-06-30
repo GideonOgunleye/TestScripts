@@ -60,9 +60,15 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[1]/a")
 	WebElement SearchLink;
 	
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[2]/a")
+	WebElement IncompleteLink;
+	
 	/********Certificates Page**********/
 	@FindBy(xpath = ".//*[@id='CertificateAdminAccountIndexForm']/div[2]/div/div[2]/div/a[7]")
 	WebElement BulkEditContactsButton;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminEditForm']/div[2]/div[2]/ul/li[2]/a")
+	WebElement AdminTab;
 	
 	
 	/**********Bulk Edit Certificates Page**************/
@@ -74,6 +80,12 @@ public class AdminSslDashBoard extends DriverLoad {
 	
 	@FindBy(xpath = ".//*[@id='CertificateAdminAccountEditContactsForm']/div[3]/button")
 	WebElement UpdateCertificateButton;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminContact']")
+	WebElement AccountAdminContactField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminTitle']/option[5]")
+	WebElement OptionMiss;
 	
 	
 	/*****Users Page Elements******/
@@ -127,8 +139,9 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='UserAdminEditForm']/div[2]/button")
 	WebElement SubmitChangesButton;
 	
-	
-	
+	/********Incomplete Certificates Page***************/
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[1]/td[8]/a/i")
+	WebElement FirstCertEditIcon;
 	
 	
 	
@@ -147,8 +160,6 @@ public class AdminSslDashBoard extends DriverLoad {
 		
 	}
 
-	
-	
 	
 	public void ClickMyProductsLink(){
 		
@@ -170,6 +181,22 @@ public class AdminSslDashBoard extends DriverLoad {
 		SearchLink.click();
 	}
 	
+	public void IncompleteLinkClick() {
+		
+		IncompleteLink.click();
+	}
+	
+	public void FirstCertEditIconClick() {
+		
+		FirstCertEditIcon.click();
+	}
+	
+	public void AdminTabClick() {
+		
+		AdminTab.click();
+	}
+	
+	
 	public void BulkEditContactsButtonClick() {
 		
 		BulkEditContactsButton.click();
@@ -183,6 +210,12 @@ public class AdminSslDashBoard extends DriverLoad {
 	public void ContactFieldSelect(String Name){
 		
 		 Select Level = new Select(ContactField);
+		 Level.selectByVisibleText(Name);
+	}
+	
+	public void AccountAdminContactFieldSelect(String Name){
+		
+		 Select Level = new Select(AccountAdminContactField);
 		 Level.selectByVisibleText(Name);
 	}
 	
@@ -205,15 +238,7 @@ public class AdminSslDashBoard extends DriverLoad {
 		
 		LedgerLink.click();
 	}
-	
-/*	
-	public void ClickMyUsersLink() {
 		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,250)", "");
-		MyUsersLink.click();
-	}
-*/	
 	public void ClickAccountEndUsersLink() {
 		
 		AccountEndUsersLink.click();
@@ -271,6 +296,18 @@ public class AdminSslDashBoard extends DriverLoad {
 		
 		return User4_Link.getText().contains(val);
 
+	}
+	
+	public boolean MissTitleIsDisplayed(){
+		
+		String Val = "Miss";
+		return OptionMiss.getText().equals(Val);
+
+	}
+	
+	public void AdminTitleTextPrint() {
+		
+		System.out.println("Title Present is" + OptionMiss.getText());
 	}
 	
 	public void User1_EditButton(){
