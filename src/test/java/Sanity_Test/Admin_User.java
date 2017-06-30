@@ -168,9 +168,8 @@ public class Admin_User extends DriverLoad {
 	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
 	     
 		 
-	     /*
-	      * Click on My Users Link
-	      */
+	     
+	     //Click on My Users Link
 	     sslDashBoardElements.ClickAccountEndUsersLink();
 	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	     JavascriptExecutor jse = (JavascriptExecutor)driver;

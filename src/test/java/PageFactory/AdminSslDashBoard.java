@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -21,19 +22,17 @@ import BaseUtilities.DriverLoad;
 import org.testng.Assert;
 
 
-public class sslDashBoard extends DriverLoad {
+public class AdminSslDashBoard extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	
 	
 	/*****Side Nave*******/
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]/a")
-	WebElement MyBasketsLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[5]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]")
 	WebElement MyProductsLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[7]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[5]/a")
 	WebElement MysslCertificatessLink;
 	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/a")
@@ -67,10 +66,19 @@ public class sslDashBoard extends DriverLoad {
 	
 	
 	/*******SSL Certificates Sublink***/
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[1]/ul/li[5]/ul/li[9]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[9]/a")
 	WebElement ExternalLink;
 	
-	public sslDashBoard(WebDriver driver){
+	
+	/*****NotCraft Certificates Page Elements******/
+	
+	
+	
+	
+	
+	
+	
+	public AdminSslDashBoard(WebDriver driver){
 		
 		this.driver = driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
@@ -87,10 +95,6 @@ public class sslDashBoard extends DriverLoad {
 
 	
 	
-	public void ClickMyBasketsLink(){
-		
-		MyBasketsLink.click();
-	}
 	
 	public void ClickMyProductsLink(){
 		
@@ -163,9 +167,21 @@ public class sslDashBoard extends DriverLoad {
 	
 	public void ExternalLinkClick() {
 		
-		driver.findElement(By.xpath(".//*[@id='UserMysslLoginForm']/button")).click();
-		
 		ExternalLink.click();
 	}
+	
+	public void FirstCertDropDown(){
+		
+		Actions  Mouse=new Actions(driver);
+	    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[9]/div/button"));
+	    Mouse.click(Dropdown);
+	    driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+	    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[9]/div/ul/li[4]/a"));
+	    Mouse.moveToElement(EyeIcon);
+	    Mouse.perform();
+	    
+	}
+	
+
 
 }
