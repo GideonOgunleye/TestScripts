@@ -1,50 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="5" passed="4">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="184917" started-at="2017-06-26T16:12:57Z" finished-at="2017-06-26T16:16:01Z">
+  <suite name="Default suite" duration-ms="51666" started-at="2017-06-29T12:13:08Z" finished-at="2017-06-29T12:14:00Z">
     <groups>
-      <group name="Sanity">
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@63753b6d]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@63753b6d]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-      </group> <!-- Sanity -->
-      <group name="BS_Smoke">
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="User_Registration" class="Sanity_Test.New_User"/>
-      </group> <!-- BS_Smoke -->
-      <group name="Smoke">
-        <method signature="New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="User_Registration" class="Sanity_Test.New_User"/>
-      </group> <!-- Smoke -->
-      <group name="BS_Sanity">
-        <method signature="New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@63753b6d]" name="Ask_a_question" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@63753b6d]" name="Get_in_Touch" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_Bronchure" class="Sanity_Test.New_User"/>
-        <method signature="New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_PenTest_Proposal" class="Sanity_Test.New_User"/>
-      </group> <!-- BS_Sanity -->
+      <group name="Regression_Chrome">
+        <method signature="MasterRelease_18.HackAdvertOption_Not_Available()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="HackAdvertOption_Not_Available" class="Regression_Test.MasterRelease_18"/>
+      </group> <!-- Regression_Chrome -->
+      <group name="Regression">
+        <method signature="MasterRelease_18.HackAdvertOption_Not_Available()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="HackAdvertOption_Not_Available" class="Regression_Test.MasterRelease_18"/>
+      </group> <!-- Regression -->
     </groups>
-    <test name="Default test" duration-ms="184917" started-at="2017-06-26T16:12:57Z" finished-at="2017-06-26T16:16:01Z">
-      <class name="Sanity_Test.New_User">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="beforeTest" is-config="true" duration-ms="2957" started-at="2017-06-26T17:12:57Z" finished-at="2017-06-26T17:12:59Z">
+    <test name="Default test" duration-ms="51666" started-at="2017-06-29T12:13:08Z" finished-at="2017-06-29T12:14:00Z">
+      <class name="Regression_Test.MasterRelease_18">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="beforeTest" is-config="true" duration-ms="2883" started-at="2017-06-29T13:13:08Z" finished-at="2017-06-29T13:13:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Load_Homepage()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Load_Homepage" is-config="true" duration-ms="14929" started-at="2017-06-26T17:12:59Z" finished-at="2017-06-26T17:13:14Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="beforeMethod" is-config="true" duration-ms="5829" started-at="2017-06-29T13:13:11Z" finished-at="2017-06-29T13:13:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Load_Homepage -->
-        <test-method status="FAIL" signature="User_Registration()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="User_Registration" duration-ms="27556" started-at="2017-06-26T17:13:14Z" finished-at="2017-06-26T17:13:42Z">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="HackAdvertOption_Not_Available()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="HackAdvertOption_Not_Available" duration-ms="24867" started-at="2017-06-29T13:13:17Z" finished-at="2017-06-29T13:13:41Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected [true] but found [false]]]>
+              <![CDATA[Hackadvert Option is Available]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+              <![CDATA[java.lang.AssertionError: Hackadvert Option is Available
 	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at Sanity_Test.New_User.User_Registration(New_User.java:236)
+	at Regression_Test.MasterRelease_18.HackAdvertOption_Not_Available(MasterRelease_18.java:169)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -75,99 +60,23 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- User_Registration -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Aftermethod" is-config="true" duration-ms="3686" started-at="2017-06-26T17:13:42Z" finished-at="2017-06-26T17:13:46Z">
+        </test-method> <!-- HackAdvertOption_Not_Available -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="afterMethod" is-config="true" duration-ms="7158" started-at="2017-06-29T13:13:41Z" finished-at="2017-06-29T13:13:49Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=User_Registration status=FAILURE method=New_User.User_Registration()[pri:0, instance:Sanity_Test.New_User@63753b6d] output={null}]]]>
+                <![CDATA[[TestResult name=HackAdvertOption_Not_Available status=FAILURE method=MasterRelease_18.HackAdvertOption_Not_Available()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Load_Homepage()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Load_Homepage" is-config="true" duration-ms="12690" started-at="2017-06-26T17:13:46Z" finished-at="2017-06-26T17:13:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Load_Homepage -->
-        <test-method status="PASS" signature="Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@63753b6d]" name="Get_in_Touch" duration-ms="13505" started-at="2017-06-26T17:13:58Z" finished-at="2017-06-26T17:14:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Get_in_Touch -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Aftermethod" is-config="true" duration-ms="3585" started-at="2017-06-26T17:14:12Z" finished-at="2017-06-26T17:14:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Get_in_Touch status=SUCCESS method=New_User.Get_in_Touch()[pri:2, instance:Sanity_Test.New_User@63753b6d] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Load_Homepage()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Load_Homepage" is-config="true" duration-ms="12545" started-at="2017-06-26T17:14:15Z" finished-at="2017-06-26T17:14:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Load_Homepage -->
-        <test-method status="PASS" signature="Ask_a_question()[pri:3, instance:Sanity_Test.New_User@63753b6d]" name="Ask_a_question" duration-ms="13393" started-at="2017-06-26T17:14:28Z" finished-at="2017-06-26T17:14:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Ask_a_question -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Aftermethod" is-config="true" duration-ms="2548" started-at="2017-06-26T17:14:41Z" finished-at="2017-06-26T17:14:44Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Ask_a_question status=SUCCESS method=New_User.Ask_a_question()[pri:3, instance:Sanity_Test.New_User@63753b6d] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Load_Homepage()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Load_Homepage" is-config="true" duration-ms="12439" started-at="2017-06-26T17:14:44Z" finished-at="2017-06-26T17:14:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Load_Homepage -->
-        <test-method status="PASS" signature="Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_Bronchure" duration-ms="16140" started-at="2017-06-26T17:14:56Z" finished-at="2017-06-26T17:15:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_Bronchure -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Aftermethod" is-config="true" duration-ms="3401" started-at="2017-06-26T17:15:13Z" finished-at="2017-06-26T17:15:16Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_Bronchure status=SUCCESS method=New_User.Request_a_Bronchure()[pri:4, instance:Sanity_Test.New_User@63753b6d] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="Load_Homepage()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Load_Homepage" is-config="true" duration-ms="12501" started-at="2017-06-26T17:15:16Z" finished-at="2017-06-26T17:15:28Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Load_Homepage -->
-        <test-method status="PASS" signature="Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@63753b6d]" name="Request_a_PenTest_Proposal" duration-ms="18006" started-at="2017-06-26T17:15:28Z" finished-at="2017-06-26T17:15:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Request_a_PenTest_Proposal -->
-        <test-method status="PASS" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="Aftermethod" is-config="true" duration-ms="4038" started-at="2017-06-26T17:15:46Z" finished-at="2017-06-26T17:15:50Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Request_a_PenTest_Proposal status=SUCCESS method=New_User.Request_a_PenTest_Proposal()[pri:5, instance:Sanity_Test.New_User@63753b6d] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Aftermethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.New_User@63753b6d]" name="afterTest" is-config="true" duration-ms="10965" started-at="2017-06-26T17:15:50Z" finished-at="2017-06-26T17:16:01Z">
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Regression_Test.MasterRelease_18@520a3426]" name="afterTest" is-config="true" duration-ms="10913" started-at="2017-06-29T13:13:49Z" finished-at="2017-06-29T13:14:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.New_User -->
+      </class> <!-- Regression_Test.MasterRelease_18 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

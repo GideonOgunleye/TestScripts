@@ -18,9 +18,11 @@ Sanity_Test\New_User.class
 PageFactory\ProposalsPage.class
 PageFactory\sslDashBoard.class
 BaseUtilities\TakeScreenShot.class
+Regression_Test\MasterRelease_18.class
 BaseUtilities\AlertBox.class
 BaseUtilities\BrowserStack.class
 PageFactory\ClientAccountsPage.class
+PageFactory\AdminSslDashBoard.class
 Regression_Test\Order_Products_Data.class
 PageFactory\AdminNavigationLinks.class
 PageFactory\NavigationLinks.class
@@ -30,4 +32,3 @@ Sanity_Test\Admin_User.class
 BaseUtilities\Cookies.class
 Sanity_Test\Registered_User.class
 BaseUtilities\InternetExplorer.class
-Slickets_Test\Master_Release_18_Slickets.class
