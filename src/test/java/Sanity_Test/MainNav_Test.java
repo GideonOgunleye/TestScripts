@@ -30,7 +30,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class MainNav_Test extends Chrome {
+public class MainNav_Test extends DriverLoad {
   
 	ExtentReports report;
 	ExtentTest test;
