@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Regression_Test.MasterRelease_18">
+      <class name="Sanity_Test.MainNav_Test">
         <methods>
-          <include name="beforeMethod"/>
+          <include name="About_Link_Test"/>
           <include name="beforeTest"/>
-          <include name="afterMethod"/>
-          <include name="HackAdvertOption_Not_Available"/>
           <include name="afterTest"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- Regression_Test.MasterRelease_18 -->
+      </class> <!-- Sanity_Test.MainNav_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

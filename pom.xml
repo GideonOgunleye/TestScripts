@@ -93,8 +93,8 @@
                         <configuration>
                             <suiteXmlFiles>
                             
-                            	<suiteXmlFile>config/Admin_SmokeTest(Chrome).xml</suiteXmlFile>
-                                <suiteXmlFile>config/Smoke_TestChrome.xml</suiteXmlFile>
+                            	<!-- <suiteXmlFile>config/Admin_SmokeTest(Chrome).xml</suiteXmlFile>-->
+                                <suiteXmlFile>Smoke_Test(Chrome).xml</suiteXmlFile>
                                
                             </suiteXmlFiles>
                         </configuration>

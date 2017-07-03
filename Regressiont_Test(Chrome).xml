@@ -15,11 +15,11 @@
     </classes>  
   </test> Test -->
   
- <!-- <test name="Test 1">
+ <test name="Test 1">
    <classes>
       <class name="Regression_Test.Order_Products"/>
     </classes>    
-  </test> Test -->
+  </test><!-- Test -->
   
   <test name="Test 2">
    <classes>
