@@ -39,7 +39,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends Chrome {
+public class MasterRelease_18 extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
