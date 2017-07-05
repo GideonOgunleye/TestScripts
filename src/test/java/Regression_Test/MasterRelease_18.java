@@ -39,7 +39,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends DriverLoad {
+public class MasterRelease_18 extends Chrome {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -164,23 +164,90 @@ public class MasterRelease_18 extends DriverLoad {
 	 
 	  try{	  
 		  
-		  AdminSslDashBoardElements.FirstCertDropDown(); 
+		  AdminSslDashBoardElements.ThirdCertDropDown(); 
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  String path = ScreenShot.Image(driver, "SearchResult");
 		  String imagePath = test.addScreenCapture(path);
-		  test.log(LogStatus.FAIL, "Hackadvert Available");
+		  test.log(LogStatus.FAIL, "Hackadvert Available on Third Row");
 		  test.log(LogStatus.INFO, imagePath);
-		//Log Out 
-		  LoginPageElements.ClickAdminLogoutButton();
+		  
+		  //Log Out 
+		  //LoginPageElements.ClickAdminLogoutButton();
 		  test.log(LogStatus.INFO, "Admin User Logged Out");
-		  Assert.fail("Hackadvert Option is Available");
+		  Assert.fail("Hackadvert Option is Available on third row");
+		  driver.navigate().refresh();
 		  
 	  }catch (Exception e) {
 			
-		  	test.log(LogStatus.PASS, "Hackadvert Not Available");
-		    //Log Out 
-			LoginPageElements.ClickAdminLogoutButton();
-			test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //Take Screenshot
+		  String path = ScreenShot.Image(driver, "SearchResult");
+		  String imagePath = test.addScreenCapture(path);
+		  test.log(LogStatus.INFO, imagePath);
+		  test.log(LogStatus.PASS, "Hackadvert Not Available on Third Row");
+		  
+		  //Log Out 
+		  //LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  	
+	 }
+	  
+	  
+	  try{	  
+		  
+		  AdminSslDashBoardElements.FourthCertDropDown(); 
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  String path = ScreenShot.Image(driver, "SearchResult");
+		  String imagePath = test.addScreenCapture(path);
+		  test.log(LogStatus.FAIL, "Hackadvert Available on Fouth Row");
+		  test.log(LogStatus.INFO, imagePath);
+		  
+		  //Log Out 
+		  //LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  Assert.fail("Hackadvert Option is Available on Fourth Row");
+		  driver.navigate().refresh();
+		  
+	  }catch (Exception e) {
+			
+		  //Take Screenshot
+		  String path = ScreenShot.Image(driver, "SearchResult");
+		  String imagePath = test.addScreenCapture(path);
+		  test.log(LogStatus.INFO, imagePath);
+		  test.log(LogStatus.PASS, "Hackadvert Not Available on Fourth Row");
+		  
+		  //Log Out 
+		  //LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  	
+	 }
+	  
+	  
+	  try{	  
+		  
+		  AdminSslDashBoardElements.FifthCertDropDown(); 
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  String path = ScreenShot.Image(driver, "SearchResult");
+		  String imagePath = test.addScreenCapture(path);
+		  test.log(LogStatus.FAIL, "Hackadvert Available on Fifth Row");
+		  test.log(LogStatus.INFO, imagePath);
+		  
+		  //Log Out 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  Assert.fail("Hackadvert Option is Available on Fifth Row");
+		  driver.navigate().refresh();
+		  
+	  }catch (Exception e) {
+			
+		  //Take Screenshot
+		  String path = ScreenShot.Image(driver, "SearchResult");
+		  String imagePath = test.addScreenCapture(path);
+		  test.log(LogStatus.INFO, imagePath);
+		  test.log(LogStatus.PASS, "Hackadvert Not Available on Fith Row");
+		  
+		  //Log Out 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
 		  	
 	 }
 

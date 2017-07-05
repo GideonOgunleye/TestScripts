@@ -264,17 +264,40 @@ public class AdminSslDashBoard extends DriverLoad {
 		
 	}
 
+	public void ThirdCertDropDown(){
+		
+		Actions  Mouse=new Actions(driver);
+	    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[3]/td[9]/div/button"));
+	    Mouse.click(Dropdown);
+	    driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+	    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[3]/td[9]/div/ul/li[3]/a"));
+	    Mouse.moveToElement(EyeIcon);
+	    Mouse.perform();
+	    
+	}
 	
-	public void FirstCertDropDown(){
+	public void FourthCertDropDown(){
+		
+		Actions  Mouse=new Actions(driver);
+	    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[4]/td[9]/div/button"));
+	    Mouse.click(Dropdown);
+	    driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+	    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[4]/td[9]/div/ul/li[4]/a"));
+	    Mouse.moveToElement(EyeIcon);
+	    Mouse.perform();
+	    
+	}
+	
+	
+	public void FifthCertDropDown(){
 		
 		Actions  Mouse=new Actions(driver);
 	    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[9]/div/button"));
 	    Mouse.click(Dropdown);
 	    driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-	    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[9]/div/ul/li[4]/a"));
+	    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[9]/div/ul/li[3]/a"));
 	    Mouse.moveToElement(EyeIcon);
 	    Mouse.perform();
-	
 	    
 	}
 	
