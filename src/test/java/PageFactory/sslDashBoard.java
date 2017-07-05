@@ -27,34 +27,34 @@ public class sslDashBoard extends DriverLoad {
 	
 	
 	/*****Side Nave*******/
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[3]/a")
 	WebElement MyBasketsLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[5]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[4]/a")
 	WebElement MyProductsLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[7]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[6]/a")
 	WebElement MysslCertificatessLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[8]/a")
 	WebElement MyDomainNamesLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/ul/li[1]/a/span")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[8]/ul/li[1]/a/span")
 	WebElement RegisterDomainLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[17]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[16]/a")
 	WebElement MyProposalsLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[18]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[17]/a")
 	WebElement MyOrderHistoryLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[19]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[18]/a")
 	WebElement MyLedgerLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[20]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[19]/a")
 	WebElement MyAccountLink;
 	
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[21]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[20]/a")
 	WebElement MyUsersLink;
 	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[22]/a")

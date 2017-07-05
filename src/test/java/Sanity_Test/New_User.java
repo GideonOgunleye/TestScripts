@@ -49,7 +49,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends BrowserStack  {
+public class New_User extends DriverLoad  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;

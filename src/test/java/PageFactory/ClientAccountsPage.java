@@ -34,7 +34,7 @@ public class ClientAccountsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")
 	WebElement UpdateButton;
 	
-	@FindBy(xpath = ".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[1]")
+	@FindBy(xpath = ".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[2]")
 	WebElement ColumnOneResult;
 	
 	@FindBy(xpath = ".//*[@id='FormAdminIssue']/div[3]/div[1]/div/div/button")
@@ -73,9 +73,9 @@ public class ClientAccountsPage extends DriverLoad {
 		UpdateButton.click();
 	}
 	
-	public void ValidateResults(String Account) {
+	public void ValidateResults(String AccountCode) {
 		
-		Assert.assertTrue(ColumnOneResult.getText().contains(Account));
+		Assert.assertTrue(ColumnOneResult.getText().contains(AccountCode));
 		
 	}
 	

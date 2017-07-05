@@ -60,13 +60,5 @@ public class TakeScreenShot extends DriverLoad {
 		 
 	}
 
-/*	
-	public void Image() throws Exception {
-		String fileName = Image(null) + ".png";
-		
-	}
-*/	
-
-
   
 }

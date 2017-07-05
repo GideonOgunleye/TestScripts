@@ -92,7 +92,7 @@ public class MasterRelease_18 extends DriverLoad {
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		
-		test.log(LogStatus.INFO, "User Logged Out");
+		test.log(LogStatus.INFO, "Test Ended");
 		
 		report.endTest(test);
 		report.flush();
@@ -129,12 +129,14 @@ public class MasterRelease_18 extends DriverLoad {
 	  test.log(LogStatus.INFO, "Click on Update Button");
 		 
 	  Thread.sleep(5000);
-	  ClientAccountsPageElements.ValidateResults("UK Test");
+	  ClientAccountsPageElements.ValidateResults("UKTE001");
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  
 	  ClientAccountsPageElements.ViewAccount();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	  
 	  Thread.sleep(1000);
 	  sslDashBoardElements.AdminDashboardValidation();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -162,23 +164,26 @@ public class MasterRelease_18 extends DriverLoad {
 	 
 	  try{	  
 		  
-		  AdminSslDashBoardElements.FirstCertDropDown();
+		  AdminSslDashBoardElements.FirstCertDropDown(); 
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  String path = ScreenShot.Image(driver, "SearchResult");
 		  String imagePath = test.addScreenCapture(path);
 		  test.log(LogStatus.FAIL, "Hackadvert Available");
 		  test.log(LogStatus.INFO, imagePath);
+		//Log Out 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
 		  Assert.fail("Hackadvert Option is Available");
 		  
 	  }catch (Exception e) {
 			
 		  	test.log(LogStatus.PASS, "Hackadvert Not Available");
+		    //Log Out 
+			LoginPageElements.ClickAdminLogoutButton();
+			test.log(LogStatus.INFO, "Admin User Logged Out");
 		  	
 	 }
 
-	  //Log Out 
-	  LoginPageElements.ClickAdminLogoutButton();
-	  test.log(LogStatus.INFO, "Admin User Logged Out");
 	   
   }
   
@@ -210,13 +215,17 @@ public class MasterRelease_18 extends DriverLoad {
 	  test.log(LogStatus.INFO, "Click on Update Button");
 		 
 	  Thread.sleep(5000);
-	  ClientAccountsPageElements.ValidateResults("UK Test");
+	  
+	  ClientAccountsPageElements.ValidateResults("UKTE001");
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  
 	  ClientAccountsPageElements.ViewAccount();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	  
 	  Thread.sleep(1000);
+	  
 	  sslDashBoardElements.AdminDashboardValidation();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "DashBord Page Opened");
@@ -251,10 +260,14 @@ public class MasterRelease_18 extends DriverLoad {
 	  
 	  AdminSslDashBoardElements.ContactFieldSelect("Gideon Ogunleye");
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Selected Name From Contact Field");	 
+	  test.log(LogStatus.INFO, "Selected Name From Contact Field");	
+	  
+	  AdminSslDashBoardElements.RegionFieldFill("London");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Filled Region Field");	
 	  
 	  AdminSslDashBoardElements.UpdateCertificateButtonClick();
-	  //driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Clicked The Update Button");	
 	  
 	} catch (Exception e) {
@@ -277,18 +290,26 @@ public class MasterRelease_18 extends DriverLoad {
 		
 	  }else{
 				    	
-	    test.log(LogStatus.FAIL, "Validation Failed");
+	    test.log(LogStatus.FAIL, "Alert Validation Failed");
 		AlertBoxElements.AlertPrint();
-		Assert.fail("Validation Failed ");
+		Assert.fail("Alert Validation Failed ");
 				    	
 		}
 		
 	}catch (Exception e) {
 							
-		test.log(LogStatus.FAIL, "Validation Failed");
-		System.out.println("Alert NOT Validated");
+		test.log(LogStatus.FAIL, "Alert Not Visible");
+		System.out.println("Alert Not Visible");
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.FAIL, "Hackadvert Available");
+		test.log(LogStatus.INFO, imagePath);
 
 	}
+	
+    //Log Out 
+	LoginPageElements.ClickAdminLogoutButton();
+	test.log(LogStatus.INFO, "Admin User Logged Out");
 	
 	
   }
@@ -320,12 +341,14 @@ public class MasterRelease_18 extends DriverLoad {
 		test.log(LogStatus.INFO, "Click on Update Button");
 			 
 		Thread.sleep(5000);
-		ClientAccountsPageElements.ValidateResults("UK Test");
+		ClientAccountsPageElements.ValidateResults("UKTE001");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Search Resusult is Displayed");
+		
 		ClientAccountsPageElements.ViewAccount();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+		
 		Thread.sleep(1000);
 		sslDashBoardElements.AdminDashboardValidation();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -349,6 +372,7 @@ public class MasterRelease_18 extends DriverLoad {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Clicked on First cert on the list");
 		
+		Thread.sleep(10000);
 		
 		try {
 			
@@ -396,6 +420,9 @@ public class MasterRelease_18 extends DriverLoad {
 			Assert.fail("Exception" + e);
 		}
 		
+	    //Log Out 
+		LoginPageElements.ClickAdminLogoutButton();
+		test.log(LogStatus.INFO, "Admin User Logged Out");
   
 	  
   }

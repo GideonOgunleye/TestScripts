@@ -8,8 +8,10 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
 import PageFactory.LoginPage;
 import PageFactory.sslDashBoard;
@@ -45,7 +47,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Order_Products extends BrowserStack {
+public class Order_Products extends DriverLoad {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -53,14 +55,16 @@ public class Order_Products extends BrowserStack {
 	BillingPage BillingPageElements;
 	sslDashBoard sslDashBoardElements;
 	AlertBox AlertBoxElements;
+	TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Regression","BS_Regression"})
+	@BeforeMethod (groups = {"Regression","BS_Regression","Regression_Chrome"})
 	public void User_Login () throws Exception {
 		 
 		LoginPageElements = new LoginPage(driver);
 		BillingPageElements = new BillingPage(driver);
 		sslDashBoardElements = new sslDashBoard(driver);
 		AlertBoxElements = new AlertBox(driver);
+		ScreenShot = new TakeScreenShot();
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -82,7 +86,7 @@ public class Order_Products extends BrowserStack {
 	}
 
 	
-	@AfterMethod (groups = {"Regression","BS_Regression"}, alwaysRun = true)
+	@AfterMethod (groups = {"Regression","BS_Regression","Regression_Chrome"}, alwaysRun = true)
 	public String User_Logout (ITestResult result) throws Exception {
 		
 	
@@ -102,9 +106,6 @@ public class Order_Products extends BrowserStack {
 		driver.navigate().refresh();
 		Thread.sleep(1000);
 		
-		LoginPageElements.ClickLogoutButton();
-		test.log(LogStatus.INFO, "User Logged Out");
-		
 		report.endTest(test);
 		report.flush();
 		
@@ -114,7 +115,7 @@ public class Order_Products extends BrowserStack {
 	}
 	
 	
-	@Test (priority = 1, groups = {"Regression","BS_Regression"},dataProviderClass = Order_Products_Data.class, dataProvider="OrderProduct_Data")
+	@Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Order_Products_Data.class, dataProvider="OrderProduct_Data")
 	  public void Order_Certificates(String Product, String ProductLink) throws Exception {
 		
 		Properties prop = new Properties();
@@ -130,7 +131,10 @@ public class Order_Products extends BrowserStack {
 		
 		//Navigate to product page//
 	    sslDashBoardElements.ClickMyProductsLink();
-		
+	    driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on Product Link");
+	    
+  try {		
 		//Click to Order RapidSSL Product
 		WebElement Link1 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[1]/td[1]"));
 		WebElement Link2 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[2]/td[1]"));
@@ -322,6 +326,18 @@ public class Order_Products extends BrowserStack {
 			test.log(LogStatus.FAIL, "Product Not Found");
 			
 		}
+		
+   }catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.INFO, imagePath);
+
+
+	}
+	
 
 	/*	
 		Thread.sleep(15000);
@@ -461,76 +477,95 @@ public class Order_Products extends BrowserStack {
 			System.out.println("Account Does Not Have Enough Funds");
 			test.log(LogStatus.FAIL, "Account Does Not Have Enough Funds");
 			Assert.fail("Exception " + e);
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+
 		
 			}
 		
-		WebDriverWait wait2 = new WebDriverWait(driver, 50);	
-		WebElement Csr;
-		Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
-		Csr.sendKeys(prop.getProperty("Para1"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para2"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para3"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para4"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para5"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para6"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para7"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para8"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para9"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para10"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para11"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para12"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para13"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para14"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para15"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para16"));
-		Csr.sendKeys(Keys.ENTER);
-		Csr.sendKeys(prop.getProperty("Para17"));
-		Csr.sendKeys(Keys.ENTER);
 		
-		WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
-		Decoder.click();
+		try { 
+			WebDriverWait wait2 = new WebDriverWait(driver, 50);	
+			WebElement Csr;
+			Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
+			Csr.sendKeys(prop.getProperty("Para1"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para2"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para3"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para4"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para5"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para6"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para7"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para8"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para9"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para10"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para11"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para12"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para13"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para14"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para15"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para16"));
+			Csr.sendKeys(Keys.ENTER);
+			Csr.sendKeys(prop.getProperty("Para17"));
+			Csr.sendKeys(Keys.ENTER);
+			
+			WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
+			Decoder.click();
+			
+			Thread.sleep(10000);
+			
+			WebElement DecoderStatus;
+			DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='modal-footer']/a[1]")));
+			DecoderStatus.click();
+			Thread.sleep(10000);
+			
+			System.out.println("Sleep Over");
+			
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,-250)", "");
+			
+			Thread.sleep(2000);
+			
+			
+			/*-----Fillm in Admin Tab-----------------------*/
+			WebElement Admintab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[2]/a"));
+			Admintab.click();
 		
-		WebElement DecoderStatus;
-		DecoderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='modal-footer']/a[1]")));
-		DecoderStatus.click();
-		Thread.sleep(10000);
-		
-		System.out.println("Sleep Over");
-		
-		//JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-250)", "");
-		
-		Thread.sleep(2000);
-		
-		
-		/*-----Fillm in Admin Tab-----------------------*/
-		WebElement Admintab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[2]/a"));
-		Admintab.click();
+		    System.out.println("Admin Tab Clicked");
+		    
+		    WebElement ContactSelect = driver.findElement(By.xpath(".//*[@id='CertificateAdminContact']"));
+			Select Initials = new Select(ContactSelect);
+			Initials.selectByVisibleText("Gideon Ogunleye");
+		   	
+			WebElement Organization = driver.findElement(By.id("CertificateAdminOrganisation"));
+			Organization.clear();
+			Organization.sendKeys("SSL247 Ltd");
+			
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+
+		}
 	
-	    System.out.println("Admin Tab Clicked");
-	    
-	    WebElement ContactSelect = driver.findElement(By.xpath(".//*[@id='CertificateAdminContact']"));
-		Select Initials = new Select(ContactSelect);
-		Initials.selectByVisibleText("Gideon Ogunleye");
-	   	
-		WebElement Organization = driver.findElement(By.id("CertificateAdminOrganisation"));
-		Organization.clear();
-		Organization.sendKeys("SSL247 Ltd");
 
 /*		
 		WebElement Title = driver.findElement(By.id("CertificateAdminTitle"));
@@ -587,7 +622,12 @@ public class Order_Products extends BrowserStack {
 			}
 		
 		}catch(Exception e) {
+			
 			System.out.println("Tech Tab is not Present");
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, "Tech Tab is not Present");
+			test.log(LogStatus.INFO, imagePath);
 		
 			}
 		
@@ -610,7 +650,12 @@ public class Order_Products extends BrowserStack {
 				}
 			
 			}catch(Exception e) {
+				
 				System.out.println("Organisation Tab is not Present");
+				String path = ScreenShot.Image(driver, "SearchResult");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, "Organisation Tab is not Present");
+				test.log(LogStatus.INFO, imagePath);
 			
 				}
 
@@ -629,6 +674,11 @@ public class Order_Products extends BrowserStack {
 		
 		}catch(Exception e) {
 			System.out.println("Organisation Category is not Present");
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, "Organisation Category is not Present");
+			test.log(LogStatus.INFO, imagePath);
+
 		
 			}
 		
@@ -651,6 +701,9 @@ public class Order_Products extends BrowserStack {
 					    	
 			test.log(LogStatus.FAIL, "Validation Failed");
 			AlertBoxElements.AlertPrint();
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
 			Assert.fail("Validation Failed ");
 					    	
 			}
@@ -658,11 +711,18 @@ public class Order_Products extends BrowserStack {
 		}catch (Exception e) {
 								
 			test.log(LogStatus.FAIL, "Validation Failed");
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+
 			Assert.fail("Exception " + e);
 
 		}
 
 		
+		//User Log Out
+		LoginPageElements.ClickLogoutButton();
+		test.log(LogStatus.INFO, "User Logged Out");
 		
 	/*	
 		
