@@ -39,7 +39,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends DriverLoad {
+public class MasterRelease_18 extends Chrome {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -493,6 +493,63 @@ public class MasterRelease_18 extends DriverLoad {
   
 	  
   }
+	
+@Test (priority = 3, groups = {"Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="Bulk Transfer Test")
+public void Bulk_Trasfer_Certifictes (String username, String password, String Url) throws Exception {
+
+	
+	report = ExtentFactory.getInstance2();
+	
+	//Load Browser
+	driver.get(Url); 
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	driver.manage().window().maximize();
+	
+	test = report.startTest("Bulk Transfer Certificates Test");
+    test.log(LogStatus.INFO, "Browser Opened and URL Entered");
+	
+	//Log in as Client	
+	LoginPageElements.ClickLoginLink();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked Login Link");
+	
+	LoginPageElements.EnterUserName(username);
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Entered Username");
+	
+	LoginPageElements.EnterPassword(password);
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Entered Password");
+	
+	LoginPageElements.ClickLoginButton();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked Login Button");
+	
+	Thread.sleep(1000);
+	
+	//Click on My SSL Certificates Link
+	sslDashBoardElements.ClickMysslCertificatessLink();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.PASS, "Clicked on Myssl Cert Link");
+	
+	//Click on the Search Link----------------------------------------------------------->
+	sslDashBoardElements.SearchLinkClick();
+	test.log(LogStatus.INFO, "Clicked Login Button");
+	
+	
+	//Take Screen Shot
+	String path = ScreenShot.Image(driver, "SearchResult");
+	String imagePath = test.addScreenCapture(path);
+	test.log(LogStatus.INFO, imagePath);
+
+	Thread.sleep(1000);
+	
+	//Click Logout Button
+	LoginPageElements.ClickLogoutButton();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.PASS, "Clicked Logout Button");	
+
+}
 
 
 }

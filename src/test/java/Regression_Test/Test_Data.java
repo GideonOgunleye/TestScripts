@@ -95,4 +95,30 @@ public class Test_Data {
 		
 		
 	}
+	
+	
+	@DataProvider (name ="Bulk Transfer Test")
+	public static Object[][] BulkTransferTestData(){
+		Object[][] obj = new Object[2][3];
+		
+		/*---------1st Parameter-------------*/	
+		//Username
+		obj[0][0]="UKTE004@ssl247-test.com";
+		//Password
+		obj[0][1]="Test1234";
+		//Url
+		obj[0][2]="https://staging-hc.ssl247.co.uk/";	
+		
+		/*---------2st Parameter-------------*/	
+		//Username
+		obj[1][0]="qa@ssl247.co.uk";
+		//Password
+		obj[1][1]="Test1234";
+		//Url
+		obj[1][2]="https://staging-hc.ssl247.co.uk/";		
+		
+		
+		return obj;
+		
+	}
 }
