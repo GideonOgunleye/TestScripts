@@ -41,6 +41,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,7 +50,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends DriverLoad  {
+public class New_User extends Chrome  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -328,6 +329,7 @@ public class New_User extends DriverLoad  {
 	  
 	 test = report.startTest("New User Test --> Ask a Question Form");
 	 test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	 
 	//Navigate to MySSL Link
 	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[9]/a")).click();
@@ -347,16 +349,35 @@ public class New_User extends DriverLoad  {
 	//TitleField.click();
 	
 	try {
+		
 	    if (QuestionForm.isDisplayed()) {
 				
 			System.out.println("Form Opened");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.PASS, " Form Opened");
+			
 			Select Tl = new Select(QuestionForm);
 			Tl.selectByVisibleText("Mrs");
-			driver.findElement(By.name("first_name")).sendKeys("Gideon");
-			driver.findElement(By.name("last_name")).sendKeys("Ogunleye");
-			driver.findElement(By.name("email")).sendKeys("qa@ssl247.co.uk");
-			driver.findElement(By.name("description")).sendKeys("This is is a Message");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, " Title Selected");
+			
+			driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[2]/div/input")).sendKeys("Gideon");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Firstname Entered");
+			
+			driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[3]/div/input")).sendKeys("Ogunleye");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Last Name Entered");
+			
+			driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[5]/div/input")).sendKeys("qa@ssl247.co.uk");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Email Entered");			
+			
+			driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[7]/div/textarea")).sendKeys("This is is a Message");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Message Entered");
+			
+			
 			CookiesElements.CheckCookies();
 			Thread.sleep(5000);
 			driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
@@ -500,14 +521,29 @@ public class New_User extends DriverLoad  {
 	  
 	test = report.startTest("New User Test --> Request a PenTest Form");
 	test.log(LogStatus.INFO, "Browser Opened and Url Entered");
-	NavigationElements.ClickProtectAndSecureLink();
+	//NavigationElements.ClickProtectAndSecureLink();
 			
 	//Navigate to Request a Brochure Link
+
+	
+	//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a")).click();
+	
+	Actions  Mouse=new Actions(driver);
+    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/a"));
+    Mouse.moveToElement(Dropdown);
+    driver.manage().timeouts().implicitlyWait(100,TimeUnit.SECONDS);
+    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a"));
+    Mouse.moveToElement(EyeIcon);
+    Mouse.click();
+    Mouse.perform();	
+	
+	
+	Thread.sleep(1000);
+	
 	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	JavascriptExecutor jse = (JavascriptExecutor)driver;
 	jse.executeScript("window.scrollBy(0,500)", "");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a")).click();
+	
 	Thread.sleep(1000);
 	
 			
@@ -515,26 +551,32 @@ public class New_User extends DriverLoad  {
 	
 	
 	//CookiesElements.CheckCookies2();
-	String Msg = "Request a Free proposal";
-	WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[1]/h3"));
+
 	
 	
 	try {
+		
+		String Msg = "Request a free proposal";
+		WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a"));
 		
 		if (ProposalForm.getText().contains(Msg)) {
 			
 			test.log(LogStatus.PASS, "Form Opened");
 			
+			ProposalForm.click();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked On Proposal Form");
+			
+			
 		}else {
 			
-			System.out.println("Search Result Not Present");
+			System.out.println("Message is:" + ProposalForm.getText());
 			//ScreenShot.Image(null);
 			String path = ScreenShot.Image(driver, "SearchResult");
 			String imagePath = test.addScreenCapture(path);
 			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
 			
 		}
-	
 	
 		WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
 		Select Tl = new Select(Title);
