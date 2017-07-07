@@ -50,7 +50,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends Chrome  {
+public class New_User extends DriverLoad  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -84,17 +84,19 @@ public class New_User extends Chrome  {
 	}
 	
 	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"},alwaysRun = true)
-	public String Aftermethod (ITestResult result) throws IOException, Exception {
-		
-		String filename = result.getMethod().getMethodName() +".png";
+	public void Aftermethod (ITestResult result) throws IOException, Exception {
+
+/*		
+		String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
 	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));
 		  
 		String destination = Directory + filename;
+*/
 		
-		String path = destination;
+	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
@@ -103,11 +105,11 @@ public class New_User extends Chrome  {
 		System.out.println("Page Refreshed");
 		
 	
-	test.log(LogStatus.INFO, "Browser Refreshed");
-	report.endTest(test);
-	report.flush();
+		test.log(LogStatus.INFO, "Browser Refreshed");
+		report.endTest(test);
+		report.flush();
 	
-	return destination;
+	//return destination;
 		
 	}                                                                                     
 	                                                                                      
@@ -129,7 +131,7 @@ public class New_User extends Chrome  {
 	
 		//Click on User Registration Link
 		LoginPageElements.ClickRegisterLink();
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		
 		//Your Details Section
 		driver.findElement(By.name("data[User][firstname]")).sendKeys(prop.getProperty("Firstname"));
@@ -266,6 +268,10 @@ public class New_User extends Chrome  {
 			if (GetInTouchForm.isDisplayed()) {
 			
 				test.log(LogStatus.PASS, "Form Opened");
+				String path = ScreenShot.Image(driver, "SearchResult");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
+
 			
 			}else {
 			
@@ -283,6 +289,11 @@ public class New_User extends Chrome  {
 	    Thread.sleep(5000);
 	    
 		driver.findElement(By.xpath(".//*[@id='contactformright']/div[3]/button[1]")).click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.INFO, imagePath);
+
 		
 		}catch (Exception e) {
 			

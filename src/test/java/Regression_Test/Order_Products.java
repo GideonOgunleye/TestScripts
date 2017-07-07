@@ -88,10 +88,12 @@ public class Order_Products extends DriverLoad {
 
 	
 	@AfterMethod (groups = {"Regression","BS_Regression","Regression_Chrome"}, alwaysRun = true)
-	public String User_Logout (ITestResult result) throws Exception {
+	public void User_Logout (ITestResult result) throws Exception {
 		
 	
 	    //Take Screen Shots
+		
+/*		
 	    //String filename = result.getMethod().getMethodName() +".png";
 		String filename =  result.getMethod().getMethodName() + result.getEndMillis() + ".png";
 	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
@@ -100,7 +102,9 @@ public class Order_Products extends DriverLoad {
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));
 		  
 		String destination = Directory + filename;
-		String path = destination;
+*/		
+		
+		String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
@@ -110,7 +114,7 @@ public class Order_Products extends DriverLoad {
 		report.endTest(test);
 		report.flush();
 		
-		return destination;
+		//return destination;
 		 
 		
 	}

@@ -92,17 +92,20 @@ public class Admin_User extends DriverLoad {
   }
   
   @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
-  public String Log_Out (ITestResult result) throws Exception {
+  public void Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
-	  String filename = result.getMethod().getMethodName() +".png";
+/*	  
+	  String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
 	  String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Sanity ScreenShots\\";
 	  
 	  File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	  FileUtils.copyFile(sourceFile, new File(Directory + filename));
 	  
 	  String destination = Directory + filename;
-	  String path = destination;
+*/	  
+	  
+	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 	  String imagePath = test.addScreenCapture(path);
 	  test.log(LogStatus.INFO, "Test Complete", imagePath);
 	  
@@ -116,7 +119,8 @@ public class Admin_User extends DriverLoad {
 	  
 	  report.endTest(test);
 	  report.flush();
-	  return destination;
+	  
+	 // return destination;
   }
   
   @Test (priority = 0, groups = {"Smoke","Smoke_Firefox","Smoke_Chrome"})

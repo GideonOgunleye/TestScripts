@@ -70,7 +70,7 @@ public class sslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[1]/ul/li[5]/ul/li[9]/a")
 	WebElement ExternalLink;
 	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[1]/ul/li[5]/ul/li[1]/a")
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[2]/a")
 	WebElement SearchLink;
 	
 	public sslDashBoard(WebDriver driver){

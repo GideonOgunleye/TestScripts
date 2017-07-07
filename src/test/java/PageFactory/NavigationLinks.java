@@ -38,28 +38,28 @@ public class NavigationLinks extends BrowserStack {
 	@FindBy(xpath = ".//*[@id='mainNavigation']/li[6]/a")
 	WebElement RegisterLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[7]/a")
-	WebElement ManageLink;
+	//@FindBy(xpath = ".//*[@id='mainNavigation']/li[7]/a")
+	//WebElement ManageLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[8]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[7]/a")
 	WebElement BecomePartnerLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[9]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[8]/a")
 	WebElement MySslLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[10]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[9]/a")
 	WebElement FreeTrialsLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[11]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[10]/a")
 	WebElement WizardLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[12]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[11]/a")
 	WebElement AboutLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[13]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[12]/a")
 	WebElement SupportLink;
 	
-	@FindBy(xpath = ".//*[@id='mainNavigation']/li[14]/a")
+	@FindBy(xpath = ".//*[@id='mainNavigation']/li[13]/a")
 	WebElement BlogLink;
 	
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
@@ -179,11 +179,23 @@ public class NavigationLinks extends BrowserStack {
 	
 	}
 	
+	public void SslCertificatesLinkTextValidation(){
+		
+		assertTrue(SslCertificatesLink.getText().contains("SSL Certificates"));
+		
+	}
+	
 	public void ClickFreeSslLink(){
 		
 		FreeSslLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("GeoTrust Free Trial"));
+	}
+	
+	public void FreeSslLinkTextValidation(){
+		
+		assertTrue(FreeSslLink.getText().contains("Free SSL"));
+		
 	}
 	
 	public void ClickProtectAndSecureLink() {
@@ -193,11 +205,22 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("Penetration Testing: Advanced professional testing by accredited experts"));
 	}
 	
+	public void ProtectAndSecureLinkTextValidtion() {
+		
+		assertTrue(ProtectAndSecureLink.getText().contains("Test & Protect"));
+	}
+	
 	public void ClickIdentifyLink() {
 		
 		IdentifyLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Digital IDs from SSL247"));
+	}
+	
+	public void IdentifyLinkTextValidation(){
+		
+		assertTrue(IdentifyLink.getText().contains("Identify & Manage"));
+		
 	}
 	
 	public void ClickRegisterLink() {
@@ -207,18 +230,30 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("Get your Domain Name Now"));
 	}
 	
+	public void RegisterLinkTextValidation(){
+		
+		assertTrue(RegisterLink.getText().contains("Register"));
+		
+	}
+/*	
 	public void ClickManageLink() {
 		
 		ManageLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Managed Public Key Infrastructure (MPKI) Service by SSL247®"));
 	}
-	
+*/	
 	public void ClickBecomePartnerLink() {
 		
 		BecomePartnerLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Grow your business by joining our partners programs!"));
+	}
+	
+	public void BecomePartnerLinkTextValidation(){
+		
+		assertTrue(BecomePartnerLink.getText().contains("Become a Partner"));
+		
 	}
 	
 	public void ClickMySslLink() {
@@ -228,11 +263,23 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("MySSL® Account Login"));
 	}
 	
+	public void MySslLinkTextValidation(){
+		
+		assertTrue(MySslLink.getText().contains("MySSL"));
+		
+	}
+	
 	public void ClickFreeTrialsLink() {
 		
 		FreeTrialsLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Free trials"));
+	}
+	
+	public void FreeTrialsLinkTextValidation(){
+		
+		assertTrue(FreeTrialsLink.getText().contains("Free Trials"));
+		
 	}
 	
 	public void ClickWizardLink() {
@@ -242,10 +289,22 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk "));
 	}
 	
+	public void WizardLinkTextValidation(){
+		
+		assertTrue(WizardLink.getText().contains("Wizard"));
+		
+	}
+	
 	public void ClickAboutLink() {
 		
 		AboutLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	}
+	
+	public void AboutLinkTextValidation(){
+		
+		assertTrue(AboutLink.getText().contains("About"));
+		
 	}
 	
 	public void ClickSupportLink() {
@@ -255,11 +314,23 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("Help and Support - Install your SSL Certificate"));
 	}
 	
+	public void SupportLinkTextValidation(){
+		
+		assertTrue(SupportLink.getText().contains("Support"));
+		
+	}
+	
 	public void ClickBlogLink() {
 		
 		BlogLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("SSL247 Blog"));
+	}
+	
+	public void BlogLinkTextValidation(){
+		
+		assertTrue(BlogLink.getText().contains("Blog"));
+		
 	}
 	
 	

@@ -67,8 +67,13 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='CertificateAdminAccountIndexForm']/div[2]/div/div[2]/div/a[7]")
 	WebElement BulkEditContactsButton;
 	
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountIndexForm']/div[2]/div/div[2]/div/a[8]")
+	WebElement BulkTransferCertificate;
+	
 	@FindBy(xpath = ".//*[@id='CertificateAdminEditForm']/div[2]/div[2]/ul/li[2]/a")
 	WebElement AdminTab;
+	
+	
 	
 	
 	/**********Bulk Edit Certificates Page**************/
@@ -204,6 +209,12 @@ public class AdminSslDashBoard extends DriverLoad {
 		
 		BulkEditContactsButton.click();
 	}
+	
+	public void BulkTransferCertificateButtonClick() {
+		
+		BulkTransferCertificate.click();
+	}
+	
 	
 	public void AdminContactCheckboxClick() {
 		

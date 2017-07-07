@@ -39,7 +39,9 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends Chrome {
+public class MasterRelease_18 extends DriverLoad {
+	
+	//private static final AdminSslDashBoard AdminsslDashBoardElements = null;
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -75,10 +77,11 @@ public class MasterRelease_18 extends Chrome {
   }
 
   @AfterMethod (groups = {"Regression","Regression_Chrome"}, alwaysRun = true)
-  public String afterMethod (ITestResult result) throws Exception {
+  public void afterMethod (ITestResult result) throws Exception {
 	  
 	    //Take Screen Shots
-	  	String filename =  result.getMethod().getMethodName() + result.getEndMillis() + ".png";
+/*	  
+	  	String filename =  result.getMethod().getMethodName() + ScreenShot.getRandomString(10)  + ".png";
 	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -86,8 +89,10 @@ public class MasterRelease_18 extends Chrome {
 		  
 		String destination = Directory + filename;
 		String path = destination;
-		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.INFO, "Test Complete", imagePath);
+*/		
+	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
+	  	String imagePath = test.addScreenCapture(path);
+	  	test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
 		driver.navigate().refresh();
 		Thread.sleep(5000);
@@ -97,8 +102,6 @@ public class MasterRelease_18 extends Chrome {
 		report.endTest(test);
 		report.flush();
 		
-		return destination;
-	  
 	  
   }
   
@@ -495,17 +498,19 @@ public class MasterRelease_18 extends Chrome {
   }
 	
 @Test (priority = 3, groups = {"Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="Bulk Transfer Test")
-public void Bulk_Trasfer_Certifictes (String username, String password, String Url) throws Exception {
+public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, String Url, String Account) throws Exception {
 
 	
-	report = ExtentFactory.getInstance2();
+	
 	
 	//Load Browser
 	driver.get(Url); 
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	driver.manage().window().maximize();
 	
-	test = report.startTest("Bulk Transfer Certificates Test");
+	report = ExtentFactory.getInstance2();
+	
+	test = report.startTest("Bulk Transfer Certificates Test Account:" + Account);
     test.log(LogStatus.INFO, "Browser Opened and URL Entered");
 	
 	//Log in as Client	
@@ -513,11 +518,11 @@ public void Bulk_Trasfer_Certifictes (String username, String password, String U
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	test.log(LogStatus.INFO, "Clicked Login Link");
 	
-	LoginPageElements.EnterUserName(username);
+	LoginPageElements.EnterUserName(Adusername);
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	test.log(LogStatus.INFO, "Entered Username");
 	
-	LoginPageElements.EnterPassword(password);
+	LoginPageElements.EnterPassword(Adpassword);
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	test.log(LogStatus.INFO, "Entered Password");
 	
@@ -527,27 +532,64 @@ public void Bulk_Trasfer_Certifictes (String username, String password, String U
 	
 	Thread.sleep(1000);
 	
-	//Click on My SSL Certificates Link
-	sslDashBoardElements.ClickMysslCertificatessLink();
+	//Search For UK Test User
+	test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	AdminNavigationLinksElements.ClientsAccountsLinkClick();
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.PASS, "Clicked on Myssl Cert Link");
+	test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	ClientAccountsPageElements.ValidatePage();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	ClientAccountsPageElements.SearchQueryFieldFill(Account);
 	
-	//Click on the Search Link----------------------------------------------------------->
-	sslDashBoardElements.SearchLinkClick();
-	test.log(LogStatus.INFO, "Clicked Login Button");
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	ClientAccountsPageElements.UpdateButtonClink();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on Update Button");
+		 
+	Thread.sleep(5000);
+	ClientAccountsPageElements.ValidateResults(Account);
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Search Resusult is Displayed");
 	
+	ClientAccountsPageElements.ViewAccount();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
 	
-	//Take Screen Shot
-	String path = ScreenShot.Image(driver, "SearchResult");
-	String imagePath = test.addScreenCapture(path);
-	test.log(LogStatus.INFO, imagePath);
-
 	Thread.sleep(1000);
-	
-	//Click Logout Button
-	LoginPageElements.ClickLogoutButton();
+	//sslDashBoardElements.AdminDashboardValidation();
+	//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	//test.log(LogStatus.INFO, "DashBord Page Opened");
+	  
+	  
+	//Click on SSL Certificates Link
+	AdminSslDashBoardElements.ClickMysslCertificatessLink();
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.PASS, "Clicked Logout Button");	
+	test.log(LogStatus.INFO, "Clicked on Certificates Link");
+	  
+	Thread.sleep(2000);
+	
+	
+	//Click on Search Link
+	AdminSslDashBoardElements.SearchLinkClick();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked on Search Link");
+	
+	AdminSslDashBoardElements.BulkTransferCertificateButtonClick();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked on Bulk Tranfer Cert");
+	
+	
+	Thread.sleep(2000);
+	
+	LoginPageElements.ClickAdminLogoutButton();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked on Logout Button");
+	
+	
 
 }
 

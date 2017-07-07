@@ -33,7 +33,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class SubNavigation_Test extends BrowserStack {
+public class SubNavigation_Test extends DriverLoad {
   
 	ExtentReports report;
 	ExtentTest test;

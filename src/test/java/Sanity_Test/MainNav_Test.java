@@ -11,6 +11,7 @@ import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.TakeScreenShot;
 import PageFactory.LoginPage;
 //import PageFactory.Navigation;
 import PageFactory.NavigationLinks;
@@ -30,13 +31,14 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class MainNav_Test extends Chrome {
+public class MainNav_Test extends DriverLoad {
   
 	ExtentReports report;
 	ExtentTest test;
 	NavigationLinks NavigationElements;
 	LoginPage 	LoginPageElements;
 	AlertBox AlertBoxElements;
+	TakeScreenShot ScreenShot;
 
   @BeforeMethod (groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
   public void beforeMethod() throws Exception {
@@ -44,6 +46,7 @@ public class MainNav_Test extends Chrome {
 	  NavigationElements = new NavigationLinks(driver);
 	  LoginPageElements = new LoginPage(driver);
 	  AlertBoxElements = new AlertBox(driver);
+	  ScreenShot = new TakeScreenShot();
 	  
 	  LoginPageElements.LoadLoginPage();
 	  report = ExtentFactory.getInstance3();
@@ -52,8 +55,9 @@ public class MainNav_Test extends Chrome {
   }
 
   @AfterMethod (groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
-  public String afterMethod(ITestResult result) throws IOException, Exception {
-	  
+  public void afterMethod(ITestResult result) throws IOException, Exception {
+
+/*
 	  	String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
 	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
 		  
@@ -61,8 +65,9 @@ public class MainNav_Test extends Chrome {
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));
 		  
 		String destination = Directory + filename;
-		
-		String path = destination;
+*/
+	  
+	  	String path =  ScreenShot.Image(driver, "TestSecreenShot" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
@@ -74,7 +79,7 @@ public class MainNav_Test extends Chrome {
 		report.endTest(test);
 		report.flush();
 	
-		return destination;
+		//return destination;
 	  
   }
   
@@ -83,13 +88,20 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> SSL Cert link Test");
 	  
-	  NavigationElements.ClickSslCertificatesLink();
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "SSL247's SSL Certificates";
+
 		
 	  try {
-	  			    	
+	  			
+		  NavigationElements.SslCertificatesLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickSslCertificatesLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "SSL247's SSL Certificates";
+		  
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
 	  				test.log(LogStatus.PASS, "Validation Complete");
@@ -117,13 +129,18 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> FreeSsl Link Test");
 	  
-	  NavigationElements.ClickFreeSslLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "GeoTrust Free Trial";
 		
 	  try {
+		  
+		  NavigationElements.FreeSslLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickFreeSslLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "GeoTrust Free Trial";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -149,14 +166,20 @@ public class MainNav_Test extends Chrome {
   public void ProtectAndSecure_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Protect And Secure Link Test");
-	  
-	  NavigationElements.ClickProtectAndSecureLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Penetration Testing: Advanced professional testing by accredited experts";
-		
+	 
 	  try {
+		  
+		  
+		  NavigationElements.ProtectAndSecureLinkTextValidtion();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		
+	/*	  
+		  NavigationElements.ClickProtectAndSecureLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Penetration Testing: Advanced professional testing by accredited experts";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -170,6 +193,8 @@ public class MainNav_Test extends Chrome {
 	  			    	
 	  		}
 	  	
+	  	*/
+	  	
 	  }catch (Exception e) {
 	  						
 	  		test.log(LogStatus.FAIL, "Validation Failed");
@@ -182,14 +207,20 @@ public class MainNav_Test extends Chrome {
   public void Identify_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Identify Link Test");
-	  
-	  NavigationElements.ClickIdentifyLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Digital IDs from SSL247";
-		
+	 
 	  try {
+		  
+		  
+		  NavigationElements.IdentifyLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+
+	/*	  
+		  NavigationElements.ClickIdentifyLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Digital IDs from SSL247";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -202,6 +233,8 @@ public class MainNav_Test extends Chrome {
 	  				Assert.fail("Validation Failed ");
 	  			    	
 	  		}
+	  		
+	  */		
 	  	
 	  }catch (Exception e) {
 	  						
@@ -216,13 +249,18 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> Register Link Test");
 	  
-	  NavigationElements.ClickRegisterLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Get your Domain Name Now";
 		
 	  try {
+		  
+		  NavigationElements.RegisterLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickRegisterLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Get your Domain Name Now";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -243,7 +281,8 @@ public class MainNav_Test extends Chrome {
 	  }
 	    
   }
-  
+ 
+  /*
   @Test (priority = 6, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
   public void Manage_Link_Test() {
 	  
@@ -276,19 +315,25 @@ public class MainNav_Test extends Chrome {
 	  }
 	    
   }
+ */ 
   
   @Test (priority = 7, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
   public void BecomePartner_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
 	  
-	  NavigationElements.ClickBecomePartnerLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Grow your business by joining our partners programs!";
-		
+			
 	  try {
+		  
+		  NavigationElements.BecomePartnerLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickBecomePartnerLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Grow your business by joining our partners programs!";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -314,14 +359,18 @@ public class MainNav_Test extends Chrome {
   public void MySsl_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> MySsl Link Test");
-	  
-	  NavigationElements.ClickMySslLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "MySSL® Account Login";
-		
+
 	  try {
+		  
+		  NavigationElements.MySslLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickMySslLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "MySSL® Account Login";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -348,13 +397,19 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> Free Trials Link Test");
 	  
-	  NavigationElements.ClickFreeTrialsLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Free trials";
 		
 	  try {
+		  
+		  
+		  NavigationElements.FreeTrialsLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickFreeTrialsLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Free trials";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -380,14 +435,20 @@ public class MainNav_Test extends Chrome {
   public void Wizard_Link_Test() {
 	  
 	  test = report.startTest("Nav Links Test --> Wizard Link Test");
-	  
-	  NavigationElements.ClickWizardLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk";
+	 
 		
 	  try {
+		  
+		  
+		  NavigationElements.WizardLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickWizardLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -414,15 +475,18 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> About Link Test");
 	  
-	  NavigationElements.ClickAboutLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  
-		
 	  try {
 		  
-		  	String PageTitle = "About SSL247® – The Web Security Consultants";	    	
+		  NavigationElements.AboutLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickAboutLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "About SSL247® – The Web Security Consultants";	
+		  
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
 	  				test.log(LogStatus.PASS, "Validation Complete");
@@ -448,13 +512,17 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> Support Link Test");
 	  
-	  NavigationElements.ClickSupportLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "Help and Support - Install your SSL Certificate";
-		
 	  try {
+		  
+		  NavigationElements.SupportLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickSupportLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "Help and Support - Install your SSL Certificate";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						
@@ -481,13 +549,19 @@ public class MainNav_Test extends Chrome {
 	  
 	  test = report.startTest("Nav Links Test --> Blog Link Test");
 	  
-	  NavigationElements.ClickBlogLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	  
-	  String PageTitle = "SSL247 Blog";
+
 		
 	  try {
+		  
+		  NavigationElements.BlogLinkTextValidation();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  NavigationElements.ClickBlogLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Opened");
+		  
+		  String PageTitle = "SSL247 Blog";
 	  			    	
 	  		if (NavigationElements.ValidatePage(PageTitle)) {
 	  						

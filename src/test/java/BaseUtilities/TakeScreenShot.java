@@ -31,7 +31,7 @@ public class TakeScreenShot extends DriverLoad {
 	//public WebDriver driver;
 	//ITestResult result;
 	
-   public static String getRandomString(int length) {
+   public String getRandomString(int length) {
 	   
 		StringBuilder sb = new StringBuilder();
 		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -50,7 +50,7 @@ public class TakeScreenShot extends DriverLoad {
 	
 		
 		String filename = result + getRandomString(10) + ".png";
-	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
+	    String Directory = "C:\\ScreenShots\\";
 		  
 	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(sourceFile, new File(Directory + filename));

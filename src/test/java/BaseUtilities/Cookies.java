@@ -27,7 +27,7 @@ public class Cookies extends DriverLoad {
 	DriverLoad LoadDriver;
 	
 	
-	@FindBy (id="cookiesStatus")
+	@FindBy (xpath=".//*[@id='cookiesStatus']")
 	public static WebElement CookiesButton;
 	
 	@FindBy (xpath="html/body/div[4]/p[1]")
@@ -64,7 +64,7 @@ public class Cookies extends DriverLoad {
 			}else {
 				
 				CookiesButton.click();
-				System.out.println("Cookies Button Clicked Displayed");
+				System.out.println("Top Cookies Link Clicked");
 			}
 		
 		}catch(Exception e) {
