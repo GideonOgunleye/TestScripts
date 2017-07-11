@@ -46,6 +46,8 @@ public class DriverLoad {
 	  
   }
   
+  /*
+  
   @BeforeClass (groups = {"Smoke_Firefox","Sanity_Firefox","Regression_Firefox"})
   public void Firefox_beforeTest() throws IOException  {
 	
@@ -67,6 +69,6 @@ public class DriverLoad {
 	  
   }
 
- 
+ */
   
 }

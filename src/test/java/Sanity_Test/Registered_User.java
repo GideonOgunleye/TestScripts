@@ -542,22 +542,31 @@ public class Registered_User extends DriverLoad  {
 			driver.findElement(By.xpath(".//*[@id='UserMysslEditForm']/div[2]/button")).click();
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    test.log(LogStatus.INFO, "Clicked Submit Changes Button");
+		    
+		    //Take Screenshot
+		    String path = ScreenShot.Image(driver, "Edit User");
+		    String imagePath = test.addScreenCapture(path);
+		    test.log(LogStatus.PASS, "Form Submitted");
+		    test.log(LogStatus.INFO, imagePath);
+
 			
 			//String Alertnote = "Contact has been updated";
 			//AlertBoxElements.AlertWait();
 			    	
 			try {
+				
 				String Alertnote = "Contact has been updated";  
 				AlertBoxElements.AlertWait();
 						    	
 			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
 									
 				test.log(LogStatus.PASS, "Validation Complete");
-						    		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
 				System.out.println("Validation Complete!");
+				
 			  }else{
 						    	
-			test.log(LogStatus.FAIL, "Validation Failed");
+				test.log(LogStatus.FAIL, "Validation Failed");
 				AlertBoxElements.AlertPrint();
 				Assert.fail("Validation Failed ");
 						    	
@@ -565,8 +574,8 @@ public class Registered_User extends DriverLoad  {
 				
 			}catch (Exception e) {
 									
-				test.log(LogStatus.FAIL, "Validation Failed");
-				Assert.fail("Exception " + e);
+				test.log(LogStatus.FAIL, "Alert not displayed");
+				
 
 			}
 		

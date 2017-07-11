@@ -110,7 +110,7 @@ public class LoginPage extends DriverLoad {
 	public void AdminLogin() throws Exception {
 		
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDrivingAdmin.properties");
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 
@@ -123,8 +123,8 @@ public class LoginPage extends DriverLoad {
 		
 		ClickLoginLink();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		EnterUserName(prop.getProperty("Username"));
-		EnterPassword(prop.getProperty("Password"));
+		EnterUserName(prop.getProperty("AdUserName"));
+		EnterPassword(prop.getProperty("AdPassword"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		ClickLoginButton();
 		
