@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -73,6 +74,23 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='CertificateAdminEditForm']/div[2]/div[2]/ul/li[2]/a")
 	WebElement AdminTab;
 	
+	@FindBy(xpath = ".//*[@id='certificateDetails']/li[9]/a")
+	WebElement IssuedTab;
+	
+	@FindBy(xpath = ".//*[@id='issued']/table/tbody/tr[1]/td[1]/input[2]")
+	WebElement CheckBoxOne;
+	
+	@FindBy(xpath = ".//*[@id='issued']/table/tbody/tr[2]/td[1]/input[2]")
+	WebElement CheckBoxTwo;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAccount']")
+	WebElement SearchAccountField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountBulkTransferCertificatesForm']/div[4]/button")
+	WebElement TransferCertificatesButton;
+	
+	@FindBy(xpath = ".//*[@id='CertificateAdminAccountBulkTransferCertificatesForm']/div[3]/div/div/div/ul/li/a")
+	WebElement Result;
 	
 	
 	
@@ -210,11 +228,50 @@ public class AdminSslDashBoard extends DriverLoad {
 		BulkEditContactsButton.click();
 	}
 	
+	public void IssuedTabClick() {
+		
+		IssuedTab.click();
+	}
+	
+	public void CheckBoxOneClick() {
+		
+		CheckBoxOne.click();
+	}
+	
+	public void CheckBoxTwoClick() {
+		
+		CheckBoxTwo.click();
+	}
+	
 	public void BulkTransferCertificateButtonClick() {
 		
 		BulkTransferCertificate.click();
 	}
 	
+	public void SearchAccountFieldSendKeys(String Account) {
+		
+		SearchAccountField.clear();
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		SearchAccountField.sendKeys(Account);
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		//SearchAccountField.sendKeys(Keys.ENTER);
+	}
+	
+	public boolean ResultContains(String AccountCode){
+		
+		return Result.getText().contains(AccountCode);
+		
+	}
+	
+	public void ResultClick() {
+		
+		Result.click();
+	}
+	
+	public void TransferCertificatesButtonClick(){
+		
+		TransferCertificatesButton.click();
+	}
 	
 	public void AdminContactCheckboxClick() {
 		

@@ -592,22 +592,32 @@ public class Admin_User extends DriverLoad {
 	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	
 	  	Thread.sleep(1000);
+	  	
 	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
 	    actions.moveToElement(CertificatesLink);
 	  	actions.click();
 	  	actions.perform();
+	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 	  	test.log(LogStatus.INFO, "Opened Search Products Page");
 		
 	  	//Select Account Name from for field
 	  	AdminCertificatesPageElements.ForFieldFieldSelect("Account name");
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Selected Account Name From Field");
 	  	
 		//Select Issued from Status Field
 		AdminCertificatesPageElements.StatusFieldSelect("Issued");
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Selected Issued From Status Field");
 		
 	    //Enter Account Name into form field and Click Search
 		AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		AdminCertificatesPageElements.SearchButtonClick();		
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered account name in field");
+		
+		AdminCertificatesPageElements.SearchButtonClick();	
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked Search Button");
 		
 		//Wait for Result to appear 
 		try {
@@ -695,15 +705,17 @@ public class Admin_User extends DriverLoad {
 		WebElement EmailField = driver.findElement(By.xpath(".//*[@id='CertificateEmail']"));
 		Select EmailAdd = new Select(EmailField);
 		EmailAdd.selectByVisibleText("gogunleye@ssl247.co.uk");
-		//test.log(LogStatus.INFO, "Selected Test User from drop down list");
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Selected Test User from drop down list");
 		
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@id='CertificateOneOffEmail']")).sendKeys("qa@ssl247.co.uk");
-		//test.log(LogStatus.INFO, "Entered Email in email field");
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered Email in email field");
 		
 		driver.findElement(By.xpath(".//*[@id='sendFulfillmentEmail']/form/div[4]/button")).click();
-		test.log(LogStatus.INFO, "Filled In Required information in form and Clicked");
-		//test.log(LogStatus.INFO, "Clicked on Send Button");
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Send Button");
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	  	String SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	

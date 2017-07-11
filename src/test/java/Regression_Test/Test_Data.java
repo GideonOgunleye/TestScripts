@@ -99,7 +99,7 @@ public class Test_Data {
 	
 	@DataProvider (name ="Bulk Transfer Test")
 	public static Object[][] BulkTransferTestData(){
-		Object[][] obj = new Object[2][4];
+		Object[][] obj = new Object[2][5];
 		
 		/*---------1st Parameter-------------*/	
 		//Username
@@ -110,6 +110,8 @@ public class Test_Data {
 		obj[0][2]="https://staging-hc.ssl247.co.uk/";
 		//Account Name
 		obj[0][3]="UKTE001";
+		//Account Name
+		obj[0][4]="UKTE004";
 		
 		/*---------2st Parameter-------------*/	
 		//Username
@@ -120,6 +122,8 @@ public class Test_Data {
 		obj[1][2]="https://staging-hc.ssl247.co.uk/";
 		//Account Name
 		obj[1][3]="UKTE004";
+		//Account Name
+		obj[1][4]="UKTE001";
 		
 		
 		return obj;

@@ -26,7 +26,7 @@ public class SQL_Queries {
 	  public void SQL_DeleteAccount () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
-	      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+	      String dbUrl = "jdbc:mysql://notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
 
 			//Database Username		
 			String username = "gogunleye";	
@@ -70,7 +70,7 @@ public class SQL_Queries {
 	  public void SQL_DeleteUser () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
-	      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+	      String dbUrl = "jdbc:mysql://notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
 
 			//Database Username		
 			String username = "gogunleye";	
@@ -143,7 +143,7 @@ public class SQL_Queries {
 	  public void SQL_Certificate_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
-	      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+	      String dbUrl = "jdbc:mysql://notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
 
 			//Database Username		
 			String username = "gogunleye";	
@@ -171,7 +171,7 @@ public class SQL_Queries {
 	  public void SQL_DomainName_Order () throws SQLException, ClassNotFoundException {
 		  
 			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
-	      String dbUrl = "jdbc:mysql://notcraft-prod.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+	      String dbUrl = "jdbc:mysql:notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
 
 			//Database Username		
 			String username = "gogunleye";	

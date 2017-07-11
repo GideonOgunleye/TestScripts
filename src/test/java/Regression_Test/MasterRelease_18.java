@@ -93,7 +93,31 @@ public class MasterRelease_18 extends DriverLoad {
 	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 	  	String imagePath = test.addScreenCapture(path);
 	  	test.log(LogStatus.INFO, "Test Complete", imagePath);
+	  	
+	  	
+	/*  	
+	  	try {
+		  	
+	  		if (LoginPageElements.AdminLogoutButtonIsVisible()) {
+	  			
+	  			LoginPageElements.ClickAdminLogoutButton();
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				test.log(LogStatus.INFO, "Aftertest Logout Button Clicked");
+				
+	  		}else {
+	  			
+	  			test.log(LogStatus.INFO, "Logout Button Not Visible");
+	  		}
+		  
 		
+	  	}catch (Exception e) {
+			
+	  		test.log(LogStatus.INFO, "Admin Logout Button Not Visible");
+
+	  	}
+	  */	
+	  	
+	  	
 		driver.navigate().refresh();
 		Thread.sleep(5000);
 		
@@ -498,7 +522,7 @@ public class MasterRelease_18 extends DriverLoad {
   }
 	
 @Test (priority = 3, groups = {"Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="Bulk Transfer Test")
-public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, String Url, String Account) throws Exception {
+public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, String Url, String Account, String Account2) throws Exception {
 
 	
 	
@@ -510,7 +534,7 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 	
 	report = ExtentFactory.getInstance2();
 	
-	test = report.startTest("Bulk Transfer Certificates Test Account:" + Account);
+	test = report.startTest("Bulk Transfer Certificates for Test Account:"+ " " + Account);
     test.log(LogStatus.INFO, "Browser Opened and URL Entered");
 	
 	//Log in as Client	
@@ -560,10 +584,6 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 	test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
 	
 	Thread.sleep(1000);
-	//sslDashBoardElements.AdminDashboardValidation();
-	//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	//test.log(LogStatus.INFO, "DashBord Page Opened");
-	  
 	  
 	//Click on SSL Certificates Link
 	AdminSslDashBoardElements.ClickMysslCertificatessLink();
@@ -578,13 +598,124 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	test.log(LogStatus.INFO, "Clicked on Search Link");
 	
-	AdminSslDashBoardElements.BulkTransferCertificateButtonClick();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked on Bulk Tranfer Cert");
+	try {
+		
+		//Click on Bulk Tansfer Certificates Button
+		AdminSslDashBoardElements.BulkTransferCertificateButtonClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Bulk Tranfer Certificates Button");
+		
+		//Click On Issued Tab
+		AdminSslDashBoardElements.IssuedTabClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked on Issued Tab");
+		
+		//Tick to Select First Two Certs
+		AdminSslDashBoardElements.CheckBoxOneClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Ticked First Cert ");
+
+		
+		AdminSslDashBoardElements.CheckBoxTwoClick();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Ticked Second Cert ");
+		
+		//Enter Account in Search Field
+		AdminSslDashBoardElements.SearchAccountFieldSendKeys(Account2);
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Searched Account Code");
+		
+		Thread.sleep(1000);
 	
+		if (AdminSslDashBoardElements.ResultContains(Account2)) {
+			
+			AdminSslDashBoardElements.ResultClick();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Result Selected");
+			System.out.println("Result Selected");
+			
+			Thread.sleep(1000);
+			
+			AdminSslDashBoardElements.TransferCertificatesButtonClick();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.PASS, "Clicked Transfer Button");
+			String path = ScreenShot.Image(driver, "Screenshot");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			System.out.println("Clicked Transfer Button");
+			
+		}else {
+		
+			String path = ScreenShot.Image(driver, "Screenshot");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.FAIL, "Result not Valid");
+			test.log(LogStatus.INFO, imagePath);
+			
+			//Admin Log Out
+			LoginPageElements.ClickAdminLogoutButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Logout Button");
+			
+		  	Assert.fail("Transfer Account Not Found");
+			
+		}
+		
+	 }catch (Exception e) {
+			
+		 	String path = ScreenShot.Image(driver, "Screenshot");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			test.log(LogStatus.INFO, imagePath);
+			
+			//Admin Log Out
+			LoginPageElements.ClickAdminLogoutButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Logout Button");
+			
+		  	Assert.fail("Exception " + e);
+		  	
+	 }
+	
+	//Validate Alert Message
+	try {
+		
+		String Alertnote = "certificate was transfered";  
+		AlertBoxElements.AlertWait();
+				    	
+	  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+							
+		test.log(LogStatus.PASS, "Validation Complete");
+		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+		System.out.println("Validation Complete!");
+		
+	  }else {
+				    	
+		test.log(LogStatus.FAIL, "Validation Failed");
+		AlertBoxElements.AlertPrint();
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.INFO, imagePath);
+				    	
+		}
+		
+	}catch (Exception e) {
+		
+		String path = ScreenShot.Image(driver, "SearchResult");
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.FAIL, "Alert Not Displayed");
+		test.log(LogStatus.INFO, imagePath);
+	
+	}
+
+
+	Thread.sleep(1000);
+	
+	JavascriptExecutor jse = (JavascriptExecutor)driver;
+	jse.executeScript("window.scrollBy(0,-500)", "");
 	
 	Thread.sleep(2000);
 	
+	//Admin Log Out
 	LoginPageElements.ClickAdminLogoutButton();
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	test.log(LogStatus.INFO, "Clicked on Logout Button");

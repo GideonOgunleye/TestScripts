@@ -190,4 +190,10 @@ public class LoginPage extends DriverLoad {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		//Assert.assertTrue(driver.getTitle().contains("MySSL® Account Login"));
 	}
+	
+	public boolean AdminLogoutButtonIsVisible () {
+		
+		return AdminLogoutButton.isDisplayed();
+		
+	}
 }
