@@ -301,7 +301,6 @@ public class New_User extends DriverLoad  {
 			String imagePath = test.addScreenCapture(path);
 			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
 			Assert.fail("Exception " + e);
-			driver.quit();
 			
 		}
 		
@@ -330,9 +329,6 @@ public class New_User extends DriverLoad  {
 			}
 
 		
-		
-		
-		
 	  }
 	  
   @Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
@@ -344,25 +340,31 @@ public class New_User extends DriverLoad  {
 	//Navigate to MySSL Link
 	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[9]/a")).click();
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, " Clicked My SSL Link");
 			
 	//Navigate to get in touch form
-	//CookiesElement.CheckCookies();
 	WebDriverWait wait = new WebDriverWait(driver, 40);	
 	WebElement FormLink;
 	FormLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='call-us-box']/div/ul/li[1]/a")));
 	FormLink.click();
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, " Form Link Clicked");
 
-	//Fill in form fields
 	Thread.sleep(1000);	
-	WebElement QuestionForm;
-	QuestionForm = driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select"));
-	//TitleField = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select")));
-	//TitleField.click();
 	
+	//Fill in form fields
 	try {
 		
+		WebElement QuestionForm;
+		QuestionForm = driver.findElement(By.xpath(".//*[@id='contactform']/div[2]/div[1]/div/select"));
+		
 	    if (QuestionForm.isDisplayed()) {
-				
+	    	
+	    	String path = ScreenShot.Image(driver, "SearchResult");
+	    	String imagePath = test.addScreenCapture(path);
+	    	test.log(LogStatus.INFO, imagePath);
+
 			System.out.println("Form Opened");
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.PASS, " Form Opened");
@@ -388,10 +390,13 @@ public class New_User extends DriverLoad  {
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Message Entered");
 			
-			
 			CookiesElements.CheckCookies();
+			
 			Thread.sleep(5000);
+			
 			driver.findElement(By.xpath(".//*[@class='btn btn-ssl']")).click();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Submit Button");
 			
 		}else {
 			
@@ -411,11 +416,11 @@ public class New_User extends DriverLoad  {
 	    
    	
     String StatusMsg = "Your query is being processed - we will be in touch with a response shortly";
+    
     //Thread.sleep(100);
     
  try {
 	  
-    	
     	AlertBoxElements.AlertWait();
     	
     	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
@@ -447,24 +452,33 @@ public class New_User extends DriverLoad  {
 	//Navigate to Support Link
 	//driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	driver.findElement(By.cssSelector("a[href*='support']")).click();
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked on Support Link");
+	
 			
 	//Navigate to Request a Brochure Link
 	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	driver.findElement(By.xpath(".//*[@class='ssl-brochure']")).click();
+	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on Bronchure");
 			
 	//Fill in the form
-	Thread.sleep(1000);
-	WebDriverWait wait = new WebDriverWait(driver, 20);	
-	String Msg = "Request a Brochure";
-	WebElement BronchureForm = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='requestBrochureForm']/div[1]/h3")));
-	System.out.println("Status Message is:" + BronchureForm.getText());
-	
+	//Thread.sleep(1000);
 	
 	try {
 		
+		WebDriverWait wait = new WebDriverWait(driver, 20);	
+		String Msg = "Request a Brochure";
+		WebElement BronchureForm = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='requestBrochureForm']/div[1]/h3")));
+		System.out.println("Status Message is:" + BronchureForm.getText());
+		
 		if (BronchureForm.getText().contains(Msg)) {
 			
+			String path = ScreenShot.Image(driver, "SearchResult");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
 			test.log(LogStatus.PASS, "Form Opened");
+
 			
 		}else {
 			
@@ -479,15 +493,41 @@ public class New_User extends DriverLoad  {
 		WebElement Title = driver.findElement(By.xpath(".//*[@id='request_brochure_title']"));
 		Select Tl = new Select(Title);
 		Tl.selectByVisibleText("Mrs");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Selected User Title");
+		
 		driver.findElement(By.name("request_brochure_firstname")).sendKeys("Gideon");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered First Name");
+		
 		driver.findElement(By.name("request_brochure_lastname")).sendKeys("Ogunleye");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered Last Name");
+		
 		driver.findElement(By.name("request_brochure_email")).sendKeys("qa@ssl247.co.uk");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered Email Address");
+		
 		driver.findElement(By.name("request_brochure_address_1")).sendKeys("63 Lisson St, Marylebone");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered address 1");
+		
 		driver.findElement(By.name("request_brochure_city")).sendKeys("London");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered City");
+		
 		driver.findElement(By.name("request_brochure_postcode")).sendKeys("NW1 5DD");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Entered Postcode");
+		
 		CookiesElements.CheckCookies();
+		
+		
 		Thread.sleep(5000);
+		
 		driver.findElement(By.xpath(".//*[@id='requestBrochureForm']/div[3]/button[2]")).click();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked Send Button");
 	
 	}catch (Exception e) {
 		
@@ -495,7 +535,6 @@ public class New_User extends DriverLoad  {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
 		Assert.fail("Exception " + e);
-		driver.quit();
 		
 	}
 	

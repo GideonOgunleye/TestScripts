@@ -525,8 +525,6 @@ public class MasterRelease_18 extends DriverLoad {
 public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, String Url, String Account, String Account2) throws Exception {
 
 	
-	
-	
 	//Load Browser
 	driver.get(Url); 
 	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -722,7 +720,58 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 	
 	
 
+}@Test 
+public void Technical_Contact_Receives_Cert_Emails () throws Exception {
+	
+	//Log in as Administrator
+	LoginPageElements.AdminLogin();
+	  
+	report = ExtentFactory.getInstance2();
+	  
+	//Search For UK Test User
+	test = report.startTest("Regression Test --> Validate_UserTitle");
+	test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	ClientAccountsPageElements.ValidatePage();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	ClientAccountsPageElements.UpdateButtonClink();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on Update Button");
+		 
+	Thread.sleep(5000);
+	ClientAccountsPageElements.ValidateResults("UKTE001");
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	
+	ClientAccountsPageElements.ViewAccount();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	
+	Thread.sleep(1000);
+	sslDashBoardElements.AdminDashboardValidation();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "DashBord Page Opened");
+	
+	
+	
+	
+	//Admin Log Out
+	LoginPageElements.ClickAdminLogoutButton();
+	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	test.log(LogStatus.INFO, "Clicked on Logout Button");
+	
+	
 }
+
+
 
 
 }
