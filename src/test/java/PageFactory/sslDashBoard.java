@@ -73,6 +73,23 @@ public class sslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[2]/a")
 	WebElement SearchLink;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[5]/a")
+	WebElement IssuedLink;
+	
+	/********Issue Certificates Page****/
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[5]/a")
+	WebElement Column1;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[5]/a")
+	WebElement Column2;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[5]/a")
+	WebElement Column3;
+	
+	
+	
+	
 	public sslDashBoard(WebDriver driver){
 		
 		this.driver = driver;
@@ -108,6 +125,11 @@ public class sslDashBoard extends DriverLoad {
 	public void SearchLinkClick() {
 		
 		SearchLink.click();
+	}
+	
+	public void IssuedLinkClick() {
+		
+		IssuedLink.click();
 	}
 	
 	public void ClickMyDomainNamesLink() {

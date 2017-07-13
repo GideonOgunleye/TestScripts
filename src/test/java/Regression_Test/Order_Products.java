@@ -9,12 +9,14 @@ import com.relevantcodes.extentreports.LogStatus;
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
+import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
 import PageFactory.LoginPage;
 import PageFactory.sslDashBoard;
+import Sanity_Test.Test_DataSanity;
 
 import org.testng.annotations.BeforeTest;
 //import org.json.simple.parser.JSONParser;
@@ -56,6 +58,7 @@ public class Order_Products extends DriverLoad {
 	sslDashBoard sslDashBoardElements;
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
+	CsR CsrElements;
 
 	
 	@BeforeMethod (groups = {"Regression","BS_Regression","Regression_Chrome"})
@@ -66,7 +69,9 @@ public class Order_Products extends DriverLoad {
 		sslDashBoardElements = new sslDashBoard(driver);
 		AlertBoxElements = new AlertBox(driver);
 		ScreenShot = new TakeScreenShot();
-		
+		CsrElements = new CsR(driver);
+
+/*		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
@@ -83,6 +88,11 @@ public class Order_Products extends DriverLoad {
 		LoginPageElements.EnterUserName(prop.getProperty("Username"));
 		LoginPageElements.EnterPassword(prop.getProperty("Password"));
 		LoginPageElements.ClickLoginButton();
+	*/
+		
+		LoginPageElements.ClientLogin();
+		
+		Thread.sleep(5000);
 		
 	}
 
@@ -104,6 +114,7 @@ public class Order_Products extends DriverLoad {
 		String destination = Directory + filename;
 */		
 		
+		
 		String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
@@ -120,14 +131,15 @@ public class Order_Products extends DriverLoad {
 	}
 	
 	
-	@Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Order_Products_Data.class, dataProvider="OrderProduct_Data")
+	@Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="OrderProduct_Data")
 	  public void Order_Certificates(String Product, String ProductLink) throws Exception {
-		
+
+/*
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
 				 
 		prop.load(fis);
-		
+*/		
 		report = ExtentFactory.getInstance2();
 		
 		System.out.println(ProductLink + " Order Has Started.............");
@@ -334,13 +346,12 @@ public class Order_Products extends DriverLoad {
 		
    }catch (Exception e) {
 		
-		test.log(LogStatus.FAIL, "Validation Failed");
-		Assert.fail("Exception " + e);
-		String path = ScreenShot.Image(driver, "SearchResult");
+	   	String path = ScreenShot.Image(driver, "Product");
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, imagePath);
-
-
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+		
 	}
 	
 
@@ -491,6 +502,8 @@ public class Order_Products extends DriverLoad {
 		
 		
 		try { 
+			
+		/*	
 			WebDriverWait wait2 = new WebDriverWait(driver, 50);	
 			WebElement Csr;
 			Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
@@ -528,6 +541,9 @@ public class Order_Products extends DriverLoad {
 			Csr.sendKeys(Keys.ENTER);
 			Csr.sendKeys(prop.getProperty("Para17"));
 			Csr.sendKeys(Keys.ENTER);
+		*/
+			
+			CsrElements.LoadCsR();
 			
 			WebElement Decoder = driver.findElement(By.xpath(".//*[@id='mainCertDetails']/a"));
 			Decoder.click();

@@ -14,9 +14,11 @@ import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
+import PageFactory.IssuedCertificatesPage;
 import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
 import PageFactory.sslDashBoard;
+import Regression_Test.Test_Data;
 
 import org.testng.annotations.BeforeTest;
 //import org.json.simple.parser.JSONParser;
@@ -59,6 +61,7 @@ public class Registered_User extends DriverLoad  {
 	NavigationLinks NavigationElements;
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
+	IssuedCertificatesPage IssuedCertificatesPageElements;
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void User_Login () throws Exception {
@@ -70,7 +73,8 @@ public class Registered_User extends DriverLoad  {
 		CsrElements = new CsR(driver);
 		NavigationElements = new NavigationLinks(driver);
 		AlertBoxElements = new AlertBox(driver);
-		 ScreenShot = new TakeScreenShot();
+		IssuedCertificatesPageElements = new IssuedCertificatesPage(driver);
+		ScreenShot = new TakeScreenShot();
 		
 		LoginPageElements.ClientLogin();
 		
@@ -185,12 +189,7 @@ public class Registered_User extends DriverLoad  {
 	@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
 	  public void Order_RapidSSL() throws Exception {
 		 
-		/*
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
-*/
+
 		System.out.println("Order Cert Started!");
 		
 		test = report.startTest("Registered User Test --> Order_RapidSSL");
@@ -765,6 +764,66 @@ public class Registered_User extends DriverLoad  {
 				}
 
 
+		
+	}
+	
+	@Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
+	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
+		
+		System.out.println("Reissue Certificate Test Started!");
+		
+		test = report.startTest("Registered User Test --> Reissue Certificate: " + Product );
+	    test.log(LogStatus.INFO, "User Logged in");
+		
+		//Navigate Domain Names Link on side bar
+	    sslDashBoardElements.ClickMysslCertificatessLink();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on My SSL Link");
+	    
+	    sslDashBoardElements.IssuedLinkClick();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on Issued Link");
+	    
+	    try {
+	    	
+	    	if (IssuedCertificatesPageElements.Column1Contains(Product)) {
+	    		
+	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
+	    		
+	    		IssuedCertificatesPageElements.Product1View();
+	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    	    test.log(LogStatus.INFO, "Clicked to view product");
+	    		
+	    		
+	    		}else if (IssuedCertificatesPageElements.Column2Contains(Product)) {
+	    			
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
+				
+	    			IssuedCertificatesPageElements.Product2View();
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked to view product");
+	    			
+	    	}else {
+			
+			System.out.println("Product Not Found");
+			test.log(LogStatus.FAIL, "Product Not Found");
+			String path = ScreenShot.Image(driver, "Product");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			
+	    	}
+	    	
+	    	
+	    }catch (Exception e) {
+	    	
+	    	String path = ScreenShot.Image(driver, "Product");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+	    }
 		
 	}
 /*	
