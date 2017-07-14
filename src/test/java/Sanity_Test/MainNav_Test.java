@@ -31,7 +31,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class MainNav_Test extends DriverLoad {
+public class MainNav_Test extends BrowserStack {
   
 	ExtentReports report;
 	ExtentTest test;

@@ -14,6 +14,7 @@ import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
+import PageFactory.CertificateDetailsPage;
 import PageFactory.IssuedCertificatesPage;
 import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
@@ -51,7 +52,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Registered_User extends DriverLoad  {
+public class Registered_User extends BrowserStack  {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -62,8 +63,9 @@ public class Registered_User extends DriverLoad  {
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
 	IssuedCertificatesPage IssuedCertificatesPageElements;
+	CertificateDetailsPage CertificateDetailsPageElements;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -74,7 +76,9 @@ public class Registered_User extends DriverLoad  {
 		NavigationElements = new NavigationLinks(driver);
 		AlertBoxElements = new AlertBox(driver);
 		IssuedCertificatesPageElements = new IssuedCertificatesPage(driver);
+		CertificateDetailsPageElements = new CertificateDetailsPage(driver);
 		ScreenShot = new TakeScreenShot();
+		
 		
 		LoginPageElements.ClientLogin();
 		
@@ -82,7 +86,7 @@ public class Registered_User extends DriverLoad  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity","Smoke", "BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
 	public void User_Logout (ITestResult result) throws Exception {
 
 	    //Take Screen Shots
@@ -601,7 +605,7 @@ public class Registered_User extends DriverLoad  {
 */				
 		//Enter Domain Name to check availability
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		driver.findElement(By.id("check-domain-name")).sendKeys("ssl247.net");
+		driver.findElement(By.id("check-domain-name")).sendKeys("ssl247test.net");
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@class='btn btn-ssl search-domain-box-button']")).click();
 		Thread.sleep(10000);
@@ -612,7 +616,7 @@ public class Registered_User extends DriverLoad  {
 		Result = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='domain-name-results']/tbody/tr[2]/td[1]")));
 		WebElement 	Avalability = driver.findElement(By.xpath(".//*[@id='domain-name-results']/tbody/tr[2]/td[2]/span"));
 				
-		String oneVal = "ssl247.net";
+		String oneVal = "ssl247test.net";
 		String twoVal = "Available";
 		//WebElement 	Result = driver.findElement(By.xpath(".//*[@id='domain-name-results']/tbody/tr[2]/td[1]"));
 		//WebElement 	Avalability = driver.findElement(By.xpath(".//*[@id='domain-name-results']/tbody/tr[2]/td[2]/span"));
@@ -657,25 +661,25 @@ public class Registered_User extends DriverLoad  {
 				
 		//Fill In Billing Retails
 		driver.findElement(By.name("data[BasketContact][firstname]")).clear();
-		driver.findElement(By.name("data[BasketContact][firstname]")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("data[BasketContact][firstname]")).sendKeys("Gideon");
 		driver.findElement(By.name("data[BasketContact][lastname]")).clear();
-		driver.findElement(By.name("data[BasketContact][lastname]")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("data[BasketContact][lastname]")).sendKeys("Ogunleye");
 		driver.findElement(By.name("data[BasketContact][phone]")).clear();
-		driver.findElement(By.name("data[BasketContact][phone]")).sendKeys("0203MMM7610541");
+		driver.findElement(By.name("data[BasketContact][phone]")).sendKeys("02037610541");
 		driver.findElement(By.name("data[BasketContact][email]")).clear();
 		driver.findElement(By.name("data[BasketContact][email]")).sendKeys("qa@ssl247.co.uk");
 		driver.findElement(By.name("data[BasketContact][address_1]")).clear();
-		driver.findElement(By.name("data[BasketContact][address_1]")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("data[BasketContact][address_1]")).sendKeys("63 Lisson St, Marylebone");
 		driver.findElement(By.name("data[BasketContact][city]")).clear();
-		driver.findElement(By.name("data[BasketContact][city]")).sendKeys("Lagos");
+		driver.findElement(By.name("data[BasketContact][city]")).sendKeys("London");
 		WebElement Country = driver.findElement(By.name("data[BasketContact][country]"));
 		Select CountryName = new Select(Country);
-		CountryName.selectByVisibleText("Nigeria");
+		CountryName.selectByVisibleText("United Kingdom");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.id("notUsaStateInput")).clear();
-		driver.findElement(By.id("notUsaStateInput")).sendKeys("Lagos");
+		driver.findElement(By.id("notUsaStateInput")).sendKeys("London");
 		driver.findElement(By.id("BasketContactPostcode")).clear();
-		driver.findElement(By.id("BasketContactPostcode")).sendKeys("EC1V 3RP");
+		driver.findElement(By.id("BasketContactPostcode")).sendKeys("NW1 5DD");
 		
 				
 		//Confirm input
@@ -791,30 +795,57 @@ public class Registered_User extends DriverLoad  {
 	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
 	    		
+	    	    String path = ScreenShot.Image(driver, "Product");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
+	    	    
+				IssuedCertificatesPageElements.Column1TextPrint();
+				
 	    		IssuedCertificatesPageElements.Product1View();
 	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    	    test.log(LogStatus.INFO, "Clicked to view product");
 	    		
+	    	    
 	    		
 	    		}else if (IssuedCertificatesPageElements.Column2Contains(Product)) {
 	    			
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
+		    	    
+		    	    String path = ScreenShot.Image(driver, "Product");
+					String imagePath = test.addScreenCapture(path);
+					test.log(LogStatus.INFO, imagePath);
+					
+					IssuedCertificatesPageElements.Column2TextPrint();
 				
 	    			IssuedCertificatesPageElements.Product2View();
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Clicked to view product");
 	    			
+		    	}else if (IssuedCertificatesPageElements.Column3Contains(Product)) {
+	    			
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
+		    	    
+		    	    String path = ScreenShot.Image(driver, "Product");
+					String imagePath = test.addScreenCapture(path);
+					test.log(LogStatus.INFO, imagePath);
+					
+					IssuedCertificatesPageElements.Column3TextPrint();
+				
+	    			IssuedCertificatesPageElements.Product3View();
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked to view product");
+    			
 	    	}else {
-			
-			System.out.println("Product Not Found");
-			test.log(LogStatus.FAIL, "Product Not Found");
-			String path = ScreenShot.Image(driver, "Product");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			
-	    	}
-	    	
+				
+				System.out.println("Product Not Found");
+				test.log(LogStatus.FAIL, "Product Not Found");
+				String path = ScreenShot.Image(driver, "Product");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
+				
+		    	}	
 	    	
 	    }catch (Exception e) {
 	    	
@@ -825,7 +856,42 @@ public class Registered_User extends DriverLoad  {
 			Assert.fail("Exception " + e);
 	    }
 		
-	}
+	    
+	    
+	    //Certificates Page
+	    try {
+	    
+	    	CertificateDetailsPageElements.ReIssueTabClick();
+	    	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked on Re-Issued Tab");
+    	    
+    	    CertificateDetailsPageElements.CsrFieldClick();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked Csr Field");
+    	    
+    	    CertificateDetailsPageElements.LoadCsR();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Loaded Csr");
+    	    
+    	    CertificateDetailsPageElements.ValidateCsrButton();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked Validate Csr Button");
+	    
+		}catch (Exception e) {
+			
+			String path = ScreenShot.Image(driver, "Product");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+		}
+	    
+	    
+	    
+	    
+	    
+	}   
+
 /*	
 	  @BeforeTest (groups = {"Sanity"})
 	  public void beforeTest() throws IOException, Exception {

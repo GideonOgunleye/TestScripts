@@ -50,7 +50,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
-public class New_User extends DriverLoad  {
+public class New_User extends BrowserStack  {
 	//public WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -63,7 +63,7 @@ public class New_User extends DriverLoad  {
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void Load_Homepage () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -83,7 +83,7 @@ public class New_User extends DriverLoad  {
 		Thread.sleep(5000);		
 	}
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Sanity","BS_Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"},alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"},alwaysRun = true)
 	public void Aftermethod (ITestResult result) throws IOException, Exception {
 
 /*		

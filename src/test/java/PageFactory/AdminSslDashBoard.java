@@ -153,6 +153,9 @@ public class AdminSslDashBoard extends DriverLoad {
 	
 	
 	/********Edit User Page**********/
+	@FindBy(xpath = ".//*[@id='UserAdminEditForm']/div[3]/ul/li[1]/a")
+	WebElement RequiredDetailsTab;	
+	
 	@FindBy(xpath = ".//*[@id='UserAccessLevel']")
 	WebElement AccessLevelField;
 	
@@ -455,6 +458,11 @@ public class AdminSslDashBoard extends DriverLoad {
 		 actions.click();
 		 actions.perform();		
 
+	}
+	
+	public void RequiredDetailsTabClick() {
+		
+		RequiredDetailsTab.click();
 	}
 	
 	public void AccessLevelSelect(String Access){

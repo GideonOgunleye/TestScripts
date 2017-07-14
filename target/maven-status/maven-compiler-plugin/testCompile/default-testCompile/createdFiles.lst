@@ -1,4 +1,5 @@
 BaseUtilities\ExtentFactory.class
+PageFactory\CertificateDetailsPage.class
 Regression_Test\SQL_Queries.class
 BaseUtilities\CsR.class
 BaseUtilities\DriverLoad.class
@@ -11,10 +12,12 @@ Sanity_Test\Admin_User2.class
 PageFactory\LoginPage.class
 Regression_Test\Test_Data.class
 Sanity_Test\SingleTest.class
+BaseUtilities\HandleEvents.class
 PageFactory\AdminCertificatesPage.class
 Sanity_Test\MainNav_Test.class
 Sanity_Test\SQL_Queries.class
 Sanity_Test\New_User.class
+Sanity_Test\Test_DataSanity.class
 PageFactory\ProposalsPage.class
 PageFactory\sslDashBoard.class
 BaseUtilities\TakeScreenShot.class
@@ -23,12 +26,13 @@ BaseUtilities\AlertBox.class
 BaseUtilities\BrowserStack.class
 PageFactory\ClientAccountsPage.class
 PageFactory\AdminSslDashBoard.class
-Regression_Test\Order_Products_Data.class
 PageFactory\AdminNavigationLinks.class
 PageFactory\NavigationLinks.class
 PageFactory\BillingPage.class
 Sanity_Test\SubNavigation_Test.class
 Sanity_Test\Admin_User.class
+Regression_Test\Proposal_Orders.class
 BaseUtilities\Cookies.class
 Sanity_Test\Registered_User.class
 BaseUtilities\InternetExplorer.class
+PageFactory\IssuedCertificatesPage.class

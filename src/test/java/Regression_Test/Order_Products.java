@@ -49,7 +49,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Order_Products extends DriverLoad {
+public class Order_Products extends BrowserStack {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;

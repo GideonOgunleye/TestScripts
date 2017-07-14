@@ -74,9 +74,21 @@ public class IssuedCertificatesPage extends DriverLoad {
 
 	}
 	
+	public void Column1TextPrint(){
+		
+		 System.out.println("Cloumn Product is:" + Column1.getText());
+
+	}
+	
 	public boolean Column2Contains(String Certificate){
 		
 		return Column2.getText().contains(Certificate);
+
+	}
+	
+	public void Column2TextPrint(){
+		
+		System.out.println("Cloumn Product is:" + Column2.getText());
 
 	}
 	
@@ -85,6 +97,13 @@ public class IssuedCertificatesPage extends DriverLoad {
 		return Column3.getText().contains(Certificate);
 
 	}
+	
+	public void Column3TextPrint(){
+		
+		System.out.println("Cloumn Product is:" + Column3.getText());
+
+	}
+	
 	public boolean Column4Contains(String Certificate){
 		
 		return Column4.getText().contains(Certificate);

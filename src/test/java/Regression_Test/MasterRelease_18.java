@@ -39,7 +39,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
-public class MasterRelease_18 extends DriverLoad {
+public class MasterRelease_18 extends BrowserStack {
 	
 	//private static final AdminSslDashBoard AdminsslDashBoardElements = null;
 	ExtentReports report;
@@ -56,7 +56,7 @@ public class MasterRelease_18 extends DriverLoad {
 	
 	AlertBox AlertBoxElements;
 
-  @BeforeMethod (groups = {"Regression","Regression_Chrome"})
+  @BeforeMethod (groups = {"Regression","BS_Regression","Regression_Chrome"})
   public void beforeMethod() throws Exception {
 	  
 	  report = ExtentFactory.getInstance(); 
@@ -76,7 +76,7 @@ public class MasterRelease_18 extends DriverLoad {
 	  
   }
 
-  @AfterMethod (groups = {"Regression","Regression_Chrome"}, alwaysRun = true)
+  @AfterMethod (groups = {"Regression","BS_Regression","Regression_Chrome"}, alwaysRun = true)
   public void afterMethod (ITestResult result) throws Exception {
 	  
 	    //Take Screen Shots
@@ -129,7 +129,7 @@ public class MasterRelease_18 extends DriverLoad {
 	  
   }
   
-  @Test (priority = 0, groups = {"Regression","Regression_Chrome"})
+  @Test (priority = 0, groups = {"Regression","BS_Regression","Regression_Chrome"})
   public void HackAdvertOption_Not_Available() throws Exception {
 	  
 	  //Log in as Administrator
@@ -282,7 +282,7 @@ public class MasterRelease_18 extends DriverLoad {
   }
   
   
-  @Test (priority = 1, groups = {"Regression","Regression_Chrome"})
+  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"})
   public void Bulk_Edit_AdminContact () throws Exception {
 	  
 	  //Log in as Administrator
@@ -408,7 +408,7 @@ public class MasterRelease_18 extends DriverLoad {
 	
   }
 
-	@Test (priority = 2, groups = {"Regression","Regression_Chrome"})
+	@Test (priority = 2, groups = {"Regression","BS_Regression","Regression_Chrome"})
 	public void Validate_UserTitle () throws Exception {
 		  
 		//Log in as Administrator
@@ -521,7 +521,7 @@ public class MasterRelease_18 extends DriverLoad {
 	  
   }
 	
-@Test (priority = 3, groups = {"Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="Bulk Transfer Test")
+@Test (priority = 3, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="Bulk Transfer Test")
 public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, String Url, String Account, String Account2) throws Exception {
 
 	

@@ -51,7 +51,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User extends DriverLoad {
+public class Admin_User extends BrowserStack {
   //WebDriver driver;
 	
 	
@@ -70,7 +70,7 @@ public class Admin_User extends DriverLoad {
   TakeScreenShot ScreenShot;
   
 	
-  @BeforeMethod (groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+  @BeforeMethod (groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
   public void Login() throws Exception {
 
 	  LoginPageElements = new LoginPage(driver);
@@ -91,7 +91,7 @@ public class Admin_User extends DriverLoad {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
   public void Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -179,9 +179,17 @@ public class Admin_User extends DriverLoad {
 		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Search Resusult is Displayed");
 		 
+		 JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 jse.executeScript("window.scrollBy(0,500)", "");
+		     
+		 Thread.sleep(1000);
+		 
 		 ClientAccountsPageElements.ViewAccount();
 		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	     test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+	     
+	     //JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
 	     
 	     Thread.sleep(1000);
 	     
@@ -196,7 +204,7 @@ public class Admin_User extends DriverLoad {
 	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	     test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 	     
-	     JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     //JavascriptExecutor jse = (JavascriptExecutor)driver;
 	     jse.executeScript("window.scrollBy(0,500)", "");
 	     Thread.sleep(1000);
 	     test.log(LogStatus.INFO, "Scrolled Page Down");
@@ -222,6 +230,10 @@ public class Admin_User extends DriverLoad {
 			 AdminSslDashBoardElements.StateFieldFill("London");
 			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			 
+			 jse.executeScript("window.scrollBy(0,-500)", "");
+		     Thread.sleep(1000);
+		     test.log(LogStatus.INFO, "Scrolled Page up");
+			 
 			//Click Save User
 			 AdminSslDashBoardElements.SubmitChangesButtonClick();
 			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -234,16 +246,29 @@ public class Admin_User extends DriverLoad {
 				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				AdminSslDashBoardElements.User2_EditButton();
 			    test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
-			     
-			     //Edit User
+			    
+			    Thread.sleep(1000);
+				 
+				 //Edit User
+				 AdminSslDashBoardElements.RequiredDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
+				 
 			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Selected Super User Option");
+			     
 				 Thread.sleep(1000);
 				 
-					//Edit Optional Details
+				 //Edit Optional Details
 				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 
+				 jse.executeScript("window.scrollBy(0,-500)", "");
+			     Thread.sleep(1000);
+			     test.log(LogStatus.INFO, "Scrolled Page up");
 				 
 				//Click Save User
 				 AdminSslDashBoardElements.SubmitChangesButtonClick();
@@ -258,15 +283,28 @@ public class Admin_User extends DriverLoad {
 				 AdminSslDashBoardElements.User3_EditButton();
 				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 				 
-				 //Edit User
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
 				 Thread.sleep(1000);
 				 
-					//Edit Optional Details
+				 //Edit User
+				 AdminSslDashBoardElements.RequiredDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
+				 
+			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Selected Super User Option");
+			     
+				 Thread.sleep(1000);
+				 
+				//Edit Optional Details
 				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 
+				 jse.executeScript("window.scrollBy(0,-500)", "");
+			     Thread.sleep(1000);
+			     test.log(LogStatus.INFO, "Scrolled Page up");
 				 
 				//Click Save User
 				 AdminSslDashBoardElements.SubmitChangesButtonClick();
@@ -282,15 +320,32 @@ public class Admin_User extends DriverLoad {
 				 AdminSslDashBoardElements.User4_EditButton();
 				 test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 				 
+				 Thread.sleep(1000);
+				 
 				 //Edit User
+				 AdminSslDashBoardElements.RequiredDetailsTabClick();
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
+				 
 			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Selected Super User Option");
+			     
 				 Thread.sleep(1000);
 				 
 				//Edit Optional Details
 				 AdminSslDashBoardElements.OptionalDetailsTabClick();
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Clicked Optional Details Tab");
+				 
 				 AdminSslDashBoardElements.StateFieldFill("London");
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				 test.log(LogStatus.INFO, "Filled In State");
+				 
+				 jse.executeScript("window.scrollBy(0,-500)", "");
+			     Thread.sleep(1000);
+			     test.log(LogStatus.INFO, "Scrolled Page up");
 				 
 				//Click Save User
 				 AdminSslDashBoardElements.SubmitChangesButtonClick();
@@ -343,8 +398,7 @@ public class Admin_User extends DriverLoad {
 
 
 			}
-
-		 	 			
+	
 		 
   }
   
@@ -368,9 +422,15 @@ public class Admin_User extends DriverLoad {
 			test.log(LogStatus.INFO, "Click on Update Button");
 			 
 			Thread.sleep(5000);
+			
 			ClientAccountsPageElements.ValidateResults("UKTE001");
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Search Resusult is Displayed");
+			
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+		    jse.executeScript("window.scrollBy(0,500)", "");
+		    
+		    Thread.sleep(1000);
 			
 			ClientAccountsPageElements.ViewAccount();	
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -464,13 +524,11 @@ public class Admin_User extends DriverLoad {
 
 			}
 
-			
-			
 			//test.log(LogStatus.INFO, "Click on Save Proposal Button");
 			//test.log(LogStatus.PASS, "Proposal Created and Saved Successfully");
   } 
   
-  @Test (priority = 3,groups = {"Sanity","Sanity_Chrome"})
+  @Test (priority = 3,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void IssueProposal () throws Exception {
 	  
 	  test = report.startTest("Admin Test --> Issue a Proposal");
@@ -488,6 +546,9 @@ public class Admin_User extends DriverLoad {
 	  ClientAccountsPageElements.UpdateButtonClink();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Click on Update Button");
+	  
+	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  jse.executeScript("window.scrollBy(0,500)", "");
 		 
 	  Thread.sleep(1000);
 	  
@@ -589,7 +650,7 @@ public class Admin_User extends DriverLoad {
 	  	Actions  actions=new Actions(driver);
 	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
 	  	actions.moveToElement(ProductsLink);
-	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 	  	
 	  	Thread.sleep(1000);
 	  	
@@ -599,9 +660,11 @@ public class Admin_User extends DriverLoad {
 	  	actions.perform();
 	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 	  	test.log(LogStatus.INFO, "Opened Search Products Page");
+	  	
+	  	Thread.sleep(1000);
 		
 	  	//Select Account Name from for field
-	  	AdminCertificatesPageElements.ForFieldFieldSelect("Account name");
+	  	AdminCertificatesPageElements.ForFieldSelect("Account name");
 		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Selected Account Name From Field");
 	  	
@@ -793,6 +856,10 @@ public class Admin_User extends DriverLoad {
 		 
 		 driver.findElement(By.xpath(".//*[@id='AccountAdminIndexForm']/div[2]/div[1]/button")).click();
 		 //test.log(LogStatus.INFO, "Type 'UK Test' in Search Query Field");
+		 
+		 JavascriptExecutor jse = (JavascriptExecutor)driver;
+	     jse.executeScript("window.scrollBy(0,500)", "");
+		 
 		 Thread.sleep(15000);
 		 
 		 Actions  Mouse=new Actions(driver);
@@ -803,13 +870,18 @@ public class Admin_User extends DriverLoad {
 	     Mouse.moveToElement(EyeIcon);
 	     Mouse.click();
 	     Mouse.perform();
+	     
+	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	     test.log(LogStatus.INFO, "UK Test Account Found and Opened");
 		 
 	     /*Click Account End Users Link*/
 		 sslDashBoardElements.ClickAccountEndUsersLink();
-		 JavascriptExecutor jse = (JavascriptExecutor)driver;
+		 
+		 //JavascriptExecutor jse = (JavascriptExecutor)driver;
 	     jse.executeScript("window.scrollBy(0,500)", "");
+	     
 	     Thread.sleep(1000);
+	     
 		 test.log(LogStatus.INFO, "Opened Account End Users Page");
 		  
 		 String UserVal = "Gideon Ogunleye";

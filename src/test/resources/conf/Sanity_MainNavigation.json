@@ -5,7 +5,7 @@
 
   "capabilities": {
     "build": "First Build",
-    "name": "Sub Navigation - SanityTest",
+    "name": "Main Navigation - SanityTest",
     "browserstack.debug": true
     "build": "Sanity Test",
   	"project": "Bakewell 20"

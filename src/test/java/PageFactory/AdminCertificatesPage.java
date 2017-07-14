@@ -89,7 +89,7 @@ public class AdminCertificatesPage extends DriverLoad {
 
 	}
 	
-	public void ForFieldFieldSelect(String List){
+	public void ForFieldSelect(String List){
 		
 		Select Options = new Select(ForField);
 		Options.selectByVisibleText(List);

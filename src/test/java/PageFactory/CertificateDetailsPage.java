@@ -1,9 +1,12 @@
 package PageFactory;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,37 +31,15 @@ public class CertificateDetailsPage extends DriverLoad {
 	
 	/********Issue Certificates Page****/
 	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/div/table/tbody/tr[1]/td[4]")
-	WebElement Column1;
+	@FindBy(xpath = ".//*[@id='certificateAdditionalInfo']/li[1]/a")
+	WebElement ReIssueTab;
 	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/div/table/tbody/tr[2]/td[4]")
-	WebElement Column2;
+	@FindBy(xpath = ".//*[@id='CertificateNewCsr']")
+	WebElement CsrField;
 	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/div/table/tbody/tr[3]/td[4]")
-	WebElement Column3;
-	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/div/table/tbody/tr[4]/td[4]")
-	WebElement Column4;
-	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/div/table/tbody/tr[5]/td[4]")
-	WebElement Column5;
-	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[1]/td[9]/a")
-	WebElement Product1;
-	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[2]/td[9]/a")
-	WebElement Product2;
-	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[3]/td[9]/a")
-	WebElement Product3;
-	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[4]/td[9]/a")
-	WebElement Product4;
-	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[5]/td[9]/a")
-	WebElement Product5;
-	
-	
+	@FindBy(xpath = ".//*[@id='CertificateMysslViewForm']/div[2]/div/button")
+	WebElement ValidateCsrButton;
+
 	
 	public CertificateDetailsPage(WebDriver driver){
 		
@@ -68,64 +49,78 @@ public class CertificateDetailsPage extends DriverLoad {
 		
 	}
 	
-	public boolean Column1Contains(String Certificate){
-		
-		return Column1.getText().contains(Certificate);
 
-	}
-	
-	public boolean Column2Contains(String Certificate){
-		
-		return Column2.getText().contains(Certificate);
 
-	}
-	
-	public boolean Column3Contains(String Certificate){
+	public void ReIssueTabClick(){
 		
-		return Column3.getText().contains(Certificate);
-
-	}
-	public boolean Column4Contains(String Certificate){
-		
-		return Column4.getText().contains(Certificate);
-
-	}
-	
-	public boolean Column5Contains(String Certificate){
-		
-		return Column5.getText().contains(Certificate);
-
-	}
-
-	
-	public void Product1View(){
-		
-		Product1.click();
+		ReIssueTab.click();
 		
 	}
 	
-	public void Product2View(){
+	public void CsrFieldClick(){
 		
-		Product2.click();
-		
-	}
-	
-	public void Product3View(){
-		
-		Product3.click();
+		CsrField.click();
 		
 	}
 	
-	public void Product4View(){
+	public void ValidateCsrButton(){
 		
-		Product4.click();
+		ValidateCsrButton.click();
 		
 	}
 	
-	public void Product5View(){
+	public void CsrFieldFill(String name){
 		
-		Product5.click();
-		
+		CsrField.sendKeys(name);
 	}
-
+	
+	public void HitEnterKey(){
+		
+		CsrField.sendKeys(Keys.ENTER);
+	}
+	
+	public void LoadCsR () throws Exception {
+		
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+				 
+		prop.load(fis);
+		
+		CsrFieldFill(prop.getProperty("Para1"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para2"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para3"));
+		HitEnterKey();;
+		CsrFieldFill(prop.getProperty("Para4"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para5"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para6"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para7"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para8"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para9"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para10"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para11"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para12"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para13"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para14"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para15"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para16"));
+		HitEnterKey();
+		CsrFieldFill(prop.getProperty("Para17"));
+		HitEnterKey();
+	
+	}
+	
 }

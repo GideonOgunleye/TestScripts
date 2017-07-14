@@ -12,6 +12,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.AlertBox;
+import BaseUtilities.BrowserStack;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
@@ -26,7 +27,7 @@ import PageFactory.NavigationLinks;
 import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 
-public class Proposal_Orders extends DriverLoad {
+public class Proposal_Orders extends BrowserStack {
 	
 	ExtentReports report;
 	ExtentTest test;
