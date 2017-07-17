@@ -492,12 +492,12 @@ public class Order_Products extends BrowserStack {
 		}catch(Exception e) {
 			System.out.println("Account Does Not Have Enough Funds");
 			test.log(LogStatus.FAIL, "Account Does Not Have Enough Funds");
-			Assert.fail("Exception " + e);
-			String path = ScreenShot.Image(driver, "SearchResult");
+			String path = ScreenShot.Image(driver, "ScreenShot");
 			String imagePath = test.addScreenCapture(path);
 			test.log(LogStatus.INFO, imagePath);
-
-		
+			LoginPageElements.ClickLogoutButton();
+			Assert.fail("Exception " + e);
+			
 			}
 		
 		

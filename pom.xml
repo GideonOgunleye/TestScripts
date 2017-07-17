@@ -134,7 +134,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>Regressiont_Test(Chrome).xml</suiteXmlFile>
+                                <suiteXmlFile>config/Regressiont_Test(Chrome).xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

@@ -1,0 +1,50 @@
+{
+ "server": "hub-cloud.browserstack.com",
+  "user": "developmentteam12",
+  "key": "AKNscSG2dLkmDUkzTRyJ",
+
+  "capabilities": {
+    "build": "First Build",
+    "name": "Master Release 18 - Regression Test",
+    "browserstack.debug": true
+    "build": "Regression Test",
+  	"project": "Bakewell 20"
+  	"browserstack.chrome.enablePopups": false
+  },
+
+
+  "environments": {
+    "chrome": {
+    	"os": "Windows",
+    	"os_version": "10",
+    	"browser": "Chrome",
+    	"browser_version": "57.0",
+    	"resolution": "1280x1024"
+    }
+    
+    "Firefox": {
+    	"os": "Windows",
+    	"os_version": "10",
+    	"browser": "Firefox",
+    	"browser_version": "54.0",
+    	"resolution": "1280x1024"
+    }
+    
+    "Edge": {
+    	"os": "Windows",
+    	"os_version": "10",
+   	 	"browser": "Edge",
+    	"browser_version": "14.0",
+    	"resolution": "1280x1024"
+    }
+    
+     "IE": {
+    	"os": "Windows",
+   	 	"os_version": "10",
+    	"browser": "IE",
+    	"browser_version": "11.0",
+    	"resolution": "1024x768"
+  	}
+    
+  }
+}

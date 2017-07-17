@@ -720,7 +720,9 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 	
 	
 
-}@Test 
+}
+
+@Test 
 public void Technical_Contact_Receives_Cert_Emails () throws Exception {
 	
 	//Log in as Administrator

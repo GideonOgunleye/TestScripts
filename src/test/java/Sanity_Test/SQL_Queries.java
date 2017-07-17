@@ -154,6 +154,7 @@ public class SQL_Queries {
 			//Query to Execute		
 			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
 			String query2 = "delete from bakewell_automation.certificates Where common_name ='ssl247.co.uk';";
+			String query3 = "delete from bakewell_automation.certificates Where common_name ='ssl247-test.co.uk';";
 	      
 		    //Load mysql jdbc driver		
 	 	    Class.forName("com.mysql.jdbc.Driver");			
@@ -162,7 +163,10 @@ public class SQL_Queries {
 	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
 	  	Statement stmt = con.createStatement();	
 	  	stmt.execute(query2);
-	  	System.out.println("Certificate Has Been Deleted");		
+	  	
+	  	stmt.execute(query3);
+	  	
+	  	System.out.println("Certificates Have Been Deleted");		
 		con.close();		
 		  
 	  }	

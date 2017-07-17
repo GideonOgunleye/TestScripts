@@ -8,13 +8,8 @@
     </run>
  </groups> 
 
-<!--   <test name="Test 1">
-   <classes>
-      <class name="Regression_Test.Admin_User"/>
-    </classes>  
-  </test> Test -->
-  
-  <test name="Test 2">
+
+  <test name="Test 1">
   	<parameter name="config" value="Regression_OrderProducts.json"/>
     <parameter name="environment" value="chrome"/>
    <classes>
@@ -22,7 +17,15 @@
     </classes>    
   </test><!-- Test -->
   
-    <test name="Test 3">
+   <test name="Test 2">
+  	<parameter name="config" value="Regression_Bakewell18.json"/>
+    <parameter name="environment" value="chrome"/>
+   <classes>
+      <class name="Regression_Test.MasterRelease_18"/>
+    </classes>    
+  </test><!-- Test -->
+  
+  <test name="Test 3">
    <classes>
       <class name="Regression_Test.SQL_Queries"/>
     </classes>    

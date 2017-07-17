@@ -63,6 +63,9 @@ public class ProposalsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='Product1Years']/select")
 	WebElement DurationField;
 	
+	@FindBy(xpath = ".//*[@id='Product1Licenses']/select")
+	WebElement LicenseField;
+	
 	@FindBy(xpath = ".//*[@id='BasketItem1CommonName']")
 	WebElement CommonNameField;
 	
@@ -71,6 +74,12 @@ public class ProposalsPage extends DriverLoad {
 	
 	@FindBy(xpath = ".//*[@id='ProposalSave']")
 	WebElement SaveProposalButton;
+	
+	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[2]/a[4]")
+	WebElement ConvertToInvoiceButton;
+	
+	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[2]/a[4]")
+	WebElement IssueInvoiceButton;
 	
 	
 	public ProposalsPage(WebDriver driver){
@@ -153,6 +162,12 @@ public class ProposalsPage extends DriverLoad {
 		DurationNo.selectByVisibleText(Duration);
 	}
 	
+	public void LicenseFieldSelect(String Number){
+		
+		Select DurationNo = new Select(LicenseField);
+		DurationNo.selectByVisibleText(Number);
+	}
+	
 	public void CommonNameFieldClear(){
 		
 		CommonNameField.clear();
@@ -168,8 +183,14 @@ public class ProposalsPage extends DriverLoad {
 		CalculatePricesButton.click();
 	}
 	
-	public void SaveProposalButtonButtonClink(){
+	public void SaveProposalButtonClink(){
 		
 		SaveProposalButton.click();
 	}
+	
+	public void ConvertToInvoiceButtonClink(){
+		
+		ConvertToInvoiceButton.click();
+	}
+	
 }

@@ -267,7 +267,7 @@ public class Test_Data {
 		//Password
 		obj[0][1]="GrEu4Uy6";
 		//Url
-		obj[0][2]="https://staging-hc.ssl247.co.uk/";
+		obj[0][2]="https://ssl247:wpmsBv9P@automation-live.ssl247.co.uk";
 		//Account Name
 		obj[0][3]="UKTE001";
 		//Account Name
@@ -279,11 +279,34 @@ public class Test_Data {
 		//Password
 		obj[1][1]="GrEu4Uy6";
 		//Url
-		obj[1][2]="https://staging-hc.ssl247.co.uk/";
+		obj[1][2]="https://ssl247:wpmsBv9P@automation-live.ssl247.co.uk";
 		//Account Name
 		obj[1][3]="UKTE004";
 		//Account Name
 		obj[1][4]="UKTE001";
+		
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="ProposalsOrder_Data")
+	public static Object[][] ProposalsOrder_Data(){
+		Object[][] obj = new Object[1][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="SSL Certificate";
+		//Product
+		obj[0][1]="Symantec Secure Site Pro EV";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
 		
 		
 		return obj;

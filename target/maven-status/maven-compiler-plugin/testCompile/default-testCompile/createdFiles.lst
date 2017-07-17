@@ -3,13 +3,11 @@ PageFactory\CertificateDetailsPage.class
 Regression_Test\SQL_Queries.class
 BaseUtilities\CsR.class
 BaseUtilities\DriverLoad.class
-Sanity_Test\Registered_User3.class
 Regression_Test\Admin_User.class
 Slickets_Test\Master_Release_19_Slickets.class
 BaseUtilities\Firefox.class
 Regression_Test\Order_Products.class
 BaseUtilities\Chrome.class
-Sanity_Test\Admin_User2.class
 PageFactory\LoginPage.class
 Regression_Test\Test_Data.class
 Sanity_Test\SingleTest.class
@@ -19,7 +17,6 @@ Sanity_Test\MainNav_Test.class
 Sanity_Test\SQL_Queries.class
 Sanity_Test\New_User.class
 Sanity_Test\Test_DataSanity.class
-Sanity_Test\Registered_User2.class
 PageFactory\ProposalsPage.class
 PageFactory\sslDashBoard.class
 BaseUtilities\TakeScreenShot.class

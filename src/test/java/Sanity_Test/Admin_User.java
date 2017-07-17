@@ -494,7 +494,7 @@ public class Admin_User extends BrowserStack {
 			Thread.sleep(10000);
 			
 			//Click Save
-			ProposalsPageElements.SaveProposalButtonButtonClink();
+			ProposalsPageElements.SaveProposalButtonClink();
 			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Click on Save Proposal Button");
 			
