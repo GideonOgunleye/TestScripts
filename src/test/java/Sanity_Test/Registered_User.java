@@ -96,6 +96,7 @@ public class Registered_User extends BrowserStack  {
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
 		driver.navigate().refresh();
+		
 		Thread.sleep(5000);
 		
 		LoginPageElements.ClickLogoutButton();
@@ -185,10 +186,12 @@ public class Registered_User extends BrowserStack  {
 		
 		test = report.startTest("Registered User Test --> Order_RapidSSL");
 	    test.log(LogStatus.INFO, "User Logged in");
+	    
+	    Thread.sleep(1000);
 		
-		//Navigate to product page//
-		//Thread.sleep(15000);
-	  //Click to Order RapidSSL Product
+	    //Navigate to product page//
+	
+	    //Click to Order RapidSSL Product
 		sslDashBoardElements.ClickMyProductsLink();
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[3]/a")).click();
@@ -259,138 +262,150 @@ public class Registered_User extends BrowserStack  {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Clicked Confirm Button");
 		
-		/*----Complete Order----*/
-		WebDriverWait wait = new WebDriverWait(driver, 50);	
-		WebElement Button;
-		Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
-		Button.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Click Complete Button");
-
-		
-		CsrElements.LoadCsR();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Entered CSR");
-		
-		CsrElements.ClickDecoder();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Decoder Button");
-		
-		Thread.sleep(10000);
-		
-		CsrElements.ClickDecoderPopUp();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Decoder Pop Up");
-		
-		Thread.sleep(10000);
-			
-		System.out.println("Sleep Over");
-		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-500)", "");
-		
-		Thread.sleep(5000);
-		
-		
-		/*-----Fillm in Admin Tab-----------------------*/
-		WebElement Admintab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[2]/a"));
-		Admintab.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Admin Tab");
+		try {	
+			/*----Complete Order----*/
+			WebDriverWait wait = new WebDriverWait(driver, 50);	
+			WebElement Button;
+			Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
+			Button.click();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Click Complete Button");
 	
-	    System.out.println("Admin Tab Clicked");
-	   	
-		WebElement Organization = driver.findElement(By.id("CertificateAdminOrganisation"));
-		Organization.clear();
-		Organization.sendKeys("SSL247 Ltd");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Organisation Field");
+			
+			CsrElements.LoadCsR();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Entered CSR");
+			
+			CsrElements.ClickDecoder();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Decoder Button");
+			
+			Thread.sleep(10000);
+			
+			CsrElements.ClickDecoderPopUp();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Decoder Pop Up");
+			
+			Thread.sleep(10000);
+				
+			System.out.println("Sleep Over");
+			
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,-500)", "");
+			
+			Thread.sleep(5000);
+			
+			
+			/*-----Fillm in Admin Tab-----------------------*/
+			WebElement Admintab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[2]/a"));
+			Admintab.click();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Admin Tab");
 		
-		WebElement Title = driver.findElement(By.id("CertificateAdminTitle"));
-		Select Initials = new Select(Title);
-		Initials.selectByVisibleText("Dr");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Seleted Title Field");
+		    System.out.println("Admin Tab Clicked");
+		   	
+			WebElement Organization = driver.findElement(By.id("CertificateAdminOrganisation"));
+			Organization.clear();
+			Organization.sendKeys("SSL247 Ltd");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Organisation Field");
+			
+			WebElement Title = driver.findElement(By.id("CertificateAdminTitle"));
+			Select Initials = new Select(Title);
+			Initials.selectByVisibleText("Dr");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Seleted Title Field");
+			
+			WebElement Firstname = driver.findElement(By.id("CertificateAdminFirstname"));
+			Firstname.sendKeys("Gideon");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin First Name");
+			
+			WebElement Lastname = driver.findElement(By.id("CertificateAdminLastname"));
+			Lastname.sendKeys("Ogunleye");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Last Name");
+			
+			WebElement Email = driver.findElement(By.id("CertificateAdminEmail"));
+			Email.sendKeys("qa@ssl247.co.uk");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Email");
+			
+			WebElement Phone = driver.findElement(By.id("CertificateAdminPhone"));
+			Phone.sendKeys("02037610541");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Fill Admin Phone Number");
+			
+			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+			
+			/*-----Fill in Tech Tab-----------------------------*/
+			WebElement Techtab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[3]/a"));
+			Techtab.click();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Tech Tab");
+			
+			WebElement TechOrganization = driver.findElement(By.id("CertificateTechOrganisation"));
+			TechOrganization.clear();
+			TechOrganization.sendKeys("SSL247 Ltd");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Organization");
+			
+			WebElement TechTitle = driver.findElement(By.id("CertificateTechTitle"));
+			Select TechInitials = new Select(TechTitle);
+			TechInitials.selectByVisibleText("Dr");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Tech Title Field");
+			
+			WebElement TechFirstname = driver.findElement(By.id("CertificateTechFirstname"));
+			TechFirstname.clear();
+			TechFirstname.sendKeys("Gideon");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech First Name");
+			
+			WebElement TechLastname = driver.findElement(By.id("CertificateTechLastname"));
+			TechLastname.clear();
+			TechLastname.sendKeys("Ogunleye");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Last Name");
+			
+			WebElement TechEmail = driver.findElement(By.id("CertificateTechEmail"));
+			TechEmail.clear();
+			TechEmail.sendKeys("qa@ssl247.co.uk");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Email");
+			
+			WebElement TechPhone = driver.findElement(By.id("CertificateTechPhone"));
+			TechPhone.clear();
+			TechPhone.sendKeys("02037610541");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Phone Number");
+			
+			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+			
+			/*-----Click on Submit Button--------*/
+			WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
+			Submit.click();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Submit button");
 		
-		WebElement Firstname = driver.findElement(By.id("CertificateAdminFirstname"));
-		Firstname.sendKeys("Gideon");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Admin First Name");
-		
-		WebElement Lastname = driver.findElement(By.id("CertificateAdminLastname"));
-		Lastname.sendKeys("Ogunleye");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Admin Last Name");
-		
-		WebElement Email = driver.findElement(By.id("CertificateAdminEmail"));
-		Email.sendKeys("qa@ssl247.co.uk");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Admin Email");
-		
-		WebElement Phone = driver.findElement(By.id("CertificateAdminPhone"));
-		Phone.sendKeys("02037610541");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Fill Admin Phone Number");
-		
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		
-		/*-----Fill in Tech Tab-----------------------------*/
-		WebElement Techtab = driver.findElement (By.xpath(".//*[@class='tabbable v-margin5']/ul/li[3]/a"));
-		Techtab.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Tech Tab");
-		
-		WebElement TechOrganization = driver.findElement(By.id("CertificateTechOrganisation"));
-		TechOrganization.clear();
-		TechOrganization.sendKeys("SSL247 Ltd");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Tech Organization");
-		
-		WebElement TechTitle = driver.findElement(By.id("CertificateTechTitle"));
-		Select TechInitials = new Select(TechTitle);
-		TechInitials.selectByVisibleText("Dr");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Selected Tech Title Field");
-		
-		WebElement TechFirstname = driver.findElement(By.id("CertificateTechFirstname"));
-		TechFirstname.clear();
-		TechFirstname.sendKeys("Gideon");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Tech First Name");
-		
-		WebElement TechLastname = driver.findElement(By.id("CertificateTechLastname"));
-		TechLastname.clear();
-		TechLastname.sendKeys("Ogunleye");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Tech Last Name");
-		
-		WebElement TechEmail = driver.findElement(By.id("CertificateTechEmail"));
-		TechEmail.clear();
-		TechEmail.sendKeys("qa@ssl247.co.uk");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Tech Email");
-		
-		WebElement TechPhone = driver.findElement(By.id("CertificateTechPhone"));
-		TechPhone.clear();
-		TechPhone.sendKeys("02037610541");
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Filled Tech Phone Number");
-		
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	/*	
-		/*-----Click on Submit Button--------
-		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
-		Submit.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Submit button");
-  	
-		String Alertnote = "The certificate has been saved and is pending submission with the CA";
-		
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Validation Failed");
+			String path = ScreenShot.Image(driver, "TestScreenshot");
+			String imagePath = test.addScreenCapture(path);;
+			test.log(LogStatus.INFO, imagePath);
+			
+			Assert.fail("Exception " + e);
+
+		}
+
+		//Validate Alert
 		try {
-				  
+			
+			String Alertnote = "The certificate has been saved and is pending submission with the CA";
 			AlertBoxElements.AlertWait();
 			    	
-		if (AlertBoxElements.VerifyAlert(Alertnote)) {
+			if (AlertBoxElements.VerifyAlert(Alertnote)) {
 						
 			    	test.log(LogStatus.PASS, "Validation Complete");
 			    	Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
@@ -403,12 +418,12 @@ public class Registered_User extends BrowserStack  {
 					Assert.fail("Validation Failed ");
 			    }
 	
-			}catch (Exception e) {
+		}catch (Exception e) {
 						
-				test.log(LogStatus.FAIL, "Validation Failed");
-				Assert.fail("Exception " + e);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
 		}
-	*/
+	
 		
 	 }
 	
@@ -786,7 +801,7 @@ public class Registered_User extends BrowserStack  {
 			String imagePath = test.addScreenCapture(path);;
 			test.log(LogStatus.INFO, imagePath);
 
-			LoginPageElements.AdminLogoutButtonIsVisible();
+			LoginPageElements.ClickLogoutButton();
 			Assert.fail("Exception " + e);
 		}	
 		

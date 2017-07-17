@@ -38,7 +38,7 @@ public class BrowserStack extends DriverLoad  {
 	//public WebDriver driver;
     private Local l;
   
-    
+   
     @BeforeClass(groups = {"BS_Sanity", "BS_Regression","BS_Smoke","BS_Regression"})
     @org.testng.annotations.Parameters(value={"config", "environment"})
     public void setUp(String config_file, String environment) throws Exception {
