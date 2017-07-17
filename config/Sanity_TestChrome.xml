@@ -8,6 +8,14 @@
     </run>
  </groups> 
  
+ <test name="Test 1">
+ 		<parameter name="config" value="Sanity_MainNavigation.json"/>
+        <parameter name="environment" value="chrome"/>
+     <classes>
+     <class name="Sanity_Test.MainNav_Test"/>
+   </classes> 
+  </test><!--Test--> 
+ 
   <test name="Test 2">
  		<parameter name="config" value="Sanity_SubNavigation.json"/>
         <parameter name="environment" value="chrome"/>

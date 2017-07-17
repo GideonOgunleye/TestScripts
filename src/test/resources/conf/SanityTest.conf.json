@@ -5,10 +5,10 @@
 
   "capabilities": {
     "build": "First Build",
-    "name": "SQL",
+    "name": "Test",
     "browserstack.debug": true
     "build": "Sanity Test",
-  	"project": "Bakewell 20"
+  	"project": "Test Build"
   	"browserstack.chrome.enablePopups": false
   },
 

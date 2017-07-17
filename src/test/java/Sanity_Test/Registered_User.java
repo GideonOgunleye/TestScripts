@@ -65,7 +65,7 @@ public class Registered_User extends BrowserStack  {
 	IssuedCertificatesPage IssuedCertificatesPageElements;
 	CertificateDetailsPage CertificateDetailsPageElements;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -86,24 +86,11 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
 	public void User_Logout (ITestResult result) throws Exception {
 
 	    //Take Screen Shots
-		
-/*		
-	    String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
-	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
-		  
-	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(sourceFile, new File(Directory + filename));
-		  
-		String destination = Directory + filename;
-		
-		
-		String path = destination;
-*/		
-		
+				
 	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
@@ -121,7 +108,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 	
-	@Test (priority = 0, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"})
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
 	  public void LogIn_User () throws Exception{
 		  
 		  LoginPageElements = new LoginPage(driver);
@@ -390,8 +377,8 @@ public class Registered_User extends BrowserStack  {
 		test.log(LogStatus.INFO, "Filled Tech Phone Number");
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		
-		/*-----Click on Submit Button--------*/
+	/*	
+		/*-----Click on Submit Button--------
 		WebElement Submit = driver.findElement(By.xpath(".//*[@class='form-actions v-margin5 text-right']/button"));
 		Submit.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -421,16 +408,16 @@ public class Registered_User extends BrowserStack  {
 				test.log(LogStatus.FAIL, "Validation Failed");
 				Assert.fail("Exception " + e);
 		}
-	
+	*/
 		
 	 }
 	
-	@Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
-	  public void Create_User() throws Exception {
+	@Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="CreateUser")
+	  public void Create_User(String Firstname, String Lastname, String Email, String PhoneNumber, String Address, String State, String Postcode, String CountryNm) throws Exception {
 		 
 
 		System.out.println("Create User Started!");
-		test = report.startTest("Registered User Test --> Create User");
+		test = report.startTest("Registered User Test --> Create User" + Email);
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//1-Navigate and click on My Users
@@ -441,7 +428,7 @@ public class Registered_User extends BrowserStack  {
 		Thread.sleep(5000);
 		driver.findElement(By.linkText("New user")).click();
 		test.log(LogStatus.INFO, "New User Form Opened");
-				
+		
 		//3-Fill In Form With Required Information
 		Thread.sleep(5000);
 		WebElement UserRole = driver.findElement(By.xpath(".//*[@id='UserRole']"));
@@ -450,24 +437,33 @@ public class Registered_User extends BrowserStack  {
 		WebElement AccessLevel = driver.findElement(By.xpath(".//*[@id='UserAccessLevel']"));
 		Select Level = new Select(AccessLevel);
 		Level.selectByVisibleText("Standard User");
-		driver.findElement(By.name("data[User][firstname]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[User][lastname]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[User][email]")).sendKeys("qa@ssl247.co.uk");
-		driver.findElement(By.name("data[User][phone]")).sendKeys("0203MMM7610541");
+		driver.findElement(By.name("data[User][firstname]")).sendKeys(Firstname);
+		driver.findElement(By.name("data[User][lastname]")).sendKeys(Lastname);
+		driver.findElement(By.name("data[User][email]")).sendKeys(Email);
+		driver.findElement(By.name("data[User][phone]")).sendKeys(PhoneNumber);
 		driver.findElement(By.name("data[User][address_1]")).clear();
-		driver.findElement(By.name("data[User][address_1]")).sendKeys("qa@ssl247.co.uk");
+		driver.findElement(By.name("data[User][address_1]")).sendKeys(Address);
 		driver.findElement(By.name("data[User][city]")).clear();
-		driver.findElement(By.name("data[User][city]")).sendKeys("Lagos");
+		driver.findElement(By.name("data[User][city]")).sendKeys(State);
 		driver.findElement(By.name("data[User][postcode]")).clear();
-		driver.findElement(By.name("data[User][postcode]")).sendKeys("EC1V 3RP");
+		driver.findElement(By.name("data[User][postcode]")).sendKeys(Postcode);
 		WebElement Country = driver.findElement(By.xpath(".//*[@id='UserCountry']"));
 		Select CountryName = new Select(Country);
-		CountryName.selectByVisibleText("Nigeria");
-		test.log(LogStatus.PASS, "New User FRor Filled and Saved");
+		CountryName.selectByVisibleText(CountryNm);
 		
-		 System.out.println("Create User Completed!");
 		
-	}
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath(".//*[@id='UserMysslAddForm']/h2/button")).click();
+		
+		test.log(LogStatus.PASS, "New User Form Filled and Saved");
+		
+		System.out.println("Create User Completed!");
+		
+	}   
 	
 	@Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"}) 
 	  public void Edit_User () throws Exception {
@@ -595,21 +591,27 @@ public class Registered_User extends BrowserStack  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//Navigate Domain Names Link on side bar
-	    
 	    sslDashBoardElements.ClickMyDomainNamesLink();
+	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on Domain Name Link"); 
+	    
 	    sslDashBoardElements.ClickRegisterDomainLink();
-/*	    
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("a[href*='domain-names']")).click();
-		test.log(LogStatus.INFO, "Domain Names Page Opened");
-*/				
+	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on register domain link");
+			
 		//Enter Domain Name to check availability
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		
 		driver.findElement(By.id("check-domain-name")).sendKeys("ssl247test.net");
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Entered Domain Name in Search Field");
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[@class='btn btn-ssl search-domain-box-button']")).click();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on search button");
+		
 		Thread.sleep(10000);
-		test.log(LogStatus.INFO, "Search for Domain Name in Search Field");
 		
 		WebDriverWait wait = new WebDriverWait(driver, 20);	
 		WebElement Result;
@@ -632,18 +634,20 @@ public class Registered_User extends BrowserStack  {
 					
 					System.out.println("Search Keyword Not Present");
 					test.log(LogStatus.FAIL, "Domain is Not Available");
-					 /*Thread.sleep(1000);
-					 driver.close();
-					 Thread.sleep(1000);
-					 driver.quit();*/
 					 }
 				
 				if (Avalability.getText().equals(twoVal)){
 					
 					System.out.println("Domain Name is Avalable");
-					test.log(LogStatus.INFO, "Domain Name is Available");
+					test.log(LogStatus.PASS, "Domain Name is Available");
+					
 					driver.findElement(By.xpath(".//*[@id='domain-name-results']/tbody/tr[2]/td[4]/input")).click();
+					driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				    test.log(LogStatus.INFO, "Clicked on Input");
+					
 					driver.findElement(By.xpath(".//*[@id='domain-search-results']/div/button")).click();
+					driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+				    test.log(LogStatus.INFO, "Clicked on Button");
 					
 				}else {
 					
@@ -657,94 +661,139 @@ public class Registered_User extends BrowserStack  {
 		//Confirm Basket
 		Thread.sleep(15000);
 		driver.findElement(By.id("checkoutLink")).click();
-		test.log(LogStatus.INFO, "Order Placed in Basket");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked Order Button");
+		
 				
 		//Fill In Billing Retails
 		driver.findElement(By.name("data[BasketContact][firstname]")).clear();
 		driver.findElement(By.name("data[BasketContact][firstname]")).sendKeys("Gideon");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled First Name Field");
+		
 		driver.findElement(By.name("data[BasketContact][lastname]")).clear();
 		driver.findElement(By.name("data[BasketContact][lastname]")).sendKeys("Ogunleye");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled Last Name Field");
+		
 		driver.findElement(By.name("data[BasketContact][phone]")).clear();
 		driver.findElement(By.name("data[BasketContact][phone]")).sendKeys("02037610541");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled Phone Number Field");
+		
 		driver.findElement(By.name("data[BasketContact][email]")).clear();
 		driver.findElement(By.name("data[BasketContact][email]")).sendKeys("qa@ssl247.co.uk");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled Email Field");
+		
 		driver.findElement(By.name("data[BasketContact][address_1]")).clear();
 		driver.findElement(By.name("data[BasketContact][address_1]")).sendKeys("63 Lisson St, Marylebone");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled Address Field");
+		
 		driver.findElement(By.name("data[BasketContact][city]")).clear();
 		driver.findElement(By.name("data[BasketContact][city]")).sendKeys("London");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled City Field");
+		
 		WebElement Country = driver.findElement(By.name("data[BasketContact][country]"));
 		Select CountryName = new Select(Country);
 		CountryName.selectByVisibleText("United Kingdom");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Selected Country");
+		
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.findElement(By.id("notUsaStateInput")).clear();
 		driver.findElement(By.id("notUsaStateInput")).sendKeys("London");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled State Field");
+		
 		driver.findElement(By.id("BasketContactPostcode")).clear();
 		driver.findElement(By.id("BasketContactPostcode")).sendKeys("NW1 5DD");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Filled Postcode Field");
 		
 				
 		//Confirm input
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(".//*[@id='BasketContactForm']/div[8]/button")).click();
-		test.log(LogStatus.INFO, "Order Confirmed");
-		
-		//Click Complete Button
-		Thread.sleep(5000);
-		//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[1]/div/div[1]/table/tbody/tr[5]/td/a")).click();
-		driver.findElement(By.xpath(".//*[@class='actions']/a")).click();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-		
-		//Click on Admin Tab
-		
-		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-admin-contact-tab']")).click();
-		
-		//Fill in the Required Information
-		WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
-		Select Name = new Select(AdContact);
-		Name.selectByVisibleText("Mr Quality Assured");
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-		driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
-		//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
-		
-		System.out.println("Filled Admin Tab");
-		
-		//Click on Technical Tab
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-500)", "");
-		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-technical-contact-tab']")).click();
-		
-		//Fill in Required Information
-		WebElement TechContact = driver.findElement(By.xpath(".//*[@id='TechnicalContactUser']"));
-		Select TechName = new Select(TechContact);
-		TechName.selectByVisibleText("Mr Quality Assured");
-		
-		driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
-		
-		//Click on Owner Tab
-		//JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,-500)", "");
-		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-owner-contact-tab")).click();
-		
-		//Fill in Required Information
-		WebElement Owner = driver.findElement(By.xpath(".//*[@id='OwnerContactUser']"));
-		Select OwnerName = new Select(Owner);
-		OwnerName.selectByVisibleText("Mr Quality Assured");
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked Confirm Button");
+	
+		try {
+				//Click Complete Button
+				Thread.sleep(5000);
+				//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[1]/div/div[1]/table/tbody/tr[5]/td/a")).click();
+				driver.findElement(By.xpath(".//*[@class='actions']/a")).click();
+				driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 				
-		driver.findElement(By.id("OwnerContactDialingCode")).sendKeys("475");
-		test.log(LogStatus.PASS, "Order Completed");
+				//Click on Admin Tab
 				
-		//Click on Save Changes
-		jse.executeScript("window.scrollBy(0,-500)", "");
-		Thread.sleep(5000);
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		String Alertnote = "Validation complete, order will be processed shortly, thank you";
+				Thread.sleep(5000);
+				driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-admin-contact-tab']")).click();
+				
+				//Fill in the Required Information
+				WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
+				Select Name = new Select(AdContact);
+				Name.selectByVisibleText("Mr Quality Assured");
+				driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+				driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
+				//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
+				
+				System.out.println("Filled Admin Tab");
+				
+				//Click on Technical Tab
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("window.scrollBy(0,-500)", "");
+				Thread.sleep(5000);
+				driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-technical-contact-tab']")).click();
+				
+				//Fill in Required Information
+				WebElement TechContact = driver.findElement(By.xpath(".//*[@id='TechnicalContactUser']"));
+				Select TechName = new Select(TechContact);
+				TechName.selectByVisibleText("Mr Quality Assured");
+				
+				driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
+				
+				//Click on Owner Tab
+				//JavascriptExecutor jse = (JavascriptExecutor)driver;
+				jse.executeScript("window.scrollBy(0,-500)", "");
+				Thread.sleep(5000);
+				driver.findElement(By.cssSelector("a[href*='#admin-domainName-edit-owner-contact-tab")).click();
+				
+				//Fill in Required Information
+				WebElement Owner = driver.findElement(By.xpath(".//*[@id='OwnerContactUser']"));
+				Select OwnerName = new Select(Owner);
+				OwnerName.selectByVisibleText("Mr Quality Assured");
+						
+				driver.findElement(By.id("OwnerContactDialingCode")).sendKeys("475");
+				test.log(LogStatus.PASS, "Order Completed");
+						
+				//Click on Save Changes
+				jse.executeScript("window.scrollBy(0,-500)", "");
+				
+				Thread.sleep(5000);
+				
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				driver.findElement(By.xpath(".//*[@id='DomainNameMysslEditForm']/div[2]/div[1]/button")).click();
+				
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Validation of Domain Name Not Completed");
+			String path = ScreenShot.Image(driver, "TestScreenshot");
+			String imagePath = test.addScreenCapture(path);;
+			test.log(LogStatus.INFO, imagePath);
+
+			LoginPageElements.AdminLogoutButtonIsVisible();
+			Assert.fail("Exception " + e);
+		}	
+		
 		
 		try {
-		  
+			
+				String Alertnote = "Validation complete, order will be processed shortly, thank you";
 				AlertBoxElements.AlertWait();
 	    	
 				if (AlertBoxElements.VerifyAlert(Alertnote)) {
@@ -757,20 +806,19 @@ public class Registered_User extends BrowserStack  {
 							    	
 					 test.log(LogStatus.FAIL, "Validation Failed");
 					 AlertBoxElements.AlertPrint();
-					 Assert.fail("Validation Failed ");
+					 //Assert.fail("Validation Failed ");
 							    	
 				}
 
 			}catch (Exception e) {
 				
-					test.log(LogStatus.FAIL, "Validation Failed");
-					Assert.fail("Exception " + e);
+					test.log(LogStatus.FAIL, "Alert Not Displayed");
+					//Assert.fail("Exception " + e);
 				}
-
 
 		
 	}
-	
+		
 	@Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
 	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
 		

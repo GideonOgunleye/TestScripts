@@ -70,7 +70,7 @@ public class Admin_User extends BrowserStack {
   TakeScreenShot ScreenShot;
   
 	
-  @BeforeMethod (groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+  @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
   public void Login() throws Exception {
 
 	  LoginPageElements = new LoginPage(driver);
@@ -91,7 +91,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
   public void Log_Out (ITestResult result) throws Exception {
 	  
 	  //Take Screen Shots
@@ -123,7 +123,7 @@ public class Admin_User extends BrowserStack {
 	 // return destination;
   }
   
-  @Test (priority = 0, groups = {"Smoke","Smoke_Firefox","Smoke_Chrome"})
+  @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void Admin_LogIn() throws Exception{
 
 	  report = ExtentFactory.getInstance3();
@@ -383,9 +383,11 @@ public class Admin_User extends BrowserStack {
 				
 			  }else{
 						    	
-			test.log(LogStatus.FAIL, "Validation Failed");
+				test.log(LogStatus.FAIL, "Validation Failed");
 				AlertBoxElements.AlertPrint();
-				Assert.fail("Validation Failed ");
+				String path = ScreenShot.Image(driver, "SearchResult");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
 						    	
 				}
 				
@@ -402,7 +404,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
   
-  @Test (priority = 2,groups = {"Smoke","Smoke_Firefox","Smoke_Chrome"})
+  @Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void Create_Proposal () throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
@@ -646,6 +648,9 @@ public class Admin_User extends BrowserStack {
 	    test.log(LogStatus.INFO, "Admin User Logged in");
 	  
 	  //Navigate to products link
+	    
+	    Thread.sleep(1000);
+	    
 	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	  	Actions  actions=new Actions(driver);
 	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
@@ -661,7 +666,7 @@ public class Admin_User extends BrowserStack {
 	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 	  	test.log(LogStatus.INFO, "Opened Search Products Page");
 	  	
-	  	Thread.sleep(1000);
+	  	Thread.sleep(5000);
 		
 	  	//Select Account Name from for field
 	  	AdminCertificatesPageElements.ForFieldSelect("Account name");

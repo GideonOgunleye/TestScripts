@@ -63,7 +63,7 @@ public class New_User extends BrowserStack  {
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Sanity_Chrome"})
 	public void Load_Homepage () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -83,7 +83,7 @@ public class New_User extends BrowserStack  {
 		Thread.sleep(5000);		
 	}
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"},alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Sanity_Chrome"},alwaysRun = true)
 	public void Aftermethod (ITestResult result) throws IOException, Exception {
 
 /*		
@@ -113,7 +113,7 @@ public class New_User extends BrowserStack  {
 		
 	}                                                                                     
 	                                                                                      
-	@Test (priority = 0, groups = {"Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome"}, alwaysRun = true)
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity"}, alwaysRun = true)
 	  public void User_Registration() throws Exception {
 	
 /*		

@@ -194,5 +194,41 @@ public class SQL_Queries {
 		con.close();		
 		  
 	  }	
+	  
+	  @Test (priority = 6, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
+	  public void Delete_User() throws SQLException, ClassNotFoundException {
+		  
+			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
+	      String dbUrl = "jdbc:mysql://notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+
+			//Database Username		
+			String username = "gogunleye";	
+	      
+			//Database Password		
+			String password = "n8hY5HqCkd7suLSM";				
+
+			//Query to Execute		
+			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
+			String query1 = "delete from bakewell_automation.users where lastname = 'Ogunleye1';";
+			String query2 = "delete from bakewell_automation.users where lastname = 'Ogunleye2';";
+	      
+		    //Load mysql jdbc driver		
+	 	    Class.forName("com.mysql.jdbc.Driver");			
+	 
+	 		//Create Connection to DB		
+	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
+	  	Statement stmt = con.createStatement();	
+	  	stmt.execute(query1);
+	  	System.out.println("User Ogunleye 1 Deleted");	
+	  	
+	
+	  	Statement stmt2 = con.createStatement();	
+	  	stmt2.execute(query2);
+	  	System.out.println("User Ogunleye 2 Deleted");	
+	  	
+	  	
+		con.close();		
+		  
+	  }	
 	 
 }
