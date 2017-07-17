@@ -114,9 +114,9 @@
                             <suiteXmlFiles>
                             
                             	<!--<suiteXmlFile>config/Admin_SanityTest(Chrome).xml</suiteXmlFile>-->
-                                 <!--<suiteXmlFile>config/Sanity_TestChrome.xml</suiteXmlFile>-->
+                                 <suiteXmlFile>config/Sanity_TestChrome.xml</suiteXmlFile>
                                 <!-- <suiteXmlFile>config/Sanity_Test.xml</suiteXmlFile>-->
-                               <suiteXmlFile>Sanity_Test(Chrome).xml</suiteXmlFile>
+                               <!--<suiteXmlFile>Sanity_Test(Chrome).xml</suiteXmlFile>-->
                                
                             </suiteXmlFiles>
                         </configuration>
