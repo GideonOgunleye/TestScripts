@@ -13,7 +13,7 @@
   		<parameter name="config" value="SanityTest.conf.json"/>
         <parameter name="environment" value="chrome"/>  
     <classes>
-        <class name="Sanity_Test.Registered_User2"/>
+        <class name="Sanity_Test.Test_Build"/>
     </classes>
   </test><!--Test-->
   

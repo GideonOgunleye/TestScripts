@@ -235,4 +235,32 @@ public class SQL_Queries {
 		  
 	  }	
 	 
+	  @Test (priority = 6, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
+	  public void Update_StatusID() throws SQLException, ClassNotFoundException {
+		  
+			//Connection URL Syntax: "jdbc:mysql://ipaddress:portnumber/db_name"		
+	      String dbUrl = "jdbc:mysql://notcraft3.covetytyjb4n.eu-west-1.rds.amazonaws.com";					
+
+			//Database Username		
+			String username = "gogunleye";	
+	      
+			//Database Password		
+			String password = "n8hY5HqCkd7suLSM";				
+
+			//Query to Execute		
+			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
+			String query1 = "update bakewell_automation.certificates set status_minor_id = 1 where common_name='ssl247-test.com';";
+	      
+		    //Load mysql jdbc driver		
+	 	    Class.forName("com.mysql.jdbc.Driver");			
+	 
+	 		//Create Connection to DB		
+	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
+	  	Statement stmt = con.createStatement();	
+	  	stmt.execute(query1);
+	  	System.out.println("Certificate Updated");	
+	  		
+		con.close();		
+		  
+	  }	
 }

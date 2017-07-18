@@ -7,7 +7,7 @@
     "build": "First Build",
     "name": "Test",
     "browserstack.debug": true
-    "build": "Sanity Test",
+    "build": "Test",
   	"project": "Test Build"
   	"browserstack.chrome.enablePopups": false
   },

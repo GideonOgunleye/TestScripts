@@ -8,7 +8,7 @@ public class Test_DataSanity {
 
 	@DataProvider (name ="ReissueCertificate")
 	public static Object[][] ReissueCertificate(){
-		Object[][] obj = new Object[3][5];
+		Object[][] obj = new Object[1][5];
 		
 		/*---------1st Parameter-------------*/	
 		//Username
@@ -22,7 +22,8 @@ public class Test_DataSanity {
 		//Column Product
 		obj[0][4]="Symantec Secure Site";
 		
-		/*---------2st Parameter-------------*/	
+		
+		/*---------2st Parameter-------------*/
 		//Username
 		obj[1][0]="qa@ssl247.co.uk";
 		//Password
@@ -33,6 +34,7 @@ public class Test_DataSanity {
 		obj[1][3]="UKTE001";
 		//Column Product
 		obj[1][4]="Symantec Secure Site EV";
+			
 		
 		/*---------2st Parameter-------------*/	
 		//Username

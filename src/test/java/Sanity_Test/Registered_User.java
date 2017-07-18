@@ -65,7 +65,7 @@ public class Registered_User extends BrowserStack  {
 	IssuedCertificatesPage IssuedCertificatesPageElements;
 	CertificateDetailsPage CertificateDetailsPageElements;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","BS_DailySanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void User_Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
@@ -86,7 +86,7 @@ public class Registered_User extends BrowserStack  {
 	}
 
 	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_DailySanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
 	public void User_Logout (ITestResult result) throws Exception {
 
 	    //Take Screen Shots
@@ -834,7 +834,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 		
-	@Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
+	@Test (priority = 3, groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
 	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
 		
 		System.out.println("Reissue Certificate Test Started!");
@@ -920,11 +920,10 @@ public class Registered_User extends BrowserStack  {
 	    }
 		
 	    
-	    
 	    //Certificates Page
 	    try {
 	    
-	    	CertificateDetailsPageElements.ReIssueTabClick();
+	    	CertificateDetailsPageElements.ReIssueButtonClick();
 	    	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     	    test.log(LogStatus.INFO, "Clicked on Re-Issued Tab");
     	    
@@ -932,13 +931,19 @@ public class Registered_User extends BrowserStack  {
     	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     	    test.log(LogStatus.INFO, "Clicked Csr Field");
     	    
-    	    CertificateDetailsPageElements.LoadCsR();
+    	    CertificateDetailsPageElements.LoadSsl247_TestCsR();
     	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     	    test.log(LogStatus.INFO, "Loaded Csr");
     	    
     	    CertificateDetailsPageElements.ValidateCsrButton();
     	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
     	    test.log(LogStatus.INFO, "Clicked Validate Csr Button");
+    	    
+    	    Thread.sleep(1000);
+    	    
+    	    CertificateDetailsPageElements.ReIssueCertificateButtonClick();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked on Reissue Certificate Button");
 	    
 		}catch (Exception e) {
 			
@@ -950,8 +955,36 @@ public class Registered_User extends BrowserStack  {
 		}
 	    
 	    
-	    
-	    
+	    try {
+	    	
+	    	String Alertnote = "Certificate has been submitted for reissue";  
+	    	AlertBoxElements.AlertWait();
+	    			    	
+	      if (AlertBoxElements.VerifyAlert(Alertnote)) {
+	    						
+	    	test.log(LogStatus.PASS, "Validation Complete");
+	    	Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+	    	System.out.println("Validation Complete!");
+	    	
+	      }else{
+	    	
+	    	String path = ScreenShot.Image(driver, "SearchResult");
+	    	String imagePath = test.addScreenCapture(path);
+	    	test.log(LogStatus.INFO, imagePath);
+  
+	    	test.log(LogStatus.FAIL, "Alert Validation Failed");
+	    	AlertBoxElements.AlertPrint();
+	   	    	
+	    	}
+	    	
+	    }catch (Exception e) {
+	    						
+	    	test.log(LogStatus.FAIL, "Alart Not Displayed");
+	    	String path = ScreenShot.Image(driver, "SearchResult");
+	    	String imagePath = test.addScreenCapture(path);
+	    	test.log(LogStatus.INFO, imagePath);
+	    	Assert.fail("Exception " + e);
+	    }
 	    
 	}   
 

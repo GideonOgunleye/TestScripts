@@ -571,17 +571,19 @@ public class New_User extends BrowserStack  {
 	  
 	test = report.startTest("New User Test --> Request a PenTest Form");
 	test.log(LogStatus.INFO, "Browser Opened and Url Entered");
-	//NavigationElements.ClickProtectAndSecureLink();
-			
-	//Navigate to Request a Brochure Link
-
-	
-	//driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a")).click();
 	
 	Actions  Mouse=new Actions(driver);
     WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/a"));
     Mouse.moveToElement(Dropdown);
+    Mouse.perform();
+    
+    String path2 = ScreenShot.Image(driver, "Screenshot");
+	String imagePath2 = test.addScreenCapture(path2);
+	test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
+    
     driver.manage().timeouts().implicitlyWait(100,TimeUnit.SECONDS);
+    
+ 
     WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a"));
     Mouse.moveToElement(EyeIcon);
     Mouse.click();
@@ -595,14 +597,6 @@ public class New_User extends BrowserStack  {
 	jse.executeScript("window.scrollBy(0,500)", "");
 	
 	Thread.sleep(1000);
-	
-			
-	//Fill in the form
-	
-	
-	//CookiesElements.CheckCookies2();
-
-	
 	
 	try {
 		

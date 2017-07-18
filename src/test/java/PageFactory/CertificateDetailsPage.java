@@ -37,8 +37,15 @@ public class CertificateDetailsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='CertificateNewCsr']")
 	WebElement CsrField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateMysslViewForm']/div[2]/div/button")
+	@FindBy(xpath = ".//*[@id='CertificateMysslViewForm']/div[2]/div[1]/div/button")
 	WebElement ValidateCsrButton;
+	
+	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[1]/div[1]/div/div/div[2]/div/div[2]/a")
+	WebElement ReIssueButton;
+	
+	@FindBy(xpath = ".//*[@id='CertificateMysslReissueForm']/fieldset/button")
+	WebElement ReIssueCertificateButton;
+	
 
 	
 	public CertificateDetailsPage(WebDriver driver){
@@ -49,11 +56,21 @@ public class CertificateDetailsPage extends DriverLoad {
 		
 	}
 	
-
-
 	public void ReIssueTabClick(){
 		
 		ReIssueTab.click();
+		
+	}
+	
+	public void ReIssueButtonClick(){
+		
+		ReIssueButton.click();
+		
+	}
+	
+	public void ReIssueCertificateButtonClick(){
+		
+		ReIssueCertificateButton.click();
 		
 	}
 	
@@ -79,46 +96,47 @@ public class CertificateDetailsPage extends DriverLoad {
 		CsrField.sendKeys(Keys.ENTER);
 	}
 	
-	public void LoadCsR () throws Exception {
+	
+	public void LoadSsl247_TestCsR () throws Exception {
 		
 		Properties prop = new Properties();
 		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
 				 
 		prop.load(fis);
 		
-		CsrFieldFill(prop.getProperty("Para1"));
+		CsrFieldFill(prop.getProperty("Ssl-test1"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para2"));
+		CsrFieldFill(prop.getProperty("Ssl-test2"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para3"));
+		CsrFieldFill(prop.getProperty("Ssl-test3"));
 		HitEnterKey();;
-		CsrFieldFill(prop.getProperty("Para4"));
+		CsrFieldFill(prop.getProperty("Ssl-test4"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para5"));
+		CsrFieldFill(prop.getProperty("Ssl-test5"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para6"));
+		CsrFieldFill(prop.getProperty("Ssl-test6"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para7"));
+		CsrFieldFill(prop.getProperty("Ssl-test7"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para8"));
+		CsrFieldFill(prop.getProperty("Ssl-test8"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para9"));
+		CsrFieldFill(prop.getProperty("Ssl-test9"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para10"));
+		CsrFieldFill(prop.getProperty("Ssl-test10"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para11"));
+		CsrFieldFill(prop.getProperty("Ssl-test11"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para12"));
+		CsrFieldFill(prop.getProperty("Ssl-test12"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para13"));
+		CsrFieldFill(prop.getProperty("Ssl-test13"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para14"));
+		CsrFieldFill(prop.getProperty("Ssl-test14"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para15"));
+		CsrFieldFill(prop.getProperty("Ssl-test15"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para16"));
+		CsrFieldFill(prop.getProperty("Ssl-test16"));
 		HitEnterKey();
-		CsrFieldFill(prop.getProperty("Para17"));
+		CsrFieldFill(prop.getProperty("Ssl-test17"));
 		HitEnterKey();
 	
 	}
