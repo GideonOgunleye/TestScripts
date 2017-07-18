@@ -8,7 +8,7 @@ public class Test_DataSanity {
 
 	@DataProvider (name ="ReissueCertificate")
 	public static Object[][] ReissueCertificate(){
-		Object[][] obj = new Object[1][5];
+		Object[][] obj = new Object[3][5];
 		
 		/*---------1st Parameter-------------*/	
 		//Username

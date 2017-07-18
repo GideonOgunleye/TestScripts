@@ -24,8 +24,17 @@
      <class name="Sanity_Test.SubNavigation_Test"/>
    </classes> 
   </test><!--Test-->   
+  
+  <test name="Test 3">
+  		
+  		<parameter name="config" value="Sanity_AdminUser.json"/>
+        <parameter name="environment" value="chrome"/>  
+    <classes>
+        <class name="Sanity_Test.Admin_User"/>
+    </classes>
+  </test><!--Test-->
    
-	<test name="Test 3">
+	<test name="Test 4">
  		<parameter name="config" value="Sanity_NewUser.json"/>
         <parameter name="environment" value="chrome"/>
      <classes>
@@ -33,7 +42,7 @@
    </classes> 
   </test><!--Test-->    
    
-  <test name="Test 4">
+  <test name="Test 5">
   		
   		<parameter name="config" value="Sanity_RegisteredUser.json"/>
         <parameter name="environment" value="chrome"/>  
@@ -42,14 +51,6 @@
     </classes>
   </test><!--Test-->
   
-    <test name="Test 5">
-  		
-  		<parameter name="config" value="Sanity_AdminUser.json"/>
-        <parameter name="environment" value="chrome"/>  
-    <classes>
-        <class name="Sanity_Test.Admin_User"/>
-    </classes>
-  </test><!--Test-->
   
 	<test name="Test 6">
  		<parameter name="config" value="SanityTest.conf.json"/>

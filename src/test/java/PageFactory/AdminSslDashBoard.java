@@ -64,6 +64,9 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[2]/a")
 	WebElement IncompleteLink;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[1]/ul/li[5]/ul/li[4]/a")
+	WebElement IssuedLink;
+	
 	/********Certificates Page**********/
 	@FindBy(xpath = ".//*[@id='CertificateAdminAccountIndexForm']/div[2]/div/div[2]/div/a[7]")
 	WebElement BulkEditContactsButton;
@@ -208,6 +211,11 @@ public class AdminSslDashBoard extends DriverLoad {
 	public void SearchLinkClick() {
 		
 		SearchLink.click();
+	}
+	
+	public void IssuedLinkClick() {
+		
+		IssuedLink.click();
 	}
 	
 	public void IncompleteLinkClick() {
