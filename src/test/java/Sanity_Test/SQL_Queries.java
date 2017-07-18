@@ -234,7 +234,7 @@ public class SQL_Queries {
 		con.close();		
 		  
 	  }	
-	 
+	/* 
 	  @Test (priority = 6, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
 	  public void Update_StatusID() throws SQLException, ClassNotFoundException {
 		  
@@ -263,4 +263,5 @@ public class SQL_Queries {
 		con.close();		
 		  
 	  }	
+	  */
 }

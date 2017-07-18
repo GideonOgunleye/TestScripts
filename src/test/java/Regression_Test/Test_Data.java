@@ -308,7 +308,65 @@ public class Test_Data {
 		//Common Name
 		obj[0][5]="ssl247-test.co.uk";
 		
+		/*---------2nd Parameter-------------	
+		//ProductType
+		obj[1][0]="SSL Certificate";
+		//Product
+		obj[1][1]="Symantec Secure Site Pro";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		*/
 		
+		/*--------3rd Parameter-------------	
+		//ProductType
+		obj[2][0]="SSL Certificate";
+		//Product
+		obj[2][1]="Symantec Secure Site EV";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		*/
+		
+		/*--------4th Parameter-------------	
+		//ProductType
+		obj[3][0]="SSL Certificate";
+		//Product
+		obj[3][1]="Symantec Secure Site";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		*/
+		
+		/*--------5th Parameter-------------	
+		//ProductType
+		obj[4][0]="SSL Certificate";
+		//Product
+		obj[4][1]="Thawte SSL Web Server EV";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		*/
 		return obj;
 		
 	}

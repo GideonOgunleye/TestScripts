@@ -6,6 +6,7 @@
     <run>
     <include name="BS_Sanity"/>
     <include name="BS_DailySanity"/>
+    <include name="BS_Regression"/>
     </run>
  </groups> 
    
