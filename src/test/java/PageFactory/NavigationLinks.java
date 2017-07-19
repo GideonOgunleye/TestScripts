@@ -178,10 +178,23 @@ public class NavigationLinks extends BrowserStack {
 
 	
 	}
-	
+
+/*	
 	public void SslCertificatesLinkTextValidation(){
 		
 		assertTrue(SslCertificatesLink.getText().contains("SSL Certificates"));
+		
+	}
+*/	
+	public boolean SslCertificatesLinkContains(String Text){
+		
+		return SslCertificatesLink.getText().contains(Text);
+		
+	}
+	
+	public void SslCertificatesLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + SslCertificatesLink.getText());
 		
 	}
 	
@@ -192,9 +205,15 @@ public class NavigationLinks extends BrowserStack {
 		//assertTrue(driver.getTitle().contains("GeoTrust Free Trial"));
 	}
 	
-	public void FreeSslLinkTextValidation(){
+	public boolean FreeSslLinkContains(String Text){
 		
-		assertTrue(FreeSslLink.getText().contains("Free SSL"));
+		return FreeSslLink.getText().contains(Text);
+		
+	}
+	
+	public void FreeSslLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + FreeSslLink.getText());
 		
 	}
 	
@@ -202,12 +221,18 @@ public class NavigationLinks extends BrowserStack {
 		
 		ProtectAndSecureLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		//assertTrue(driver.getTitle().contains("Penetration Testing: Advanced professional testing by accredited experts"));
 	}
 	
-	public void ProtectAndSecureLinkTextValidtion() {
+	public boolean ProtectAndSecureLinkContains(String Text){
 		
-		assertTrue(ProtectAndSecureLink.getText().contains("Test & Protect"));
+		return ProtectAndSecureLink.getText().contains(Text);
+		
+	}
+	
+	public void ProtectAndSecurePrintText(){
+		
+		System.out.println("Link Text is:" + ProtectAndSecureLink.getText());
+		
 	}
 	
 	public void ClickIdentifyLink() {
@@ -216,10 +241,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Digital IDs from SSL247"));
 	}
-	
+/*	
 	public void IdentifyLinkTextValidation(){
 		
 		assertTrue(IdentifyLink.getText().contains("Identify & Manage"));
+		
+	}
+*/	
+	public boolean IdentifyLinkContains(String Text){
+		
+		return IdentifyLink.getText().contains(Text);
+		
+	}
+	
+	public void IdentifyLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + IdentifyLink.getText());
 		
 	}
 	
@@ -229,10 +266,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Get your Domain Name Now"));
 	}
-	
+/*	
 	public void RegisterLinkTextValidation(){
 		
 		assertTrue(RegisterLink.getText().contains("Register"));
+		
+	}
+*/	
+	public boolean RegisterLinkContains(String Text){
+		
+		return RegisterLink.getText().contains(Text);
+		
+	}
+	
+	public void RegisterLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + RegisterLink.getText());
 		
 	}
 /*	
@@ -249,10 +298,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Grow your business by joining our partners programs!"));
 	}
-	
+/*	
 	public void BecomePartnerLinkTextValidation(){
 		
 		assertTrue(BecomePartnerLink.getText().contains("Become a Partner"));
+		
+	}
+*/	
+	public boolean BecomePartnerLinkContains(String Text){
+		
+		return BecomePartnerLink.getText().contains(Text);
+		
+	}
+	
+	public void BecomePartnerLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + BecomePartnerLink.getText());
 		
 	}
 	
@@ -262,10 +323,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("MySSL® Account Login"));
 	}
-	
+/*	
 	public void MySslLinkTextValidation(){
 		
 		assertTrue(MySslLink.getText().contains("MySSL"));
+		
+	}
+*/	
+	public boolean MySslLinkContains(String Text){
+		
+		return MySslLink.getText().contains(Text);
+		
+	}
+	
+	public void MySslLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + MySslLink.getText());
 		
 	}
 	
@@ -275,10 +348,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Free trials"));
 	}
-	
+/*	
 	public void FreeTrialsLinkTextValidation(){
 		
 		assertTrue(FreeTrialsLink.getText().contains("Free Trials"));
+		
+	}
+*/	
+	public boolean FreeTrialsLinkContains(String Text){
+		
+		return FreeTrialsLink.getText().contains(Text);
+		
+	}
+	
+	public void FreeTrialsLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + FreeTrialsLink.getText());
 		
 	}
 	
@@ -288,10 +373,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk "));
 	}
-	
+/*	
 	public void WizardLinkTextValidation(){
 		
 		assertTrue(WizardLink.getText().contains("Wizard"));
+		
+	}
+*/	
+	public boolean WizardLinkContains(String Text){
+		
+		return WizardLink.getText().contains(Text);
+		
+	}
+	
+	public void WizardLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + WizardLink.getText());
 		
 	}
 	
@@ -300,10 +397,22 @@ public class NavigationLinks extends BrowserStack {
 		AboutLink.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	}
-	
+/*	
 	public void AboutLinkTextValidation(){
 		
 		assertTrue(AboutLink.getText().contains("About"));
+		
+	}
+*/	
+	public boolean AboutLinkContains(String Text){
+		
+		return AboutLink.getText().contains(Text);
+		
+	}
+	
+	public void AboutLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + AboutLink.getText());
 		
 	}
 	
@@ -313,10 +422,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Help and Support - Install your SSL Certificate"));
 	}
-	
+/*	
 	public void SupportLinkTextValidation(){
 		
 		assertTrue(SupportLink.getText().contains("Support"));
+		
+	}
+*/	
+	public boolean SupportLinkContains(String Text){
+		
+		return SupportLink.getText().contains(Text);
+		
+	}
+	
+	public void SupportLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + SupportLink.getText());
 		
 	}
 	
@@ -326,10 +447,22 @@ public class NavigationLinks extends BrowserStack {
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("SSL247 Blog"));
 	}
-	
+/*	
 	public void BlogLinkTextValidation(){
 		
 		assertTrue(BlogLink.getText().contains("Blog"));
+		
+	}
+*/	
+	public boolean BlogLinkContains(String Text){
+		
+		return BlogLink.getText().contains(Text);
+		
+	}
+	
+	public void BlogLinkTextPrint(){
+		
+		System.out.println("Link Text is:" + BlogLink.getText());
 		
 	}
 	

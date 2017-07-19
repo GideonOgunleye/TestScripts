@@ -92,9 +92,17 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 	  			
-		  NavigationElements.SslCertificatesLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.SslCertificatesLinkContains("SSL Certificates")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.SslCertificatesLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickSslCertificatesLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -132,9 +140,18 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  NavigationElements.FreeSslLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  
+		  if (NavigationElements.FreeSslLinkContains("Free SSL")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+				test.log(LogStatus.FAIL, "Text Not Validated");
+				NavigationElements.FreeSslLinkTextPrint();
+				Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickFreeSslLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -169,31 +186,18 @@ public class MainNav_Test extends BrowserStack {
 	 
 	  try {
 		  
-		  
-		  NavigationElements.ProtectAndSecureLinkTextValidtion();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
-		
-	/*	  
-		  NavigationElements.ClickProtectAndSecureLink();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Page Opened");
-		  
-		  String PageTitle = "Penetration Testing: Advanced professional testing by accredited experts";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
-	  			    	
-	  		}
-	  	
-	  	*/
+		  if (NavigationElements.ProtectAndSecureLinkContains("Test & Protect")) { 
+			  
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+				  test.log(LogStatus.FAIL, "Text Not Validated");
+				  NavigationElements.ProtectAndSecurePrintText();
+				  Assert.fail("Text Not Validated"); 	
+		  }
+
 	  	
 	  }catch (Exception e) {
 	  						
@@ -210,10 +214,17 @@ public class MainNav_Test extends BrowserStack {
 	 
 	  try {
 		  
-		  
-		  NavigationElements.IdentifyLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.IdentifyLinkContains("Identify & Manage")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.IdentifyLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }		  
 
 	/*	  
 		  NavigationElements.ClickIdentifyLink();
@@ -252,9 +263,17 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  NavigationElements.RegisterLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.RegisterLinkContains("Register")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.RegisterLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }		  
 		  
 		  NavigationElements.ClickRegisterLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -325,9 +344,17 @@ public class MainNav_Test extends BrowserStack {
 			
 	  try {
 		  
-		  NavigationElements.BecomePartnerLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.BecomePartnerLinkContains("Become a Partner")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.BecomePartnerLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickBecomePartnerLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -361,10 +388,18 @@ public class MainNav_Test extends BrowserStack {
 	  test = report.startTest("Nav Links Test --> MySsl Link Test");
 
 	  try {
-		  
-		  NavigationElements.MySslLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+	
+		  if (NavigationElements.MySslLinkContains("MySSL")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.MySslLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickMySslLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -400,10 +435,17 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  
-		  NavigationElements.FreeTrialsLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.FreeTrialsLinkContains("Free Trials")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.FreeTrialsLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickFreeTrialsLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -439,10 +481,17 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  
-		  NavigationElements.WizardLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.WizardLinkContains("Wizard")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.WizardLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickWizardLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -477,9 +526,17 @@ public class MainNav_Test extends BrowserStack {
 	  
 	  try {
 		  
-		  NavigationElements.AboutLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.AboutLinkContains("About")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.AboutLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickAboutLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -513,10 +570,18 @@ public class MainNav_Test extends BrowserStack {
 	  test = report.startTest("Nav Links Test --> Support Link Test");
 	  
 	  try {
-		  
-		  NavigationElements.SupportLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		   
+		  if (NavigationElements.SupportLinkContains("Support")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.SupportLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickSupportLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -553,9 +618,17 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  NavigationElements.BlogLinkTextValidation();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Link Text Is Validated");
+		  if (NavigationElements.BlogLinkContains("Blog")) { 
+			  
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Link Text Is Validated");
+			  
+		  }else {
+			  	
+			  test.log(LogStatus.FAIL, "Text Not Validated");
+			  NavigationElements.BlogLinkTextPrint();
+			  Assert.fail("Text Not Validated"); 	
+		  }
 		  
 		  NavigationElements.ClickBlogLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);

@@ -33,7 +33,16 @@
     </classes>
   </test><!-- Test -->
   
- <test name="Test 5">
+    <test name="Test 5">
+  		
+  		<parameter name="config" value="Sanity_AdminUser.json"/>
+        <parameter name="environment" value="chrome"/>  
+    <classes>
+        <class name="Sanity_Test.Admin_User"/>
+    </classes>
+  </test><!--Test-->
+  
+ <test name="Test 6">
  		<parameter name="config" value="Smoke_SQL.json"/>
      	<parameter name="environment" value="chrome"/>  
      <classes>

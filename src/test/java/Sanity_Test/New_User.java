@@ -207,7 +207,7 @@ public class New_User extends BrowserStack  {
 				}catch (Exception e) {
 				
 					test.log(LogStatus.FAIL, "Form Not Submitted");
-					Assert.assertTrue(AlertBoxElements.VerifyAlert(LoginMsg));
+					Assert.fail("Form Not Submitted");
 				}
 	
 				
@@ -216,36 +216,46 @@ public class New_User extends BrowserStack  {
 	
 	
 		/*Verify Logout*/
-		if (LoginPageElements.LogoutButtonIsVisible()) {
+	
+		try {
 		
-			LoginPageElements.ClickLogoutButton();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			AlertBoxElements.AlertPrint();
+			if (LoginPageElements.LogoutButtonIsVisible()) {
 			
-			
-			if (AlertBoxElements.VerifyAlert(LogOutMsg)){
+				LoginPageElements.ClickLogoutButton();
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				AlertBoxElements.AlertPrint();
 				
-				test.log(LogStatus.PASS, "Log Out Message Does Not Match");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
 				
+				if (AlertBoxElements.VerifyAlert(LogOutMsg)){
+					
+					test.log(LogStatus.PASS, "Log Out Button Is Visible");
+					Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
+					
+				}else {
+					
+					test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
+					Assert.fail("Client Log Out Not Sucessfull");
+				}
+		
 			}else {
-				
+				System.out.println("LogOut Button Not Visible");
 				test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
+				Assert.fail("LogOut Button Not Visible");
+		
 			}
-	
-		}else {
-			System.out.println("LogOut Button Not Visible");
-			test.log(LogStatus.FAIL, "Client Log Out Not Sucessfull");
-			Assert.assertTrue(AlertBoxElements.VerifyAlert(LogOutMsg));
-	
+		
+		}catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Validation Failed");
+		Assert.fail("Exception " + e);
+
 		}
 
-	}
+
+}
 	
   
- 
- 
+
   @Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Get_in_Touch () throws Exception {
 	  
@@ -581,9 +591,8 @@ public class New_User extends BrowserStack  {
 	String imagePath2 = test.addScreenCapture(path2);
 	test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
     
-    driver.manage().timeouts().implicitlyWait(100,TimeUnit.SECONDS);
+    //driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     
- 
     WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a"));
     Mouse.moveToElement(EyeIcon);
     Mouse.click();

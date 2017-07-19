@@ -116,11 +116,22 @@ public class Admin_User extends BrowserStack {
 	  driver.navigate().refresh();
 	  Thread.sleep(5000);
 	  
-	  LoginPageElements.ClickAdminLogoutButton();
-	  test.log(LogStatus.INFO, "Admin User Logged Out");
+	 try{ 
+		 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
 	  
-	  report.endTest(test);
-	  report.flush();
+	 }catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Logout Failed");
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
+		}
+	  
+	 report.endTest(test);
+	 report.flush();
+	  
 	  
 	 // return destination;
   }
@@ -131,7 +142,7 @@ public class Admin_User extends BrowserStack {
 	  report = ExtentFactory.getInstance3();
 	 // LoginPageElements.AdminLogin();
 		
-	  test = report.startTest("New User Test --> Admin Login/LogOut");
+	  test = report.startTest("Admin User Test --> Admin Login/LogOut");
 	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	  
 	  Thread.sleep(5000);
@@ -448,7 +459,8 @@ public class Admin_User extends BrowserStack {
 		  	AdminSslDashBoardElements.ProposalsLinkClick();
 			Thread.sleep(10000);
 			test.log(LogStatus.INFO, "Proposal Link Clicked");
-			
+		
+		try {	
 			//Click on New Proposal
 			//ProposalsPageElements.ValidatePage();
 			ProposalsPageElements.NewProposalButtonClink();
@@ -500,6 +512,13 @@ public class Admin_User extends BrowserStack {
 			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Click on Save Proposal Button");
 			
+		}catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "Validation Failed");
+				Assert.fail("Exception " + e);
+		
+		}
+	
 			
 			//Validate Test
 			try {
@@ -657,6 +676,8 @@ public class Admin_User extends BrowserStack {
 	  	Actions  actions=new Actions(driver);
 	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
 	  	actions.moveToElement(ProductsLink);
+	  	actions.perform();
+	  	
 	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 	  	
 	  	Thread.sleep(1000);

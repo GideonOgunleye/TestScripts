@@ -25,7 +25,7 @@ public class DriverLoad {
 	
 
 
-  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"} )
+  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke"} )
   public void Chrome_BeforeTest() throws IOException  {
 	
  	 
@@ -36,7 +36,7 @@ public class DriverLoad {
    
   }
 
-  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"})
+  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke"})
   public void Chrome_AfterTest() throws Exception {
 	  
 	  Thread.sleep(10000);

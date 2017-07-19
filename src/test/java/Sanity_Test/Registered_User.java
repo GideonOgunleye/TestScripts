@@ -99,8 +99,19 @@ public class Registered_User extends BrowserStack  {
 		
 		Thread.sleep(5000);
 		
-		LoginPageElements.ClickLogoutButton();
-		test.log(LogStatus.INFO, "User Logged Out");
+		try{
+			
+			LoginPageElements.ClickLogoutButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "User Logged Out");
+		
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Logout Failed");
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
+		}
 		
 		report.endTest(test);
 		report.flush();
@@ -121,7 +132,7 @@ public class Registered_User extends BrowserStack  {
 		 // report = ExtentFactory.getInstance(); 
 		  report = ExtentFactory.getInstance3();
 			
-		  test = report.startTest("New User Test --> User Login");
+		  test = report.startTest("Registered User Test --> User Login");
 		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 		  
 		  //LoginPageElements.ClientLogin();
@@ -151,7 +162,7 @@ public class Registered_User extends BrowserStack  {
 			}catch(Exception e) {
 				System.out.println("Dashboard Page Not Opened");
 				test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
-				Assert.fail("Exception " + e);
+				//Assert.fail("Exception " + e);
 			
 				}
 		    
