@@ -665,50 +665,56 @@ public class Admin_User extends BrowserStack {
   @Test (priority = 4,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void Send_Fulfillment_Email() throws Exception {
 	  
-	  test = report.startTest("Admin Test -->  Send Fullfillement Email");
+	    test = report.startTest("Admin Test -->  Send Fullfillement Email");
 	    test.log(LogStatus.INFO, "Admin User Logged in");
 	  
-	  //Navigate to products link
+	    //Navigate to products link
 	    
 	    Thread.sleep(1000);
-	    
-	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	  	Actions  actions=new Actions(driver);
-	  	WebElement ProductsLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/a"));
-	  	actions.moveToElement(ProductsLink);
-	  	actions.perform();
-	  	
-	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-	  	
-	  	Thread.sleep(1000);
-	  	
-	  	WebElement CertificatesLink=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a"));
-	    actions.moveToElement(CertificatesLink);
-	  	actions.click();
-	  	actions.perform();
-	  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-	  	test.log(LogStatus.INFO, "Opened Search Products Page");
-	  	
-	  	Thread.sleep(5000);
+	
+	    try {   
+	    	
+		  	WebDriverWait wait = new WebDriverWait(driver, 50);
+		  	Actions  actions=new Actions(driver);
+		  	
+		  	WebElement ProductsLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/a")));
+		  	actions.moveToElement(ProductsLink);
+		  	actions.perform();
+		  	
+		  	WebElement CertificatesLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a")));
+		    actions.moveToElement(CertificatesLink);
+		  	actions.click();
+		  	actions.perform();
+		  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+		  	test.log(LogStatus.INFO, "Opened Search Products Page");
+		  	
+		  	Thread.sleep(5000);
+			
+		  	//Select Account Name from for field
+		  	AdminCertificatesPageElements.ForFieldSelect("Account name");
+			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Account Name From Field");
+		  	
+			//Select Issued from Status Field
+			AdminCertificatesPageElements.StatusFieldSelect("Issued");
+			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Issued From Status Field");
+			
+		    //Enter Account Name into form field and Click Search
+			AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
+			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Entered account name in field");
+			
+			AdminCertificatesPageElements.SearchButtonClick();	
+			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Search Button");
 		
-	  	//Select Account Name from for field
-	  	AdminCertificatesPageElements.ForFieldSelect("Account name");
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Selected Account Name From Field");
-	  	
-		//Select Issued from Status Field
-		AdminCertificatesPageElements.StatusFieldSelect("Issued");
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Selected Issued From Status Field");
+		}catch (Exception e){
+			
+			System.out.println("Search Fields Not Present");
+			test.log(LogStatus.FAIL, "Search Fields Not Present");
+		}
 		
-	    //Enter Account Name into form field and Click Search
-		AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Entered account name in field");
-		
-		AdminCertificatesPageElements.SearchButtonClick();	
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked Search Button");
 		
 		//Wait for Result to appear 
 		try {
@@ -866,6 +872,7 @@ public class Admin_User extends BrowserStack {
 
 	
   }
+  
   
   
   @Test (priority = 5,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
