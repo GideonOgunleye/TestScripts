@@ -579,11 +579,16 @@ public class New_User extends BrowserStack  {
   @Test (priority = 5, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
   public void Request_a_PenTest_Proposal() throws Exception{
 	  
+	  
 	test = report.startTest("New User Test --> Request a PenTest Form");
 	test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	
+	Thread.sleep(1000);
+	
+	WebDriverWait wait = new WebDriverWait(driver, 50);
 	Actions  Mouse=new Actions(driver);
-    WebElement Dropdown=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/a"));
+	
+	WebElement Dropdown=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/a")));
     Mouse.moveToElement(Dropdown);
     Mouse.perform();
     
@@ -591,9 +596,7 @@ public class New_User extends BrowserStack  {
 	String imagePath2 = test.addScreenCapture(path2);
 	test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
     
-    //driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-    
-    WebElement EyeIcon=driver.findElement(By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a"));
+	WebElement EyeIcon=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a")));
     Mouse.moveToElement(EyeIcon);
     Mouse.click();
     Mouse.perform();	
@@ -681,54 +684,6 @@ public class New_User extends BrowserStack  {
 			
 		}
 
-  }
-/*  
-  @BeforeTest (groups = {"Sanity"})
-  public void BeforeTest() throws IOException, Exception {
-	
-	 /*----Firefox Driver------
-	 //System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
-	// driver = new FirefoxDriver(); 
-	 
-	 System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-	 driver = new ChromeDriver();  
-	 
-	
-	 System.out.println("New User Module Test is Running.....");
-*/	 
-	 
-/*	 
-	 Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
-				 
-		prop.load(fis);
+  }	
 
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		Thread.sleep(5000);
-		//driver.findElement(By.id("cookiesStatus")).click();
-		driver.findElement(By.xpath(".//*[@id='ackCookies']")).click();
-		Thread.sleep(5000);
-	
-	 
-  }
-*/
- 
-/*  
-  @AfterTest (groups = {"Sanity"})
-  public void AfterTest() throws Exception {
-	  
-	 Thread.sleep(10000);
-	 //report.endTest(test);
-	 
-	 driver.quit();
-	 System.out.println("New User Module Test is Complete!");
-	 
-	
-  }
-*/  
-  
 }
