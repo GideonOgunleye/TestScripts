@@ -29,6 +29,7 @@ PageFactory\ClientAccountsPage.class
 PageFactory\AdminSslDashBoard.class
 PageFactory\AdminNavigationLinks.class
 PageFactory\NavigationLinks.class
+Sanity_Test\Test_Build2.class
 PageFactory\BillingPage.class
 Sanity_Test\SubNavigation_Test.class
 Sanity_Test\Admin_User.class

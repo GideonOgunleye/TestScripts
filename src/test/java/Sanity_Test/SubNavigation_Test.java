@@ -142,7 +142,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 2, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void GeoTrustLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> GeoTrustLink Test");
 	  NavigationElements.GeoTrustLinkClick();
 	  
 	  String PageTitle = "GeoTrust SSL Certificates";
@@ -171,7 +171,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 3, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ThawteLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> ThawteLink Test");
 	  NavigationElements.ThawteLinkClick();
 	  
 	  String PageTitle = "Thawte SSL Certificates";
@@ -200,7 +200,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 4, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void GlobalSignLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> GlobalSignLink Test");
 	  NavigationElements.GlobalSignLinkClick();
 	  
 	  String PageTitle = "GlobalSign SSL Certificates";
@@ -229,7 +229,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 5, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ComodoLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> ComodoLink Test");
 	  NavigationElements.ComodoLinkClick();
 	  
 	  String PageTitle = "Comodo SSL Certificates";
@@ -258,7 +258,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 6, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void RapidSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> RapidSslLink Test");
 	  NavigationElements.RapidSslLinkClick();
 	  
 	  String PageTitle = "RapidSSL Certificates";
@@ -287,7 +287,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 7, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void EntrustLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> EntrustLink Test");
 	  NavigationElements.EntrustLinkClick();
 	  
 	  String PageTitle = "Entrust SSL Certificates";
@@ -316,7 +316,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 8, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SanSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> SanSslLink Test");
 	  NavigationElements.SanSslLinkClick();
 	  
 	  String PageTitle = "SSL: UC & SAN Certificates for Microsoft Exchange and OCS";
@@ -345,7 +345,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 9, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void WildcardSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> WildcardSslLink Test");
 	 NavigationElements.WildcardSslLinkClick();
 	  
 	  String PageTitle = "Wildcard SSL - Secure unlimited sub-domains";
@@ -374,7 +374,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 10, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SanWildcardSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> SanWildcardSslLink Test");
 	 NavigationElements.SanWildcardSslLinkClick();
 	  
 	  String PageTitle = "SAN Wildcard SSL - The truly flexible and cost effective multi-use certificate";
@@ -403,7 +403,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 11, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ECCSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> ECCSslLink Test");
 	 NavigationElements.ECCSslLinkClick();
 	  
 	  String PageTitle = "ECC Encryption - Stronger and Faster";
@@ -432,7 +432,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 12, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void IPaddressSslLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> IPaddressSslLink Test");
 	 NavigationElements.IPaddressSslLinkClick();
 	  
 	  String PageTitle = "Secure your IP address rather than your domain name with IP SSL";
@@ -461,7 +461,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 13, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void ExtendedValidationLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> ExtendedValidationLink Test");
 	 NavigationElements.ExtendedValidationLinkClick();
 	  
 	  String PageTitle = "EV SSL - Displaying the ‘green bar of trust’";
@@ -490,7 +490,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 14, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void OrganisationValidationLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> OrganisationValidationLink Test");
 	 NavigationElements.OrganisationValidationLinkClick();
 	  
 	  String PageTitle = "Organisationally Validated SSL Certificates";
@@ -519,7 +519,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 15, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void SymantecReadyIssuanceLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> Symantec Ready Issuance Link Test");
 	 NavigationElements.SymantecReadyIssuanceLinkClick();
 	  
 	  String PageTitle = "Symantec Ready Issuance with SSL247®";
@@ -548,7 +548,7 @@ public class SubNavigation_Test extends BrowserStack {
   @Test (priority = 16, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
   public void DomainValidationLink_Test() {
 	  
-	 test = report.startTest("Nav Links Test --> VeriSign Link Test");
+	 test = report.startTest("Nav Links Test --> Domain Validation Link Test");
 	 NavigationElements.DomainValidationLinkClick();
 	  
 	  String PageTitle = "Domain Validated certificates";
