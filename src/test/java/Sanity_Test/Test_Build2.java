@@ -34,7 +34,9 @@ import PageFactory.AdminIssuedCertificatesPage;
 import PageFactory.AdminNavigationLinks;
 import PageFactory.AdminSslDashBoard;
 import PageFactory.BillingPage;
+import PageFactory.CertificateDetailsPage;
 import PageFactory.ClientAccountsPage;
+import PageFactory.IssuedCertificatesPage;
 import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
 import PageFactory.ProposalsPage;
@@ -42,123 +44,98 @@ import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
 public class Test_Build2 extends BrowserStack {
-	  ExtentReports report;
-	  ExtentTest test;
-	  LoginPage 	LoginPageElements;
-	  AdminNavigationLinks AdminNavigationLinksElements;
-	  AdminCertificatesPage AdminCertificatesPageElements;
-	  NavigationLinks NavigationLinksElements;
-	  BillingPage BillingPageElements;
-	  sslDashBoard sslDashBoardElements;
-	  AdminSslDashBoard AdminSslDashBoardElements;
-	  AlertBox AlertBoxElements;
-	  ProposalsPage ProposalsPageElements;
-	  ClientAccountsPage ClientAccountsPageElements;
-	  AdminIssuedCertificatesPage AdminIssuedCertificatesPage;
-	  AdminCertificateDetailsPage AdminCertificateDetailsPage;
-	  TakeScreenShot ScreenShot;
+	ExtentReports report;
+	ExtentTest test;
+	LoginPage 	LoginPageElements;
+	BillingPage BillingPageElements;
+	sslDashBoard sslDashBoardElements;
+	CsR CsrElements;
+	NavigationLinks NavigationElements;
+	AlertBox AlertBoxElements;
+	TakeScreenShot ScreenShot;
+	IssuedCertificatesPage IssuedCertificatesPageElements;
+	CertificateDetailsPage CertificateDetailsPageElements;
 	
-	 @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
-	  public void Login() throws Exception {
+	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","BS_DailySanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
+	public void Login () throws Exception {
+		
+		report = ExtentFactory.getInstance(); 
+		LoginPageElements = new LoginPage(driver);
+		BillingPageElements = new BillingPage(driver);
+		sslDashBoardElements = new sslDashBoard(driver);
+		CsrElements = new CsR(driver);
+		NavigationElements = new NavigationLinks(driver);
+		AlertBoxElements = new AlertBox(driver);
+		IssuedCertificatesPageElements = new IssuedCertificatesPage(driver);
+		CertificateDetailsPageElements = new CertificateDetailsPage(driver);
+		ScreenShot = new TakeScreenShot();
+		
+		
+		LoginPageElements.ClientLogin();
+		
+		Thread.sleep(5000);		
+	}
 
-		  LoginPageElements = new LoginPage(driver);
-		  BillingPageElements = new BillingPage(driver);
-		  sslDashBoardElements = new sslDashBoard(driver);
-		  AdminSslDashBoardElements = new AdminSslDashBoard(driver);
-		  AlertBoxElements = new AlertBox(driver);
-		  ProposalsPageElements = new ProposalsPage(driver);
-		  NavigationLinksElements = new NavigationLinks(driver);
-		  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
-		  ClientAccountsPageElements = new ClientAccountsPage(driver);
-		  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
-		  AdminIssuedCertificatesPage = new AdminIssuedCertificatesPage(driver);
-		  AdminCertificateDetailsPage = new AdminCertificateDetailsPage(driver);
-		  ScreenShot = new TakeScreenShot();
-	  
-		  LoginPageElements.AdminLogin();
-	 
-		  report = ExtentFactory.getInstance(); 	 
-			 
-	  }
+	
+	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_DailySanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
+	public void Logout (ITestResult result) throws Exception {
 
-@AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
-public void Log_Out (ITestResult result) throws Exception {
-	    
-	  
-	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
-	  String imagePath = test.addScreenCapture(path);
-	  test.log(LogStatus.INFO, "Test Complete", imagePath);
-	  
-	  
-	  /*User Log Out*/
-	  driver.navigate().refresh();
-	  Thread.sleep(5000);
-	  
-	 try{ 
-		 
-		  LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
-		  report.endTest(test);
-		  report.flush();
-	  
-	 }catch (Exception e) {
+	    //Take Screen Shots
+				
+	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
+		String imagePath = test.addScreenCapture(path);
+		test.log(LogStatus.INFO, "Test Complete", imagePath);
+		
+		driver.navigate().refresh();
+		
+		Thread.sleep(5000);
+		
+		try{
+			
+			LoginPageElements.ClickLogoutButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "User Logged Out");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
+		
+		}catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
 			report.endTest(test);
 			report.flush();
 			//Assert.fail("Exception " + e);
 		}
-	 
-	 // return destination;
-}
+		
+		//return destination;
+		
+	}
 	
-@Test (priority = 3,groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate")
-public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
-	  
-	  test = report.startTest("Admin Test --> Sync Cert With CA");
-	  test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
-		 
-	  //ClientAccountsPageElements.ValidatePage();
-	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
-		 
-	  ClientAccountsPageElements.UpdateButtonClink();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on Update Button");
-	  
-	  JavascriptExecutor jse = (JavascriptExecutor)driver;
-	  jse.executeScript("window.scrollBy(0,500)", "");
-		 
-	  Thread.sleep(1000);
-	  
-	  ClientAccountsPageElements.ValidateResults("UKTE001");
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
-	  
-	  ClientAccountsPageElements.ViewAccount();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
-	  
-	  Thread.sleep(1000);
-	  
-	try {
-	 
-	  		test.log(LogStatus.INFO, "DashBord Page Opened");
-	  		
-	  		AdminSslDashBoardElements.ClickMysslCertificatessLink();
-	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Myssl Certificates Link");
-	  		
-	  		AdminSslDashBoardElements.IssuedLinkClick();
-	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Issued Link");
-			
-			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
+	@Test (priority = 3, groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
+	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
+		
+		System.out.println("Reissue Certificate Test Started!");
+		
+		test = report.startTest("Registered User Test --> Reissue Certificate: " + Product );
+	    test.log(LogStatus.INFO, "User Logged in");
+		
+		//Navigate Domain Names Link on side bar
+	    sslDashBoardElements.ClickMysslCertificatessLink();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on My SSL Link");
+	    
+	    sslDashBoardElements.IssuedLinkClick();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    test.log(LogStatus.INFO, "Clicked on Issued Link");
+	    
+	    try {
+	    	
+	    	if (IssuedCertificatesPageElements.Column1Contains(Product)) {
 	    		
 	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
@@ -167,18 +144,15 @@ public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, S
 				String imagePath = test.addScreenCapture(path);
 				test.log(LogStatus.INFO, imagePath);
 	    	    
-				AdminIssuedCertificatesPage.Column1TextPrint();
+				IssuedCertificatesPageElements.Column1TextPrint();
 				
-				AdminIssuedCertificatesPage.Product1View();
+	    		IssuedCertificatesPageElements.Product1View();
 	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    	    test.log(LogStatus.INFO, "Clicked to view product");
-	    	    
-	    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
 	    		
 	    	    
-	    		}else if (AdminIssuedCertificatesPage.Column2Contains(Product)) {
+	    		
+	    		}else if (IssuedCertificatesPageElements.Column2Contains(Product)) {
 	    			
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
@@ -187,17 +161,13 @@ public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, S
 					String imagePath = test.addScreenCapture(path);
 					test.log(LogStatus.INFO, imagePath);
 					
-					AdminIssuedCertificatesPage.Column2TextPrint();
+					IssuedCertificatesPageElements.Column2TextPrint();
 				
-					AdminIssuedCertificatesPage.Product2View();
+	    			IssuedCertificatesPageElements.Product2View();
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Clicked to view product");
-		    	    
-		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
 	    			
-		    	}else if (AdminIssuedCertificatesPage.Column3Contains(Product)) {
+		    	}else if (IssuedCertificatesPageElements.Column3Contains(Product)) {
 	    			
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
@@ -206,16 +176,12 @@ public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, S
 					String imagePath = test.addScreenCapture(path);
 					test.log(LogStatus.INFO, imagePath);
 					
-					AdminIssuedCertificatesPage.Column3TextPrint();
+					IssuedCertificatesPageElements.Column3TextPrint();
 				
-					AdminIssuedCertificatesPage.Product3View();
+	    			IssuedCertificatesPageElements.Product3View();
 	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		    	    test.log(LogStatus.INFO, "Clicked to view product");
-		    	    
-		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
-  			
+    			
 	    	}else {
 				
 				System.out.println("Product Not Found");
@@ -225,50 +191,83 @@ public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, S
 				test.log(LogStatus.INFO, imagePath);
 				
 		    	}	
-	  
-		}catch (Exception e) {
+	    	
+	    }catch (Exception e) {
+	    	
+	    	String path = ScreenShot.Image(driver, "Product");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+	    }
 		
+	    
+	    //Certificates Page
+	    try {
+	    
+	    	CertificateDetailsPageElements.ReIssueButtonClick();
+	    	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked on Re-Issued Tab");
+    	    
+    	    CertificateDetailsPageElements.CsrFieldClick();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked Csr Field");
+    	    
+    	    CertificateDetailsPageElements.LoadSsl247_TestCsR();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Loaded Csr");
+    	    
+    	    CertificateDetailsPageElements.ValidateCsrButton();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked Validate Csr Button");
+    	    
+    	    Thread.sleep(1000);
+    	    
+    	    CertificateDetailsPageElements.ReIssueCertificateButtonClick();
+    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	    test.log(LogStatus.INFO, "Clicked on Reissue Certificate Button");
+	    
+		}catch (Exception e) {
+			
 			String path = ScreenShot.Image(driver, "Product");
 			String imagePath = test.addScreenCapture(path);
 			test.log(LogStatus.INFO, imagePath);
 			test.log(LogStatus.FAIL, "Validation Failed");
 			Assert.fail("Exception " + e);
-
-	}
-	
-	Thread.sleep(1000);
-	
-	  		
-		//Validate Alert	
-		try { 
-			
-			String Alertnote = "Certificate synced with the CA";  
-			AlertBoxElements.AlertWait();
-			
-			if (AlertBoxElements.VerifyAlert(Alertnote)) {
-				
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-				test.log(LogStatus.PASS, "Validation Complete");
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				System.out.println("Validation Complete!");
-				
-			}else {
-					    	
-				test.log(LogStatus.FAIL, "Alert Validation Failed");
-				AlertBoxElements.AlertPrint();
-				//Assert.fail("Validation Failed ");		    	
-			}
-			
-		}catch (Exception e) {
-			
-			String path = ScreenShot.Image(driver, "SearchResult");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Alert not Displayed");
-			test.log(LogStatus.INFO, imagePath);
-
 		}
-	  
-}
-
+	    
+	    
+	    try {
+	    	
+	    	String Alertnote = "Certificate has been submitted for reissue";  
+	    	AlertBoxElements.AlertWait();
+	    			    	
+	      if (AlertBoxElements.VerifyAlert(Alertnote)) {
+	    						
+	    	test.log(LogStatus.PASS, "Validation Complete");
+	    	Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+	    	System.out.println("Validation Complete!");
+	    	
+	      }else{
+	    	
+	    	String path = ScreenShot.Image(driver, "SearchResult");
+	    	String imagePath = test.addScreenCapture(path);
+	    	test.log(LogStatus.INFO, imagePath);
+  
+	    	test.log(LogStatus.FAIL, "Alert Validation Failed");
+	    	AlertBoxElements.AlertPrint();
+	   	    	
+	    	}
+	    	
+	    }catch (Exception e) {
+	    						
+	    	test.log(LogStatus.FAIL, "Alart Not Displayed");
+	    	String path = ScreenShot.Image(driver, "SearchResult");
+	    	String imagePath = test.addScreenCapture(path);
+	    	test.log(LogStatus.INFO, imagePath);
+	    	Assert.fail("Exception " + e);
+	    }
+	    
+	}   
   
 }

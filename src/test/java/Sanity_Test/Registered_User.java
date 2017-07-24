@@ -66,7 +66,7 @@ public class Registered_User extends BrowserStack  {
 	CertificateDetailsPage CertificateDetailsPageElements;
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","BS_DailySanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
-	public void User_Login () throws Exception {
+	public void Login () throws Exception {
 		
 		report = ExtentFactory.getInstance(); 
 		LoginPageElements = new LoginPage(driver);
@@ -87,7 +87,7 @@ public class Registered_User extends BrowserStack  {
 
 	
 	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_DailySanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
-	public void User_Logout (ITestResult result) throws Exception {
+	public void Logout (ITestResult result) throws Exception {
 
 	    //Take Screen Shots
 				
