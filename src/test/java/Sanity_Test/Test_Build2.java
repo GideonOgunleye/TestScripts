@@ -42,179 +42,233 @@ import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
 public class Test_Build2 extends BrowserStack {
-	//public WebDriver driver;
-	ExtentReports report;
-	ExtentTest test;
-	LoginPage 	LoginPageElements;
-	BillingPage BillingPageElements;
-	sslDashBoard sslDashBoardElements;
-	CsR CsrElements;
-	Cookies CookiesElements;
-	NavigationLinks NavigationElements;
-	AlertBox AlertBoxElements;
-	TakeScreenShot ScreenShot;
+	  ExtentReports report;
+	  ExtentTest test;
+	  LoginPage 	LoginPageElements;
+	  AdminNavigationLinks AdminNavigationLinksElements;
+	  AdminCertificatesPage AdminCertificatesPageElements;
+	  NavigationLinks NavigationLinksElements;
+	  BillingPage BillingPageElements;
+	  sslDashBoard sslDashBoardElements;
+	  AdminSslDashBoard AdminSslDashBoardElements;
+	  AlertBox AlertBoxElements;
+	  ProposalsPage ProposalsPageElements;
+	  ClientAccountsPage ClientAccountsPageElements;
+	  AdminIssuedCertificatesPage AdminIssuedCertificatesPage;
+	  AdminCertificateDetailsPage AdminCertificateDetailsPage;
+	  TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Sanity_Chrome"})
-	public void Load_Homepage () throws Exception {
-		
-		report = ExtentFactory.getInstance(); 
-		LoginPageElements = new LoginPage(driver);
-		BillingPageElements = new BillingPage(driver);
-		sslDashBoardElements = new sslDashBoard(driver);
-		CsrElements = new CsR(driver);
-		CookiesElements = new Cookies(driver);
-		NavigationElements = new NavigationLinks(driver);
-		AlertBoxElements = new AlertBox(driver);
-		ScreenShot = new TakeScreenShot();
-		
-		LoginPageElements.LoadLoginPage();
-		
-		report = ExtentFactory.getInstance();
-		
-		Thread.sleep(5000);		
-	}
-	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","Sanity_Chrome"},alwaysRun = true)
-	public void Aftermethod (ITestResult result) throws IOException, Exception {
+	 @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+	  public void Login() throws Exception {
 
-/*		
-		String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
-	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
-		  
-	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(sourceFile, new File(Directory + filename));
-		  
-		String destination = Directory + filename;
-*/
-		
-	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
-		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.INFO, "Test Complete", imagePath);
-		
-		driver.navigate().refresh();
-		Thread.sleep(1000);
-		System.out.println("Page Refreshed");
-		
+		  LoginPageElements = new LoginPage(driver);
+		  BillingPageElements = new BillingPage(driver);
+		  sslDashBoardElements = new sslDashBoard(driver);
+		  AdminSslDashBoardElements = new AdminSslDashBoard(driver);
+		  AlertBoxElements = new AlertBox(driver);
+		  ProposalsPageElements = new ProposalsPage(driver);
+		  NavigationLinksElements = new NavigationLinks(driver);
+		  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
+		  ClientAccountsPageElements = new ClientAccountsPage(driver);
+		  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
+		  AdminIssuedCertificatesPage = new AdminIssuedCertificatesPage(driver);
+		  AdminCertificateDetailsPage = new AdminCertificateDetailsPage(driver);
+		  ScreenShot = new TakeScreenShot();
+	  
+		  LoginPageElements.AdminLogin();
+	 
+		  report = ExtentFactory.getInstance(); 	 
+			 
+	  }
+
+@AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+public void Log_Out (ITestResult result) throws Exception {
+	    
+	  
+	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
+	  String imagePath = test.addScreenCapture(path);
+	  test.log(LogStatus.INFO, "Test Complete", imagePath);
+	  
+	  
+	  /*User Log Out*/
+	  driver.navigate().refresh();
+	  Thread.sleep(5000);
+	  
+	 try{ 
+		 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  report.endTest(test);
+		  report.flush();
+	  
+	 }catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Logout Failed");
+			report.endTest(test);
+			report.flush();
+			//Assert.fail("Exception " + e);
+		}
+	 
+	 // return destination;
+}
 	
-		test.log(LogStatus.INFO, "Browser Refreshed");
-		report.endTest(test);
-		report.flush();
-	
-	//return destination;
+@Test (priority = 3,groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate")
+public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
+	  
+	  test = report.startTest("Admin Test --> Sync Cert With CA");
+	  test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
+		 
+	  //ClientAccountsPageElements.ValidatePage();
+	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+		 
+	  ClientAccountsPageElements.UpdateButtonClink();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Click on Update Button");
+	  
+	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  jse.executeScript("window.scrollBy(0,500)", "");
+		 
+	  Thread.sleep(1000);
+	  
+	  ClientAccountsPageElements.ValidateResults("UKTE001");
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+	  
+	  ClientAccountsPageElements.ViewAccount();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
+	  
+	  Thread.sleep(1000);
+	  
+	try {
+	 
+	  		test.log(LogStatus.INFO, "DashBord Page Opened");
+	  		
+	  		AdminSslDashBoardElements.ClickMysslCertificatessLink();
+	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Myssl Certificates Link");
+	  		
+	  		AdminSslDashBoardElements.IssuedLinkClick();
+	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Issued Link");
+			
+			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
+	    		
+	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
+	    		
+	    	    String path = ScreenShot.Image(driver, "Product");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
+	    	    
+				AdminIssuedCertificatesPage.Column1TextPrint();
+				
+				AdminIssuedCertificatesPage.Product1View();
+	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    	    test.log(LogStatus.INFO, "Clicked to view product");
+	    	    
+	    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+	    		
+	    	    
+	    		}else if (AdminIssuedCertificatesPage.Column2Contains(Product)) {
+	    			
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
+		    	    
+		    	    String path = ScreenShot.Image(driver, "Product");
+					String imagePath = test.addScreenCapture(path);
+					test.log(LogStatus.INFO, imagePath);
+					
+					AdminIssuedCertificatesPage.Column2TextPrint();
+				
+					AdminIssuedCertificatesPage.Product2View();
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked to view product");
+		    	    
+		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+	    			
+		    	}else if (AdminIssuedCertificatesPage.Column3Contains(Product)) {
+	    			
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
+		    	    
+		    	    String path = ScreenShot.Image(driver, "Product");
+					String imagePath = test.addScreenCapture(path);
+					test.log(LogStatus.INFO, imagePath);
+					
+					AdminIssuedCertificatesPage.Column3TextPrint();
+				
+					AdminIssuedCertificatesPage.Product3View();
+	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked to view product");
+		    	    
+		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+  			
+	    	}else {
+				
+				System.out.println("Product Not Found");
+				test.log(LogStatus.FAIL, "Product Not Found");
+				String path = ScreenShot.Image(driver, "Product");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
+				
+		    	}	
+	  
+		}catch (Exception e) {
 		
+			String path = ScreenShot.Image(driver, "Product");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			Assert.fail("Exception " + e);
+
 	}
 	
-	  @Test (priority = 5, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
-	  public void Request_a_PenTest_Proposal() throws Exception{
-		  
-		test = report.startTest("New User Test --> Request a PenTest Form");
-		test.log(LogStatus.INFO, "Browser Opened and Url Entered");
-		
-		Thread.sleep(1000);
-		
-		WebDriverWait wait = new WebDriverWait(driver, 50);
-		Actions  Mouse=new Actions(driver);
-		
-		WebElement Dropdown=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/a")));
-	    Mouse.moveToElement(Dropdown);
-	    Mouse.perform();
-	    
-	    String path2 = ScreenShot.Image(driver, "Screenshot");
-		String imagePath2 = test.addScreenCapture(path2);
-		test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
-	    
-		WebElement EyeIcon=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a")));
-	    Mouse.moveToElement(EyeIcon);
-	    Mouse.click();
-	    Mouse.perform();	
-		
-		
-		Thread.sleep(1000);
-		
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,500)", "");
-		
-		Thread.sleep(1000);
-		
-		try {
+	Thread.sleep(1000);
+	
+	  		
+		//Validate Alert	
+		try { 
 			
-			String Msg = "Request a free proposal";
-			WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a"));
+			String Alertnote = "Certificate synced with the CA";  
+			AlertBoxElements.AlertWait();
 			
-			if (ProposalForm.getText().contains(Msg)) {
+			if (AlertBoxElements.VerifyAlert(Alertnote)) {
 				
-				test.log(LogStatus.PASS, "Form Opened");
-				
-				ProposalForm.click();
-				driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-				test.log(LogStatus.INFO, "Clicked On Proposal Form");
-				
+				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+				test.log(LogStatus.PASS, "Validation Complete");
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				System.out.println("Validation Complete!");
 				
 			}else {
-				
-				System.out.println("Message is:" + ProposalForm.getText());
-				//ScreenShot.Image(null);
-				String path = ScreenShot.Image(driver, "SearchResult");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
-				
+					    	
+				test.log(LogStatus.FAIL, "Alert Validation Failed");
+				AlertBoxElements.AlertPrint();
+				//Assert.fail("Validation Failed ");		    	
 			}
-		
-			WebElement Title = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[1]/div/select"));
-			Select Tl = new Select(Title);
-			Tl.selectByVisibleText("Mrs");
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[2]/div/input")).sendKeys("Gideon");
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[3]/div/input")).sendKeys("Ogunleye");
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[5]/div/input")).sendKeys("qa@ssl247.co.uk");
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[6]/div/input")).sendKeys("0123456789");
-			WebElement RequiredBx = driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[7]/div/label[3]/input"));
-			RequiredBx.click();
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[2]/div[8]/div/textarea")).sendKeys("This message is for testing purposes and only. thanks");
-			Thread.sleep(5000);
-			CookiesElements.CheckCookies();
-			driver.findElement(By.xpath(".//*[@id='penTestForm']/div[3]/button[1]")).click();
-		
+			
 		}catch (Exception e) {
 			
-			String path = ScreenShot.Image(driver, "FormDispaly" + driver.hashCode());
+			String path = ScreenShot.Image(driver, "SearchResult");
 			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Form Not Opened", imagePath);
-			Assert.fail("Exception " + e);
-			driver.quit();
-			
-		}
-		
-	    
-	 
-	    try {
-		  
-	    	String StatusMsg = "Your query is being processed";
-	    	AlertBoxElements.AlertWait();
-	    	
-	    	if (AlertBoxElements.VerifyAlert(StatusMsg)) {
-				
-				test.log(LogStatus.PASS, "Form Submitted");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(StatusMsg));
-				
-	    	}else{
-	    		
-	    		AlertBoxElements.AlertPrint();	
-	    	  	test.log(LogStatus.FAIL, "Validation Failed");
-	    	  	Assert.fail("Validation Failed ");
-	    	  	
-	    	  }
-			
-		}catch (Exception e) {
-				
-				test.log(LogStatus.FAIL, "Alert Not Displayed");
-				
-			}
+			test.log(LogStatus.FAIL, "Alert not Displayed");
+			test.log(LogStatus.INFO, imagePath);
 
-	  }	
-	
- 
-  
-  
+		}
+	  
+}
+
   
 }

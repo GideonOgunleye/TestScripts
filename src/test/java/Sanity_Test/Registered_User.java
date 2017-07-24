@@ -104,17 +104,22 @@ public class Registered_User extends BrowserStack  {
 			LoginPageElements.ClickLogoutButton();
 			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "User Logged Out");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
 		
 		}catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
 			report.endTest(test);
 			report.flush();
-			Assert.fail("Exception " + e);
+			//Assert.fail("Exception " + e);
 		}
-		
-		report.endTest(test);
-		report.flush();
 		
 		//return destination;
 		

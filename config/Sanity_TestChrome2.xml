@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+   <groups>
+    <run>
+    <include name="BS_Sanity"/>
+    </run>
+ </groups> 
+ 
+  
+    <test name="Test 5">
+  		
+  		<parameter name="config" value="Sanity_AdminUser.json"/>
+        <parameter name="environment" value="chrome"/>  
+    <classes>
+        <class name="Sanity_Test.Admin_User"/>
+    </classes>
+  </test><!--Test-->
+  
+	<test name="Test 6">
+ 		<parameter name="config" value="SanityTest.conf.json"/>
+     	<parameter name="environment" value="chrome"/>  
+     <classes>
+      <class name="Sanity_Test.SQL_Queries"/>
+   </classes> 
+  </test><!--Test-->
+  
+  
+</suite> <!-- Suite -->

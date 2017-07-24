@@ -95,17 +95,7 @@ public class Admin_User extends BrowserStack {
   
   @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
   public void Log_Out (ITestResult result) throws Exception {
-	  
-	  //Take Screen Shots
-/*	  
-	  String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
-	  String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Sanity ScreenShots\\";
-	  
-	  File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	  FileUtils.copyFile(sourceFile, new File(Directory + filename));
-	  
-	  String destination = Directory + filename;
-*/	  
+	    
 	  
 	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 	  String imagePath = test.addScreenCapture(path);
@@ -120,19 +110,17 @@ public class Admin_User extends BrowserStack {
 		 
 		  LoginPageElements.ClickAdminLogoutButton();
 		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  report.endTest(test);
+		  report.flush();
 	  
 	 }catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
 			report.endTest(test);
 			report.flush();
-			Assert.fail("Exception " + e);
+			//Assert.fail("Exception " + e);
 		}
-	  
-	 report.endTest(test);
-	 report.flush();
-	  
-	  
+	 
 	 // return destination;
   }
   
@@ -662,216 +650,227 @@ public class Admin_User extends BrowserStack {
   }
   
   
-  @Test (priority = 4,groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  @Test (priority = 5, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
   public void Send_Fulfillment_Email() throws Exception {
-	  
-	    test = report.startTest("Admin Test -->  Send Fullfillement Email");
-	    test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-	    //Navigate to products link
-	    
-	    Thread.sleep(1000);
-	
-	    try {   
-	    	
-		  	WebDriverWait wait = new WebDriverWait(driver, 50);
-		  	Actions  actions=new Actions(driver);
-		  	
-		  	WebElement ProductsLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/a")));
-		  	actions.moveToElement(ProductsLink);
-		  	actions.perform();
-		  	
-		  	WebElement CertificatesLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a")));
-		    actions.moveToElement(CertificatesLink);
-		  	actions.click();
-		  	actions.perform();
-		  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		  	test.log(LogStatus.INFO, "Opened Search Products Page");
-		  	
-		  	Thread.sleep(5000);
-			
-		  	//Select Account Name from for field
-		  	AdminCertificatesPageElements.ForFieldSelect("Account name");
-			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Selected Account Name From Field");
-		  	
-			//Select Issued from Status Field
-			AdminCertificatesPageElements.StatusFieldSelect("Issued");
-			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Selected Issued From Status Field");
-			
-		    //Enter Account Name into form field and Click Search
-			AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
-			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Entered account name in field");
-			
-			AdminCertificatesPageElements.SearchButtonClick();	
-			driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked Search Button");
-		
-		}catch (Exception e){
-			
-			System.out.println("Search Fields Not Present");
-			test.log(LogStatus.FAIL, "Search Fields Not Present");
-		}
-		
-		
-		//Wait for Result to appear 
-		try {
-			
-			String Message = "records per page";
-			
-			if (AdminCertificatesPageElements.SearchResultValidate().contains(Message)) {
-				
-				test.log(LogStatus.INFO, "Result Is Displayed");
-				
-			}else {
-				
-				System.out.println("Search Result Not Present");
-				//ScreenShot.Image(null);
-				String path = ScreenShot.Image(driver, "SearchResult");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
-					
-			}
-	
-		}catch (Exception e){
-			
-			System.out.println("Search Result Element Not Present");
-			test.log(LogStatus.FAIL, "Result Not Displayed");
-		}
-		
-		String AccountName = "UK TEST where can you see me";
-		String Status = "Issued";
-		WebElement Col1 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[2]"));
-		WebElement Col2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[2]"));
-		WebElement StatusCol = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]"));
-		WebElement StatusCo2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[5]"));
-		
-		if (Col1.getText().contains(AccountName)){
-			
-			System.out.println("Account Found in col 1");
-			
-			if (StatusCol.getText().equals(Status)) {
-				
-				System.out.println("issued Cert found in col 1");
-				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
-				test.log(LogStatus.INFO, "Clicked on Issued Certificate in first column of result");
-				
-			}else{
-				
-				System.out.println("No issued cert present in col 1");
-				//driver.close();
-			}
-			
-		}else if(Col2.getText().contains(AccountName)){
-			
-				System.out.println("Account Found in col 2");
-			
-			if (StatusCo2.getText().equals(Status)) {
-				
-				System.out.println("issued Cert found in col 2");
-				driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[8]/a/i")).click();
-				test.log(LogStatus.INFO, "Clicked on Issued Certificate in Second column of result");
-				
-			}else {
-				
-				System.out.println("No issued cert present in col 2");
-				//driver.close();
-				}
-			
-		}else  {
-			 
-			System.out.println("Quality Tester User With Issued Cert Not Found");
-			test.log(LogStatus.FAIL, "Test User with Issued Cert Not Found");
-			
-		 }
+  		  
+      test = report.startTest("Admin Test -->  Send Fullfillement Email");
+      test.log(LogStatus.INFO, "Admin User Logged in");
+    
+      //Navigate to products link
+      
+      Thread.sleep(1000);
 
-	
-		//Click on Send Fulfillment Email Link
-		Thread.sleep(10000);
-		driver.findElement(By.cssSelector("a[href*='#sendFulfillmentEmail']")).click();
-		test.log(LogStatus.INFO, "Clicked on Send Fulfillment");
-		
-		//Fill In required information
-		Thread.sleep(10000);
-		driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).clear();
-		driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).sendKeys("Test Note");
-		
-		
-		WebElement EmailField = driver.findElement(By.xpath(".//*[@id='CertificateEmail']"));
-		Select EmailAdd = new Select(EmailField);
-		EmailAdd.selectByVisibleText("gogunleye@ssl247.co.uk");
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Selected Test User from drop down list");
-		
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		driver.findElement(By.xpath(".//*[@id='CertificateOneOffEmail']")).sendKeys("qa@ssl247.co.uk");
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Entered Email in email field");
-		
-		driver.findElement(By.xpath(".//*[@id='sendFulfillmentEmail']/form/div[4]/button")).click();
-		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked on Send Button");
-		
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	String SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
-	  	Assert.assertTrue(SendStatus.contains("Certificate has been emailed to qa@ssl247.co.uk"));
-	  	test.log(LogStatus.PASS, "Message Sent");
-		
-		
-		/*----Verify Sent Email is in Outgoing emails--------*/
-		
-		//Navigate to Outgoing Emails Link
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	  	Actions  action2=new Actions(driver);
-	  	WebElement CMSLink=driver.findElement(By.cssSelector("a[href*='/admin/websites/index']"));
-	  	action2.moveToElement(CMSLink);
-	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	WebElement OutgoingEmailsLink=driver.findElement(By.cssSelector("a[href*='/admin/outgoing_emails/index']"));
-	    action2.moveToElement(OutgoingEmailsLink);
-	  	action2.click();
-	  	action2.perform();
-	  	test.log(LogStatus.INFO, "Navigated to Outgoing emails Page");
-		
-	  	String SubjectCol = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[1]")).getText();
-	  	
-	  	Assert.assertTrue(SubjectCol.contains("Your 1 year(s) GlobalSign DomainSSL SSL certificate for *.ssl247.co.uk has been issued"));
-	  	test.log(LogStatus.PASS, "Varified email is present");
-	  	
-	    //Delete Outgoing Emails Afterwards
-	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[5]/a")).click();
-	  	
-	  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	driver.switchTo().alert().accept();
-	  	
-	  	 try {
-				String Alertnote = "Email deleted";  
-				AlertBoxElements.AlertWait();
-						    	
-			  if (AlertBoxElements.VerifyAlert(Alertnote)) {
-									
-				test.log(LogStatus.PASS, "Validation Complete");
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-				System.out.println("Validation Complete!");
-			  }else{
-						    	
-			test.log(LogStatus.FAIL, "Validation Failed");
-				AlertBoxElements.AlertPrint();
-				Assert.fail("Validation Failed ");
-						    	
-				}
-				
-			}catch (Exception e) {
-									
-				test.log(LogStatus.FAIL, "Validation Failed");
-				Assert.fail("Exception " + e);
+    
+      try {   	
+  		  	WebDriverWait wait = new WebDriverWait(driver, 50);
+  		  	Actions  actions=new Actions(driver);
+  		  	
+  		  	WebElement ProductsLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/a")));
+  		  	actions.moveToElement(ProductsLink);
+  		  	actions.perform();
+  		  	
+  		  	WebElement CertificatesLink = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[3]/ul/li[1]/a")));
+  		    actions.moveToElement(CertificatesLink);
+  		  	actions.click();
+  		  	actions.perform();
+  		  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  		  	test.log(LogStatus.INFO, "Opened Search Products Page");
+  		
+  		}catch (Exception e){
+  			
+  			System.out.println("Search Product Link Not Clicked");
+  			test.log(LogStatus.FAIL, "Search Products Page Not Opened");
+  			Assert.fail("Exception " + e);
+  		}
+  			  	
+  	  	
+  	  	
+  	  	Thread.sleep(5000);
+  	  	
+  try { 		
+  	  	//Select Account Name from for field
+  	  	AdminCertificatesPageElements.ForFieldSelect("Account name");
+  		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Selected Account Name From Field");
+  	  	
+  		//Select Issued from Status Field
+  		AdminCertificatesPageElements.StatusFieldSelect("Issued");
+  		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Selected Issued From Status Field");
+  		
+  	    //Enter Account Name into form field and Click Search
+  		AdminCertificatesPageElements.SearchFieldSendKeys("UK Test");
+  		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Entered account name in field");
+  		
+  		AdminCertificatesPageElements.SearchButtonClick();	
+  		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Clicked Search Button");
+  	
+  	}catch (Exception e){
+  		
+  		System.out.println("Search Fields Not Present");
+  		test.log(LogStatus.FAIL, "Search Fields Not Present");
+  	}
+  	
+  	
+  	//Wait for Result to appear 
+  	try {
+  		
+  		String Message = "records per page";
+  		
+  		if (AdminCertificatesPageElements.SearchResultValidate().contains(Message)) {
+  			
+  			test.log(LogStatus.INFO, "Result Is Displayed");
+  			
+  		}else {
+  			
+  			System.out.println("Search Result Not Present");
+  			//ScreenShot.Image(null);
+  			String path = ScreenShot.Image(driver, "SearchResult");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.FAIL, "Search Result Not Present", imagePath);
+  				
+  		}
 
-			}
+  	}catch (Exception e){
+  		
+  		System.out.println("Search Result Element Not Present");
+  		test.log(LogStatus.FAIL, "Result Not Displayed");
+  	}
+  	
+  	String AccountName = "UK TEST where can you see me";
+  	String Status = "Issued";
+  	WebElement Col1 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[2]"));
+  	WebElement Col2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[2]"));
+  	WebElement StatusCol = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[5]"));
+  	WebElement StatusCo2 = driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[5]"));
+  	
+  	if (Col1.getText().contains(AccountName)){
+  		
+  		System.out.println("Account Found in col 1");
+  		
+  		if (StatusCol.getText().equals(Status)) {
+  			
+  			System.out.println("issued Cert found in col 1");
+  			driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[1]/td[8]/a/i")).click();
+  			test.log(LogStatus.INFO, "Clicked on Issued Certificate in first column of result");
+  			
+  		}else{
+  			
+  			System.out.println("No issued cert present in col 1");
+  			//driver.close();
+  		}
+  		
+  	}else if(Col2.getText().contains(AccountName)){
+  		
+  			System.out.println("Account Found in col 2");
+  		
+  		if (StatusCo2.getText().equals(Status)) {
+  			
+  			System.out.println("issued Cert found in col 2");
+  			driver.findElement(By.xpath(".//*[@id='DataTables_Table_0']/tbody/tr[2]/td[8]/a/i")).click();
+  			test.log(LogStatus.INFO, "Clicked on Issued Certificate in Second column of result");
+  			
+  		}else {
+  			
+  			System.out.println("No issued cert present in col 2");
+  			//driver.close();
+  			}
+  		
+  	}else  {
+  		 
+  		System.out.println("Quality Tester User With Issued Cert Not Found");
+  		test.log(LogStatus.FAIL, "Test User with Issued Cert Not Found");
+  		
+  	 }
 
-	
+
+  	//Click on Send Fulfillment Email Link
+  	Thread.sleep(10000);
+  	driver.findElement(By.cssSelector("a[href*='#sendFulfillmentEmail']")).click();
+  	test.log(LogStatus.INFO, "Clicked on Send Fulfillment");
+  	
+  	//Fill In required information
+  	Thread.sleep(10000);
+  	driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).clear();
+  	driver.findElement(By.xpath(".//*[@id='CertificateNotes']")).sendKeys("Test Note");
+  	
+  	
+  	WebElement EmailField = driver.findElement(By.xpath(".//*[@id='CertificateEmail']"));
+  	Select EmailAdd = new Select(EmailField);
+  	EmailAdd.selectByVisibleText("gogunleye@ssl247.co.uk");
+  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Selected Test User from drop down list");
+  	
+  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  	driver.findElement(By.xpath(".//*[@id='CertificateOneOffEmail']")).sendKeys("qa@ssl247.co.uk");
+  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Entered Email in email field");
+  	
+  	driver.findElement(By.xpath(".//*[@id='sendFulfillmentEmail']/form/div[4]/button")).click();
+  	driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Clicked on Send Button");
+  	
+  	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    	String SendStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]")).getText();	
+    	Assert.assertTrue(SendStatus.contains("Certificate has been emailed to qa@ssl247.co.uk"));
+    	test.log(LogStatus.PASS, "Message Sent");
+  	
+  	
+  	/*----Verify Sent Email is in Outgoing emails--------*/
+  	
+  	//Navigate to Outgoing Emails Link
+  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+    	Actions  action2=new Actions(driver);
+    	WebElement CMSLink=driver.findElement(By.cssSelector("a[href*='/admin/websites/index']"));
+    	action2.moveToElement(CMSLink);
+    	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    	WebElement OutgoingEmailsLink=driver.findElement(By.cssSelector("a[href*='/admin/outgoing_emails/index']"));
+      action2.moveToElement(OutgoingEmailsLink);
+    	action2.click();
+    	action2.perform();
+    	test.log(LogStatus.INFO, "Navigated to Outgoing emails Page");
+  	
+    	String SubjectCol = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[1]")).getText();
+    	
+    	Assert.assertTrue(SubjectCol.contains("Your 1 year(s) GlobalSign DomainSSL SSL certificate for *.ssl247.co.uk has been issued"));
+    	test.log(LogStatus.PASS, "Varified email is present");
+    	
+      //Delete Outgoing Emails Afterwards
+    	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    	driver.findElement(By.xpath(".//*[@id='mainContainer']/div[6]/div/div/table/tbody/tr[1]/td[5]/a")).click();
+    	
+    	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    	driver.switchTo().alert().accept();
+    	
+    	 try {
+  			String Alertnote = "Email deleted";  
+  			AlertBoxElements.AlertWait();
+  					    	
+  		  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+  								
+  			test.log(LogStatus.PASS, "Validation Complete");
+  			Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+  			System.out.println("Validation Complete!");
+  		  }else{
+  					    	
+  		test.log(LogStatus.FAIL, "Validation Failed");
+  			AlertBoxElements.AlertPrint();
+  			Assert.fail("Validation Failed ");
+  					    	
+  			}
+  			
+  		}catch (Exception e) {
+  								
+  			test.log(LogStatus.FAIL, "Validation Failed");
+  			Assert.fail("Exception " + e);
+
+  		}
+
+
   }
+
   
   
   
@@ -1028,159 +1027,160 @@ public class Admin_User extends BrowserStack {
  
   @Test (priority = 3,groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate")
   public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
-	  
-	  test = report.startTest("Admin Test --> Sync Cert With CA");
-	  test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
-		 
-	  //ClientAccountsPageElements.ValidatePage();
-	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
-		 
-	  ClientAccountsPageElements.UpdateButtonClink();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Click on Update Button");
-	  
-	  JavascriptExecutor jse = (JavascriptExecutor)driver;
-	  jse.executeScript("window.scrollBy(0,500)", "");
-		 
-	  Thread.sleep(1000);
-	  
-	  ClientAccountsPageElements.ValidateResults("UKTE001");
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
-	  
-	  ClientAccountsPageElements.ViewAccount();
-	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
-	  
-	  Thread.sleep(1000);
-	  
-	try {
-	 
-	  		test.log(LogStatus.INFO, "DashBord Page Opened");
-	  		
-	  		AdminSslDashBoardElements.ClickMysslCertificatessLink();
-	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Myssl Certificates Link");
-	  		
-	  		AdminSslDashBoardElements.IssuedLinkClick();
-	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Issued Link");
-			
-			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
-	    		
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
-	    		
-	    	    String path = ScreenShot.Image(driver, "Product");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.INFO, imagePath);
-	    	    
-				AdminIssuedCertificatesPage.Column1TextPrint();
-				
-				AdminIssuedCertificatesPage.Product1View();
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Clicked to view product");
-	    	    
-	    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
-	    		
-	    	    
-	    		}else if (AdminIssuedCertificatesPage.Column2Contains(Product)) {
-	    			
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
-		    	    
-		    	    String path = ScreenShot.Image(driver, "Product");
-					String imagePath = test.addScreenCapture(path);
-					test.log(LogStatus.INFO, imagePath);
-					
-					AdminIssuedCertificatesPage.Column2TextPrint();
-				
-					AdminIssuedCertificatesPage.Product2View();
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked to view product");
-		    	    
-		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
-	    			
-		    	}else if (AdminIssuedCertificatesPage.Column3Contains(Product)) {
-	    			
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
-		    	    
-		    	    String path = ScreenShot.Image(driver, "Product");
-					String imagePath = test.addScreenCapture(path);
-					test.log(LogStatus.INFO, imagePath);
-					
-					AdminIssuedCertificatesPage.Column3TextPrint();
-				
-					AdminIssuedCertificatesPage.Product3View();
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked to view product");
-		    	    
-		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
-		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+  	  
+  	  test = report.startTest("Admin Test --> Sync Cert With CA");
+  	  test.log(LogStatus.INFO, "Admin User Logged in");
+  	  
+  	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
+  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	  test.log(LogStatus.INFO, "Click on clients Accounts Link");
+  		 
+  	  //ClientAccountsPageElements.ValidatePage();
+  	  ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	  test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+  		 
+  	  ClientAccountsPageElements.UpdateButtonClink();
+  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	  test.log(LogStatus.INFO, "Click on Update Button");
+  	  
+  	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+  	  jse.executeScript("window.scrollBy(0,500)", "");
+  		 
+  	  Thread.sleep(1000);
+  	  
+  	  ClientAccountsPageElements.ValidateResults("UKTE001");
+  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
+  	  
+  	  ClientAccountsPageElements.ViewAccount();
+  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
+  	  
+  	  Thread.sleep(1000);
+  	  
+  	try {
+  	 
+  	  		test.log(LogStatus.INFO, "DashBord Page Opened");
+  	  		
+  	  		AdminSslDashBoardElements.ClickMysslCertificatessLink();
+  	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			test.log(LogStatus.INFO, "Clicked on Myssl Certificates Link");
+  	  		
+  	  		AdminSslDashBoardElements.IssuedLinkClick();
+  	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			test.log(LogStatus.INFO, "Clicked on Issued Link");
+  			
+  			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
+  	    		
+  	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
+  	    		
+  	    	    String path = ScreenShot.Image(driver, "Product");
+  				String imagePath = test.addScreenCapture(path);
+  				test.log(LogStatus.INFO, imagePath);
+  	    	    
+  				AdminIssuedCertificatesPage.Column1TextPrint();
+  				
+  				AdminIssuedCertificatesPage.Product1View();
+  	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  	    	    test.log(LogStatus.INFO, "Clicked to view product");
+  	    	    
+  	    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+  	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  	    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+  	    		
+  	    	    
+  	    		}else if (AdminIssuedCertificatesPage.Column2Contains(Product)) {
+  	    			
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
+  		    	    
+  		    	    String path = ScreenShot.Image(driver, "Product");
+  					String imagePath = test.addScreenCapture(path);
+  					test.log(LogStatus.INFO, imagePath);
+  					
+  					AdminIssuedCertificatesPage.Column2TextPrint();
+  				
+  					AdminIssuedCertificatesPage.Product2View();
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked to view product");
+  		    	    
+  		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+  		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+  	    			
+  		    	}else if (AdminIssuedCertificatesPage.Column3Contains(Product)) {
+  	    			
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
+  		    	    
+  		    	    String path = ScreenShot.Image(driver, "Product");
+  					String imagePath = test.addScreenCapture(path);
+  					test.log(LogStatus.INFO, imagePath);
+  					
+  					AdminIssuedCertificatesPage.Column3TextPrint();
+  				
+  					AdminIssuedCertificatesPage.Product3View();
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked to view product");
+  		    	    
+  		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+  		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
     			
-	    	}else {
-				
-				System.out.println("Product Not Found");
-				test.log(LogStatus.FAIL, "Product Not Found");
-				String path = ScreenShot.Image(driver, "Product");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.INFO, imagePath);
-				
-		    	}	
-	  
-		}catch (Exception e) {
-		
-			String path = ScreenShot.Image(driver, "Product");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			test.log(LogStatus.FAIL, "Validation Failed");
-			Assert.fail("Exception " + e);
+  	    	}else {
+  				
+  				System.out.println("Product Not Found");
+  				test.log(LogStatus.FAIL, "Product Not Found");
+  				String path = ScreenShot.Image(driver, "Product");
+  				String imagePath = test.addScreenCapture(path);
+  				test.log(LogStatus.INFO, imagePath);
+  				
+  		    	}	
+  	  
+  		}catch (Exception e) {
+  		
+  			String path = ScreenShot.Image(driver, "Product");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.INFO, imagePath);
+  			test.log(LogStatus.FAIL, "Validation Failed");
+  			Assert.fail("Exception " + e);
 
-	}
-	
-	Thread.sleep(1000);
-	
-	  		
-		//Validate Alert	
-		try { 
-			
-			String Alertnote = "Certificate synced with the CA";  
-			AlertBoxElements.AlertWait();
-			
-			if (AlertBoxElements.VerifyAlert(Alertnote)) {
-				
-				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-				test.log(LogStatus.PASS, "Validation Complete");
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				System.out.println("Validation Complete!");
-				
-			}else {
-					    	
-				test.log(LogStatus.FAIL, "Validation Failed");
-				AlertBoxElements.AlertPrint();
-				Assert.fail("Validation Failed ");		    	
-			}
-			
-		}catch (Exception e) {
-			
-			String path = ScreenShot.Image(driver, "SearchResult");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Alert not Displayed");
-			test.log(LogStatus.INFO, imagePath);
+  	}
+  	
+  	Thread.sleep(1000);
+  	
+  	  		
+  		//Validate Alert	
+  		try { 
+  			
+  			String Alertnote = "Certificate synced with the CA";  
+  			AlertBoxElements.AlertWait();
+  			
+  			if (AlertBoxElements.VerifyAlert(Alertnote)) {
+  				
+  				Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+  				test.log(LogStatus.PASS, "Validation Complete");
+  				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  				System.out.println("Validation Complete!");
+  				
+  			}else {
+  					    	
+  				test.log(LogStatus.FAIL, "Alert Validation Failed");
+  				AlertBoxElements.AlertPrint();
+  				//Assert.fail("Validation Failed ");		    	
+  			}
+  			
+  		}catch (Exception e) {
+  			
+  			String path = ScreenShot.Image(driver, "SearchResult");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.FAIL, "Alert not Displayed");
+  			test.log(LogStatus.INFO, imagePath);
 
-		}
-	  
+  		}
+  	  
   }
+
 }

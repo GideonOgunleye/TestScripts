@@ -585,32 +585,34 @@ public class New_User extends BrowserStack  {
 	
 	Thread.sleep(1000);
 	
-	WebDriverWait wait = new WebDriverWait(driver, 50);
-	Actions  Mouse=new Actions(driver);
-	
-	WebElement Dropdown=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/a")));
-    Mouse.moveToElement(Dropdown);
-    Mouse.perform();
-    
-    String path2 = ScreenShot.Image(driver, "Screenshot");
-	String imagePath2 = test.addScreenCapture(path2);
-	test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
-    
-	WebElement EyeIcon=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a")));
-    Mouse.moveToElement(EyeIcon);
-    Mouse.click();
-    Mouse.perform();	
-	
-	
-	Thread.sleep(1000);
-	
-	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	JavascriptExecutor jse = (JavascriptExecutor)driver;
-	jse.executeScript("window.scrollBy(0,500)", "");
-	
-	Thread.sleep(1000);
-	
 	try {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		Actions  Mouse=new Actions(driver);
+		
+		WebElement Dropdown=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/a")));
+	    Mouse.moveToElement(Dropdown);
+	    Mouse.perform();
+	    
+	    String path2 = ScreenShot.Image(driver, "Screenshot");
+		String imagePath2 = test.addScreenCapture(path2);
+		test.log(LogStatus.INFO, "Take Screenshot", imagePath2);
+	    
+		WebElement EyeIcon=wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@id='mainNavigation']/li[4]/ul/li[1]/a")));
+	    Mouse.moveToElement(EyeIcon);
+	    Mouse.click();
+	    Mouse.perform();	
+		
+		
+		Thread.sleep(1000);
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)", "");
+		
+		Thread.sleep(1000);
+	
+	
 		
 		String Msg = "Request a free proposal";
 		WebElement ProposalForm = driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[5]/div[1]/a"));

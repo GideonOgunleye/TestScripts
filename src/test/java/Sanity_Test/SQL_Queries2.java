@@ -19,7 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 
-public class SQL_Queries {
+public class SQL_Queries2 {
 	
 	
 	@Test (priority = 1, groups = {"SQL","BS_Sanity","Smoke_Firefox"})
@@ -36,8 +36,7 @@ public class SQL_Queries {
 
 			//Query to Execute		
 			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
-			String query1 = "delete from bakewell_automation.accounts Where account_code ='QUAL017';";
-			String query2 = "delete from bakewell_staging_go.accounts Where account_code ='QUAL017';";
+			String query2 = "delete from bakewell_automation.accounts Where account_code ='QUAL017';";
 	      
 		    //Load mysql jdbc driver		
 	 	    Class.forName("com.mysql.jdbc.Driver");			
@@ -45,7 +44,6 @@ public class SQL_Queries {
 	 		//Create Connection to DB		
 	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
 	  	Statement stmt = con.createStatement();	
-	  	stmt.execute(query1);
 	  	stmt.execute(query2);
 	  	System.out.println("Account Has Been Deleted");
 	  	con.close();
@@ -81,7 +79,7 @@ public class SQL_Queries {
 			String password = "n8hY5HqCkd7suLSM";				
 
 			//Query to Execute		
-			String query1 = "delete from bakewell_staging_go.users Where email ='QATester2@ssl247-test.com';";
+			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
 			String query2 = "delete from bakewell_automation.users Where email ='QATester2@ssl247-test.com';";
 	      
 		    //Load mysql jdbc driver		
@@ -90,8 +88,6 @@ public class SQL_Queries {
 	 		//Create Connection to DB		
 	  	Connection con = DriverManager.getConnection(dbUrl,username,password);
 	  	Statement stmt = con.createStatement();	
-	  	
-	  	stmt.execute(query1);
 	  	stmt.execute(query2);
 	  	System.out.println("User Has Been Deleted");
 	  	
@@ -159,8 +155,6 @@ public class SQL_Queries {
 			//String query = "select *  from bakewell_staging_go.accounts Where account_code ='QUAL017';";	
 			String query2 = "delete from bakewell_automation.certificates Where common_name ='ssl247.co.uk';";
 			String query3 = "delete from bakewell_automation.certificates Where common_name ='ssl247-test.co.uk';";
-			String query4 = "delete from bakewell_staging_go.certificates Where common_name ='ssl247.co.uk';";
-			String query5 = "delete from bakewell_staging_go.certificates Where common_name ='ssl247-test.co.uk';";
 	      
 		    //Load mysql jdbc driver		
 	 	    Class.forName("com.mysql.jdbc.Driver");			
@@ -171,10 +165,6 @@ public class SQL_Queries {
 	  	stmt.execute(query2);
 	  	
 	  	stmt.execute(query3);
-	  	
-	  	stmt.execute(query4);
-	  	
-	  	stmt.execute(query5);
 	  	
 	  	System.out.println("Certificates Have Been Deleted");		
 		con.close();		
