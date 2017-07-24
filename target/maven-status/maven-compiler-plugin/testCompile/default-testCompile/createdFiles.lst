@@ -17,6 +17,7 @@ PageFactory\AdminCertificatesPage.class
 Sanity_Test\MainNav_Test.class
 Sanity_Test\SQL_Queries.class
 Sanity_Test\New_User.class
+Sanity_Test\SQL_Queries2.class
 PageFactory\AdminIssuedCertificatesPage.class
 Sanity_Test\Test_DataSanity.class
 PageFactory\ProposalsPage.class
