@@ -43,7 +43,7 @@ import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
-public class Test_Build2 extends BrowserStack {
+public class Test_ErrorFix extends BrowserStack {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;

@@ -68,6 +68,16 @@ public class Test_Build extends BrowserStack {
 		AdminCertificatesPageElements = new AdminCertificatesPage(driver);
 	
 		Thread.sleep(5000);
+		
+		  report = ExtentFactory.getInstance2();
+		  
+
+		
+		//Log in as administrator
+		LoginPageElements.AdminLogin();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+
+		
 	}	
 	
 	@AfterMethod (groups = {"Regression","BS_Regression","Regression_Chrome"}, alwaysRun = true)
@@ -81,10 +91,37 @@ public class Test_Build extends BrowserStack {
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
 		driver.navigate().refresh();
-		Thread.sleep(1000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)", "");
+		
+		Thread.sleep(2000);
+		
+		//User Log Out
+		
+		 try{ 
+			 
+			  LoginPageElements.ClickAdminLogoutButton();
+			  test.log(LogStatus.INFO, "After Method-Admin User Logged Out");
+			  String path2 = ScreenShot.Image(driver, "Logout");
+			  String imagePath2 = test.addScreenCapture(path2);
+			  test.log(LogStatus.INFO, imagePath2);
+	
+		 }catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "After Method-Logout Failed");
+				String path2 = ScreenShot.Image(driver, "Logout");
+				String imagePath2 = test.addScreenCapture(path2);
+				test.log(LogStatus.INFO, imagePath2);
+				Assert.fail("Exception " + e);
+				//driver.close();
+				driver.quit();
+				
+			} 
 		
 		report.endTest(test);
 		report.flush();
+		
 		
 	}
 	
@@ -92,15 +129,9 @@ public class Test_Build extends BrowserStack {
   @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="ProposalsOrder_Data")
   public void Ssl_Certificates_Proposals (String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
 	  
-	  report = ExtentFactory.getInstance2();
-	  
-	  test = report.startTest("Admin Test --> Proposals Order Test");
+	  test = report.startTest("Admin Test --> Proposals Order Test - " + Product);
 	     
 	  test.log(LogStatus.INFO, "Browser Opened and Url Enterl");
-	  
-	  //Log in as administrator
-	  LoginPageElements.AdminLogin();
-	  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Logged in as Admin");
 	  
 	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
@@ -140,9 +171,9 @@ public class Test_Build extends BrowserStack {
 	  test.log(LogStatus.INFO, "Clicked on proposal link");
 	  
 	  //JavascriptExecutor jse = (JavascriptExecutor)driver;
-	  jse.executeScript("window.scrollBy(0,500)", "");
+	  //jse.executeScript("window.scrollBy(0,500)", "");
 	  
-	  Thread.sleep(1000);
+	  Thread.sleep(2000);
 	 
 	  try {
 		  
@@ -229,6 +260,8 @@ public class Test_Build extends BrowserStack {
 			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			  test.log(LogStatus.INFO, "Click on Calculate Prices Button");
 			  
+			  Thread.sleep(1000);
+			  
 			  jse.executeScript("window.scrollBy(0,500)", "");
 			  String path = ScreenShot.Image(driver, "Proposal");
 			  String imagePath = test.addScreenCapture(path);
@@ -242,9 +275,15 @@ public class Test_Build extends BrowserStack {
 			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			  test.log(LogStatus.INFO, "Click on Save Proposal Button");
 			  
+		   	  jse.executeScript("window.scrollBy(0,250)", "");
+			  	
+		  	  Thread.sleep(1000);
+			  
 			  ProposalsPageElements.IssueProposalTabClink();
 		  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  	  test.log(LogStatus.INFO, "Clicked on Issue Proposal Tab");
+		  	  
+		   	  jse.executeScript("window.scrollBy(0,250)", "");
 			  	
 		  	  Thread.sleep(1000);
 			  	
@@ -264,6 +303,7 @@ public class Test_Build extends BrowserStack {
 		  	  test.log(LogStatus.INFO, "Clicked on Issue Proposal Button");
 		  	  
 		  	  jse.executeScript("window.scrollBy(0,500)", "");
+		  	  
 		  	  Thread.sleep(1000);
 		  	  
 		  	  ProposalsPageElements.ConvertToInvoiceButtonClink();
@@ -271,25 +311,17 @@ public class Test_Build extends BrowserStack {
 		  	  test.log(LogStatus.INFO, "Clicked Covert to Invoice Button");
 		  	  
 		  	  //jse.executeScript("window.scrollBy(0,500)", "");
-		  	  Thread.sleep(1000);
+		  	  //Thread.sleep(1000);
 		  	  
-		  	  Alert alert = driver.switchTo().alert();
-		  	  alert.accept();
-		  	  //driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  	  test.log(LogStatus.INFO, "Clicked on Alert");
-		  	  
-		  	  jse.executeScript("window.scrollBy(0,500)", "");
+
 		  	
 		  	try {
 		  		
-		  		//jse.executeScript("window.scrollBy(0,500)", "");
-		  		
-		  		// WebDriverWait wait = new WebDriverWait(driver, 2);
-		         //wait.until(ExpectedConditions.alertIsPresent());
-		        // Alert alert = driver.switchTo().alert();
-		         //alert.accept();
-		        // driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  	// test.log(LogStatus.INFO, "Clicked on Alert");
+			  	  Alert alert = driver.switchTo().alert();
+			  	  alert.accept();
+			  	  test.log(LogStatus.INFO, "Clicked on Alert");
+			  	  
+			  	  jse.executeScript("window.scrollBy(0,500)", "");
 		        
 		    } catch (Exception e) {
 		    	
@@ -304,43 +336,10 @@ public class Test_Build extends BrowserStack {
 			String imagePath = test.addScreenCapture(path);
 			test.log(LogStatus.INFO, imagePath);
 			test.log(LogStatus.FAIL, "Test Failed");
-			LoginPageElements.ClickAdminLogoutButton();
+			driver.navigate().refresh();
 			Assert.fail("Exception " + e);
 			
 		}
-	  
-	//Validate Test
-		try {
-			
-			String Alertnote = "Proposal saved";  
-			AlertBoxElements.AlertWait();
-					    	
-		  if (AlertBoxElements.VerifyAlert(Alertnote)) {
-								
-			test.log(LogStatus.PASS, "Validation Complete");
-			Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-			System.out.println("Validation Complete!");
-			
-		  }else{
-					    	
-			test.log(LogStatus.FAIL, "Validation Failed");
-			AlertBoxElements.AlertPrint();
-			//Assert.fail("Validation Failed ");
-					    	
-		  }
-			
-		}catch (Exception e) {
-								
-			String path = ScreenShot.Image(driver, "SearchResult");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			test.log(LogStatus.FAIL, "Alert not Displayed");
-
-		}
-
-	  
-	  LoginPageElements.ClickAdminLogoutButton();
-	  
 	  
   }
   

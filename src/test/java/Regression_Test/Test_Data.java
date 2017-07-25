@@ -292,7 +292,7 @@ public class Test_Data {
 	
 	@DataProvider (name ="ProposalsOrder_Data")
 	public static Object[][] ProposalsOrder_Data(){
-		Object[][] obj = new Object[1][6];
+		Object[][] obj = new Object[15][6];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
@@ -308,7 +308,7 @@ public class Test_Data {
 		//Common Name
 		obj[0][5]="ssl247-test.co.uk";
 		
-		/*---------2nd Parameter-------------	
+		/*---------2nd Parameter-------------*/	
 		//ProductType
 		obj[1][0]="SSL Certificate";
 		//Product
@@ -321,9 +321,9 @@ public class Test_Data {
 		obj[1][4]="1";
 		//Common Name
 		obj[1][5]="ssl247-test.co.uk";
-		*/
 		
-		/*--------3rd Parameter-------------	
+		
+		/*--------3rd Parameter-------------*/	
 		//ProductType
 		obj[2][0]="SSL Certificate";
 		//Product
@@ -336,9 +336,9 @@ public class Test_Data {
 		obj[2][4]="1";
 		//Common Name
 		obj[2][5]="ssl247-test.co.uk";
-		*/
 		
-		/*--------4th Parameter-------------	
+		
+		/*--------4th Parameter-------------*/	
 		//ProductType
 		obj[3][0]="SSL Certificate";
 		//Product
@@ -351,9 +351,9 @@ public class Test_Data {
 		obj[3][4]="1";
 		//Common Name
 		obj[3][5]="ssl247-test.co.uk";
-		*/
 		
-		/*--------5th Parameter-------------	
+		
+		/*--------5th Parameter-------------*/	
 		//ProductType
 		obj[4][0]="SSL Certificate";
 		//Product
@@ -366,7 +366,147 @@ public class Test_Data {
 		obj[4][4]="1";
 		//Common Name
 		obj[4][5]="ssl247-test.co.uk";
-		*/
+		
+		/*--------6th Parameter-------------*/	
+		//ProductType
+		obj[5][0]="SSL Certificate";
+		//Product
+		obj[5][1]="Thawte SSL Web Server";
+		//Quantity
+		obj[5][2]="1";
+		//Duration
+		obj[5][3]="1 year";
+		//Duration
+		obj[5][4]="1";
+		//Common Name
+		obj[5][5]="ssl247-test.co.uk";
+		
+		/*--------7th Parameter-------------*/	
+		//ProductType
+		obj[6][0]="SSL Certificate";
+		//Product
+		obj[6][1]="Thawte SSL123";
+		//Quantity
+		obj[6][2]="1";
+		//Duration
+		obj[6][3]="1 year";
+		//Duration
+		obj[6][4]="1";
+		//Common Name
+		obj[6][5]="ssl247-test.co.uk";
+		
+		/*--------8th Parameter-------------*/	
+		//ProductType
+		obj[7][0]="SSL Certificate";
+		//Product
+		obj[7][1]="GeoTrust True BusinessID EV";
+		//Quantity
+		obj[7][2]="1";
+		//Duration
+		obj[7][3]="1 year";
+		//Duration
+		obj[7][4]="1";
+		//Common Name
+		obj[7][5]="ssl247-test.co.uk";
+		
+		/*--------9th Parameter-------------*/	
+		//ProductType
+		obj[8][0]="SSL Certificate";
+		//Product
+		obj[8][1]="GeoTrust True BusinessID Multi-Domain EV";
+		//Quantity
+		obj[8][2]="1";
+		//Duration
+		obj[8][3]="1 year";
+		//Duration
+		obj[8][4]="1";
+		//Common Name
+		obj[8][5]="ssl247-test.co.uk";
+		
+		/*--------10th Parameter-------------*/	
+		//ProductType
+		obj[9][0]="SSL Certificate";
+		//Product
+		obj[9][1]="GeoTrust True BusinessID";
+		//Quantity
+		obj[9][2]="1";
+		//Duration
+		obj[9][3]="1 year";
+		//Duration
+		obj[9][4]="1";
+		//Common Name
+		obj[9][5]="ssl247-test.co.uk";
+		
+		/*--------11th Parameter-------------*/	
+		//ProductType
+		obj[10][0]="SSL Certificate";
+		//Product
+		obj[10][1]="GeoTrust True BusinessID Multi-Domain";
+		//Quantity
+		obj[10][2]="1";
+		//Duration
+		obj[10][3]="1 year";
+		//Duration
+		obj[10][4]="1";
+		//Common Name
+		obj[10][5]="ssl247-test.co.uk";
+		
+		/*--------12th Parameter-------------*/	
+		//ProductType
+		obj[11][0]="SSL Certificate";
+		//Product
+		obj[11][1]="GeoTrust QuickSSL Premium";
+		//Quantity
+		obj[11][2]="1";
+		//Duration
+		obj[11][3]="1 year";
+		//Duration
+		obj[11][4]="1";
+		//Common Name
+		obj[11][5]="ssl247-test.co.uk";
+		
+		/*--------13th Parameter-------------*/	
+		//ProductType
+		obj[12][0]="SSL Certificate";
+		//Product
+		obj[12][1]="GeoTrust Free Trial";
+		//Quantity
+		obj[12][2]="1";
+		//Duration
+		obj[12][3]="1 year";
+		//Duration
+		obj[12][4]="1";
+		//Common Name
+		obj[12][5]="ssl247-test.co.uk";
+		
+		/*--------14th Parameter-------------*/	
+		//ProductType
+		obj[13][0]="SSL Certificate";
+		//Product
+		obj[13][1]="GlobalSign ExtendedSSL";
+		//Quantity
+		obj[13][2]="1";
+		//Duration
+		obj[13][3]="1 year";
+		//Duration
+		obj[13][4]="1";
+		//Common Name
+		obj[13][5]="ssl247-test.co.uk";
+		
+		/*--------15th Parameter-------------*/	
+		//ProductType
+		obj[14][0]="SSL Certificate";
+		//Product
+		obj[14][1]="GlobalSign OrganizationSSL";
+		//Quantity
+		obj[14][2]="1";
+		//Duration
+		obj[14][3]="1 year";
+		//Duration
+		obj[14][4]="1";
+		//Common Name
+		obj[14][5]="ssl247-test.co.uk";
+		
 		return obj;
 		
 	}

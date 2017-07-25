@@ -89,11 +89,11 @@ public class Proposal_Orders extends BrowserStack {
 	
 	
   @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="ProposalsOrder_Data")
-  public void Proposals_Order(String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
+  public void Certificates_Proposals_Order(String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
 	  
 	  report = ExtentFactory.getInstance2();
 	  
-	  test = report.startTest("Admin Test --> Proposals Order Test");
+	  test = report.startTest("Admin Test --> Proposals Order Test" + Product);
 	     
 	  test.log(LogStatus.INFO, "Browser Opened and Url Enterl");
 	  

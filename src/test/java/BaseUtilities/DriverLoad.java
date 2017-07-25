@@ -25,18 +25,18 @@ public class DriverLoad {
 	
 
 
-  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke"} )
+  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke","BS_Sanity"} )
   public void Chrome_BeforeTest() throws IOException  {
 	
  	 
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	  driver = new ChromeDriver();  
-	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	  //driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  
    
   }
 
-  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke"})
+  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke","BS_Sanity"})
   public void Chrome_AfterTest() throws Exception {
 	  
 	  Thread.sleep(10000);

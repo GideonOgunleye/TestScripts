@@ -110,12 +110,18 @@ public class Admin_User extends BrowserStack {
 		 
 		  LoginPageElements.ClickAdminLogoutButton();
 		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  String path2 = ScreenShot.Image(driver, "Logout");
+		  String imagePath2 = test.addScreenCapture(path2);
+		  test.log(LogStatus.INFO, imagePath2);
 		  report.endTest(test);
 		  report.flush();
 	  
 	 }catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
 			report.endTest(test);
 			report.flush();
 			//Assert.fail("Exception " + e);
