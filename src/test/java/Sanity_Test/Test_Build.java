@@ -106,6 +106,8 @@ public class Test_Build extends BrowserStack {
 			  String path2 = ScreenShot.Image(driver, "Logout");
 			  String imagePath2 = test.addScreenCapture(path2);
 			  test.log(LogStatus.INFO, imagePath2);
+			  report.endTest(test);
+			  report.flush();
 	
 		 }catch (Exception e) {
 				
@@ -114,13 +116,14 @@ public class Test_Build extends BrowserStack {
 				String imagePath2 = test.addScreenCapture(path2);
 				test.log(LogStatus.INFO, imagePath2);
 				Assert.fail("Exception " + e);
+				report.endTest(test);
+				report.flush();
 				//driver.close();
 				driver.quit();
 				
 			} 
 		
-		report.endTest(test);
-		report.flush();
+		
 		
 		
 	}
@@ -133,6 +136,8 @@ public class Test_Build extends BrowserStack {
 	     
 	  test.log(LogStatus.INFO, "Browser Opened and Url Enterl");
 	  test.log(LogStatus.INFO, "Logged in as Admin");
+	  
+	  System.out.println("Started Proposal For:------------------ " + Product);
 	  
 	  AdminNavigationLinksElements.ClientsAccountsLinkClick();
 	  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -198,19 +203,44 @@ public class Test_Build extends BrowserStack {
 			  test.log(LogStatus.INFO, "Selected Product");
 			  
 			  Thread.sleep(1000);
-			  
+			
+			try {  
+				
 			  //Select Quantity
 			  ProposalsPageElements.QuantityFieldClear();
 			  ProposalsPageElements.QuantityFieldSenkeys(Quantity);
 			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			  test.log(LogStatus.INFO, "Selected Quantity");
 			  
+	  		}catch (Exception p) {
+			
+	  			String path = ScreenShot.Image(driver, "Proposal");
+	  			String imagePath = test.addScreenCapture(path);
+	  			test.log(LogStatus.INFO, imagePath);
+	  			test.log(LogStatus.INFO, "Duration not Selected");
+	  			//Assert.fail("Exception " + e);
+
+	  		}
+			  
+			  
 			  Thread.sleep(1000);
 			  
-			  //Select Duration
-			  ProposalsPageElements.DurationFieldSelect(Duration);
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Selected Duration");
+			//Select Duration
+			  try {
+				
+				  ProposalsPageElements.DurationFieldSelect(Duration);
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Selected Duration");
+			  
+			  }catch (Exception p) {
+					
+				  String path = ScreenShot.Image(driver, "Proposal");
+				  String imagePath = test.addScreenCapture(path);
+				  test.log(LogStatus.INFO, imagePath);
+				  test.log(LogStatus.INFO, "Duration not Selected");
+				  //Assert.fail("Exception " + e);
+
+				}
 			  
 			  Thread.sleep(1000);
 			  
@@ -342,9 +372,5 @@ public class Test_Build extends BrowserStack {
 		}
 	  
   }
-  
-  
-  
-  
   
 }
