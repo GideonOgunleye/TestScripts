@@ -23,9 +23,9 @@ public class DriverLoad {
 	
 	public WebDriver driver;
 	
+/*
 
-
-  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke","BS_Sanity"} )
+  @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"} )
   public void Chrome_BeforeTest() throws IOException  {
 	
  	 
@@ -36,7 +36,7 @@ public class DriverLoad {
    
   }
 
-  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome","BS_Smoke","BS_Sanity"})
+  @AfterClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"})
   public void Chrome_AfterTest() throws Exception {
 	  
 	  Thread.sleep(10000);
@@ -46,6 +46,8 @@ public class DriverLoad {
 
 	  
   }
+  */
+  
   
   /*
   
