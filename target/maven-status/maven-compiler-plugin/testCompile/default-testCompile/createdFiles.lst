@@ -25,14 +25,15 @@ PageFactory\sslDashBoard.class
 BaseUtilities\TakeScreenShot.class
 Regression_Test\MasterRelease_18.class
 BaseUtilities\AlertBox.class
+PageFactory\AddAccountPage.class
 BaseUtilities\BrowserStack.class
 PageFactory\ClientAccountsPage.class
 PageFactory\AdminSslDashBoard.class
 PageFactory\AdminNavigationLinks.class
 PageFactory\NavigationLinks.class
-Sanity_Test\Test_Build2.class
 PageFactory\BillingPage.class
 Sanity_Test\SubNavigation_Test.class
+Sanity_Test\Test_ErrorFix.class
 Sanity_Test\Admin_User.class
 Regression_Test\Proposal_Orders.class
 BaseUtilities\Cookies.class
