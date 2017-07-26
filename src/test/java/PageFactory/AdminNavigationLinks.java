@@ -34,6 +34,8 @@ public class AdminNavigationLinks extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainNavigation']/li[2]/ul/li[1]/a")
 	WebElement NewAccountLink;
 	
+	
+	
 
 	
 	/********Products SubMenu Navigation**********/
@@ -107,8 +109,27 @@ public class AdminNavigationLinks extends DriverLoad {
 	  	actions.perform();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		//assertTrue(driver.getTitle().contains("Products for United Kingdom"));
-
+	}
 	
+	public void  ClientsAccountsLinkMouse(){
+		
+		Actions  actions=new Actions(driver);
+		actions.moveToElement(ClientsAccountsLink).build().perform();
+	  	//actions.perform();
+	  	//actions.moveToElement(ProductsLink);
+		//assertTrue(driver.getTitle().contains("Products for United Kingdom"));
+		
+	
+	}
+	
+	public void NewAccountLinkClick(){
+		
+		Actions  actions=new Actions(driver);
+		actions.moveToElement(NewAccountLink);
+	  	actions.click();
+	  	actions.perform();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//assertTrue(driver.getTitle().contains("Products for United Kingdom"));
 	}
 	
 /*	

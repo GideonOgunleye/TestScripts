@@ -23,7 +23,7 @@ public class DriverLoad {
 	
 	public WebDriver driver;
 	
-/*
+
 
   @BeforeClass (groups = {"Sanity","SQL","Regression","Smoke","Smoke_Chrome","Sanity_Chrome","Regression_Chrome"} )
   public void Chrome_BeforeTest() throws IOException  {
@@ -46,7 +46,7 @@ public class DriverLoad {
 
 	  
   }
-  */
+  
   
   
   /*

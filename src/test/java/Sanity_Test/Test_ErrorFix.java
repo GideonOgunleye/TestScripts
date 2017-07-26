@@ -28,6 +28,7 @@ import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
+import PageFactory.AddAccountPage;
 import PageFactory.AdminCertificateDetailsPage;
 import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminIssuedCertificatesPage;
@@ -44,64 +45,71 @@ import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
 public class Test_ErrorFix extends BrowserStack {
-	ExtentReports report;
-	ExtentTest test;
-	LoginPage 	LoginPageElements;
-	BillingPage BillingPageElements;
-	sslDashBoard sslDashBoardElements;
-	CsR CsrElements;
-	NavigationLinks NavigationElements;
-	AlertBox AlertBoxElements;
-	TakeScreenShot ScreenShot;
-	IssuedCertificatesPage IssuedCertificatesPageElements;
-	CertificateDetailsPage CertificateDetailsPageElements;
+	  ExtentReports report;
+	  ExtentTest test;
+	  LoginPage 	LoginPageElements;
+	  AdminNavigationLinks AdminNavigationLinksElements;
+	  AdminCertificatesPage AdminCertificatesPageElements;
+	  NavigationLinks NavigationLinksElements;
+	  BillingPage BillingPageElements;
+	  sslDashBoard sslDashBoardElements;
+	  AdminSslDashBoard AdminSslDashBoardElements;
+	  AlertBox AlertBoxElements;
+	  ProposalsPage ProposalsPageElements;
+	  ClientAccountsPage ClientAccountsPageElements;
+	  AdminIssuedCertificatesPage AdminIssuedCertificatesPage;
+	  AdminCertificateDetailsPage AdminCertificateDetailsPage;
+	  AddAccountPage AddAccountPageElements;
+	  TakeScreenShot ScreenShot;
 	
-	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","BS_DailySanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
-	public void Login () throws Exception {
-		
-		report = ExtentFactory.getInstance(); 
-		LoginPageElements = new LoginPage(driver);
-		BillingPageElements = new BillingPage(driver);
-		sslDashBoardElements = new sslDashBoard(driver);
-		CsrElements = new CsR(driver);
-		NavigationElements = new NavigationLinks(driver);
-		AlertBoxElements = new AlertBox(driver);
-		IssuedCertificatesPageElements = new IssuedCertificatesPage(driver);
-		CertificateDetailsPageElements = new CertificateDetailsPage(driver);
-		ScreenShot = new TakeScreenShot();
-		
-		
-		LoginPageElements.ClientLogin();
-		
-		Thread.sleep(5000);		
-	}
+	 @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+	  public void Login() throws Exception {
 
-	
-	@AfterMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_DailySanity", "BS_Sanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"}, alwaysRun = true)
-	public void Logout (ITestResult result) throws Exception {
+		  LoginPageElements = new LoginPage(driver);
+		  BillingPageElements = new BillingPage(driver);
+		  sslDashBoardElements = new sslDashBoard(driver);
+		  AdminSslDashBoardElements = new AdminSslDashBoard(driver);
+		  AlertBoxElements = new AlertBox(driver);
+		  ProposalsPageElements = new ProposalsPage(driver);
+		  NavigationLinksElements = new NavigationLinks(driver);
+		  AdminNavigationLinksElements = new AdminNavigationLinks(driver);
+		  ClientAccountsPageElements = new ClientAccountsPage(driver);
+		  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
+		  AdminIssuedCertificatesPage = new AdminIssuedCertificatesPage(driver);
+		  AdminCertificateDetailsPage = new AdminCertificateDetailsPage(driver);
+		  AddAccountPageElements = new AddAccountPage(driver);
+		  ScreenShot = new TakeScreenShot();
+	  
+		  LoginPageElements.AdminLogin();
+	 
+		  report = ExtentFactory.getInstance(); 	 
+			 
+	  }
 
-	    //Take Screen Shots
-				
-	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
-		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.INFO, "Test Complete", imagePath);
-		
-		driver.navigate().refresh();
-		
-		Thread.sleep(5000);
-		
-		try{
-			
-			LoginPageElements.ClickLogoutButton();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "User Logged Out");
-			String path2 = ScreenShot.Image(driver, "Logout");
-			String imagePath2 = test.addScreenCapture(path2);
-			test.log(LogStatus.INFO, imagePath2);
-			report.endTest(test);
-			report.flush();
-		
-		}catch (Exception e) {
+@AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+public void Log_Out (ITestResult result) throws Exception {
+	    
+	  
+	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
+	  String imagePath = test.addScreenCapture(path);
+	  test.log(LogStatus.INFO, "Test Complete", imagePath);
+	  
+	  
+	  /*User Log Out*/
+	  driver.navigate().refresh();
+	  Thread.sleep(5000);
+	  
+	 try{ 
+		 
+		  LoginPageElements.ClickAdminLogoutButton();
+		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  String path2 = ScreenShot.Image(driver, "Logout");
+		  String imagePath2 = test.addScreenCapture(path2);
+		  test.log(LogStatus.INFO, imagePath2);
+		  report.endTest(test);
+		  report.flush();
+	  
+	 }catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
 			String path2 = ScreenShot.Image(driver, "Logout");
@@ -111,163 +119,108 @@ public class Test_ErrorFix extends BrowserStack {
 			report.flush();
 			//Assert.fail("Exception " + e);
 		}
-		
-		//return destination;
-		
-	}
+	 
+	 // return destination;
+}
 	
-	@Test (priority = 3, groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
-	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
-		
-		System.out.println("Reissue Certificate Test Started!");
-		
-		test = report.startTest("Registered User Test --> Reissue Certificate: " + Product );
-	    test.log(LogStatus.INFO, "User Logged in");
-		
-		//Navigate Domain Names Link on side bar
-	    sslDashBoardElements.ClickMysslCertificatessLink();
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    test.log(LogStatus.INFO, "Clicked on My SSL Link");
-	    
-	    sslDashBoardElements.IssuedLinkClick();
-		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    test.log(LogStatus.INFO, "Clicked on Issued Link");
-	    
-	    try {
-	    	
-	    	if (IssuedCertificatesPageElements.Column1Contains(Product)) {
-	    		
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
-	    		
-	    	    String path = ScreenShot.Image(driver, "Product");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.INFO, imagePath);
-	    	    
-				IssuedCertificatesPageElements.Column1TextPrint();
+@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+public void Create_user_Account() throws Exception{
+	  
+		//Search For UK Test User
+	     test = report.startTest("Admin Test --> Create Account");
+	     
+	     test.log(LogStatus.INFO, "Admin User Logged in");
+	  
+		 AdminNavigationLinksElements.ClientsAccountsLinkMouse();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Moved Mouse to Clients Accounts Link");
+		 
+		 AdminNavigationLinksElements.NewAccountLinkClick();
+		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 test.log(LogStatus.INFO, "Clicked on New Account Link");
+		 
+		 Thread.sleep(1000);
+		 
+		 
+		 try { 
+			 
+		 
+			 AddAccountPageElements.CompanyNameFieldFill("SSL 247-Test");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Filled Company Name");
+			 
+			 AddAccountPageElements.AccountManagerFieldSelect("Daniel Genadiev");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Account Manager");
+			 
+			 AddAccountPageElements.SalesAssistantFieldSelect("Anna Cardinale");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Sales Assistant");
+			 
+			 AddAccountPageElements.TerritoryFieldSelect("United Kingdom");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Territory");
+			 
+			 AddAccountPageElements.VatPrefixFieldSelect("IT");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Prefix");
+			 
+			 AddAccountPageElements.VatNumberFieldFill("01479900217");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Filled VaT Number");
+			 
+			 AddAccountPageElements.CompanyRegNumberFieldFill("1234567");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Filled Reg Number");
+			 
+			 AddAccountPageElements.AccountActivitySectorFieldSelect("Other");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Account Activity Sector");
+			 
+			 AddAccountPageElements.AccountCompanySizeFieldSelect("51-250");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Company Range");
+			 
+			 AddAccountPageElements.RequestPaymentTermsCheckBoxClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Ticked Payment Terms Checkbox");
+			 
+			 AddAccountPageElements.DaysToPayFieldSelect("5");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Number Of Days To Pay");
+			 
+			 AddAccountPageElements.DaysToEomCheckBoxClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Tcked Days to Pay EOM Checkbox");
+			 
+			 AddAccountPageElements.MinimumPaymentLimitFieldSelect("50");
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Selected Minimum Payment Limit");
+			 
+			 AddAccountPageElements.ActiveButtonClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Clicked Active Button");
+			 
+			 String path = ScreenShot.Image(driver, "Account");
+			 String imagePath = test.addScreenCapture(path);
+			 test.log(LogStatus.INFO, imagePath);
+			 
+			 AddAccountPageElements.CreateAccountButtonClick();
+			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			 test.log(LogStatus.INFO, "Clicked Create Account Button");
+			 
+			 
+		 }catch (Exception e) {
 				
-	    		IssuedCertificatesPageElements.Product1View();
-	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	    	    test.log(LogStatus.INFO, "Clicked to view product");
-	    		
-	    	    
-	    		
-	    		}else if (IssuedCertificatesPageElements.Column2Contains(Product)) {
-	    			
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Column 2 Contains Products");
-		    	    
-		    	    String path = ScreenShot.Image(driver, "Product");
-					String imagePath = test.addScreenCapture(path);
-					test.log(LogStatus.INFO, imagePath);
-					
-					IssuedCertificatesPageElements.Column2TextPrint();
+			  String path = ScreenShot.Image(driver, "Account");
+			  String imagePath = test.addScreenCapture(path);
+			  test.log(LogStatus.INFO, imagePath);
+			  test.log(LogStatus.FAIL, "Form Submittion Failed");
+			  driver.navigate().refresh();
+			  Assert.fail("Exception " + e);
 				
-	    			IssuedCertificatesPageElements.Product2View();
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked to view product");
-	    			
-		    	}else if (IssuedCertificatesPageElements.Column3Contains(Product)) {
-	    			
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Column 3 Contains Products");
-		    	    
-		    	    String path = ScreenShot.Image(driver, "Product");
-					String imagePath = test.addScreenCapture(path);
-					test.log(LogStatus.INFO, imagePath);
-					
-					IssuedCertificatesPageElements.Column3TextPrint();
-				
-	    			IssuedCertificatesPageElements.Product3View();
-	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		    	    test.log(LogStatus.INFO, "Clicked to view product");
-    			
-	    	}else {
-				
-				System.out.println("Product Not Found");
-				test.log(LogStatus.FAIL, "Product Not Found");
-				String path = ScreenShot.Image(driver, "Product");
-				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.INFO, imagePath);
-				
-		    	}	
-	    	
-	    }catch (Exception e) {
-	    	
-	    	String path = ScreenShot.Image(driver, "Product");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			test.log(LogStatus.FAIL, "Validation Failed");
-			Assert.fail("Exception " + e);
-	    }
-		
-	    
-	    //Certificates Page
-	    try {
-	    
-	    	CertificateDetailsPageElements.ReIssueButtonClick();
-	    	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-    	    test.log(LogStatus.INFO, "Clicked on Re-Issued Tab");
-    	    
-    	    CertificateDetailsPageElements.CsrFieldClick();
-    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-    	    test.log(LogStatus.INFO, "Clicked Csr Field");
-    	    
-    	    CertificateDetailsPageElements.LoadSsl247_TestCsR();
-    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-    	    test.log(LogStatus.INFO, "Loaded Csr");
-    	    
-    	    CertificateDetailsPageElements.ValidateCsrButton();
-    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-    	    test.log(LogStatus.INFO, "Clicked Validate Csr Button");
-    	    
-    	    Thread.sleep(1000);
-    	    
-    	    CertificateDetailsPageElements.ReIssueCertificateButtonClick();
-    	    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-    	    test.log(LogStatus.INFO, "Clicked on Reissue Certificate Button");
-	    
-		}catch (Exception e) {
-			
-			String path = ScreenShot.Image(driver, "Product");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			test.log(LogStatus.FAIL, "Validation Failed");
-			Assert.fail("Exception " + e);
-		}
-	    
-	    
-	    try {
-	    	
-	    	String Alertnote = "Certificate has been submitted for reissue";  
-	    	AlertBoxElements.AlertWait();
-	    			    	
-	      if (AlertBoxElements.VerifyAlert(Alertnote)) {
-	    						
-	    	test.log(LogStatus.PASS, "Validation Complete");
-	    	Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-	    	System.out.println("Validation Complete!");
-	    	
-	      }else{
-	    	
-	    	String path = ScreenShot.Image(driver, "SearchResult");
-	    	String imagePath = test.addScreenCapture(path);
-	    	test.log(LogStatus.INFO, imagePath);
-  
-	    	test.log(LogStatus.FAIL, "Alert Validation Failed");
-	    	AlertBoxElements.AlertPrint();
-	   	    	
-	    	}
-	    	
-	    }catch (Exception e) {
-	    						
-	    	test.log(LogStatus.FAIL, "Alart Not Displayed");
-	    	String path = ScreenShot.Image(driver, "SearchResult");
-	    	String imagePath = test.addScreenCapture(path);
-	    	test.log(LogStatus.INFO, imagePath);
-	    	Assert.fail("Exception " + e);
-	    }
-	    
-	}   
+		}	 
+	
+}
   
 }

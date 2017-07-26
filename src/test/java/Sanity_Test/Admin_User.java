@@ -12,6 +12,7 @@ import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
+import PageFactory.AddAccountPage;
 import PageFactory.AdminCertificateDetailsPage;
 import PageFactory.AdminCertificatesPage;
 import PageFactory.AdminIssuedCertificatesPage;
@@ -68,6 +69,7 @@ public class Admin_User extends BrowserStack {
 	  ClientAccountsPage ClientAccountsPageElements;
 	  AdminIssuedCertificatesPage AdminIssuedCertificatesPage;
 	  AdminCertificateDetailsPage AdminCertificateDetailsPage;
+	  AddAccountPage AddAccountPageElements;
 	  TakeScreenShot ScreenShot;
 	
 	 @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
@@ -85,6 +87,7 @@ public class Admin_User extends BrowserStack {
 		  AdminCertificatesPageElements = new AdminCertificatesPage(driver);
 		  AdminIssuedCertificatesPage = new AdminIssuedCertificatesPage(driver);
 		  AdminCertificateDetailsPage = new AdminCertificateDetailsPage(driver);
+		  AddAccountPageElements = new AddAccountPage(driver);
 		  ScreenShot = new TakeScreenShot();
 	  
 		  LoginPageElements.AdminLogin();
@@ -92,9 +95,9 @@ public class Admin_User extends BrowserStack {
 		  report = ExtentFactory.getInstance(); 	 
 			 
 	  }
-  
-  @AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
-  public void Log_Out (ITestResult result) throws Exception {
+
+@AfterMethod (alwaysRun = true, groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+public void Log_Out (ITestResult result) throws Exception {
 	    
 	  
 	  String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
@@ -128,7 +131,7 @@ public class Admin_User extends BrowserStack {
 		}
 	 
 	 // return destination;
-  }
+}
   
   @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void Admin_LogIn() throws Exception{
@@ -656,7 +659,7 @@ public class Admin_User extends BrowserStack {
   }
   
   
-  @Test (priority = 5, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
+  @Test (priority = 4, groups = {"Sanity", "BS_Sanity","Sanity_Chrome"})
   public void Send_Fulfillment_Email() throws Exception {
   		  
       test = report.startTest("Admin Test -->  Send Fullfillement Email");
@@ -1031,7 +1034,7 @@ public class Admin_User extends BrowserStack {
 		 
   }
  
-  @Test (priority = 3,groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate")
+  @Test (priority = 6,groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate")
   public void Sync_Cert_WithCA(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
   	  
   	  test = report.startTest("Admin Test --> Sync Cert With CA");
@@ -1187,6 +1190,106 @@ public class Admin_User extends BrowserStack {
 
   		}
   	  
+  }
+  
+  @Test (priority = 7, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Create_user_Account() throws Exception{
+  	  
+  		//Search For UK Test User
+  	     test = report.startTest("Admin Test --> Create Account");
+  	     
+  	     test.log(LogStatus.INFO, "Admin User Logged in");
+  	  
+  		 AdminNavigationLinksElements.ClientsAccountsLinkMouse();
+  		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		 test.log(LogStatus.INFO, "Moved Mouse to Clients Accounts Link");
+  		 
+  		 AdminNavigationLinksElements.NewAccountLinkClick();
+  		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		 test.log(LogStatus.INFO, "Clicked on New Account Link");
+  		 
+  		 Thread.sleep(1000);
+  		 
+  		 
+  		 try { 
+  			 
+  		 
+  			 AddAccountPageElements.CompanyNameFieldFill("SSL 247-Test");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Filled Company Name");
+  			 
+  			 AddAccountPageElements.AccountManagerFieldSelect("Daniel Genadiev");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Account Manager");
+  			 
+  			 AddAccountPageElements.SalesAssistantFieldSelect("Anna Cardinale");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Sales Assistant");
+  			 
+  			 AddAccountPageElements.TerritoryFieldSelect("United Kingdom");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Territory");
+  			 
+  			 AddAccountPageElements.VatPrefixFieldSelect("IT");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Prefix");
+  			 
+  			 AddAccountPageElements.VatNumberFieldFill("01479900217");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Filled VaT Number");
+  			 
+  			 AddAccountPageElements.CompanyRegNumberFieldFill("1234567");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Filled Reg Number");
+  			 
+  			 AddAccountPageElements.AccountActivitySectorFieldSelect("Other");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Account Activity Sector");
+  			 
+  			 AddAccountPageElements.AccountCompanySizeFieldSelect("51-250");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Company Range");
+  			 
+  			 AddAccountPageElements.RequestPaymentTermsCheckBoxClick();
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Ticked Payment Terms Checkbox");
+  			 
+  			 AddAccountPageElements.DaysToPayFieldSelect("5");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Number Of Days To Pay");
+  			 
+  			 AddAccountPageElements.DaysToEomCheckBoxClick();
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Tcked Days to Pay EOM Checkbox");
+  			 
+  			 AddAccountPageElements.MinimumPaymentLimitFieldSelect("50");
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Selected Minimum Payment Limit");
+  			 
+  			 AddAccountPageElements.ActiveButtonClick();
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Clicked Active Button");
+  			 
+  			 String path = ScreenShot.Image(driver, "Account");
+  			 String imagePath = test.addScreenCapture(path);
+  			 test.log(LogStatus.INFO, imagePath);
+  			 
+  			 AddAccountPageElements.CreateAccountButtonClick();
+  			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  			 test.log(LogStatus.INFO, "Clicked Create Account Button");
+  			 
+  			 
+  		 }catch (Exception e) {
+  				
+  			  String path = ScreenShot.Image(driver, "Account");
+  			  String imagePath = test.addScreenCapture(path);
+  			  test.log(LogStatus.INFO, imagePath);
+  			  test.log(LogStatus.FAIL, "Form Submittion Failed");
+  			  driver.navigate().refresh();
+  			  Assert.fail("Exception " + e);
+  				
+  		}	 
+  	
   }
 
 }

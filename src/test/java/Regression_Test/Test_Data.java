@@ -292,7 +292,7 @@ public class Test_Data {
 	
 	@DataProvider (name ="ProposalsOrder_Data")
 	public static Object[][] ProposalsOrder_Data(){
-		Object[][] obj = new Object[15][6];
+		Object[][] obj = new Object[38][6];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
@@ -506,6 +506,328 @@ public class Test_Data {
 		obj[14][4]="1";
 		//Common Name
 		obj[14][5]="ssl247-test.co.uk";
+		
+		/*--------16th Parameter-------------*/	
+		//ProductType
+		obj[15][0]="SSL Certificate";
+		//Product
+		obj[15][1]="GlobalSign DomainSSL";
+		//Quantity
+		obj[15][2]="1";
+		//Duration
+		obj[15][3]="1 year";
+		//Duration
+		obj[15][4]="1";
+		//Common Name
+		obj[15][5]="ssl247-test.co.uk";
+		
+		/*--------17th Parameter-------------*/	
+		//ProductType
+		obj[16][0]="SSL Certificate";
+		//Product
+		obj[16][1]="RapidSSL Pro";
+		//Quantity
+		obj[16][2]="1";
+		//Duration
+		obj[16][3]="1 year";
+		//Duration
+		obj[16][4]="1";
+		//Common Name
+		obj[16][5]="ssl247-test.co.uk";
+		
+		/*--------18th Parameter-------------*/	
+		//ProductType
+		obj[17][0]="SSL Certificate";
+		//Product
+		obj[17][1]="RapidSSL";
+		//Quantity
+		obj[17][2]="1";
+		//Duration
+		obj[17][3]="1 year";
+		//Duration
+		obj[17][4]="1";
+		//Common Name
+		obj[17][5]="ssl247-test.co.uk";
+		
+		/*--------19th Parameter-------------*/	
+		//ProductType
+		obj[18][0]="SSL Certificate";
+		//Product
+		obj[18][1]="Entrust Private SSL";
+		//Quantity
+		obj[18][2]="1";
+		//Duration
+		obj[18][3]="1 year";
+		//Duration
+		obj[18][4]="1";
+		//Common Name
+		obj[18][5]="ssl247-test.co.uk";
+		
+		/*--------20th Parameter-------------*/	
+		//ProductType
+		obj[19][0]="SSL Certificate";
+		//Product
+		obj[19][1]="Extra SANs for EV Certificates";
+		//Quantity
+		obj[19][2]="1";
+		//Duration
+		obj[19][3]="1 year";
+		//Duration
+		obj[19][4]="1";
+		//Common Name
+		obj[19][5]="ssl247-test.co.uk";
+		
+		/*--------21th Parameter-------------*/	
+		//ProductType
+		obj[20][0]="SSL Certificate";
+		//Product
+		obj[20][1]="Entrust Standard SSL";
+		//Quantity
+		obj[20][2]="1";
+		//Duration
+		obj[20][3]="1 year";
+		//Duration
+		obj[20][4]="1";
+		//Common Name
+		obj[20][5]="ssl247-test.co.uk";
+		
+		/*--------22th Parameter-------------*/	
+		//ProductType
+		obj[21][0]="SSL Certificate";
+		//Product
+		obj[21][1]="Extra SANs for SSL Certificates (all except EV)";
+		//Quantity
+		obj[21][2]="1";
+		//Duration
+		obj[21][3]="1 year";
+		//Duration
+		obj[21][4]="1";
+		//Common Name
+		obj[21][5]="ssl247-test.co.uk";
+		
+		/*--------23th Parameter-------------*/	
+		//ProductType
+		obj[22][0]="SSL Certificate";
+		//Product
+		obj[22][1]="Entrust Advantage SSL Certificates";
+		//Quantity
+		obj[22][2]="1";
+		//Duration
+		obj[22][3]="1 year";
+		//Duration
+		obj[22][4]="1";
+		//Common Name
+		obj[22][5]="ssl247-test.co.uk";
+		
+		/*--------24th Parameter-------------*/	
+		//ProductType
+		obj[23][0]="SSL Certificate";
+		//Product
+		obj[23][1]="Entrust UC Multi-Domain SSL Certificates";
+		//Quantity
+		obj[23][2]="1";
+		//Duration
+		obj[23][3]="1 year";
+		//Duration
+		obj[23][4]="1";
+		//Common Name
+		obj[23][5]="ssl247-test.co.uk";
+		
+		/*--------25th Parameter-------------*/	
+		//ProductType
+		obj[24][0]="SSL Certificate";
+		//Product
+		obj[24][1]="Entrust Wildcard SSL Certificates";
+		//Quantity
+		obj[24][2]="1";
+		//Duration
+		obj[24][3]="1 year";
+		//Duration
+		obj[24][4]="1";
+		//Common Name
+		obj[24][5]="ssl247-test.co.uk";
+		
+		/*--------26th Parameter-------------**/	
+		//ProductType
+		obj[25][0]="SSL Certificate";
+		//Product
+		obj[25][1]="Entrust EV Multi-Domain SSL Certificates";
+		//Quantity
+		obj[25][2]="1";
+		//Duration
+		obj[25][3]="1 year";
+		//Duration
+		obj[25][4]="1";
+		//Common Name
+		obj[25][5]="ssl247-test.co.uk";
+		
+		/*--------27th Parameter-------------**/	
+		//ProductType
+		obj[26][0]="SSL Certificate";
+		//Product
+		obj[26][1]="Certificat SSL de norme RGS";
+		//Quantity
+		obj[26][2]="1";
+		//Duration
+		obj[26][3]="1 year";
+		//Duration
+		obj[26][4]="1";
+		//Common Name
+		obj[26][5]="ssl247-test.co.uk";
+		
+		/*--------28th Parameter-------------**/	
+		//ProductType
+		obj[27][0]="SSL Certificate";
+		//Product
+		obj[27][1]="Comodo PositiveSSL Wildcard";
+		//Quantity
+		obj[27][2]="1";
+		//Duration
+		obj[27][3]="1 year";
+		//Duration
+		obj[27][4]="1";
+		//Common Name
+		obj[27][5]="ssl247-test.co.uk";
+		
+		/*--------29th Parameter-------------**/	
+		//ProductType
+		obj[28][0]="SSL Certificate";
+		//Product
+		obj[28][1]="Comodo PositiveSSL";
+		//Quantity
+		obj[28][2]="1";
+		//Duration
+		obj[28][3]="1 year";
+		//Duration
+		obj[28][4]="1";
+		//Common Name
+		obj[28][5]="ssl247-test.co.uk";
+		
+		/*--------30th Parameter-------------**/	
+		//ProductType
+		obj[29][0]="SSL Certificate";
+		//Product
+		obj[29][1]="Comodo PositiveSSL Multi-domain";
+		//Quantity
+		obj[29][2]="1";
+		//Duration
+		obj[29][3]="1 year";
+		//Duration
+		obj[29][4]="1";
+		//Common Name
+		obj[29][5]="ssl247-test.co.uk";
+		
+		/*--------31st Parameter-------------**/	
+		//ProductType
+		obj[30][0]="SSL Certificate";
+		//Product
+		obj[30][1]="Comodo EV SSL";
+		//Quantity
+		obj[30][2]="1";
+		//Duration
+		obj[30][3]="1 year";
+		//Duration
+		obj[30][4]="1";
+		//Common Name
+		obj[30][5]="ssl247-test.co.uk";
+		
+		/*--------32nd Parameter-------------**/	
+		//ProductType
+		obj[31][0]="SSL Certificate";
+		//Product
+		obj[31][1]="Comodo EV SSL with SGC";
+		//Quantity
+		obj[31][2]="1";
+		//Duration
+		obj[31][3]="1 year";
+		//Duration
+		obj[31][4]="1";
+		//Common Name
+		obj[31][5]="ssl247-test.co.uk";
+		
+		/*--------33rd Parameter-------------**/	
+		//ProductType
+		obj[32][0]="SSL Certificate";
+		//Product
+		obj[32][1]="Comodo EV Multi-Domain SSL";
+		//Quantity
+		obj[32][2]="1";
+		//Duration
+		obj[32][3]="1 year";
+		//Duration
+		obj[32][4]="1";
+		//Common Name
+		obj[32][5]="ssl247-test.co.uk";
+		
+		/*--------34th Parameter-------------**/	
+		//ProductType
+		obj[33][0]="SSL Certificate";
+		//Product
+		obj[33][1]="Comodo OV SSL";
+		//Quantity
+		obj[33][2]="1";
+		//Duration
+		obj[33][3]="1 year";
+		//Duration
+		obj[33][4]="1";
+		//Common Name
+		obj[33][5]="ssl247-test.co.uk";
+		
+		/*--------35th Parameter-------------**/	
+		//ProductType
+		obj[34][0]="SSL Certificate";
+		//Product
+		obj[34][1]="Comodo OV SSL with SGC";
+		//Quantity
+		obj[34][2]="1";
+		//Duration
+		obj[34][3]="1 year";
+		//Duration
+		obj[34][4]="1";
+		//Common Name
+		obj[34][5]="ssl247-test.co.uk";
+		
+		/*--------36th Parameter-------------**/	
+		//ProductType
+		obj[35][0]="SSL Certificate";
+		//Product
+		obj[35][1]="Comodo OV Multi-Domain SSL";
+		//Quantity
+		obj[35][2]="1";
+		//Duration
+		obj[35][3]="1 year";
+		//Duration
+		obj[35][4]="1";
+		//Common Name
+		obj[35][5]="ssl247-test.co.uk";
+		
+		/*--------37th Parameter-------------**/	
+		//ProductType
+		obj[36][0]="SSL Certificate";
+		//Product
+		obj[36][1]="Comodo Wildcard SSL Premium";
+		//Quantity
+		obj[36][2]="1";
+		//Duration
+		obj[36][3]="1 year";
+		//Duration
+		obj[36][4]="1";
+		//Common Name
+		obj[36][5]="ssl247-test.co.uk";
+		
+		/*--------38th Parameter-------------**/	
+		//ProductType
+		obj[37][0]="SSL Certificate";
+		//Product
+		obj[37][1]="Comodo Wildcard SSL with SGC";
+		//Quantity
+		obj[37][2]="1";
+		//Duration
+		obj[37][3]="1 year";
+		//Duration
+		obj[37][4]="1";
+		//Common Name
+		obj[37][5]="ssl247-test.co.uk";
 		
 		return obj;
 		
