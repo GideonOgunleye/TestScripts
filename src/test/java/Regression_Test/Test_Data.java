@@ -292,7 +292,7 @@ public class Test_Data {
 	
 	@DataProvider (name ="ProposalsOrder_Data")
 	public static Object[][] ProposalsOrder_Data(){
-		Object[][] obj = new Object[38][6];
+		Object[][] obj = new Object[37][6];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
@@ -665,7 +665,7 @@ public class Test_Data {
 		//ProductType
 		obj[26][0]="SSL Certificate";
 		//Product
-		obj[26][1]="Certificat SSL de norme RGS";
+		obj[26][1]="Comodo Wildcard SSL with SGC";
 		//Quantity
 		obj[26][2]="1";
 		//Duration
@@ -674,6 +674,7 @@ public class Test_Data {
 		obj[26][4]="1";
 		//Common Name
 		obj[26][5]="ssl247-test.co.uk";
+		
 		
 		/*--------28th Parameter-------------**/	
 		//ProductType
@@ -815,11 +816,11 @@ public class Test_Data {
 		//Common Name
 		obj[36][5]="ssl247-test.co.uk";
 		
-		/*--------38th Parameter-------------**/	
+		/*--------38th Parameter-------------	
 		//ProductType
 		obj[37][0]="SSL Certificate";
 		//Product
-		obj[37][1]="Comodo Wildcard SSL with SGC";
+		obj[37][1]="Certificat SSL de norme RGS";
 		//Quantity
 		obj[37][2]="1";
 		//Duration
@@ -828,7 +829,7 @@ public class Test_Data {
 		obj[37][4]="1";
 		//Common Name
 		obj[37][5]="ssl247-test.co.uk";
-		
+		**/
 		return obj;
 		
 	}

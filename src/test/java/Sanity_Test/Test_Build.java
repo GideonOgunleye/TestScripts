@@ -124,8 +124,6 @@ public class Test_Build extends BrowserStack {
 			} 
 		
 		
-		
-		
 	}
 	
 	
@@ -367,7 +365,7 @@ public class Test_Build extends BrowserStack {
 			test.log(LogStatus.INFO, imagePath);
 			test.log(LogStatus.FAIL, "Test Failed");
 			driver.navigate().refresh();
-			Assert.fail("Exception " + e);
+			Assert.fail( Product +"Exception: "+ e);
 			
 		}
 	  
