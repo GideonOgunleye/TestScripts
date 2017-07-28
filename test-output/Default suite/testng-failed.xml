@@ -5,8 +5,8 @@
     <classes>
       <class name="Sanity_Test.Test_Build">
         <methods>
-          <include name="Ssl_Certificates_Proposals" invocation-numbers="12 26"/>
           <include name="User_Logout"/>
+          <include name="BrandProtection_Proposals" invocation-numbers="1 2 3"/>
           <include name="Chrome_AfterTest"/>
           <include name="User_Login"/>
           <include name="Chrome_BeforeTest"/>
