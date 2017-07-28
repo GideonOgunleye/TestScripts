@@ -290,8 +290,8 @@ public class Test_Data {
 		
 	}
 	
-	@DataProvider (name ="ProposalsOrder_Data")
-	public static Object[][] ProposalsOrder_Data(){
+	@DataProvider (name ="Certificate_ProposalsOrder_Data")
+	public static Object[][] Certificate_ProposalsOrder_Data(){
 		Object[][] obj = new Object[37][6];
 		
 		/*---------1st Parameter-------------*/	
@@ -830,6 +830,407 @@ public class Test_Data {
 		//Common Name
 		obj[37][5]="ssl247-test.co.uk";
 		**/
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="Personal_ID_ProposalsOrder_Data")
+	public static Object[][] Personal_ID_ProposalsOrder_Data(){
+		Object[][] obj = new Object[4][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Personal ID";
+		//Product
+		obj[0][1]="GlobalSign PersonalSign 2 Department";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Personal ID";
+		//Product
+		obj[1][1]="GlobalSign PersonalSign 2 Pro";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Personal ID";
+		//Product
+		obj[2][1]="PersonalSign 1";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		/*--------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Personal ID";
+		//Product
+		obj[3][1]="Entrust S/MIME Enterprise Certificate";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		
+		
+		/*--------5th Parameter-------------	
+		//ProductType
+		obj[4][0]="Personal ID";
+		//Product
+		obj[4][1]="Signature Électronique RGS* (une étoile)";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		*/
+		
+		/*--------6th Parameter-------------	
+		//ProductType
+		obj[5][0]="Personal ID";
+		//Product
+		obj[5][1]="Signature Électronique RGS** (deux étoiles)";
+		//Quantity
+		obj[5][2]="1";
+		//Duration
+		obj[5][3]="1 year";
+		//Duration
+		obj[5][4]="1";
+		//Common Name
+		obj[5][5]="ssl247-test.co.uk";
+		*/
+		
+		/*--------7th Parameter-------------	
+		//ProductType
+		obj[6][0]="Personal ID";
+		//Product
+		obj[6][1]="Signature Électronique RGS*** (trois étoiles)";
+		//Quantity
+		obj[6][2]="1";
+		//Duration
+		obj[6][3]="1 year";
+		//Duration
+		obj[6][4]="1";
+		//Common Name
+		obj[6][5]="ssl247-test.co.uk";
+		*/
+		
+		/*--------8th Parameter-------------	
+		//ProductType
+		obj[7][0]="SSL Certificate";
+		//Product
+		obj[7][1]="GeoTrust True BusinessID EV";
+		//Quantity
+		obj[7][2]="1";
+		//Duration
+		obj[7][3]="1 year";
+		//Duration
+		obj[7][4]="1";
+		//Common Name
+		obj[7][5]="ssl247-test.co.uk";
+		*/
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="CodeSigning_ProposalsOrder_Data")
+	public static Object[][] CodeSigning_ProposalsOrder_Data(){
+		Object[][] obj = new Object[7][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Code Signing";
+		//Product
+		obj[0][1]="Symantec Code Signing";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Code Signing";
+		//Product
+		obj[1][1]="Symantec Code Signing for Individuals";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Code Signing";
+		//Product
+		obj[2][1]="Thawte Code Signing";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		/*--------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Code Signing";
+		//Product
+		obj[3][1]="Thawte Code Signing for Individuals";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		
+		
+		/*--------5th Parameter-------------*/	
+		//ProductType
+		obj[4][0]="Code Signing";
+		//Product
+		obj[4][1]="GlobalSign Code Signing";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		
+		
+		/*--------6th Parameter-------------*/	
+		//ProductType
+		obj[5][0]="Code Signing";
+		//Product
+		obj[5][1]="GlobalSign EV Code Signing Certificate";
+		//Quantity
+		obj[5][2]="1";
+		//Duration
+		obj[5][3]="1 year";
+		//Duration
+		obj[5][4]="1";
+		//Common Name
+		obj[5][5]="ssl247-test.co.uk";
+		
+		
+		/*--------7th Parameter-------------*/	
+		//ProductType
+		obj[6][0]="Code Signing";
+		//Product
+		obj[6][1]="Entrust Code Signing Certificate";
+		//Quantity
+		obj[6][2]="1";
+		//Duration
+		obj[6][3]="1 year";
+		//Duration
+		obj[6][4]="1";
+		//Common Name
+		obj[6][5]="ssl247-test.co.uk";
+		
+		
+		/*--------8th Parameter-------------	
+		//ProductType
+		obj[7][0]="Code Signing";
+		//Product
+		obj[7][1]="GeoTrust True BusinessID EV";
+		//Quantity
+		obj[7][2]="1";
+		//Duration
+		obj[7][3]="1 year";
+		//Duration
+		obj[7][4]="1";
+		//Common Name
+		obj[7][5]="ssl247-test.co.uk";
+		*/
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="PdfSigning_ProposalsOrder_Data")
+	public static Object[][] PdfSigning_ProposalsOrder_Data(){
+		Object[][] obj = new Object[5][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="PDF Signing";
+		//Product
+		obj[0][1]="GlobalSign PDF Signing AATL";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="PDF Signing";
+		//Product
+		obj[1][1]="Entrust Document Signing Certificate (Individual)";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="PDF Signing";
+		//Product
+		obj[2][1]="Entrust Document Signing Certificate (Department)";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		/*--------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="PDF Signing";
+		//Product
+		obj[3][1]="Entrust Document Signing Certificate Enterprise (10k signatures)";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		
+		/*--------5th Parameter-------------*/	
+		//ProductType
+		obj[4][0]="PDF Signing";
+		//Product
+		obj[4][1]="Entrust Document Signing Certificate Enterprise (unlimited signatures)";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="BrandProtection_ProposalsOrder_Data")
+	public static Object[][] BrandProtection_ProposalsOrder_Data(){
+		Object[][] obj = new Object[4][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Brand Protection";
+		//Product
+		obj[0][1]="Trademark Clearinghouse";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Brand Protection";
+		//Product
+		obj[1][1]="Domain Name Recovery";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Brand Protection";
+		//Product
+		obj[2][1]="Uniform Domain Name Dispute Resolution Policy";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		/*--------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Brand Protection";
+		//Product
+		obj[3][1]="URS Procedure";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		
+		
 		return obj;
 		
 	}
