@@ -33,7 +33,7 @@ import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
-public class Test_Build extends BrowserStack {
+public class Test_Build extends DriverLoad {
 	
 	ExtentReports report;
 	ExtentTest test;
@@ -115,10 +115,9 @@ public class Test_Build extends BrowserStack {
 				String path2 = ScreenShot.Image(driver, "Logout");
 				String imagePath2 = test.addScreenCapture(path2);
 				test.log(LogStatus.INFO, imagePath2);
-				Assert.fail("Exception " + e);
 				report.endTest(test);
 				report.flush();
-				//driver.close();
+				Assert.fail("Log Out Failed- "+"Exception: " + e);
 				driver.quit();
 				
 			} 
@@ -127,8 +126,8 @@ public class Test_Build extends BrowserStack {
 	}
 	
 	
-  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="ProposalsOrder_Data")
-  public void Ssl_Certificates_Proposals (String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
+  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="BrandProtection_ProposalsOrder_Data")
+  public void BrandProtection_Proposals (String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
 	  
 	  test = report.startTest("Admin Test --> Proposals Order Test - " + Product);
 	     
@@ -215,7 +214,7 @@ public class Test_Build extends BrowserStack {
 	  			String path = ScreenShot.Image(driver, "Proposal");
 	  			String imagePath = test.addScreenCapture(path);
 	  			test.log(LogStatus.INFO, imagePath);
-	  			test.log(LogStatus.INFO, "Duration not Selected");
+	  			test.log(LogStatus.FAIL, "Quantity not Selected");
 	  			//Assert.fail("Exception " + e);
 
 	  		}
@@ -235,7 +234,7 @@ public class Test_Build extends BrowserStack {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.INFO, "Duration not Selected");
+				  test.log(LogStatus.FAIL, "Duration not Selected");
 				  //Assert.fail("Exception " + e);
 
 				}
@@ -254,7 +253,7 @@ public class Test_Build extends BrowserStack {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.INFO, "Licence Field Not Clickable");
+				  test.log(LogStatus.FAIL, "Licence Field Not Clickable");
 				  //Assert.fail("Exception " + e);
 
 				}
@@ -275,7 +274,7 @@ public class Test_Build extends BrowserStack {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.INFO, "Common Name Field Not Clickable");
+				  test.log(LogStatus.FAIL, "Common Name Field Not Clickable");
 				  //Assert.fail("Exception " + e);
 		
 			  }
@@ -365,7 +364,7 @@ public class Test_Build extends BrowserStack {
 			test.log(LogStatus.INFO, imagePath);
 			test.log(LogStatus.FAIL, "Test Failed");
 			driver.navigate().refresh();
-			Assert.fail( Product +"Exception: "+ e);
+			Assert.fail( Product +" - Exception: "+ e);
 			
 		}
 	  
