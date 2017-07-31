@@ -4,20 +4,32 @@
 
   <groups>
     <run>
-    <include name="BS_Sanity"/>
-    <include name="BS_DailySanity"/>
     <include name="BS_Regression"/>
     </run>
  </groups> 
-   
-    <test name="Test 5">
-  		
-  		<parameter name="config" value="SanityTest.conf.json"/>
-        <parameter name="environment" value="chrome"/>  
-    <classes>
-        <class name="Sanity_Test.Test_Build"/>
-    </classes>
-  </test><!--Test-->
+
+   <test name="Test 2">
+  	<parameter name="config" value="SanityTest.conf.json"/>
+    <parameter name="environment" value="chrome"/>
+   <classes>
+      <class name="Regression_Test.MasterRelease_18"/>
+    </classes>    
+  </test><!-- Test -->
+  
+  <test name="Test 3">
+    <parameter name="config" value="SanityTest.conf.json"/>
+    <parameter name="environment" value="chrome"/>
+  
+   <classes>
+      <class name="Regression_Test.Proposal_Orders"/>
+    </classes>    
+  </test><!-- Test -->
+  
+   <test name="Test 4">
+   <classes>
+      <class name="Regression_Test.SQL_Queries"/>
+    </classes>    
+  </test><!-- Test -->
   
   
 </suite> <!-- Suite -->

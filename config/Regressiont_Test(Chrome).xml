@@ -26,6 +26,15 @@
   </test><!-- Test -->
   
   <test name="Test 3">
+    <parameter name="config" value="Regression_ProposalOrders.json"/>
+    <parameter name="environment" value="chrome"/>
+  
+   <classes>
+      <class name="Regression_Test.Proposal_Orders"/>
+    </classes>    
+  </test><!-- Test -->
+  
+   <test name="Test 4">
    <classes>
       <class name="Regression_Test.SQL_Queries"/>
     </classes>    

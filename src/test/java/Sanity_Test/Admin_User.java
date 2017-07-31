@@ -1254,13 +1254,13 @@ public void Log_Out (ITestResult result) throws Exception {
   			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   			 test.log(LogStatus.INFO, "Ticked Payment Terms Checkbox");
   			 
-  			 AddAccountPageElements.DaysToPayFieldSelect("5");
+  			 AddAccountPageElements.DaysToPayFieldSelect("7");
   			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   			 test.log(LogStatus.INFO, "Selected Number Of Days To Pay");
   			 
   			 AddAccountPageElements.DaysToEomCheckBoxClick();
   			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-  			 test.log(LogStatus.INFO, "Tcked Days to Pay EOM Checkbox");
+  			 test.log(LogStatus.INFO, "Ticked Days to Pay EOM Checkbox");
   			 
   			 AddAccountPageElements.MinimumPaymentLimitFieldSelect("50");
   			 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);

@@ -91,10 +91,12 @@ public class Proposal_Orders extends BrowserStack {
 		
 		driver.navigate().refresh();
 		
+		Thread.sleep(1000);
+		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)", "");
 		
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		//User Log Out
 		
