@@ -298,7 +298,8 @@ public class Test_Data {
 		//ProductType
 		obj[0][0]="SSL Certificate";
 		//Product
-		obj[0][1]="Symantec Secure Site Pro EV";
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[0][1]="Entrust Private SSL";
 		//Quantity
 		obj[0][2]="1";
 		//Duration

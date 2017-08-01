@@ -79,52 +79,62 @@ public class MasterRelease_18 extends BrowserStack {
   @AfterMethod (groups = {"Regression","BS_Regression","Regression_Chrome"}, alwaysRun = true)
   public void afterMethod (ITestResult result) throws Exception {
 	  
-	    //Take Screen Shots
-/*	  
-	  	String filename =  result.getMethod().getMethodName() + ScreenShot.getRandomString(10)  + ".png";
-	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
-		  
-	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(sourceFile, new File(Directory + filename));
-		  
-		String destination = Directory + filename;
-		String path = destination;
-*/		
+	    //Take Screen Shots		
 	  	String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 	  	String imagePath = test.addScreenCapture(path);
-	  	test.log(LogStatus.INFO, "Test Complete", imagePath);
-	  	
-	  	
-	/*  	
-	  	try {
-		  	
-	  		if (LoginPageElements.AdminLogoutButtonIsVisible()) {
-	  			
-	  			LoginPageElements.ClickAdminLogoutButton();
-				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				test.log(LogStatus.INFO, "Aftertest Logout Button Clicked");
-				
-	  		}else {
-	  			
-	  			test.log(LogStatus.INFO, "Logout Button Not Visible");
-	  		}
-		  
-		
-	  	}catch (Exception e) {
-			
-	  		test.log(LogStatus.INFO, "Admin Logout Button Not Visible");
-
-	  	}
-	  */	
+	  	test.log(LogStatus.INFO, "Test Complete", imagePath);	
 	  	
 	  	
 		driver.navigate().refresh();
-		Thread.sleep(5000);
+		
+		Thread.sleep(1000);
 		
 		test.log(LogStatus.INFO, "Test Ended");
 		
-		report.endTest(test);
-		report.flush();
+	  	try{ 
+	  		
+	  	//Try Client Logout	 
+	  		
+	  		   JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  		   jse.executeScript("window.scrollBy(0,500)", "");
+	  		   
+	  		   Thread.sleep(1000);
+	  		   
+	  		   if(LoginPageElements.LogoutButtonIsVisible()) {
+	  			   
+	  			 LoginPageElements.ClickLogoutButton();
+		  		 test.log(LogStatus.INFO, "After Method-Client User Logged Out");
+		  		 String path2 = ScreenShot.Image(driver, "Logout");
+		  		 String imagePath2 = test.addScreenCapture(path2);
+		  		 test.log(LogStatus.INFO, imagePath2);
+		  		 report.endTest(test);
+		  		 report.flush();
+	  			   
+	  		   }else if(LoginPageElements.AdminLogoutButtonIsVisible()){
+	  			   
+	  			   	LoginPageElements.ClickAdminLogoutButton();
+		  			test.log(LogStatus.INFO, "After Method-Admin User Logged Out");
+		  			String path2 = ScreenShot.Image(driver, "Logout");
+		  			String imagePath2 = test.addScreenCapture(path2);
+		  			test.log(LogStatus.INFO, imagePath2);
+		  			report.endTest(test);
+		  			report.flush();
+	  		   }
+	  			 
+	  			
+	  	
+	  	}catch (Exception e) {
+	  				
+	  			test.log(LogStatus.FAIL, "After Method-Logout Failed");
+	  			String path2 = ScreenShot.Image(driver, "Logout");
+	  			String imagePath2 = test.addScreenCapture(path2);
+	  			test.log(LogStatus.INFO, imagePath2);
+	  			report.endTest(test);
+	  			report.flush();
+	  			Assert.fail("Log Out Failed- "+"Exception: " + e);
+	  			driver.quit();
+	  				
+	  	} 
 		
 	  
   }
@@ -154,8 +164,12 @@ public class MasterRelease_18 extends BrowserStack {
 	  ClientAccountsPageElements.UpdateButtonClink();
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Click on Update Button");
-		 
+	  
 	  Thread.sleep(5000);
+	  
+	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  jse.executeScript("window.scrollBy(0,500)", "");
+	  
 	  ClientAccountsPageElements.ValidateResults("UKTE001");
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	  test.log(LogStatus.INFO, "Search Resusult is Displayed");
@@ -183,7 +197,7 @@ public class MasterRelease_18 extends BrowserStack {
 	  
 	  //Scroll Page Up
 	  driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  //JavascriptExecutor jse = (JavascriptExecutor)driver;
 	  jse.executeScript("window.scrollBy(0,-500)", "");
 	  Thread.sleep(1000);
 	  
@@ -200,7 +214,7 @@ public class MasterRelease_18 extends BrowserStack {
 		  
 		  //Log Out 
 		  //LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //test.log(LogStatus.INFO, "Admin User Logged Out");
 		  Assert.fail("Hackadvert Option is Available on third row");
 		  driver.navigate().refresh();
 		  
@@ -214,7 +228,7 @@ public class MasterRelease_18 extends BrowserStack {
 		  
 		  //Log Out 
 		  //LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //test.log(LogStatus.INFO, "Admin User Logged Out");
 		  	
 	 }
 	  
@@ -230,7 +244,7 @@ public class MasterRelease_18 extends BrowserStack {
 		  
 		  //Log Out 
 		  //LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //test.log(LogStatus.INFO, "Admin User Logged Out");
 		  Assert.fail("Hackadvert Option is Available on Fourth Row");
 		  driver.navigate().refresh();
 		  
@@ -244,7 +258,7 @@ public class MasterRelease_18 extends BrowserStack {
 		  
 		  //Log Out 
 		  //LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //test.log(LogStatus.INFO, "Admin User Logged Out");
 		  	
 	 }
 	  
@@ -259,8 +273,8 @@ public class MasterRelease_18 extends BrowserStack {
 		  test.log(LogStatus.INFO, imagePath);
 		  
 		  //Log Out 
-		  LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
+		  //LoginPageElements.ClickAdminLogoutButton();
+		 // test.log(LogStatus.INFO, "Admin User Logged Out");
 		  Assert.fail("Hackadvert Option is Available on Fifth Row");
 		  driver.navigate().refresh();
 		  
@@ -271,13 +285,10 @@ public class MasterRelease_18 extends BrowserStack {
 		  String imagePath = test.addScreenCapture(path);
 		  test.log(LogStatus.INFO, imagePath);
 		  test.log(LogStatus.PASS, "Hackadvert Not Available on Fith Row");
-		  
-		  //Log Out 
-		  LoginPageElements.ClickAdminLogoutButton();
 		  test.log(LogStatus.INFO, "Admin User Logged Out");
 		  	
 	 }
-
+	  
 	   
   }
   
@@ -309,6 +320,9 @@ public class MasterRelease_18 extends BrowserStack {
 	  test.log(LogStatus.INFO, "Click on Update Button");
 		 
 	  Thread.sleep(5000);
+	  
+	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  jse.executeScript("window.scrollBy(0,500)", "");
 	  
 	  ClientAccountsPageElements.ValidateResults("UKTE001");
 	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -401,10 +415,6 @@ public class MasterRelease_18 extends BrowserStack {
 
 	}
 	
-    //Log Out 
-	LoginPageElements.ClickAdminLogoutButton();
-	test.log(LogStatus.INFO, "Admin User Logged Out");
-	
 	
   }
 
@@ -435,6 +445,10 @@ public class MasterRelease_18 extends BrowserStack {
 		test.log(LogStatus.INFO, "Click on Update Button");
 			 
 		Thread.sleep(5000);
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,500)", "");
+		
 		ClientAccountsPageElements.ValidateResults("UKTE001");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		test.log(LogStatus.INFO, "Search Resusult is Displayed");
@@ -514,10 +528,6 @@ public class MasterRelease_18 extends BrowserStack {
 			Assert.fail("Exception" + e);
 		}
 		
-	    //Log Out 
-		LoginPageElements.ClickAdminLogoutButton();
-		test.log(LogStatus.INFO, "Admin User Logged Out");
-  
 	  
   }
 	
@@ -526,197 +536,186 @@ public void Bulk_Trasfer_Certifictes (String Adusername, String Adpassword, Stri
 
 	
 	//Load Browser
-	driver.get(Url); 
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	driver.manage().window().maximize();
-	
-	report = ExtentFactory.getInstance2();
-	
-	test = report.startTest("Bulk Transfer Certificates for Test Account:"+ " " + Account);
-    test.log(LogStatus.INFO, "Browser Opened and URL Entered");
-	
-	//Log in as Client	
-	LoginPageElements.ClickLoginLink();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked Login Link");
-	
-	LoginPageElements.EnterUserName(Adusername);
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Entered Username");
-	
-	LoginPageElements.EnterPassword(Adpassword);
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Entered Password");
-	
-	LoginPageElements.ClickLoginButton();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked Login Button");
-	
-	Thread.sleep(1000);
-	
-	//Search For UK Test User
-	test.log(LogStatus.INFO, "Admin User Logged in");
-	  
-	AdminNavigationLinksElements.ClientsAccountsLinkClick();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Click on clients Accounts Link");
-		 
-	ClientAccountsPageElements.ValidatePage();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	ClientAccountsPageElements.SearchQueryFieldFill(Account);
-	
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
-		 
-	ClientAccountsPageElements.UpdateButtonClink();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Click on Update Button");
-		 
-	Thread.sleep(5000);
-	ClientAccountsPageElements.ValidateResults(Account);
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Search Resusult is Displayed");
-	
-	ClientAccountsPageElements.ViewAccount();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
-	
-	Thread.sleep(1000);
-	  
-	//Click on SSL Certificates Link
-	AdminSslDashBoardElements.ClickMysslCertificatessLink();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked on Certificates Link");
-	  
-	Thread.sleep(2000);
-	
-	
-	//Click on Search Link
-	AdminSslDashBoardElements.SearchLinkClick();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked on Search Link");
-	
-	try {
-		
-		//Click on Bulk Tansfer Certificates Button
-		AdminSslDashBoardElements.BulkTransferCertificateButtonClick();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked on Bulk Tranfer Certificates Button");
-		
-		//Click On Issued Tab
-		AdminSslDashBoardElements.IssuedTabClick();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Clicked on Issued Tab");
-		
-		//Tick to Select First Two Certs
-		AdminSslDashBoardElements.CheckBoxOneClick();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Ticked First Cert ");
+  	driver.get(Url); 
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	driver.manage().window().maximize();
+  	
+  	report = ExtentFactory.getInstance2();
+  	
+  	test = report.startTest("Bulk Transfer Certificates for Test Account:"+ " " + Account);
+      test.log(LogStatus.INFO, "Browser Opened and URL Entered");
+  	
+  	//Log in as Client	
+  	LoginPageElements.ClickLoginLink();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Clicked Login Link");
+  	
+  	LoginPageElements.EnterUserName(Adusername);
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Entered Username");
+  	
+  	LoginPageElements.EnterPassword(Adpassword);
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Entered Password");
+  	
+  	LoginPageElements.ClickLoginButton();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Clicked Login Button");
+  	
+  	Thread.sleep(1000);
+  	
+  	//Search For UK Test User
+  	test.log(LogStatus.INFO, "Admin User Logged in");
+  	  
+  	AdminNavigationLinksElements.ClientsAccountsLinkClick();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Click on clients Accounts Link");
+  		 
+  	ClientAccountsPageElements.ValidatePage();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	ClientAccountsPageElements.SearchQueryFieldFill(Account);
+  	
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+  		 
+  	ClientAccountsPageElements.UpdateButtonClink();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Click on Update Button");
+  		 
+  	Thread.sleep(5000);
+  	
+  	JavascriptExecutor jse = (JavascriptExecutor)driver;
+  	jse.executeScript("window.scrollBy(0,500)", "");
+  	
+  	ClientAccountsPageElements.ValidateResults(Account);
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Search Resusult is Displayed");
+  	
+  	ClientAccountsPageElements.ViewAccount();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Click on UK Test Account in search Result");
+  	
+  	Thread.sleep(1000);
+  	  
+  	//Click on SSL Certificates Link
+  	AdminSslDashBoardElements.ClickMysslCertificatessLink();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Clicked on Certificates Link");
+  	  
+  	Thread.sleep(2000);
+  		
+  	//Click on Search Link
+  	AdminSslDashBoardElements.SearchLinkClick();
+  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  	test.log(LogStatus.INFO, "Clicked on Search Link");
+  	
+  	try {
+  		
+  		//Click on Bulk Tansfer Certificates Button
+  		AdminSslDashBoardElements.BulkTransferCertificateButtonClick();
+  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Clicked on Bulk Tranfer Certificates Button");
+  		
+  		//Click On Issued Tab
+  		AdminSslDashBoardElements.IssuedTabClick();
+  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Clicked on Issued Tab");
+  		
+  		//Tick to Select First Two Certs
+  		AdminSslDashBoardElements.CheckBoxOneClick();
+  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Ticked First Cert ");
 
-		
-		AdminSslDashBoardElements.CheckBoxTwoClick();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Ticked Second Cert ");
-		
-		//Enter Account in Search Field
-		AdminSslDashBoardElements.SearchAccountFieldSendKeys(Account2);
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		test.log(LogStatus.INFO, "Searched Account Code");
-		
-		Thread.sleep(1000);
-	
-		if (AdminSslDashBoardElements.ResultContains(Account2)) {
-			
-			AdminSslDashBoardElements.ResultClick();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Result Selected");
-			System.out.println("Result Selected");
-			
-			Thread.sleep(1000);
-			
-			AdminSslDashBoardElements.TransferCertificatesButtonClick();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.PASS, "Clicked Transfer Button");
-			String path = ScreenShot.Image(driver, "Screenshot");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.INFO, imagePath);
-			System.out.println("Clicked Transfer Button");
-			
-		}else {
-		
-			String path = ScreenShot.Image(driver, "Screenshot");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Result not Valid");
-			test.log(LogStatus.INFO, imagePath);
-			
-			//Admin Log Out
-			LoginPageElements.ClickAdminLogoutButton();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Logout Button");
-			
-		  	Assert.fail("Transfer Account Not Found");
-			
-		}
-		
-	 }catch (Exception e) {
-			
-		 	String path = ScreenShot.Image(driver, "Screenshot");
-			String imagePath = test.addScreenCapture(path);
-			test.log(LogStatus.FAIL, "Validation Failed");
-			test.log(LogStatus.INFO, imagePath);
-			
-			//Admin Log Out
-			LoginPageElements.ClickAdminLogoutButton();
-			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Logout Button");
-			
-		  	Assert.fail("Exception " + e);
-		  	
-	 }
-	
-	//Validate Alert Message
-	try {
-		
-		String Alertnote = "certificate was transfered";  
-		AlertBoxElements.AlertWait();
-				    	
-	  if (AlertBoxElements.VerifyAlert(Alertnote)) {
-							
-		test.log(LogStatus.PASS, "Validation Complete");
-		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
-		System.out.println("Validation Complete!");
-		
-	  }else {
-				    	
-		test.log(LogStatus.FAIL, "Validation Failed");
-		AlertBoxElements.AlertPrint();
-		String path = ScreenShot.Image(driver, "SearchResult");
-		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.INFO, imagePath);
-				    	
-		}
-		
-	}catch (Exception e) {
-		
-		String path = ScreenShot.Image(driver, "SearchResult");
-		String imagePath = test.addScreenCapture(path);
-		test.log(LogStatus.FAIL, "Alert Not Displayed");
-		test.log(LogStatus.INFO, imagePath);
-	
-	}
-
-
-	Thread.sleep(1000);
-	
-	JavascriptExecutor jse = (JavascriptExecutor)driver;
-	jse.executeScript("window.scrollBy(0,-500)", "");
-	
-	Thread.sleep(2000);
-	
-	//Admin Log Out
-	LoginPageElements.ClickAdminLogoutButton();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked on Logout Button");
+  		AdminSslDashBoardElements.CheckBoxTwoClick();
+  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Ticked Second Cert ");
+  		
+  		//Enter Account in Search Field
+  		AdminSslDashBoardElements.SearchAccountFieldSendKeys(Account2);
+  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  		test.log(LogStatus.INFO, "Searched Account Code");
+  		
+  		Thread.sleep(1000);
+  	
+  		if (AdminSslDashBoardElements.ResultContains(Account2)) {
+  			
+  			AdminSslDashBoardElements.ResultClick();
+  			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			test.log(LogStatus.INFO, "Result Selected");
+  			System.out.println("Result Selected");
+  			
+  			Thread.sleep(1000);
+  			
+  			AdminSslDashBoardElements.TransferCertificatesButtonClick();
+  			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			test.log(LogStatus.PASS, "Clicked Transfer Button");
+  			String path = ScreenShot.Image(driver, "Screenshot");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.INFO, imagePath);
+  			System.out.println("Clicked Transfer Button");
+  			
+  		}else {
+  		
+  			String path = ScreenShot.Image(driver, "Screenshot");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.FAIL, "Result not Valid");
+  			test.log(LogStatus.INFO, imagePath);
+  			
+  			//Admin Log Out
+  			LoginPageElements.ClickAdminLogoutButton();
+  			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			test.log(LogStatus.INFO, "Clicked on Logout Button");
+  			
+  		  	Assert.fail("Transfer Account Not Found");
+  			
+  		}
+  		
+  	 }catch (Exception e) {
+  			
+  		 	String path = ScreenShot.Image(driver, "Screenshot");
+  			String imagePath = test.addScreenCapture(path);
+  			test.log(LogStatus.FAIL, "Validation Failed");
+  			test.log(LogStatus.INFO, imagePath);
+  			
+  			//Admin Log Out
+  			//LoginPageElements.ClickAdminLogoutButton();
+  			//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+  			//test.log(LogStatus.INFO, "Clicked on Logout Button");
+  			
+  		  	Assert.fail("Bulk Transfer Test Failed with Exception:-  " + e);
+  		  	
+  	 }
+  	
+  	//Validate Alert Message
+  	try {
+  		
+  		String Alertnote = "certificate was transfered";  
+  		AlertBoxElements.AlertWait();
+  				    	
+  	  if (AlertBoxElements.VerifyAlert(Alertnote)) {
+  							
+  		test.log(LogStatus.PASS, "Validation Complete");
+  		Assert.assertTrue(AlertBoxElements.VerifyAlert(Alertnote));
+  		System.out.println("Validation Complete!");
+  		
+  	  }else {
+  				    	
+  		test.log(LogStatus.FAIL, "Validation Failed");
+  		AlertBoxElements.AlertPrint();
+  		String path = ScreenShot.Image(driver, "SearchResult");
+  		String imagePath = test.addScreenCapture(path);
+  		test.log(LogStatus.INFO, imagePath);
+  				    	
+  		}
+  		
+  	}catch (Exception e) {
+  		
+  		String path = ScreenShot.Image(driver, "SearchResult");
+  		String imagePath = test.addScreenCapture(path);
+  		test.log(LogStatus.FAIL, "Alert Not Displayed");
+  		test.log(LogStatus.INFO, imagePath);
+  	
+  	}
 	
 	
 
@@ -763,15 +762,8 @@ public void Technical_Contact_Receives_Cert_Emails () throws Exception {
 	test.log(LogStatus.INFO, "DashBord Page Opened");
 	
 	
-	
-	
-	//Admin Log Out
-	LoginPageElements.ClickAdminLogoutButton();
-	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-	test.log(LogStatus.INFO, "Clicked on Logout Button");
-	
-	
 }
+
 
 
 

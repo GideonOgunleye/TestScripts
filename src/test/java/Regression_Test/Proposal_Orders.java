@@ -89,12 +89,26 @@ public class Proposal_Orders extends BrowserStack {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		driver.navigate().refresh();
-		
 		Thread.sleep(1000);
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)", "");
+		
+		try {
+			
+			  driver.navigate().refresh();
+	  		
+		  	  Alert alert = driver.switchTo().alert();
+		  	  alert.accept();
+		  	  test.log(LogStatus.INFO, "Clicked on Alert");
+		  	  
+		  	  jse.executeScript("window.scrollBy(0,500)", "");
+	        
+	    } catch (Exception e) {
+	    	
+	    	  System.out.println("Alert Not Handled");
+	    	  
+	    }
 		
 		Thread.sleep(1000);
 		
@@ -102,13 +116,27 @@ public class Proposal_Orders extends BrowserStack {
 		
 		 try{ 
 			 
-			  LoginPageElements.ClickAdminLogoutButton();
-			  test.log(LogStatus.INFO, "After Method-Admin User Logged Out");
-			  String path2 = ScreenShot.Image(driver, "Logout");
-			  String imagePath2 = test.addScreenCapture(path2);
-			  test.log(LogStatus.INFO, imagePath2);
-			  report.endTest(test);
-			  report.flush();
+			 if(LoginPageElements.LogoutButtonIsVisible()) {
+	  			   
+	  			 LoginPageElements.ClickLogoutButton();
+		  		 test.log(LogStatus.INFO, "After Method-Client User Logged Out");
+		  		 String path2 = ScreenShot.Image(driver, "Logout");
+		  		 String imagePath2 = test.addScreenCapture(path2);
+		  		 test.log(LogStatus.INFO, imagePath2);
+		  		 report.endTest(test);
+		  		 report.flush();
+		  		 
+			 }else {
+				 
+				 test.log(LogStatus.FAIL, "After Method-Logout Failed");
+				 String path2 = ScreenShot.Image(driver, "Logout");
+				 String imagePath2 = test.addScreenCapture(path2);
+				 test.log(LogStatus.INFO, imagePath2);
+				 report.endTest(test);
+				 report.flush();
+				 Assert.fail("Log Out not visible");
+				 driver.quit();
+			 }
 	
 		 }catch (Exception e) {
 				

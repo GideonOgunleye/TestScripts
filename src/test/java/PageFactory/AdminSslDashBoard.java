@@ -55,7 +55,7 @@ public class AdminSslDashBoard extends DriverLoad {
 	
 	
 	/*******SSL Certificates Sublink***/
-	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[9]/a")
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[10]/a")
 	WebElement ExternalLink;
 	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul/li[5]/ul/li[1]/a")
