@@ -517,6 +517,7 @@ public class Registered_User extends BrowserStack  {
 		
 		//Edit User Profile
 		Thread.sleep(15000);
+		
 		driver.findElement(By.xpath(".//*[@id='mainContainer']/div[4]/div[2]/div[2]/div[3]/div/address/div/a[1]")).click();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    test.log(LogStatus.INFO, "Clicked Edit Button for Tester");
@@ -766,7 +767,7 @@ public class Registered_User extends BrowserStack  {
 				//Fill in the Required Information
 				WebElement AdContact = driver.findElement(By.xpath(".//*[@id='AdminContactUser']"));
 				Select Name = new Select(AdContact);
-				Name.selectByVisibleText("Mr Quality Assured");
+				Name.selectByVisibleText("Mr Gideon Ogunleye");
 				driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 				driver.findElement(By.id("AdminContactDialingCode")).sendKeys("475");
 				//driver.findElement(By.id("AdminContactDialingCode")).sendKeys(Keys.ENTER);
@@ -782,7 +783,7 @@ public class Registered_User extends BrowserStack  {
 				//Fill in Required Information
 				WebElement TechContact = driver.findElement(By.xpath(".//*[@id='TechnicalContactUser']"));
 				Select TechName = new Select(TechContact);
-				TechName.selectByVisibleText("Mr Quality Assured");
+				TechName.selectByVisibleText("Mr Gideon Ogunleye");
 				
 				driver.findElement(By.id("TechnicalContactDialingCode")).sendKeys("475");
 				
@@ -795,7 +796,7 @@ public class Registered_User extends BrowserStack  {
 				//Fill in Required Information
 				WebElement Owner = driver.findElement(By.xpath(".//*[@id='OwnerContactUser']"));
 				Select OwnerName = new Select(Owner);
-				OwnerName.selectByVisibleText("Mr Quality Assured");
+				OwnerName.selectByVisibleText("Mr Gideon Ogunleye");
 						
 				driver.findElement(By.id("OwnerContactDialingCode")).sendKeys("475");
 				test.log(LogStatus.PASS, "Order Completed");
@@ -850,7 +851,7 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 		
-	@Test (priority = 3, groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate") 
+	@Test (priority = 3, groups = {"Sanity","BS_DailySanity"},dataProviderClass =Test_DataSanity.class, dataProvider="ReissueCertificate", enabled = false) 
 	public void  Reissue_Certificate(String AdUsername, String Adpassword, String URL, String Account, String Product) throws Exception {
 		
 		System.out.println("Reissue Certificate Test Started!");

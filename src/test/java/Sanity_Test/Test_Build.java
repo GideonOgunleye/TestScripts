@@ -33,7 +33,7 @@ import PageFactory.ProposalsPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
-public class Test_Build extends DriverLoad {
+public class Test_Build extends BrowserStack {
 	
 	ExtentReports report;
 	ExtentTest test;
@@ -69,7 +69,7 @@ public class Test_Build extends DriverLoad {
 	
 		Thread.sleep(5000);
 		
-		  report = ExtentFactory.getInstance2();
+		report = ExtentFactory.getInstance2();
 		  
 
 		
@@ -90,24 +90,54 @@ public class Test_Build extends DriverLoad {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 		
-		driver.navigate().refresh();
+		Thread.sleep(1000);
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,500)", "");
 		
-		Thread.sleep(2000);
+		try {
+			
+			  driver.navigate().refresh();
+	  		
+		  	  Alert alert = driver.switchTo().alert();
+		  	  alert.accept();
+		  	  test.log(LogStatus.INFO, "Clicked on Alert");
+		  	  
+		  	  jse.executeScript("window.scrollBy(0,500)", "");
+	        
+	    } catch (Exception e) {
+	    	
+	    	  System.out.println("Alert Not Handled");
+	    	  
+	    }
+		
+		Thread.sleep(1000);
 		
 		//User Log Out
 		
 		 try{ 
 			 
-			  LoginPageElements.ClickAdminLogoutButton();
-			  test.log(LogStatus.INFO, "After Method-Admin User Logged Out");
-			  String path2 = ScreenShot.Image(driver, "Logout");
-			  String imagePath2 = test.addScreenCapture(path2);
-			  test.log(LogStatus.INFO, imagePath2);
-			  report.endTest(test);
-			  report.flush();
+			 if(LoginPageElements.AdminLogoutButtonIsVisible()) {
+	  			   
+	  			 LoginPageElements.ClickAdminLogoutButton();
+		  		 test.log(LogStatus.INFO, "After Method-Client User Logged Out");
+		  		 String path2 = ScreenShot.Image(driver, "Logout");
+		  		 String imagePath2 = test.addScreenCapture(path2);
+		  		 test.log(LogStatus.INFO, imagePath2);
+		  		 report.endTest(test);
+		  		 report.flush();
+		  		 
+				 
+			 }else {
+				 
+				 test.log(LogStatus.FAIL, "After Method-Logout not visible");
+				 String path2 = ScreenShot.Image(driver, "Logout");
+				 String imagePath2 = test.addScreenCapture(path2);
+				 test.log(LogStatus.INFO, imagePath2);
+				 report.endTest(test);
+				 report.flush();
+				 Assert.fail("Log Out not visible");
+			 }
 	
 		 }catch (Exception e) {
 				
@@ -125,9 +155,8 @@ public class Test_Build extends DriverLoad {
 		
 	}
 	
-	
-  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="BrandProtection_ProposalsOrder_Data")
-  public void BrandProtection_Proposals (String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
+  @Test (priority = 8, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="EntrustEnterpriseAccount_ProposalsOrder_Data")
+  public void EntrustEnterpriseAccount_Proposals (String ProductType, String Product, String Quantity, String Duration, String License, String CommonName) throws Exception {
 	  
 	  test = report.startTest("Admin Test --> Proposals Order Test - " + Product);
 	     
@@ -214,7 +243,7 @@ public class Test_Build extends DriverLoad {
 	  			String path = ScreenShot.Image(driver, "Proposal");
 	  			String imagePath = test.addScreenCapture(path);
 	  			test.log(LogStatus.INFO, imagePath);
-	  			test.log(LogStatus.FAIL, "Quantity not Selected");
+	  			test.log(LogStatus.INFO, "Quantity not Selected");
 	  			//Assert.fail("Exception " + e);
 
 	  		}
@@ -234,7 +263,7 @@ public class Test_Build extends DriverLoad {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.FAIL, "Duration not Selected");
+				  test.log(LogStatus.INFO, "Duration not Selected");
 				  //Assert.fail("Exception " + e);
 
 				}
@@ -253,7 +282,7 @@ public class Test_Build extends DriverLoad {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.FAIL, "Licence Field Not Clickable");
+				  test.log(LogStatus.INFO, "Licence Field Not Clickable");
 				  //Assert.fail("Exception " + e);
 
 				}
@@ -274,7 +303,7 @@ public class Test_Build extends DriverLoad {
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
-				  test.log(LogStatus.FAIL, "Common Name Field Not Clickable");
+				  test.log(LogStatus.INFO, "Common Name Field Not Clickable");
 				  //Assert.fail("Exception " + e);
 		
 			  }

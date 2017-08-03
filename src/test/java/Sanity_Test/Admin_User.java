@@ -210,7 +210,7 @@ public void Log_Out (ITestResult result) throws Exception {
 		 
 	     
 	     //Click on My Users Link
-	     sslDashBoardElements.ClickAccountEndUsersLink();
+	     AdminSslDashBoardElements.ClickAccountEndUsersLink();
 	     driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	     test.log(LogStatus.INFO, "Click on Account End Users link on the side bar Menu");
 	     
@@ -918,7 +918,7 @@ public void Log_Out (ITestResult result) throws Exception {
 	     test.log(LogStatus.INFO, "UK Test Account Found and Opened");
 		 
 	     /*Click Account End Users Link*/
-		 sslDashBoardElements.ClickAccountEndUsersLink();
+	     AdminSslDashBoardElements.ClickAccountEndUsersLink();
 		 
 		 //JavascriptExecutor jse = (JavascriptExecutor)driver;
 	     jse.executeScript("window.scrollBy(0,500)", "");

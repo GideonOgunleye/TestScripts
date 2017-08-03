@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="Sanity_Test.Test_Build">
+      <class name="Sanity_Test.Test_ErrorFix">
         <methods>
+          <include name="Order_Certificates" invocation-numbers="1"/>
           <include name="User_Logout"/>
-          <include name="BrandProtection_Proposals" invocation-numbers="1 2 3"/>
-          <include name="Chrome_AfterTest"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
           <include name="User_Login"/>
-          <include name="Chrome_BeforeTest"/>
         </methods>
-      </class> <!-- Sanity_Test.Test_Build -->
+      </class> <!-- Sanity_Test.Test_ErrorFix -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

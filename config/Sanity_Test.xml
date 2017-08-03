@@ -8,20 +8,12 @@
     </run>
  </groups> 
 
-   <test name="Test 2">
-  	<parameter name="config" value="SanityTest.conf.json"/>
-    <parameter name="environment" value="chrome"/>
-   <classes>
-      <class name="Regression_Test.MasterRelease_18"/>
-    </classes>    
-  </test><!-- Test -->
-  
   <test name="Test 3">
     <parameter name="config" value="SanityTest.conf.json"/>
     <parameter name="environment" value="chrome"/>
   
    <classes>
-      <class name="Regression_Test.Proposal_Orders"/>
+      <class name="Sanity_Test.Test_ErrorFix"/>
     </classes>    
   </test><!-- Test -->
   

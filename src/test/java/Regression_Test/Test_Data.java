@@ -292,14 +292,14 @@ public class Test_Data {
 	
 	@DataProvider (name ="Certificate_ProposalsOrder_Data")
 	public static Object[][] Certificate_ProposalsOrder_Data(){
-		Object[][] obj = new Object[37][6];
+		Object[][] obj = new Object[29][6];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
 		obj[0][0]="SSL Certificate";
 		//Product
 		//obj[0][1]="Symantec Secure Site Pro EV";
-		obj[0][1]="Entrust Private SSL";
+		obj[0][1]="GeoTrust QuickSSL Premium";
 		//Quantity
 		obj[0][2]="1";
 		//Duration
@@ -313,7 +313,8 @@ public class Test_Data {
 		//ProductType
 		obj[1][0]="SSL Certificate";
 		//Product
-		obj[1][1]="Symantec Secure Site Pro";
+		//obj[1][1]="Symantec Secure Site Pro";
+		obj[1][1]="GlobalSign DomainSSL";
 		//Quantity
 		obj[1][2]="1";
 		//Duration
@@ -554,7 +555,7 @@ public class Test_Data {
 		//ProductType
 		obj[18][0]="SSL Certificate";
 		//Product
-		obj[18][1]="Entrust Private SSL";
+		obj[18][1]="Comodo Wildcard SSL Premium";
 		//Quantity
 		obj[18][2]="1";
 		//Duration
@@ -568,7 +569,7 @@ public class Test_Data {
 		//ProductType
 		obj[19][0]="SSL Certificate";
 		//Product
-		obj[19][1]="Extra SANs for EV Certificates";
+		obj[19][1]="Comodo PositiveSSL Multi-domain";
 		//Quantity
 		obj[19][2]="1";
 		//Duration
@@ -582,7 +583,7 @@ public class Test_Data {
 		//ProductType
 		obj[20][0]="SSL Certificate";
 		//Product
-		obj[20][1]="Entrust Standard SSL";
+		obj[20][1]="Comodo EV SSL";
 		//Quantity
 		obj[20][2]="1";
 		//Duration
@@ -596,7 +597,7 @@ public class Test_Data {
 		//ProductType
 		obj[21][0]="SSL Certificate";
 		//Product
-		obj[21][1]="Extra SANs for SSL Certificates (all except EV)";
+		obj[21][1]="Comodo EV SSL with SGC";
 		//Quantity
 		obj[21][2]="1";
 		//Duration
@@ -610,7 +611,7 @@ public class Test_Data {
 		//ProductType
 		obj[22][0]="SSL Certificate";
 		//Product
-		obj[22][1]="Entrust Advantage SSL Certificates";
+		obj[22][1]="Comodo EV Multi-Domain SSL";
 		//Quantity
 		obj[22][2]="1";
 		//Duration
@@ -624,7 +625,7 @@ public class Test_Data {
 		//ProductType
 		obj[23][0]="SSL Certificate";
 		//Product
-		obj[23][1]="Entrust UC Multi-Domain SSL Certificates";
+		obj[23][1]="Comodo OV SSL";
 		//Quantity
 		obj[23][2]="1";
 		//Duration
@@ -638,7 +639,7 @@ public class Test_Data {
 		//ProductType
 		obj[24][0]="SSL Certificate";
 		//Product
-		obj[24][1]="Entrust Wildcard SSL Certificates";
+		obj[24][1]="Comodo OV SSL with SGC";
 		//Quantity
 		obj[24][2]="1";
 		//Duration
@@ -652,7 +653,7 @@ public class Test_Data {
 		//ProductType
 		obj[25][0]="SSL Certificate";
 		//Product
-		obj[25][1]="Entrust EV Multi-Domain SSL Certificates";
+		obj[25][1]="Comodo OV Multi-Domain SSL";
 		//Quantity
 		obj[25][2]="1";
 		//Duration
@@ -705,11 +706,11 @@ public class Test_Data {
 		//Common Name
 		obj[28][5]="ssl247-test.co.uk";
 		
-		/*--------30th Parameter-------------**/	
+		/*--------30th Parameter-------------	
 		//ProductType
 		obj[29][0]="SSL Certificate";
 		//Product
-		obj[29][1]="Comodo PositiveSSL Multi-domain";
+		obj[29][1]="Extra SANs for EV Certificates";
 		//Quantity
 		obj[29][2]="1";
 		//Duration
@@ -718,12 +719,13 @@ public class Test_Data {
 		obj[29][4]="1";
 		//Common Name
 		obj[29][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------31st Parameter-------------**/	
+		/*--------31st Parameter-------------	
 		//ProductType
 		obj[30][0]="SSL Certificate";
 		//Product
-		obj[30][1]="Comodo EV SSL";
+		obj[30][1]="Entrust Standard SSL";
 		//Quantity
 		obj[30][2]="1";
 		//Duration
@@ -732,12 +734,13 @@ public class Test_Data {
 		obj[30][4]="1";
 		//Common Name
 		obj[30][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------32nd Parameter-------------**/	
+		/*--------32nd Parameter-------------	
 		//ProductType
 		obj[31][0]="SSL Certificate";
 		//Product
-		obj[31][1]="Comodo EV SSL with SGC";
+		obj[31][1]="Extra SANs for SSL Certificates (all except EV)";
 		//Quantity
 		obj[31][2]="1";
 		//Duration
@@ -746,12 +749,13 @@ public class Test_Data {
 		obj[31][4]="1";
 		//Common Name
 		obj[31][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------33rd Parameter-------------**/	
+		/*--------33rd Parameter-------------	
 		//ProductType
 		obj[32][0]="SSL Certificate";
 		//Product
-		obj[32][1]="Comodo EV Multi-Domain SSL";
+		obj[32][1]="Entrust Advantage SSL Certificates";
 		//Quantity
 		obj[32][2]="1";
 		//Duration
@@ -760,12 +764,13 @@ public class Test_Data {
 		obj[32][4]="1";
 		//Common Name
 		obj[32][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------34th Parameter-------------**/	
+		/*--------34th Parameter-------------/	
 		//ProductType
 		obj[33][0]="SSL Certificate";
 		//Product
-		obj[33][1]="Comodo OV SSL";
+		obj[33][1]="Entrust UC Multi-Domain SSL Certificates";
 		//Quantity
 		obj[33][2]="1";
 		//Duration
@@ -774,12 +779,13 @@ public class Test_Data {
 		obj[33][4]="1";
 		//Common Name
 		obj[33][5]="ssl247-test.co.uk";
+		**
 		
-		/*--------35th Parameter-------------**/	
+		/*--------35th Parameter-------------	
 		//ProductType
 		obj[34][0]="SSL Certificate";
 		//Product
-		obj[34][1]="Comodo OV SSL with SGC";
+		obj[34][1]="Entrust Wildcard SSL Certificates";
 		//Quantity
 		obj[34][2]="1";
 		//Duration
@@ -788,12 +794,13 @@ public class Test_Data {
 		obj[34][4]="1";
 		//Common Name
 		obj[34][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------36th Parameter-------------**/	
+		/*--------36th Parameter-------------	
 		//ProductType
 		obj[35][0]="SSL Certificate";
 		//Product
-		obj[35][1]="Comodo OV Multi-Domain SSL";
+		obj[35][1]="Entrust EV Multi-Domain SSL Certificates";
 		//Quantity
 		obj[35][2]="1";
 		//Duration
@@ -802,12 +809,13 @@ public class Test_Data {
 		obj[35][4]="1";
 		//Common Name
 		obj[35][5]="ssl247-test.co.uk";
+		**/
 		
-		/*--------37th Parameter-------------**/	
+		/*--------37th Parameter-------------	
 		//ProductType
 		obj[36][0]="SSL Certificate";
 		//Product
-		obj[36][1]="Comodo Wildcard SSL Premium";
+		obj[36][1]="Entrust Private SSL";
 		//Quantity
 		obj[36][2]="1";
 		//Duration
@@ -816,6 +824,7 @@ public class Test_Data {
 		obj[36][4]="1";
 		//Common Name
 		obj[36][5]="ssl247-test.co.uk";
+		**/
 		
 		/*--------38th Parameter-------------	
 		//ProductType
@@ -964,7 +973,7 @@ public class Test_Data {
 	
 	@DataProvider (name ="CodeSigning_ProposalsOrder_Data")
 	public static Object[][] CodeSigning_ProposalsOrder_Data(){
-		Object[][] obj = new Object[7][6];
+		Object[][] obj = new Object[6][6];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
@@ -1055,7 +1064,7 @@ public class Test_Data {
 		obj[5][5]="ssl247-test.co.uk";
 		
 		
-		/*--------7th Parameter-------------*/	
+		/*--------7th Parameter-------------	
 		//ProductType
 		obj[6][0]="Code Signing";
 		//Product
@@ -1068,7 +1077,7 @@ public class Test_Data {
 		obj[6][4]="1";
 		//Common Name
 		obj[6][5]="ssl247-test.co.uk";
-		
+		*/
 		
 		/*--------8th Parameter-------------	
 		//ProductType
@@ -1231,6 +1240,174 @@ public class Test_Data {
 		//Common Name
 		obj[3][5]="ssl247-test.co.uk";
 		
+		return obj;
+		
+	}
+
+	@DataProvider (name ="ReadyIssuance_ProposalsOrder_Data")
+	public static Object[][] ReadyIssuance_ProposalsOrder_Data(){
+		Object[][] obj = new Object[4][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Ready Issuance";
+		//Product
+		obj[0][1]="Symantec Ready Issuance";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Ready Issuance";
+		//Product
+		obj[1][1]="Entrust 3 Domains";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Ready Issuance";
+		//Product
+		obj[2][1]="Entrust Organizations";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		/*--------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Ready Issuance";
+		//Product
+		obj[3][1]="Entrust Client Company Names";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		
+		/*--------5th Parameter-------------	
+		//ProductType
+		obj[4][0]="Ready Issuance";
+		//Product
+		obj[4][1]="Entrust Account Admin User";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		*/
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="PenTest_ProposalsOrder_Data")
+	public static Object[][] PenTest_ProposalsOrder_Data(){
+		Object[][] obj = new Object[3][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Penetration Testing";
+		//Product
+		obj[0][1]="External Test";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Penetration Testing";
+		//Product
+		obj[1][1]="Internal Penetration Test";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		
+		
+		/*--------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Penetration Testing";
+		//Product
+		obj[2][1]="Social Engineering Penetration Test";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		
+		
+		return obj;
+		
+	}
+	
+	@DataProvider (name ="EntrustEnterpriseAccount_ProposalsOrder_Data")
+	public static Object[][] EntrustEnterpriseAccount_ProposalsOrder_Data(){
+		Object[][] obj = new Object[2][6];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Entrust Enterprise Account";
+		//Product
+		obj[0][1]="Entrust Pooling Account";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Entrust Enterprise Account";
+		//Product
+		obj[1][1]="Entrust Non-Pooling Account";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
 		
 		return obj;
 		

@@ -71,24 +71,6 @@ public class Order_Products extends BrowserStack {
 		ScreenShot = new TakeScreenShot();
 		CsrElements = new CsR(driver);
 
-/*		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
-		
-		
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk"));
-		
-		LoginPageElements.ClickLoginLink();
-		LoginPageElements.EnterUserName(prop.getProperty("Username"));
-		LoginPageElements.EnterPassword(prop.getProperty("Password"));
-		LoginPageElements.ClickLoginButton();
-	*/
 		
 		LoginPageElements.ClientLogin();
 		
@@ -101,20 +83,8 @@ public class Order_Products extends BrowserStack {
 	public void User_Logout (ITestResult result) throws Exception {
 		
 	
-	    //Take Screen Shots
-		
-/*		
-	    //String filename = result.getMethod().getMethodName() +".png";
-		String filename =  result.getMethod().getMethodName() + result.getEndMillis() + ".png";
-	    String Directory = "C:\\Users\\Gideon Okunleye\\Documents\\Testing Documents\\ScreenShots\\Regression ScreenShots\\";
-		  
-	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(sourceFile, new File(Directory + filename));
-		  
-		String destination = Directory + filename;
-*/		
-		
-		
+	    //Take Screen Shots	
+				
 		String path =  ScreenShot.Image(driver, "TestSecreenShot-" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
@@ -382,9 +352,6 @@ public class Order_Products extends BrowserStack {
 			System.out.println("SAN Option Not Present");
 		
 			}
-		
-		//driver.findElement(By.xpath(".//*[@id='BasketAddCertificateForm']/div[12]/input[1]")).click();
-		//driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
 /*		
 		//Choose 3year Duration Option
@@ -410,7 +377,7 @@ public class Order_Products extends BrowserStack {
 		
 		driver.findElement(By.id("addCertificateToBasket")).click();
 		Thread.sleep(10000);
-		test.log(LogStatus.INFO, "Rapid SSL Pro Added To Basket");
+		test.log(LogStatus.INFO, ProductLink + " Added To Basket");
 				
 		//Confirm Order Details
 		driver.findElement(By.id("checkoutLink")).click();
@@ -433,9 +400,6 @@ public class Order_Products extends BrowserStack {
 		WebDriverWait wait = new WebDriverWait(driver, 100);
 		
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-	  	//WebElement OrderStatus = driver.findElement(By.xpath("html/body/div[4]/p[1]"));
-	  	//WebElement OrderStatus = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath("html/body/div[4]/p[1]")));
-	  	//String CheckStatus = "Thank You. Your order has been placed.";
 	  	
 	  	try {
 			
@@ -445,39 +409,20 @@ public class Order_Products extends BrowserStack {
 			  	Assert.assertTrue(OrderStatus.contains("Thank You. Your order has been placed."));
 			  	test.log(LogStatus.PASS, " Order Placed");
 		  		System.out.println(ProductLink + " Order Placed");
+		  		
+		  		
+			}else {
+				
+				System.out.println(ProductLink + " Order Not Placed");
+				test.log(LogStatus.INFO, " Order Not Placed");
 			}
 		
 		}catch(Exception e) {
 			
-			System.out.println(ProductLink + " Order NOT Placed or Status Alert not Displayed");
-	  	
+			System.out.println(ProductLink + " Exception" + e);
+			test.log(LogStatus.INFO, "Alart Not displayed");
 		}
 	  	
-/*	  	
-	  	
-	  	if (OrderStatus.getText().contains(CheckStatus)) {
-	  		
-	  		test.log(LogStatus.PASS, " Order Placed");
-	  		System.out.println(ProductLink + " Order Placed");
-	  		
-	  	}else {
-	  		
-	  		test.log(LogStatus.FAIL, "Order NOT Placed");
-	  		System.out.println(ProductLink + " Order NOT Placed");
-	  		System.out.println("Test area Shows:" + OrderStatus.getText());
-	  		
-	  	}
-	  	
-*/	  	
-	  	
-	  
-		/*----Complete Order----*/
-	
-		
-/*		WebElement Button;
-		Button = wait.until(ExpectedConditions.visibilityOfElementLocated (By.xpath(".//*[@class='btn btn-success btn-small']")));
-		Button.click();
-*/
 	  	
 		try {
 			
@@ -503,45 +448,6 @@ public class Order_Products extends BrowserStack {
 		
 		try { 
 			
-		/*	
-			WebDriverWait wait2 = new WebDriverWait(driver, 50);	
-			WebElement Csr;
-			Csr = wait2.until(ExpectedConditions.visibilityOfElementLocated (By.id("CertificateDetailCsr")));
-			Csr.sendKeys(prop.getProperty("Para1"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para2"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para3"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para4"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para5"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para6"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para7"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para8"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para9"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para10"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para11"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para12"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para13"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para14"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para15"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para16"));
-			Csr.sendKeys(Keys.ENTER);
-			Csr.sendKeys(prop.getProperty("Para17"));
-			Csr.sendKeys(Keys.ENTER);
-		*/
 			
 			CsrElements.LoadCsR();
 			
