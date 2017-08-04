@@ -5,10 +5,47 @@ import org.testng.annotations.Test;
 
 public class Test_DataSanity {
 	
-
+	@DataProvider (name ="LoginUser")
+	public static Object[][] LoginUser(){
+		Object[][] obj = new Object[2][3];
+		
+		/*---------1st Parameter-------------*/	
+		//Username
+		obj[0][0]="qa@ssl247.co.uk";
+		//Password
+		obj[0][1]="Test1235";
+		//Url
+		obj[0][2]="InValid Credentials";
+		
+		
+		/*---------2st Parameter-------------*/
+		//Username
+		obj[1][0]="qa@ssl247.co.uk";
+		//Password
+		obj[1][1]="Test1234";
+		//Url
+		obj[1][2]="Valid Credentilas";
+			
+		
+		/*---------2st Parameter-------------	
+		//Username
+		obj[2][0]="qa@ssl247.co.uk";
+		//Password
+		obj[2][1]="Test1234";
+		//Url
+		obj[2][2]="https://automation-live.ssl247.co.uk/";
+		//Account Name
+		obj[2][3]="UKTE001";
+		//Column Product
+		obj[2][4]="RapidSSL Pro";
+		*/
+		return obj;
+		
+	}
+	
 	@DataProvider (name ="ReissueCertificate")
 	public static Object[][] ReissueCertificate(){
-		Object[][] obj = new Object[3][5];
+		Object[][] obj = new Object[1][5];
 		
 		/*---------1st Parameter-------------*/	
 		//Username
@@ -20,10 +57,10 @@ public class Test_DataSanity {
 		//Account Name
 		obj[0][3]="UKTE001";
 		//Column Product
-		obj[0][4]="Symantec Secure Site";
+		obj[0][4]="Symantec Secure Site Pro EV";
 		
 		
-		/*---------2st Parameter-------------*/
+		/*---------2st Parameter-------------
 		//Username
 		obj[1][0]="qa@ssl247.co.uk";
 		//Password
@@ -34,9 +71,9 @@ public class Test_DataSanity {
 		obj[1][3]="UKTE001";
 		//Column Product
 		obj[1][4]="Symantec Secure Site EV";
-			
+		*/	
 		
-		/*---------2st Parameter-------------*/	
+		/*---------2st Parameter-------------	
 		//Username
 		obj[2][0]="qa@ssl247.co.uk";
 		//Password
@@ -47,7 +84,7 @@ public class Test_DataSanity {
 		obj[2][3]="UKTE001";
 		//Column Product
 		obj[2][4]="RapidSSL Pro";
-		
+		*/
 		return obj;
 		
 	}

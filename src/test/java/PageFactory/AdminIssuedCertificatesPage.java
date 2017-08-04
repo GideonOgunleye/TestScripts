@@ -43,6 +43,9 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[5]/td[4]")
 	WebElement Column5;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[15]/td[4]")
+	WebElement Column15;
+	
 	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[1]/td[11]/a")
 	WebElement Product1;
 	
@@ -57,6 +60,9 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 	
 	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[5]/td[11]/a")
 	WebElement Product5;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[15]/td[11]/a")
+	WebElement Product15;
 	
 	
 	
@@ -116,6 +122,17 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 
 	}
 
+	public boolean Column15Contains(String Certificate){
+		
+		return Column15.getText().contains(Certificate);
+
+	}
+	
+	public void Column15TextPrint(){
+		
+		System.out.println("Cloumn Product is:" + Column15.getText());
+
+	}
 	
 	public void Product1View(){
 		
@@ -144,6 +161,12 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 	public void Product5View(){
 		
 		Product5.click();
+		
+	}
+	
+	public void Product15View(){
+		
+		Product15.click();
 		
 	}
 

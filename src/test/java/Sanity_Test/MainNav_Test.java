@@ -17,6 +17,7 @@ import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +31,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 
 public class MainNav_Test extends BrowserStack {
   
@@ -83,8 +85,17 @@ public class MainNav_Test extends BrowserStack {
 	  
   }
   
+
+ /* @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
+  public void SuiteStart() {
+	  
+	  test = report.startTest("<----------------------Test Suite Started---------------------->");
+	  test.log(LogStatus.INFO, "Started");
+  }*/
+  
   @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void SSL_Certlink_Test() {
+	  
 	  
 	  test = report.startTest("Nav Links Test --> SSL Cert link Test");
 	  

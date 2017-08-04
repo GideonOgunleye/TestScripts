@@ -50,9 +50,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 //import org.testng.annotations.BeforeMethod;
 
 public class Registered_User extends BrowserStack  {
+	
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
@@ -125,75 +127,86 @@ public class Registered_User extends BrowserStack  {
 		
 	}
 	
-	@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
-	  public void LogIn_User () throws Exception{
-		  
-		  LoginPageElements = new LoginPage(driver);
-		  sslDashBoardElements = new sslDashBoard(driver);
-		  
-		  //driver.findElement(By.xpath(".//*[@id='top-panel']/div[1]/span[1]/a[2]")).click();
-		  
+
+	
+	@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="LoginUser")
+	  public void LogIn_Validation (String Username, String Password, String Credentials) throws Exception{
 		 
-		 // report = ExtentFactory.getInstance(); 
 		  report = ExtentFactory.getInstance3();
+		
+		 // test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
+		  test = report.startTest("Registered User Test --> User Login- " + Credentials);
+		  
+		  try{
+				
+				LoginPageElements.ClickLogoutButton();
+				driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				test.log(LogStatus.INFO, "User Logged Out");
+				String path2 = ScreenShot.Image(driver, "Logout");
+				String imagePath2 = test.addScreenCapture(path2);
+				test.log(LogStatus.INFO, imagePath2);
+				report.endTest(test);
+				report.flush();
 			
-		  test = report.startTest("Registered User Test --> User Login");
+			}catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "Logout Failed");
+				String path2 = ScreenShot.Image(driver, "Logout");
+				String imagePath2 = test.addScreenCapture(path2);
+				test.log(LogStatus.INFO, imagePath2);
+				report.endTest(test);
+				report.flush();
+				//Assert.fail("Exception " + e);
+			}
+		  
+		  LoginPageElements.LoadLoginPage();
+		  Thread.sleep(1000);
 		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+		  test.log(LogStatus.INFO, "Login Page Loaded");
 		  
-		  //LoginPageElements.ClientLogin();
+		  LoginPageElements.ClickLoginLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Clicked Login Link");
 		  
-		  Thread.sleep(5000);
+		  LoginPageElements.EnterUserName(Username);
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Entereed UserName");
+		  
+		  LoginPageElements.EnterPassword(Password);
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Entered Password");
+		  
+		  
+		  LoginPageElements.ClickLoginButton();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Clicked Login Link");
+		  
 		  
 		  try {
 				
-				if (sslDashBoardElements.PageIsVisible()) {
-				
-					sslDashBoardElements.ClientDashboardValidation();
-					driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-					test.log(LogStatus.PASS, "User Successfully Logged In");
-					
-					System.out.println("Dashboard Page Opened");
-	
-					
-				}else{
-			    	
-					test.log(LogStatus.FAIL, "Validation Failed");
-					AlertBoxElements.AlertPrint();
-					Assert.fail("Validation Failed ");
-			    	
-				}
-
-			
+			 
+			 if(driver.getTitle().contains("MySSL® » Dashboard ")){
+				 
+				 System.out.println("Dashboard Page Opened");
+			 	 test.log(LogStatus.PASS, "Dashboard Page Opened");
+			 
+			 }else {
+				 
+				 System.out.println("Dashboard Page NOT Opened");
+			 	 test.log(LogStatus.FAIL, "Dashboard Page NOT Opened");
+			 	 
+			 }
+			  
 			}catch(Exception e) {
-				System.out.println("Dashboard Page Not Opened");
-				test.log(LogStatus.FAIL, "Dashboard Page Not Opened");
+				System.out.println("Exception:- "+ e);
+				test.log(LogStatus.FAIL, "Validation Failed");
 				//Assert.fail("Exception " + e);
 			
-				}
-		    
-		  
-/*		 
-				
-				if (LoginPageElements.LogoutButtonIsVisible()) {
-				
-					LoginPageElements.ClickLogoutButton();
-					test.log(LogStatus.PASS, "User Successfully Logged Out");
-					LoginPageElements.LogoutAssert();
-				
-			
-			}else {
-				System.out.println("LogOut Button Not Visible");
-				test.log(LogStatus.FAIL, "User Logged Out Not Successfull");
-				LoginPageElements.LogoutAssert();
-			
-				}
-	*/		
+				}	
 			
 		  
 	  }
 
-	
-	
 	@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
 	  public void Order_RapidSSL() throws Exception {
 		 

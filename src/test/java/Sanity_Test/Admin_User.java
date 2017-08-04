@@ -1066,7 +1066,7 @@ public void Log_Out (ITestResult result) throws Exception {
   	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
   	  test.log(LogStatus.INFO, "Clicked on UK Test Account in search Result");
   	  
-  	  Thread.sleep(1000);
+  	  Thread.sleep(2000);
   	  
   	try {
   	 
@@ -1079,6 +1079,10 @@ public void Log_Out (ITestResult result) throws Exception {
   	  		AdminSslDashBoardElements.IssuedLinkClick();
   	  		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
   			test.log(LogStatus.INFO, "Clicked on Issued Link");
+  			
+  	  	  	jse.executeScript("window.scrollBy(0,450)", "");
+  	  	  	
+  	  	  	Thread.sleep(2000);
   			
   			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
   	    		
@@ -1137,10 +1141,32 @@ public void Log_Out (ITestResult result) throws Exception {
   		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
   		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
+  		    	    
+  		    	}else if (AdminIssuedCertificatesPage.Column15Contains(Product)) {
+  	    			
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Column 10 Contains Products");
+  		    	    
+  		    	    String path = ScreenShot.Image(driver, "Product");
+  					String imagePath = test.addScreenCapture(path);
+  					test.log(LogStatus.INFO, imagePath);
+  					
+  					AdminIssuedCertificatesPage.Column15TextPrint();
+  				
+  					AdminIssuedCertificatesPage.Product15View();
+  	    			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked to view product");
+  		    	    
+  		    	    AdminCertificateDetailsPage.SyncWithCaButtonClick();
+  		    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+  		    	    test.log(LogStatus.INFO, "Clicked on Sync Button");
     			
   	    	}else {
   				
   				System.out.println("Product Not Found");
+  				
+  				//AdminIssuedCertificatesPage.Column15TextPrint();
+  				
   				test.log(LogStatus.FAIL, "Product Not Found");
   				String path = ScreenShot.Image(driver, "Product");
   				String imagePath = test.addScreenCapture(path);
