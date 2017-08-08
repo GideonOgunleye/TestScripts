@@ -665,7 +665,42 @@ public class Test_Build extends Chrome {
 		Thread.sleep(1000);
 		jse.executeScript("window.scrollBy(0,-900)", "");
 
+		
+		try {
+			
+			CertificateValidationPageElements.OrganisationTabClick();	
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Organisation Tab");
+			
+			CertificateValidationPageElements.OrganisationLegalNameFieldFill("SSL247 SARL");	
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Organisation Legal Name Field");
+			
+			CertificateValidationPageElements.OrganisationCategoryFieldSelect("Registered company or corporation");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Organisation Category");
+			
+			CertificateValidationPageElements.OrganisationRegistrationNumberFieldFill("05802692");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Organisation Rgistration Number");
+			
+			
+		}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Error In Organisation Tab");
+			System.out.println("Element Not Found");
+			String path2 = ScreenShot.Image(driver, "Element");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
+		}
+		
+		Thread.sleep(1000);
+	  	jse.executeScript("window.scrollBy(0,-500)", "");
 /*			
+ * 
 		//Validate Alert
 		try {
 			

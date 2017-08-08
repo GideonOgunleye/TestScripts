@@ -219,7 +219,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void OrganisationLegalNameFieldFill(String name){
 		
-		TechnicalOrganisationField.sendKeys(name);
+		OrganisationLegalNameField.sendKeys(name);
 	}
 	
 	public void OrganisationCategoryFieldSelect(String Name){
