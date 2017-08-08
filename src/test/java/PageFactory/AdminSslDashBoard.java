@@ -48,6 +48,12 @@ public class AdminSslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[22]/a")
 	WebElement AccountEndUsersLink;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[1]/ul/li[3]/a")
+	WebElement OrdersLink;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[6]/div[1]/ul/li[3]/a")
+	WebElement OrdersLinkFR;
+	
 	
 	/********Page Elements**********/
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[2]/h2")
@@ -499,6 +505,16 @@ public class AdminSslDashBoard extends DriverLoad {
 	public void SubmitChangesButtonClick() {
 		
 		SubmitChangesButton.click();
+	}
+	
+	public void OrdersLinkClick() {
+		
+		OrdersLink.click();
+	}
+	
+	public void OrdersLinkFRClick() {
+		
+		OrdersLinkFR.click();
 	}
 
 }

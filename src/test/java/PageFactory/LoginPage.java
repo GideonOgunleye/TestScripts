@@ -160,6 +160,12 @@ public class LoginPage extends DriverLoad {
 		Password.sendKeys(Pword);
 	}
 	
+	public boolean LoginLinkIsVisible () {
+		
+		return LoginLink.getText().contains("Login");
+		
+	}
+	
 	public void ClickLoginButton() {
 		
 		LoginButton.click();

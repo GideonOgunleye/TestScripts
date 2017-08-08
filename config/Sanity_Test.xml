@@ -4,7 +4,7 @@
 
   <groups>
     <run>
-    <include name="BS_Regression"/>
+    <include name="BS_Smoke"/>
     </run>
  </groups> 
 
@@ -13,7 +13,7 @@
     <parameter name="environment" value="chrome"/>
   
    <classes>
-      <class name="Sanity_Test.Test_ErrorFix"/>
+      <class name="Sanity_Test.Test_Build"/>
     </classes>    
   </test><!-- Test -->
   

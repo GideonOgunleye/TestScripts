@@ -54,7 +54,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
-public class Admin_User extends BrowserStack {
+public class Admin_User extends Chrome {
 	  ExtentReports report;
 	  ExtentTest test;
 	  LoginPage 	LoginPageElements;
@@ -107,19 +107,72 @@ public void Log_Out (ITestResult result) throws Exception {
 	  
 	  /*User Log Out*/
 	  driver.navigate().refresh();
-	  Thread.sleep(5000);
 	  
-	 try{ 
-		 
-		  LoginPageElements.ClickAdminLogoutButton();
-		  test.log(LogStatus.INFO, "Admin User Logged Out");
-		  String path2 = ScreenShot.Image(driver, "Logout");
-		  String imagePath2 = test.addScreenCapture(path2);
-		  test.log(LogStatus.INFO, imagePath2);
-		  report.endTest(test);
-		  report.flush();
+	  JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  jse.executeScript("window.scrollBy(0,-500)", "");
 	  
-	 }catch (Exception e) {
+	  Thread.sleep(1000);
+	  
+		 try{ 
+			 
+			 
+			 if (LoginPageElements.LoginLinkIsVisible()){
+				 
+				 test.log(LogStatus.INFO, "Logout Button Not Visible");
+				 System.out.println("Logout Button Not Visible");
+				 String path2 = ScreenShot.Image(driver, "Logout");
+				 String imagePath2 = test.addScreenCapture(path2);
+				 test.log(LogStatus.INFO, imagePath2);
+				 report.endTest(test);
+				 report.flush();
+				 
+			 }else if (LoginPageElements.AdminLogoutButtonIsVisible()) {
+				 
+				  LoginPageElements.ClickAdminLogoutButton();
+				  test.log(LogStatus.INFO, "Admin User Logged Out");
+				  String path2 = ScreenShot.Image(driver, "Logout");
+				  String imagePath2 = test.addScreenCapture(path2);
+				  test.log(LogStatus.INFO, imagePath2);
+				  report.endTest(test);
+				  report.flush();
+				 
+			 }
+			 
+		  
+		 }catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "Logout Validation Failed");
+				String path2 = ScreenShot.Image(driver, "Logout");
+				String imagePath2 = test.addScreenCapture(path2);
+				test.log(LogStatus.INFO, imagePath2);
+				report.endTest(test);
+				report.flush();
+				System.out.println("Exception " + e);
+				driver.quit();
+				//Assert.fail("Exception " + e);
+		}
+}
+  
+@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="AdminLogin")
+public void Admin_LogInValidation(String Username, String Password, String Credentials) throws Exception{
+
+	  report = ExtentFactory.getInstance3();
+	 // LoginPageElements.AdminLogin();
+	  
+	  test = report.startTest("Registered User Test --> Admin Login- " + Credentials);
+		
+	  try{
+			
+			LoginPageElements.ClickAdminLogoutButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "User Logged Out");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
+		
+		}catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Logout Failed");
 			String path2 = ScreenShot.Image(driver, "Logout");
@@ -130,33 +183,69 @@ public void Log_Out (ITestResult result) throws Exception {
 			//Assert.fail("Exception " + e);
 		}
 	 
-	 // return destination;
-}
-  
-  @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
-  public void Admin_LogIn() throws Exception{
-
-	  report = ExtentFactory.getInstance3();
-	 // LoginPageElements.AdminLogin();
-		
-	  test = report.startTest("Admin User Test --> Admin Login/LogOut");
-	  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+	  try {
+		  
+		  LoginPageElements.LoadLoginPage();
+		  Thread.sleep(1000);
+		  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+		  test.log(LogStatus.INFO, "Login Page Loaded");
+		  
+		  LoginPageElements.ClickLoginLink();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Clicked Login Link");
+		  
+		  LoginPageElements.EnterUserName(Username);
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Entereed UserName");
+		  
+		  LoginPageElements.EnterPassword(Password);
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Entered Password");
+		  
+		  
+		  LoginPageElements.ClickLoginButton();
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Clicked Login Link");
 	  
-	  Thread.sleep(5000);
-	  
-	 // String StatusMsg = "MySSL® » Dashboard";	
-	  if (LoginPageElements.AdminPageValidation()) {
+	  }catch (Exception e) {
 			
-			test.log(LogStatus.PASS, "Admin Successfully Signed");
-			
-		}else {
-			
-			test.log(LogStatus.FAIL, "Admin not Successfully Signed");
+			test.log(LogStatus.FAIL, "Element Not Found");
+			System.out.println("Element Not Found");
+			String path2 = ScreenShot.Image(driver, "Element");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
 		}
 	  
-	  //LoginPageElements.ClickAdminLogoutButton();
+	  try {
+			
+			 
+		 if(driver.getTitle().contains("Slicket Backlog")){
+			 
+			 System.out.println("Admin User Logged In");
+		 	 test.log(LogStatus.PASS, "Admin User Logged In");
+		 
+		 }else {
+			 
+			 System.out.println("Admin User Not Logged In");
+		 	 test.log(LogStatus.FAIL, "Admin User Not Logged In");
+		 	 //String path2 = ScreenShot.Image(driver, "Element");
+		 	 //String imagePath2 = test.addScreenCapture(path2);
+		 	 //test.log(LogStatus.INFO, imagePath2);
+		 	// driver.close();
+		 	 
+		 }
+		  
+		}catch(Exception e) {
+			System.out.println("Exception:- "+ e);
+			test.log(LogStatus.FAIL, "Validation Failed");
+			//Assert.fail("Exception " + e);
+		
+		}
 	  
-  }
+}
 
   
   @Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
@@ -1084,7 +1173,7 @@ public void Log_Out (ITestResult result) throws Exception {
   	  	  	
   	  	  	Thread.sleep(2000);
   			
-  			if (AdminIssuedCertificatesPage.Column1Contains(Product)) {
+  			if (AdminIssuedCertificatesPage.Column10Contains(Product)) {
   	    		
   	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   	    	    test.log(LogStatus.INFO, "Column 1 Contains Products");
@@ -1093,9 +1182,9 @@ public void Log_Out (ITestResult result) throws Exception {
   				String imagePath = test.addScreenCapture(path);
   				test.log(LogStatus.INFO, imagePath);
   	    	    
-  				AdminIssuedCertificatesPage.Column1TextPrint();
+  				AdminIssuedCertificatesPage.Column10TextPrint();
   				
-  				AdminIssuedCertificatesPage.Product1View();
+  				AdminIssuedCertificatesPage.Product10View();
   	    		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
   	    	    test.log(LogStatus.INFO, "Clicked to view product");
   	    	    

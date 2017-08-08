@@ -185,10 +185,10 @@ public class Registered_User extends BrowserStack  {
 		  try {
 				
 			 
-			 if(driver.getTitle().contains("MySSL® » Dashboard ")){
+			 if(driver.getTitle().contains("Slicket Backlog")){
 				 
-				 System.out.println("Dashboard Page Opened");
-			 	 test.log(LogStatus.PASS, "Dashboard Page Opened");
+				 System.out.println("Admin User Logged In");
+			 	 test.log(LogStatus.PASS, "Admin User Logged In");
 			 
 			 }else {
 				 
@@ -873,7 +873,7 @@ public class Registered_User extends BrowserStack  {
 	    test.log(LogStatus.INFO, "User Logged in");
 		
 		//Navigate Domain Names Link on side bar
-	    sslDashBoardElements.ClickMysslCertificatessLink();
+	    sslDashBoardElements.MysslCertificatessLinkClick();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	    test.log(LogStatus.INFO, "Clicked on My SSL Link");
 	    

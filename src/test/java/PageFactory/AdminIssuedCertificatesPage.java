@@ -28,8 +28,8 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 	
 	/********Issue Certificates Page****/
 	
-	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[1]/td[4]")
-	WebElement Column1;
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[10]/td[4]")
+	WebElement Column10;
 	
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[2]/td[4]")
 	WebElement Column2;
@@ -46,8 +46,8 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div/table/tbody/tr[15]/td[4]")
 	WebElement Column15;
 	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[1]/td[11]/a")
-	WebElement Product1;
+	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[10]/td[11]/a")
+	WebElement Product10;
 	
 	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div/table/tbody/tr[2]/td[11]/a")
 	WebElement Product2;
@@ -74,15 +74,15 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 		
 	}
 	
-	public boolean Column1Contains(String Certificate){
+	public boolean Column10Contains(String Certificate){
 		
-		return Column1.getText().contains(Certificate);
+		return Column10.getText().contains(Certificate);
 
 	}
 	
-	public void Column1TextPrint(){
+	public void Column10TextPrint(){
 		
-		 System.out.println("Cloumn Product is:" + Column1.getText());
+		 System.out.println("Cloumn Product is:" + Column10.getText());
 
 	}
 	
@@ -134,9 +134,9 @@ public class AdminIssuedCertificatesPage extends DriverLoad {
 
 	}
 	
-	public void Product1View(){
+	public void Product10View(){
 		
-		Product1.click();
+		Product10.click();
 		
 	}
 	

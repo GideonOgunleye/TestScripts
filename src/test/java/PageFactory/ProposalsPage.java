@@ -39,6 +39,9 @@ public class ProposalsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/a[5]")
 	WebElement IssueProposalTab;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[6]/div[2]/div[2]/a[5]")
+	WebElement IssueProposalTabFR;
+	
 	@FindBy(xpath = ".//*[@id='FormAdminIssue']/div[3]/div[1]/div/div/button")
 	WebElement ConfirmCheckBoxOne;
 	
@@ -51,23 +54,38 @@ public class ProposalsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[1]/div[2]/div/div/a")
 	WebElement NewProposalButton;
 	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[6]/div[2]/div[1]/div[2]/div/div/a")
+	WebElement NewProposalButton2;
+	
 	@FindBy(xpath = ".//*[@id='BasketItem1ProductTypeId']")
 	WebElement ProductTypeField;
 	
 	@FindBy(xpath = ".//*[@id='productSelect1']")
 	WebElement ProductField;
 	
+	@FindBy(xpath = ".//*[@id='productSelect2']")
+	WebElement ProductField2;
+	
 	@FindBy(xpath = ".//*[@id='BasketItem1Quantity']")
 	WebElement QuantityField;
 	
+	@FindBy(xpath = ".//*[@id='BasketItem2Quantity']")
+	WebElement QuantityField2;
+	
 	@FindBy(xpath = ".//*[@id='Product1Years']/select")
 	WebElement DurationField;
+	
+	@FindBy(xpath = ".//*[@id='Product2Years']/select")
+	WebElement DurationField2;
 	
 	@FindBy(xpath = ".//*[@id='Product1Licenses']/select")
 	WebElement LicenseField;
 	
 	@FindBy(xpath = ".//*[@id='BasketItem1CommonName']")
 	WebElement CommonNameField;
+	
+	@FindBy(xpath = ".//*[@id='BasketItem2CommonName']")
+	WebElement CommonNameField2;
 	
 	@FindBy(xpath = ".//*[@id='ProposalCalculatePrices']")
 	WebElement CalculatePricesButton;
@@ -78,8 +96,30 @@ public class ProposalsPage extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[2]/a[4]")
 	WebElement ConvertToInvoiceButton;
 	
-	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[2]/a[4]")
+	@FindBy(xpath = ".//*[@id='adminIssueInvoiceValidation']")
 	WebElement IssueInvoiceButton;
+	
+	@FindBy(xpath = ".//*[@id='BasketAdminAddForm']/div[4]/a")
+	WebElement AddAnotherProductButton;
+	
+	@FindBy(xpath = ".//*[@id='AdminInvoiceIssueUserId']")
+	WebElement MemberOfStaffField;
+	
+	@FindBy(xpath = ".//*[@id='FormAdminIssue']/div[3]/div[2]/div/div/button")
+	WebElement IssuInvoiceCheckbox1;
+	
+	@FindBy(xpath =".//*[@id='FormAdminIssue']/div[3]/div[4]/div/div[2]/button" )
+	WebElement IssueInvoiceCheckbox2;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[7]/div[2]/div[2]/a[5]")
+	WebElement IssueInvoiceTab;
+	
+	@FindBy(xpath = ".//*[@id='InvoicePoDoc']")
+	WebElement PoDocumentsField;
+	
+	@FindBy(xpath = ".//*[@id='issueInvoiceModal']/form[1]/div[3]/div[7]/button")
+	WebElement PoDocumentCheckbox;
+	
 	
 	
 	public ProposalsPage(WebDriver driver){
@@ -108,6 +148,11 @@ public class ProposalsPage extends DriverLoad {
 		IssueProposalTab.click();
 	}
 	
+	public void IssueProposalTabFRClink(){
+		
+		IssueProposalTabFR.click();
+	}
+	
 	public void ViewTopResult(){
 		
 		ViewTopResult.click();
@@ -134,6 +179,11 @@ public class ProposalsPage extends DriverLoad {
 		NewProposalButton.click();
 	}
 	
+	public void NewProposalButton2Clink(){
+		
+		NewProposalButton2.click();
+	}
+	
 	public void ProductTypeFieldSelect(String Product){
 		
 		Select ProductName = new Select(ProductTypeField);
@@ -142,6 +192,12 @@ public class ProposalsPage extends DriverLoad {
 	
 	public void ProductFieldSelect(String ProductType){
 	
+		Select Type = new Select(ProductField);
+		Type.selectByVisibleText(ProductType);
+	}
+	
+	public void ProductFieldSelect2(String ProductType){
+		
 		Select Type = new Select(ProductField);
 		Type.selectByVisibleText(ProductType);
 	}
@@ -156,7 +212,25 @@ public class ProposalsPage extends DriverLoad {
 		QuantityField.sendKeys(Quantity);
 	}
 	
+	public void QuantityField2Clear(){
+		
+		QuantityField2.clear();
+	}
+	
+	public void QuantityField2Senkeys(String Quantity){
+		
+		QuantityField2.sendKeys(Quantity);
+	}
+	
+	
+	
 	public void DurationFieldSelect(String Duration){
+		
+		Select DurationNo = new Select(DurationField);
+		DurationNo.selectByVisibleText(Duration);
+	}
+	
+	public void DurationField2Select(String Duration){
 		
 		Select DurationNo = new Select(DurationField);
 		DurationNo.selectByVisibleText(Duration);
@@ -178,6 +252,16 @@ public class ProposalsPage extends DriverLoad {
 		CommonNameField.sendKeys(CommonName);
 	}
 	
+	public void CommonNameField2Clear(){
+		
+		CommonNameField.clear();
+	}
+	
+	public void CommonNameField2SendKeys(String CommonName){
+		
+		CommonNameField.sendKeys(CommonName);
+	}
+	
 	public void CalculatePricesButtonClink(){
 		
 		CalculatePricesButton.click();
@@ -191,6 +275,50 @@ public class ProposalsPage extends DriverLoad {
 	public void ConvertToInvoiceButtonClink(){
 		
 		ConvertToInvoiceButton.click();
+	}
+	
+	public void AddAnotherProductButtonClink(){
+		
+		AddAnotherProductButton.click();
+	}
+	
+	public void IssueTabClink(){
+		
+		IssueInvoiceTab.click();
+	}
+	
+	public void IssueInvoiceButtonClink(){
+		
+		IssueInvoiceButton.click();
+	}
+	
+	
+	public void MemberOfStaffFieldSelect(String Name){
+		
+		Select DurationNo = new Select(MemberOfStaffField);
+		DurationNo.selectByVisibleText(Name);
+	}
+	
+	public void PoDocumentFieldSelect(){
+		
+		Select DurationNo = new Select(PoDocumentsField);
+		//DurationNo.selectByVisibleText(DocName);
+		DurationNo.selectByIndex(3);
+	}
+	
+	public void IssueInvoiceCheckbox1Clink(){
+		
+		IssuInvoiceCheckbox1.click();
+	}
+	
+	public void IssueInvoiceCheckbox2Clink(){
+		
+		IssueInvoiceCheckbox2.click();
+	}
+	
+	public void PoDocumentCheckboxClink(){
+		
+		PoDocumentCheckbox.click();
 	}
 	
 }

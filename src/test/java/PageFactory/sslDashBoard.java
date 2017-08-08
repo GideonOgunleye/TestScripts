@@ -36,6 +36,9 @@ public class sslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[7]/a")
 	WebElement MysslCertificatessLink;
 	
+	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[6]/a")
+	WebElement MysslCertificatessLinkFR;
+	
 	@FindBy(xpath = ".//*[@class='leftMenuWrapper']/ul[1]/li[9]/a")
 	WebElement MyDomainNamesLink;
 	
@@ -73,6 +76,9 @@ public class sslDashBoard extends DriverLoad {
 	
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[7]/ul/li[5]/a")
 	WebElement IssuedLink;
+	
+	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[3]/a")
+	WebElement IncompleteLinkFR;
 	
 	/********Issue Certificates Page****/
 	
@@ -115,9 +121,14 @@ public class sslDashBoard extends DriverLoad {
 		MyProductsLink.click();
 	}
 	
-	public void ClickMysslCertificatessLink() {
+	public void MysslCertificatessLinkClick() {
 		
 		MysslCertificatessLink.click();
+	}
+	
+	public void MysslCertificatessLinkFRClick() {
+		
+		MysslCertificatessLinkFR.click();
 	}
 	
 	public void SearchLinkClick() {
@@ -128,6 +139,11 @@ public class sslDashBoard extends DriverLoad {
 	public void IssuedLinkClick() {
 		
 		IssuedLink.click();
+	}
+	
+	public void IncompleteLinkFRClick() {
+		
+		IncompleteLinkFR.click();
 	}
 	
 	public void ClickMyDomainNamesLink() {
