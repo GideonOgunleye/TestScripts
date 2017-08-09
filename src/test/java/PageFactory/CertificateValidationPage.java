@@ -125,6 +125,23 @@ public class CertificateValidationPage extends DriverLoad {
 	WebElement TechStreetNameQuestionField;
 	
 	
+	/***************Director Security Questions******/
+	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion1']")
+	WebElement DirectorFavouriteColourQuestionField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion2']")
+	WebElement DirectorFavouriteVegetableQuestionField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion3']")
+	WebElement DirectorFavouriteBookQuestionField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion4']")
+	WebElement DirectorFavouriteSportQuestionField;
+	
+	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion5']")
+	WebElement DirectorStreetNameQuestionField;
+	
+	
 	
 	
 	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[1]/button")
@@ -166,6 +183,8 @@ public class CertificateValidationPage extends DriverLoad {
 		
 		CsrField.click();
 		
+		CsrField.clear();
+		
 	}
 	
 	public void DecodeCsrButtonClick(){
@@ -189,6 +208,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void AdminOrganisationFieldFill(String name){
 		
+		AdminOrganisationField.clear();
 		AdminOrganisationField.sendKeys(name);
 	}
 	
@@ -208,6 +228,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void TechnicalOrganisationFieldFill(String name){
 		
+		TechnicalOrganisationField.clear();
 		TechnicalOrganisationField.sendKeys(name);
 	}
 	
@@ -219,6 +240,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void OrganisationLegalNameFieldFill(String name){
 		
+		OrganisationLegalNameField.clear();
 		OrganisationLegalNameField.sendKeys(name);
 	}
 	
@@ -231,6 +253,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void OrganisationRegistrationNumberFieldFill(String name){
 		
+		OrganisationRegistrationNumberField.clear();
 		OrganisationRegistrationNumberField.sendKeys(name);
 	}
 	
@@ -249,6 +272,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void DirectorOrganisationFieldFill(String name){
 		
+		DirectorOrganisationField.clear();
 		DirectorOrganisationField.sendKeys(name);
 	}
 /*	
@@ -271,62 +295,101 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	public void AdminFavouriteColourQuestionFieldFill(String Question){
 		
+		AdminFavouriteColourQuestionField.clear();
 		AdminFavouriteColourQuestionField.sendKeys(Question);
 	}
 	
 	public void AdminFavouriteVegetableQuestionFieldFill(String Question){
 		
+		AdminFavouriteVegetableQuestionField.clear();
 		AdminFavouriteVegetableQuestionField.sendKeys(Question);
 	}
 	
 	public void AdminFavouriteBookQuestionFieldFill(String Question){
 		
+		AdminFavouriteBookQuestionField.clear();
 		AdminFavouriteBookQuestionField.sendKeys(Question);
 	}
 	
 	public void AdminFavouriteSportQuestionFieldFill(String Question){
 		
+		AdminFavouriteSportQuestionField.clear();
 		AdminFavouriteSportQuestionField.sendKeys(Question);
 	}
 	
 	public void AdminStreetNameQuestionFieldFill(String Question){
 		
+		AdminStreetNameQuestionField.clear();
 		AdminStreetNameQuestionField.sendKeys(Question);
 	}
 	
 	
 	public void TechFavouriteColourQuestionFieldFill(String Question){
 		
+		TechFavouriteColourQuestionField.clear();
 		TechFavouriteColourQuestionField.sendKeys(Question);
 	}
 	
 	public void TechFavouriteVegetableQuestionFieldFill(String Question){
 		
+		TechFavouriteVegetableQuestionField.clear();
 		TechFavouriteVegetableQuestionField.sendKeys(Question);
 	}
 	
 	public void TechFavouriteBookQuestionFieldFill(String Question){
 		
+		TechFavouriteBookQuestionField.clear();
 		TechFavouriteBookQuestionField.sendKeys(Question);
 	}
 	
 	public void TechFavouriteSportQuestionFieldFill(String Question){
 		
+		TechFavouriteSportQuestionField.clear();
 		TechFavouriteSportQuestionField.sendKeys(Question);
 	}
 	
 	public void TechStreetNameQuestionFieldFill(String Question){
 		
+		TechStreetNameQuestionField.clear();
 		TechStreetNameQuestionField.sendKeys(Question);
 	}
 	
 	
-	
-	
-	
-	public void SubmitCertForIssuanceButtonFill(String Question){
+	public void DirectorFavouriteColourQuestionFieldFill(String Question){
 		
-		SubmitCertForIssuanceButton.sendKeys(Question);
+		DirectorFavouriteColourQuestionField.clear();
+		DirectorFavouriteColourQuestionField.sendKeys(Question);
+	}
+	
+	public void DirectorFavouriteVegetableQuestionFieldFill(String Question){
+		
+		DirectorFavouriteVegetableQuestionField.clear();
+		DirectorFavouriteVegetableQuestionField.sendKeys(Question);
+	}
+	
+	public void DirectorFavouriteBookQuestionFieldFill(String Question){
+		
+		DirectorFavouriteBookQuestionField.clear();
+		DirectorFavouriteBookQuestionField.sendKeys(Question);
+	}
+	
+	public void DirectorFavouriteSportQuestionFieldFill(String Question){
+		
+		DirectorFavouriteSportQuestionField.clear();
+		DirectorFavouriteSportQuestionField.sendKeys(Question);
+	}
+	
+	public void DirectorStreetNameQuestionFieldFill(String Question){
+		
+		DirectorStreetNameQuestionField.clear();
+		DirectorStreetNameQuestionField.sendKeys(Question);
+	}
+	
+	
+	
+	public void SubmitCertForIssuanceButtonClick(){
+		
+		SubmitCertForIssuanceButton.click();
 	}
 	
 	

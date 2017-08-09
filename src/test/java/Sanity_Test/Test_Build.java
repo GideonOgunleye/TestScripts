@@ -2,6 +2,8 @@ package Sanity_Test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -40,10 +42,12 @@ import PageFactory.CertificateDetailsPage;
 import PageFactory.CertificateValidationPage;
 import PageFactory.ClientAccountsPage;
 import PageFactory.IncompleteCertificatesPage;
+import PageFactory.IncompleteSmimePage;
 import PageFactory.IssuedCertificatesPage;
 import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
 import PageFactory.ProposalsPage;
+import PageFactory.SmimeValidationPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
@@ -66,6 +70,8 @@ public class Test_Build extends Chrome {
 	AdminOrdersPage AdminOrdersPageElements;
 	IncompleteCertificatesPage IncompleteCertificaesPageElements;
 	CertificateValidationPage CertificateValidationPageElements;
+	IncompleteSmimePage IncompleteSmimePageElements;
+	SmimeValidationPage SmimeValidationPageElements;
 	
 	@BeforeMethod (groups = {"Regression","BS_Regression","Regression_Chrome"})
 	public void User_Login () throws Exception {
@@ -85,6 +91,8 @@ public class Test_Build extends Chrome {
 		AdminOrdersPageElements = new AdminOrdersPage(driver);
 		IncompleteCertificaesPageElements = new IncompleteCertificatesPage(driver);
 		CertificateValidationPageElements = new CertificateValidationPage(driver);
+		IncompleteSmimePageElements = new IncompleteSmimePage(driver);
+		SmimeValidationPageElements = new SmimeValidationPage(driver);
 	
 	
 		Thread.sleep(5000);
@@ -183,16 +191,22 @@ public class Test_Build extends Chrome {
 	}
 	
 	
-	  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="CertignaCertificate_ProposalsOrder_Data")
-	  public void Ssl_Certificates_Proposals (String ProductType, String Product1, String Quantity, String Duration, String License, String CommonName, String StaffName, String DocName) throws Exception {
+	  @Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="CertignaPersonalID_ProposalsOrder_Data")
+	  public void CertignaPersonalID_ProposalsOrder_Data_Proposals (String ProductType, String Product1, String Quantity, String Duration, String License, String CommonName, String StaffName, String Line1, String Line2, String Line3, String Line4, String Line5, String Line6, String Line7, String Line8, String Line9, String Line10, String Line11, String Line12, String Line13, String Line14, String Line15, String Line16, String Line17) throws Exception {
 		  
-		  test = report.startTest("Admin Test --> Proposals Order Test - " );
+		  Properties prop = new Properties();
+		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		  
+		  prop.load(fis);
+		  
+		  test = report.startTest("Admin Test --> Proposals Order Test - " + Product1);
 		     
 		  test.log(LogStatus.INFO, "Browser Opened and Url Enterl");
 		  test.log(LogStatus.INFO, "Logged in as Admin");
 		  
-		  System.out.println("Started Proposal For:------------------ " );
-		  
+		  System.out.println("Started Proposal For:------------------ " + Product1 );
+	
+	/*	  
 		  AdminNavigationLinksElements.ClientsAccountsLinkClick();
 		  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Click on clients Accounts Link");
@@ -225,13 +239,13 @@ public class Test_Build extends Chrome {
 		     
 		  Thread.sleep(1000);
 		  
-		/*  
+		  
 		  AdminSslDashBoardElements.ProposalsLinkClick();
 		  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Clicked on proposal link");
-		  
+		*/  
 		  Thread.sleep(2000);
-		 
+	/*	 
 		  try {
 			  
 				  ProposalsPageElements.NewProposalButton2Clink();
@@ -324,8 +338,9 @@ public class Test_Build extends Chrome {
 				  test.log(LogStatus.INFO, "Click on Calculate Prices Button");
 				  
 				  Thread.sleep(1000);
-				  
 				  jse.executeScript("window.scrollBy(0,500)", "");
+				  
+				  test.log(LogStatus.PASS, "Proposal Created");
 				  String path = ScreenShot.Image(driver, "Proposal");
 				  String imagePath = test.addScreenCapture(path);
 				  test.log(LogStatus.INFO, imagePath);
@@ -339,7 +354,6 @@ public class Test_Build extends Chrome {
 				  test.log(LogStatus.INFO, "Click on Save Proposal Button");
 				  
 			   	  jse.executeScript("window.scrollBy(0,250)", "");
-				  	
 			  	  Thread.sleep(1000);
 				 
 			  	  
@@ -368,7 +382,6 @@ public class Test_Build extends Chrome {
 			  	  test.log(LogStatus.INFO, "Clicked on Issue Proposal Button");
 			  	  
 			  	  jse.executeScript("window.scrollBy(0,500)", "");
-			  	  
 			  	  Thread.sleep(1000);
 			  	  
 			  	  //Convert Proposal To Invoice------------------------------------------------------------------
@@ -376,6 +389,8 @@ public class Test_Build extends Chrome {
 			  	  ProposalsPageElements.ConvertToInvoiceButtonClink();
 			  	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			  	  test.log(LogStatus.INFO, "Clicked Covert to Invoice Button");
+			  	  
+
 			    
 		   }catch (Exception e) {
 				
@@ -417,6 +432,10 @@ public class Test_Build extends Chrome {
 			  	AdminOrdersPageElements.SavedTabFRClick();
 			  	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			  	test.log(LogStatus.INFO, "Clicked on Saved Tab");
+			  	
+				String path = ScreenShot.Image(driver, "Proposal");
+				String imagePath = test.addScreenCapture(path);
+				test.log(LogStatus.INFO, imagePath);
   	
 			  	
 			}catch (Exception e) {
@@ -427,8 +446,8 @@ public class Test_Build extends Chrome {
 				test.log(LogStatus.INFO, "Invoice Not Issued");
 				System.out.println("View Ordered Cert Exception:-  " + e);
 			}
+		*/
 			
-		*/	
 			
 		     //Admin User Log Out------------------------------------------------------------------
 			
@@ -437,7 +456,7 @@ public class Test_Build extends Chrome {
 				 if(LoginPageElements.AdminLogoutButtonIsVisible()) {
 		  			   
 		  			 LoginPageElements.ClickAdminLogoutButton();
-			  		 test.log(LogStatus.INFO, "Admin-Logout Logged Out");
+			  		 test.log(LogStatus.PASS, "Admin-Logout Logged Out");
 			  		 String path2 = ScreenShot.Image(driver, "Logout");
 			  		 String imagePath2 = test.addScreenCapture(path2);
 			  		 test.log(LogStatus.INFO, imagePath2);
@@ -472,18 +491,8 @@ public class Test_Build extends Chrome {
 			 
 			//Client Login---------------------------------------------------------------------
 			 
-			try {
-				  
-			/*	  LoginPageElements.LoadLoginPage();
-				  Thread.sleep(1000);
-				  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
-				  test.log(LogStatus.INFO, "Login Page Loaded");
-				  
-				  LoginPageElements.ClickLoginLink();
-				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				  test.log(LogStatus.INFO, "Clicked Login Link");
-				*/  
-				
+		
+			try{	
 				  LoginPageElements.EnterUserName("qa@ssl247.fr");
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Entereed UserName");
@@ -495,6 +504,11 @@ public class Test_Build extends Chrome {
 				  LoginPageElements.ClickLoginButton();
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Clicked Login Button");
+				  
+				  test.log(LogStatus.PASS, "Client Logged In Successfully");
+				  String path2 = ScreenShot.Image(driver, "Proposal");
+				  String imagePath2 = test.addScreenCapture(path2);
+				  test.log(LogStatus.INFO, imagePath2);
 			  
 			  }catch (Exception e) {
 					
@@ -512,39 +526,29 @@ public class Test_Build extends Chrome {
 			 Thread.sleep(2000);
 			 
 		//Validate Certificate-------------------------------------------------------------------------	 
+		try {	
 			
-			sslDashBoardElements.MysslCertificatessLinkFRClick();
+			sslDashBoardElements.MySMIMELinkClick();
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on My SSL Link");
-			    
-			sslDashBoardElements.IncompleteLinkFRClick();
-		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Issued Link");	
+			test.log(LogStatus.INFO, "Clicked on My SMIME Link");
+			 
+			sslDashBoardElements.IncompleSMIMELinkClick();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Incomplete SMIME Sub Link");
 			
-			IncompleteCertificaesPageElements.Column1EditButtonClick();
-		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked to view certificate on First Row");
-				
-		//Certificate Details Tab-------------------------------------------------------------------------		
-	try {	
-			CertificateValidationPageElements.CertificatesDetailsTabFRClick();
-		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on Certificate Details Tab");	
-			
-			Thread.sleep(2000);
-		  	jse.executeScript("window.scrollBy(0,500)", "");
-			
-			CertificateValidationPageElements.CsrFieldClick();;
-		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Clicked on CSR Field");	
-			
-			CertificateValidationPageElements.LoadSsl247_TestCsR();
-		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-			test.log(LogStatus.INFO, "Filled In CSR");	
-			
-	  }catch (Exception e) {
-			
-			test.log(LogStatus.FAIL, "Error iN Certails Tab");
+			test.log(LogStatus.PASS, "Saved Order Found");
+			String path = ScreenShot.Image(driver, "Proposal");
+			String imagePath = test.addScreenCapture(path);
+			test.log(LogStatus.INFO, imagePath);
+			 
+			IncompleteSmimePageElements.Column1EditButtonClick();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked to view Product on First Row");
+				 
+			  
+		}catch (Exception e) {
+					
+			test.log(LogStatus.FAIL, "Saved Order Not Found");
 			System.out.println("Element Not Found");
 			String path2 = ScreenShot.Image(driver, "Element");
 			String imagePath2 = test.addScreenCapture(path2);
@@ -552,11 +556,205 @@ public class Test_Build extends Chrome {
 			report.endTest(test);
 			report.flush();
 			Assert.fail("Exception " + e);
+		}			
+			
+				
+		//Certificate Details Tab-------------------------------------------------------------------------		
+	try {	
+	
+			SmimeValidationPageElements.DetailsTabClick();
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked on Details Tab");	
+			
+			SmimeValidationPageElements.PassPhraseFieldFill("Test1234");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Passphrase Field");	
+			
+			Thread.sleep(2000);
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+		  	jse.executeScript("window.scrollBy(0,500)", "");
+		  	
+		  	SmimeValidationPageElements.AdminNameFieldSelect("Gideon Ogunleye");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Admin Contact");	
+			
+			SmimeValidationPageElements.AdminDivisionFieldFill("Development");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Division Field");	
+			
+			SmimeValidationPageElements.TechnicalNameFieldSelect("Gideon Ogunleye");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Technical Contact");	
+			
+			SmimeValidationPageElements.TechDivisionFieldFill("Development");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Division Field");
+			
+			Thread.sleep(2000);
+		  	jse.executeScript("window.scrollBy(0,900)", "");
+		  	
+		  	SmimeValidationPageElements.AdminFavouriteColourQuestionFieldFill("Blue");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Question 1");
+		  	
+		  	SmimeValidationPageElements.AdminFavouriteVegetableQuestionFieldFill("Oliver Twist");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Question 2");
+		  	
+		  	SmimeValidationPageElements.AdminFavouriteBookQuestionFieldFill("Carrot");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Question 3");
+		  	
+		  	SmimeValidationPageElements.AdminFavouriteSportQuestionFieldFill("Football");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Question 4");
+		  	
+		  	SmimeValidationPageElements.AdminStreetNameQuestionFieldFill("London");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Admin Question 5");
+			
+			
+		  	SmimeValidationPageElements.TechFavouriteColourQuestionFieldFill("Blue");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Question 1");
+		  	
+		  	SmimeValidationPageElements.TechFavouriteVegetableQuestionFieldFill("Oliver Twist");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Question 2");
+		  	
+		  	SmimeValidationPageElements.TechFavouriteBookQuestionFieldFill("Carrot");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Question 3");
+		  	
+		  	SmimeValidationPageElements.TechFavouriteSportQuestionFieldFill("Football");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Question 4");
+		  	
+		  	SmimeValidationPageElements.TechStreetNameQuestionFieldFill("London");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Tech Question 5");
+			
+			Thread.sleep(2000);
+		  	jse.executeScript("window.scrollBy(0,1500)", "");
+		  	
+		  	
+		  	SmimeValidationPageElements.DirectorContactFieldSelect("Gideon Ogunleye");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Director Contact");
+		  	
+		  	SmimeValidationPageElements.DirectorDivisionFieldFill("Development");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Division Field");
+			
+			Thread.sleep(2000);
+		  	jse.executeScript("window.scrollBy(0,1900)", "");
+		  	
+		  	SmimeValidationPageElements.DirectorFavouriteColourQuestionFieldFill("Blue");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Question 1");
+		  	
+		  	SmimeValidationPageElements.DirectorFavouriteVegetableQuestionFieldFill("Oliver Twist");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Question 2");
+		  	
+		  	SmimeValidationPageElements.DirectorFavouriteBookQuestionFieldFill("Carrot");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Question 3");
+		  	
+		  	SmimeValidationPageElements.DirectorFavouriteSportQuestionFieldFill("Football");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Question 4");
+		  	
+		  	SmimeValidationPageElements.DirectorStreetNameQuestionFieldFill("London");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Question 5");
+			
+			SmimeValidationPageElements.OrganisationLegalNameFieldFill("SSL247 SARL");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Organisation Legal Nmae Field");
+			
+			SmimeValidationPageElements.OrganisationRegistrationNumberFieldFill("05802692");
+		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Organisation Reg Number Field");
+		  	
+			test.log(LogStatus.PASS, "Details Tab Filled");
+			String path1 = ScreenShot.Image(driver, "Proposal");
+			String imagePath1 = test.addScreenCapture(path1);
+			test.log(LogStatus.INFO, imagePath1);
+			
+	  }catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Error in Details Tab");
+			System.out.println("Element Not Found");
+			String path3 = ScreenShot.Image(driver, "Element");
+			String imagePath3 = test.addScreenCapture(path3);
+			test.log(LogStatus.INFO, imagePath3);
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
 		}	
 			
 			Thread.sleep(1000);
-		  	jse.executeScript("window.scrollBy(0,-500)", "");
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+		  	jse.executeScript("window.scrollBy(0,-4000)", "");
 		  	
+		  	Thread.sleep(5000);
+		  	
+		  	
+	//Miscc Tab------------------------------------------------------------------------------
+	  try {
+		  
+		  SmimeValidationPageElements.MiscTabClick();
+		  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Misc tab Clicked");
+		  
+		  Thread.sleep(2000);
+		  jse.executeScript("window.scrollBy(0,700)", "");
+		  
+		  SmimeValidationPageElements.TermsCheckBoxTick();
+		  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Terms Checkbox Clicked");
+		  
+		  SmimeValidationPageElements.PopUpClick();
+		  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Terms Checkbox 2nd Clicked");
+		  
+		  Thread.sleep(2000);
+		  
+			test.log(LogStatus.PASS, "Misc Tab Filled");
+			String path1 = ScreenShot.Image(driver, "Proposal");
+			String imagePath1 = test.addScreenCapture(path1);
+			test.log(LogStatus.INFO, imagePath1);
+		 
+		  
+	  }catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Error in Misc Tab");
+			System.out.println("Element Not Found");
+			String path3 = ScreenShot.Image(driver, "Element");
+			String imagePath3 = test.addScreenCapture(path3);
+			test.log(LogStatus.INFO, imagePath3);
+			
+			//report.endTest(test);
+			//report.flush();
+			//Assert.fail("Exception " + e);
+		}
+	  
+		Thread.sleep(1000);
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+	  	jse.executeScript("window.scrollBy(0,-700)", "");
+	  	
+	  	SmimeValidationPageElements.SaveChangesButtonClick();
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked Save Chages Button");
+		
+		test.log(LogStatus.PASS, "Cert Validation Complete");
+		String path1 = ScreenShot.Image(driver, "Proposal");
+		String imagePath1 = test.addScreenCapture(path1);
+		test.log(LogStatus.INFO, imagePath1);
+	 
+		  	
+	/*	  	
 		 //Admin Tab----------------------------------------------------------
 		 try {  	
 			 
@@ -595,13 +793,18 @@ public class Test_Build extends Chrome {
 		    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Filled Admin Question 5");
 			
+			test.log(LogStatus.PASS, "Admin Tab Filled");
+			String path4 = ScreenShot.Image(driver, "Proposal");
+			String imagePath4 = test.addScreenCapture(path4);
+			test.log(LogStatus.INFO, imagePath4);
+			
 		  }catch (Exception e) {
 				
 				test.log(LogStatus.FAIL, "Error In Admin Tab");
 				System.out.println("Element Not Found");
-				String path2 = ScreenShot.Image(driver, "Element");
-				String imagePath2 = test.addScreenCapture(path2);
-				test.log(LogStatus.INFO, imagePath2);
+				String path5 = ScreenShot.Image(driver, "Element");
+				String imagePath5 = test.addScreenCapture(path5);
+				test.log(LogStatus.INFO, imagePath5);
 				report.endTest(test);
 				report.flush();
 				Assert.fail("Exception " + e);
@@ -611,7 +814,7 @@ public class Test_Build extends Chrome {
 			Thread.sleep(1000);
 		  	jse.executeScript("window.scrollBy(0,-900)", "");
 		  	
-		  //Technical Tab	
+		  //Technical Tab--------------------------------------------------------------------------------	
 		  try {
 			  
 			  CertificateValidationPageElements.TechnicalTabClick();
@@ -627,7 +830,6 @@ public class Test_Build extends Chrome {
 			  test.log(LogStatus.INFO, "Filled Tech Organisation Field");
 			  
 			  Thread.sleep(1000);
-			  
 			  jse.executeScript("window.scrollBy(0,500)", "");
 			  	
 			  CertificateValidationPageElements.TechFavouriteColourQuestionFieldFill("Blue");
@@ -650,13 +852,18 @@ public class Test_Build extends Chrome {
 			  driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			  test.log(LogStatus.INFO, "Filled Tech Question 5");
 			  
+			  test.log(LogStatus.PASS, "Tech Tab Filled");
+			  String path6 = ScreenShot.Image(driver, "Proposal");
+			  String imagePath6 = test.addScreenCapture(path6);
+			  test.log(LogStatus.INFO, imagePath6);
+			  
 		  }catch (Exception e) {
 				
 				test.log(LogStatus.FAIL, "Error In Technical Tab");
 				System.out.println("Element Not Found");
-				String path2 = ScreenShot.Image(driver, "Element");
-				String imagePath2 = test.addScreenCapture(path2);
-				test.log(LogStatus.INFO, imagePath2);
+				String path7 = ScreenShot.Image(driver, "Element");
+				String imagePath7 = test.addScreenCapture(path7);
+				test.log(LogStatus.INFO, imagePath7);
 				report.endTest(test);
 				report.flush();
 				Assert.fail("Exception " + e);
@@ -664,8 +871,9 @@ public class Test_Build extends Chrome {
 		  
 		Thread.sleep(1000);
 		jse.executeScript("window.scrollBy(0,-900)", "");
-
 		
+
+		//Organisation Tab-------------------------------------------------------------------------------------------
 		try {
 			
 			CertificateValidationPageElements.OrganisationTabClick();	
@@ -684,14 +892,19 @@ public class Test_Build extends Chrome {
 			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Filled Organisation Rgistration Number");
 			
+			test.log(LogStatus.PASS, "Organisation Tab Filled");
+			String path8 = ScreenShot.Image(driver, "Proposal");
+			String imagePath8 = test.addScreenCapture(path8);
+			test.log(LogStatus.INFO, imagePath8);
+			
 			
 		}catch (Exception e) {
 			
 			test.log(LogStatus.FAIL, "Error In Organisation Tab");
 			System.out.println("Element Not Found");
-			String path2 = ScreenShot.Image(driver, "Element");
-			String imagePath2 = test.addScreenCapture(path2);
-			test.log(LogStatus.INFO, imagePath2);
+			String path9 = ScreenShot.Image(driver, "Element");
+			String imagePath9 = test.addScreenCapture(path9);
+			test.log(LogStatus.INFO, imagePath9);
 			report.endTest(test);
 			report.flush();
 			Assert.fail("Exception " + e);
@@ -699,9 +912,75 @@ public class Test_Build extends Chrome {
 		
 		Thread.sleep(1000);
 	  	jse.executeScript("window.scrollBy(0,-500)", "");
-/*			
- * 
-		//Validate Alert
+	  	
+	  	
+	  	//Director Tab-------------------------------------------------------------------------------------------------
+	  	try {
+	  		
+	  		CertificateValidationPageElements.DirectorTabClick();
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Clicked Director Tab");
+	  		
+	  		
+	  		CertificateValidationPageElements.DirectorContactFieldSelect("Gideon Ogunleye");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Selected Director Contact Name");
+	  		
+	  		CertificateValidationPageElements.DirectorOrganisationFieldFill("SSL247 SARL");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Organisation Name Field");
+	  		
+	  		
+			Thread.sleep(1000);
+			jse.executeScript("window.scrollBy(0,500)", "");
+	  		
+	  		
+	  		CertificateValidationPageElements.DirectorFavouriteColourQuestionFieldFill("Blue");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Tab Questtion 1");
+	  		
+	  		CertificateValidationPageElements.DirectorFavouriteVegetableQuestionFieldFill("Oliver Twist");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Tab Questtion 2");
+	  		
+	  		CertificateValidationPageElements.DirectorFavouriteBookQuestionFieldFill("Carrot");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Tab Questtion 3");
+	  		
+	  		CertificateValidationPageElements.DirectorFavouriteSportQuestionFieldFill("Football");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Tab Questtion 4");
+	  		
+	  		CertificateValidationPageElements.DirectorStreetNameQuestionFieldFill("London");
+			driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Filled Director Tab Questtion 1");
+			
+			test.log(LogStatus.PASS, "Director Tab Filled");
+			String path9 = ScreenShot.Image(driver, "Proposal");
+			String imagePath9 = test.addScreenCapture(path9);
+			test.log(LogStatus.INFO, imagePath9);
+	  		
+	  		
+	  	}catch (Exception e) {
+			
+			test.log(LogStatus.FAIL, "Error In Director Tab");
+			System.out.println("Element Not Found");
+			String path9 = ScreenShot.Image(driver, "Element");
+			String imagePath9 = test.addScreenCapture(path9);
+			test.log(LogStatus.INFO, imagePath9);
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + e);
+		}
+	  	
+		Thread.sleep(1000);
+	  	jse.executeScript("window.scrollBy(0,-900)", "");
+	  	
+	  	CertificateValidationPageElements.SubmitCertForIssuanceButtonClick();
+	  	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		test.log(LogStatus.INFO, "Clicked Submit Certificate For Issuance Button");
+
+		//Validate Alert-----------------------------------------------------------------------------
 		try {
 			
 			String Alertnote = "The certificate has been saved and is pending submission with the CA";
@@ -724,7 +1003,9 @@ public class Test_Build extends Chrome {
 						
 			test.log(LogStatus.FAIL, "Validation Failed");
 			Assert.fail("Exception " + e);
-		}*/
+		}
+    */
+		
 	  }
 
   

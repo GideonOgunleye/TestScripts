@@ -80,6 +80,15 @@ public class sslDashBoard extends DriverLoad {
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[3]/a")
 	WebElement IncompleteLinkFR;
 	
+	/*************My SMIME Sublink**************/
+	@FindBy(css = "a[href*='/myssl/smime']")
+	WebElement MySMIMELink;
+	
+	@FindBy(css = "a[href*='/myssl/smime/incomplete']")
+	WebElement IncompleteSMIMELink;
+	
+
+	
 	/********Issue Certificates Page****/
 	
 	@FindBy(xpath = ".//*[@id='mainContainer']/div[4]/div[1]/ul[1]/li[6]/ul/li[5]/a")
@@ -174,6 +183,16 @@ public class sslDashBoard extends DriverLoad {
 	public void ClickMyAccountLink() {
 		
 		MyAccountLink.click();
+	}
+	
+	public void MySMIMELinkClick() {
+		
+		MySMIMELink.click();
+	}
+	
+	public void IncompleSMIMELinkClick() {
+		
+		IncompleteSMIMELink.click();
 	}
 	
 	public void ClickMyUsersLink() {
