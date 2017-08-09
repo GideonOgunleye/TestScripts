@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="87164" started-at="2017-08-08T16:05:39Z" finished-at="2017-08-08T16:07:06Z">
+  <suite name="Default suite" duration-ms="98998" started-at="2017-08-08T16:29:16Z" finished-at="2017-08-08T16:30:55Z">
     <groups>
       <group name="Regression_Chrome">
         <method signature="Test_Build.Ssl_Certificates_Proposals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:Sanity_Test.Test_Build@63753b6d]" name="Ssl_Certificates_Proposals" class="Sanity_Test.Test_Build"/>
@@ -14,17 +14,17 @@
         <method signature="Test_Build.Ssl_Certificates_Proposals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:Sanity_Test.Test_Build@63753b6d]" name="Ssl_Certificates_Proposals" class="Sanity_Test.Test_Build"/>
       </group> <!-- BS_Regression -->
     </groups>
-    <test name="Default test" duration-ms="87164" started-at="2017-08-08T16:05:39Z" finished-at="2017-08-08T16:07:06Z">
+    <test name="Default test" duration-ms="98998" started-at="2017-08-08T16:29:16Z" finished-at="2017-08-08T16:30:55Z">
       <class name="Sanity_Test.Test_Build">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="beforeTest" is-config="true" duration-ms="2712" started-at="2017-08-08T17:05:39Z" finished-at="2017-08-08T17:05:42Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="beforeTest" is-config="true" duration-ms="2695" started-at="2017-08-08T17:29:16Z" finished-at="2017-08-08T17:29:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="User_Login" is-config="true" duration-ms="17119" started-at="2017-08-08T17:05:42Z" finished-at="2017-08-08T17:05:59Z">
+        <test-method status="PASS" signature="User_Login()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="User_Login" is-config="true" duration-ms="16419" started-at="2017-08-08T17:29:18Z" finished-at="2017-08-08T17:29:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Login -->
-        <test-method status="PASS" signature="Ssl_Certificates_Proposals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:Sanity_Test.Test_Build@63753b6d]" name="Ssl_Certificates_Proposals" duration-ms="49834" started-at="2017-08-08T17:05:59Z" data-provider="CertignaCertificate_ProposalsOrder_Data" finished-at="2017-08-08T17:06:49Z">
+        <test-method status="PASS" signature="Ssl_Certificates_Proposals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:Sanity_Test.Test_Build@63753b6d]" name="Ssl_Certificates_Proposals" duration-ms="62395" started-at="2017-08-08T17:29:35Z" data-provider="CertignaCertificate_ProposalsOrder_Data" finished-at="2017-08-08T17:30:37Z">
           <params>
             <param index="0">
               <value>
@@ -70,7 +70,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Ssl_Certificates_Proposals -->
-        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="User_Logout" is-config="true" duration-ms="6493" started-at="2017-08-08T17:06:49Z" finished-at="2017-08-08T17:06:55Z">
+        <test-method status="PASS" signature="User_Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="User_Logout" is-config="true" duration-ms="6482" started-at="2017-08-08T17:30:37Z" finished-at="2017-08-08T17:30:44Z">
           <params>
             <param index="0">
               <value>
@@ -81,7 +81,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- User_Logout -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="afterTest" is-config="true" duration-ms="10972" started-at="2017-08-08T17:06:55Z" finished-at="2017-08-08T17:07:06Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build@63753b6d]" name="afterTest" is-config="true" duration-ms="10979" started-at="2017-08-08T17:30:44Z" finished-at="2017-08-08T17:30:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
