@@ -185,7 +185,7 @@ public class Registered_User extends BrowserStack  {
 		  try {
 				
 			 
-			 if(driver.getTitle().contains("Slicket Backlog")){
+			 if(driver.getTitle().contains("MySSL® » Dashboard ")){
 				 
 				 System.out.println("Admin User Logged In");
 			 	 test.log(LogStatus.PASS, "Admin User Logged In");
@@ -193,6 +193,7 @@ public class Registered_User extends BrowserStack  {
 			 }else {
 				 
 				 System.out.println("Dashboard Page NOT Opened");
+				 System.out.println("Title Page Displayed Is:- "+ driver.getTitle());
 			 	 test.log(LogStatus.FAIL, "Dashboard Page NOT Opened");
 			 	 
 			 }

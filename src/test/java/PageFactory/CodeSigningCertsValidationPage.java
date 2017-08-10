@@ -24,17 +24,17 @@ import BaseUtilities.DriverLoad;
 import org.testng.Assert;
 
 
-public class CertificateValidationPage extends DriverLoad {
+public class CodeSigningCertsValidationPage extends DriverLoad {
 	ExtentReports report;
 	ExtentTest test;
 	
 	
 	/********Certificate Validation Page**********/
 	
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[1]/a")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[2]/ul/li[1]/a")
 	WebElement CertificatesDetailsTabFR;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDetailCsr']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDetailCsr']")
 	WebElement CsrField;
 	
 	@FindBy(xpath = ".//*[@id='mainCertDetails']/a")
@@ -43,126 +43,126 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	
 	/*******************Admin Tad*****************/
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[2]/a")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[2]/ul/li[2]/a")
 	WebElement AdminTab;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminContact']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminContact']")
 	WebElement AdminNameField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminOrganisation']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminOrganisation']")
 	WebElement AdminOrganisationField;
 	
 	
 	
 	/**********Technical Tab*****************/
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[3]/a")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[2]/ul/li[3]/a")
 	WebElement TechnicalTab;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechContact']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechContact']")
 	WebElement TechnicalNameField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechOrganisation']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechOrganisation']")
 	WebElement TechnicalOrganisationField;
 	
 	
 	
 	/**********Organisation Tab*****************/
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[4]/a")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[2]/ul/li[5]/a")
 	WebElement OrganisationTab;
 	
-	@FindBy(xpath = ".//*[@id='CertificateOrganisationLegalName']")
+	@FindBy(xpath = ".//*[@id='CodeSigningOrganisationLegalName']")
 	WebElement OrganisationLegalNameField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateOrganisationCategory']")
+	@FindBy(xpath = ".//*[@id='CodeSigningOrganisationCategory']")
 	WebElement OrganisationCategoryField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateOrganisationRegistrationNumber']")
+	@FindBy(xpath = ".//*[@id='CodeSigningOrganisationRegistrationNumber']")
 	WebElement OrganisationRegistrationNumberField;
 	
 	
 	/**********Director Tab*****************/
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[2]/ul/li[5]/a")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[2]/ul/li[4]/a")
 	WebElement DirectorTab;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorContact']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorContact']")
 	WebElement DirectorContactField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorOrganisation']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorOrganisation']")
 	WebElement DirectorOrganisationField;
 	
 	/**********Terms and Conditions Tab***********/
 	@FindBy(css = "a[href*='#myssl-certificate-tncs']")
 	WebElement TermsTab;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAcceptTerms']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAcceptTerms']")
 	WebElement TermsCheckBox;
 	
 	/***************Admin Security Questions******/
-	@FindBy(xpath = ".//*[@id='CertificateAdminQuestion1']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminQuestion1']")
 	WebElement AdminFavouriteColourQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminQuestion2']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminQuestion2']")
 	WebElement AdminFavouriteVegetableQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminQuestion3']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminQuestion3']")
 	WebElement AdminFavouriteBookQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminQuestion4']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminQuestion4']")
 	WebElement AdminFavouriteSportQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateAdminQuestion5']")
+	@FindBy(xpath = ".//*[@id='CodeSigningAdminQuestion5']")
 	WebElement AdminStreetNameQuestionField;
 	
 	
 	/***************Tech Security Questions******/
-	@FindBy(xpath = ".//*[@id='CertificateTechQuestion1']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechQuestion1']")
 	WebElement TechFavouriteColourQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechQuestion2']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechQuestion2']")
 	WebElement TechFavouriteVegetableQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechQuestion3']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechQuestion3']")
 	WebElement TechFavouriteBookQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechQuestion4']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechQuestion4']")
 	WebElement TechFavouriteSportQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateTechQuestion5']")
+	@FindBy(xpath = ".//*[@id='CodeSigningTechQuestion5']")
 	WebElement TechStreetNameQuestionField;
 	
 	
 	/***************Director Security Questions******/
-	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion1']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorQuestion1']")
 	WebElement DirectorFavouriteColourQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion2']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorQuestion2']")
 	WebElement DirectorFavouriteVegetableQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion3']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorQuestion3']")
 	WebElement DirectorFavouriteBookQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion4']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorQuestion4']")
 	WebElement DirectorFavouriteSportQuestionField;
 	
-	@FindBy(xpath = ".//*[@id='CertificateDirectorQuestion5']")
+	@FindBy(xpath = ".//*[@id='CodeSigningDirectorQuestion5']")
 	WebElement DirectorStreetNameQuestionField;
 	
 	
 	
 	
-	@FindBy(xpath = ".//*[@id='CertificateMysslEditForm']/div[2]/div[1]/button")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslEditForm']/div[2]/div[1]/button")
 	WebElement SubmitCertForIssuanceButton;
 	
 	
 	/********CSR*****************
 	
-	@FindBy(xpath = ".//*[@id='CertificateMysslViewForm']/div[2]/div[1]/div/button")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslViewForm']/div[2]/div[1]/div/button")
 	WebElement ValidateCsrButton;
 	
 	@FindBy(xpath = ".//*[@class='stdContentWrapper']/div[1]/div[1]/div/div/div[2]/div/div[2]/a")
 	WebElement ReIssueButton;
 	
-	@FindBy(xpath = ".//*[@id='CertificateMysslReissueForm']/fieldset/button")
+	@FindBy(xpath = ".//*[@id='CodeSigningMysslReissueForm']/fieldset/button")
 	WebElement ReIssueCertificateButton;
 	*/
 
@@ -171,7 +171,7 @@ public class CertificateValidationPage extends DriverLoad {
 	
 	
 	
-	public CertificateValidationPage(WebDriver driver){
+	public CodeSigningCertsValidationPage(WebDriver driver){
 		
 		this.driver = driver;
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);

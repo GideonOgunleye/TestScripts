@@ -1628,14 +1628,14 @@ public class Test_Data {
 	
 	@DataProvider (name ="CertignaPersonalID_ProposalsOrder_Data")
 	public static Object[][] CertignaPersonalID_ProposalsOrder_Data(){
-		Object[][] obj = new Object[1][24];
+		Object[][] obj = new Object[6][24];
 		
 		/*---------1st Parameter-------------*/	
 		//ProductType
 		obj[0][0]="Personal ID";
 		//Product
-		//obj[0][1]="Symantec Secure Site Pro EV";
 		obj[0][1]="RGS ID RGS** (Smartcard) 2002";
+		//obj[0][1]="RGS Encryption Certificate 2011";
 		//Quantity
 		obj[0][2]="1";
 		//Duration
@@ -1681,11 +1681,575 @@ public class Test_Data {
 		//Csr Line 17
 		obj[0][23]="Ssl-test17";
 		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Personal ID";
+		//Product
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[1][1]="RGS ID RGS*** (Qualified Smartcard) 2003";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[1][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[1][7]="Ssl-test1";
+		//Csr Line 1
+		obj[1][8]="Ssl-test2";
+		//Csr Line 3
+		obj[1][9]="Ssl-test3";
+		//Csr Line 4
+		obj[1][10]="Ssl-test4";
+		//Csr Line 5
+		obj[1][11]="Ssl-test5";
+		//Csr Line 6
+		obj[1][12]="Ssl-test6";
+		//Csr Line 7
+		obj[1][13]="Ssl-test7";
+		//Csr Line 8
+		obj[1][14]="Ssl-test8";
+		//Csr Line 9
+		obj[1][15]="Ssl-test9";
+		//Csr Line 10
+		obj[1][16]="Ssl-test10";
+		//Csr Line 11
+		obj[1][17]="Ssl-test11";
+		//Csr Line 12
+		obj[1][18]="Ssl-test12";
+		//Csr Line 13
+		obj[1][19]="Ssl-test13";
+		//Csr Line 14
+		obj[1][20]="Ssl-test14";
+		//Csr Line 15
+		obj[1][21]="Ssl-test15";
+		//Csr Line 16
+		obj[1][22]="Ssl-test16";
+		//Csr Line 17
+		obj[1][23]="Ssl-test17";		
+		
+		/*---------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Personal ID";
+		//Product
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[2][1]="RGS Auth RGS*** (Qualified Smartcard) 2004";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[2][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[2][7]="Ssl-test1";
+		//Csr Line 2
+		obj[2][8]="Ssl-test2";
+		//Csr Line 3
+		obj[2][9]="Ssl-test3";
+		//Csr Line 4
+		obj[2][10]="Ssl-test4";
+		//Csr Line 5
+		obj[2][11]="Ssl-test5";
+		//Csr Line 6
+		obj[2][12]="Ssl-test6";
+		//Csr Line 7
+		obj[2][13]="Ssl-test7";
+		//Csr Line 8
+		obj[2][14]="Ssl-test8";
+		//Csr Line 9
+		obj[2][15]="Ssl-test9";
+		//Csr Line 10
+		obj[2][16]="Ssl-test10";
+		//Csr Line 11
+		obj[2][17]="Ssl-test11";
+		//Csr Line 12
+		obj[2][18]="Ssl-test12";
+		//Csr Line 13
+		obj[2][19]="Ssl-test13";
+		//Csr Line 14
+		obj[2][20]="Ssl-test14";
+		//Csr Line 15
+		obj[2][21]="Ssl-test15";
+		//Csr Line 16
+		obj[2][22]="Ssl-test16";
+		//Csr Line 17
+		obj[2][23]="Ssl-test17";
+		
+		/*---------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Personal ID";
+		//Product
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[3][1]="RGS ID RGS Token (Smartcard) 2005";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[3][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[3][7]="Ssl-test1";
+		//Csr Line 3
+		obj[3][8]="Ssl-test2";
+		//Csr Line 3
+		obj[3][9]="Ssl-test3";
+		//Csr Line 4
+		obj[3][10]="Ssl-test4";
+		//Csr Line 5
+		obj[3][11]="Ssl-test5";
+		//Csr Line 6
+		obj[3][12]="Ssl-test6";
+		//Csr Line 7
+		obj[3][13]="Ssl-test7";
+		//Csr Line 8
+		obj[3][14]="Ssl-test8";
+		//Csr Line 9
+		obj[3][15]="Ssl-test9";
+		//Csr Line 10
+		obj[3][16]="Ssl-test10";
+		//Csr Line 11
+		obj[3][17]="Ssl-test11";
+		//Csr Line 12
+		obj[3][18]="Ssl-test12";
+		//Csr Line 13
+		obj[3][19]="Ssl-test13";
+		//Csr Line 14
+		obj[3][20]="Ssl-test14";
+		//Csr Line 15
+		obj[3][21]="Ssl-test15";
+		//Csr Line 16
+		obj[3][22]="Ssl-test16";
+		//Csr Line 17
+		obj[3][23]="Ssl-test17";
+
+		/*---------5th Parameter-------------*/	
+		//ProductType
+		obj[4][0]="Personal ID";
+		//Product
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[4][1]="RGS ID RGS (Software) 2001";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[4][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[4][7]="Ssl-test1";
+		//Csr Line 2
+		obj[4][8]="Ssl-test2";
+		//Csr Line 3
+		obj[4][9]="Ssl-test3";
+		//Csr Line 4
+		obj[4][10]="Ssl-test4";
+		//Csr Line 5
+		obj[4][11]="Ssl-test5";
+		//Csr Line 6
+		obj[4][12]="Ssl-test6";
+		//Csr Line 7
+		obj[4][13]="Ssl-test7";
+		//Csr Line 8
+		obj[4][14]="Ssl-test8";
+		//Csr Line 9
+		obj[4][15]="Ssl-test9";
+		//Csr Line 10
+		obj[4][16]="Ssl-test10";
+		//Csr Line 11
+		obj[4][17]="Ssl-test11";
+		//Csr Line 12
+		obj[4][18]="Ssl-test12";
+		//Csr Line 13
+		obj[4][19]="Ssl-test13";
+		//Csr Line 14
+		obj[4][20]="Ssl-test14";
+		//Csr Line 15
+		obj[4][21]="Ssl-test15";
+		//Csr Line 16
+		obj[4][22]="Ssl-test16";
+		//Csr Line 17
+		obj[4][23]="Ssl-test17";
+		
+		/*---------6th Parameter-------------*/	
+		//ProductType
+		obj[5][0]="Personal ID";
+		//Product
+		//obj[0][1]="Symantec Secure Site Pro EV";
+		obj[5][1]="RGS Encryption Certificate 2011";
+		//Quantity
+		obj[5][2]="1";
+		//Duration
+		obj[5][3]="1 year";
+		//Duration
+		obj[5][4]="1";
+		//Common Name
+		obj[5][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[5][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[5][7]="Ssl-test1";
+		//Csr Line 2
+		obj[5][8]="Ssl-test2";
+		//Csr Line 3
+		obj[5][9]="Ssl-test3";
+		//Csr Line 4
+		obj[5][10]="Ssl-test4";
+		//Csr Line 5
+		obj[5][11]="Ssl-test5";
+		//Csr Line 6
+		obj[5][12]="Ssl-test6";
+		//Csr Line 7
+		obj[5][13]="Ssl-test7";
+		//Csr Line 8
+		obj[5][14]="Ssl-test8";
+		//Csr Line 9
+		obj[5][15]="Ssl-test9";
+		//Csr Line 10
+		obj[5][16]="Ssl-test10";
+		//Csr Line 11
+		obj[5][17]="Ssl-test11";
+		//Csr Line 12
+		obj[5][18]="Ssl-test12";
+		//Csr Line 13
+		obj[5][19]="Ssl-test13";
+		//Csr Line 14
+		obj[5][20]="Ssl-test14";
+		//Csr Line 15
+		obj[5][21]="Ssl-test15";
+		//Csr Line 16
+		obj[5][22]="Ssl-test16";
+		//Csr Line 17
+		obj[5][23]="Ssl-test17";
 
 	
 		return obj;
 		
 	}
+	
+	@DataProvider (name ="CodeSigningCerts_ProposalsOrder_Data")
+	public static Object[][] CodeSigningCerts_ProposalsOrder_Data(){
+		Object[][] obj = new Object[6][24];
+		
+		/*---------1st Parameter-------------*/	
+		//ProductType
+		obj[0][0]="Code Signing";
+		//Product
+		obj[0][1]="RGS Timestamping Certificate (Software) 1006";
+		//Quantity
+		obj[0][2]="1";
+		//Duration
+		obj[0][3]="1 year";
+		//Duration
+		obj[0][4]="1";
+		//Common Name
+		obj[0][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[0][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[0][7]="Ssl-test1";
+		//Csr Line 2
+		obj[0][8]="Ssl-test2";
+		//Csr Line 3
+		obj[0][9]="Ssl-test3";
+		//Csr Line 4
+		obj[0][10]="Ssl-test4";
+		//Csr Line 5
+		obj[0][11]="Ssl-test5";
+		//Csr Line 6
+		obj[0][12]="Ssl-test6";
+		//Csr Line 7
+		obj[0][13]="Ssl-test7";
+		//Csr Line 8
+		obj[0][14]="Ssl-test8";
+		//Csr Line 9
+		obj[0][15]="Ssl-test9";
+		//Csr Line 10
+		obj[0][16]="Ssl-test10";
+		//Csr Line 11
+		obj[0][17]="Ssl-test11";
+		//Csr Line 12
+		obj[0][18]="Ssl-test12";
+		//Csr Line 13
+		obj[0][19]="Ssl-test13";
+		//Csr Line 14
+		obj[0][20]="Ssl-test14";
+		//Csr Line 15
+		obj[0][21]="Ssl-test15";
+		//Csr Line 16
+		obj[0][22]="Ssl-test16";
+		//Csr Line 17
+		obj[0][23]="Ssl-test17";
+		
+		/*---------2nd Parameter-------------*/	
+		//ProductType
+		obj[1][0]="Code Signing";
+		//Product
+		obj[1][1]="RGS Signature Server Certificate (Software) 1005";
+		//Quantity
+		obj[1][2]="1";
+		//Duration
+		obj[1][3]="1 year";
+		//Duration
+		obj[1][4]="1";
+		//Common Name
+		obj[1][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[1][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[1][7]="Ssl-test1";
+		//Csr Line 1
+		obj[1][8]="Ssl-test2";
+		//Csr Line 3
+		obj[1][9]="Ssl-test3";
+		//Csr Line 4
+		obj[1][10]="Ssl-test4";
+		//Csr Line 5
+		obj[1][11]="Ssl-test5";
+		//Csr Line 6
+		obj[1][12]="Ssl-test6";
+		//Csr Line 7
+		obj[1][13]="Ssl-test7";
+		//Csr Line 8
+		obj[1][14]="Ssl-test8";
+		//Csr Line 9
+		obj[1][15]="Ssl-test9";
+		//Csr Line 10
+		obj[1][16]="Ssl-test10";
+		//Csr Line 11
+		obj[1][17]="Ssl-test11";
+		//Csr Line 12
+		obj[1][18]="Ssl-test12";
+		//Csr Line 13
+		obj[1][19]="Ssl-test13";
+		//Csr Line 14
+		obj[1][20]="Ssl-test14";
+		//Csr Line 15
+		obj[1][21]="Ssl-test15";
+		//Csr Line 16
+		obj[1][22]="Ssl-test16";
+		//Csr Line 17
+		obj[1][23]="Ssl-test17";		
+		
+		/*---------3rd Parameter-------------*/	
+		//ProductType
+		obj[2][0]="Code Signing";
+		//Product
+		obj[2][1]="RGS Timestamping Certificate (HSM) 1009";
+		//Quantity
+		obj[2][2]="1";
+		//Duration
+		obj[2][3]="1 year";
+		//Duration
+		obj[2][4]="1";
+		//Common Name
+		obj[2][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[2][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[2][7]="Ssl-test1";
+		//Csr Line 2
+		obj[2][8]="Ssl-test2";
+		//Csr Line 3
+		obj[2][9]="Ssl-test3";
+		//Csr Line 4
+		obj[2][10]="Ssl-test4";
+		//Csr Line 5
+		obj[2][11]="Ssl-test5";
+		//Csr Line 6
+		obj[2][12]="Ssl-test6";
+		//Csr Line 7
+		obj[2][13]="Ssl-test7";
+		//Csr Line 8
+		obj[2][14]="Ssl-test8";
+		//Csr Line 9
+		obj[2][15]="Ssl-test9";
+		//Csr Line 10
+		obj[2][16]="Ssl-test10";
+		//Csr Line 11
+		obj[2][17]="Ssl-test11";
+		//Csr Line 12
+		obj[2][18]="Ssl-test12";
+		//Csr Line 13
+		obj[2][19]="Ssl-test13";
+		//Csr Line 14
+		obj[2][20]="Ssl-test14";
+		//Csr Line 15
+		obj[2][21]="Ssl-test15";
+		//Csr Line 16
+		obj[2][22]="Ssl-test16";
+		//Csr Line 17
+		obj[2][23]="Ssl-test17";
+		
+		/*---------4th Parameter-------------*/	
+		//ProductType
+		obj[3][0]="Code Signing";
+		//Product
+		obj[3][1]="RGS Signature Server Certificate (HSM) 1008";
+		//Quantity
+		obj[3][2]="1";
+		//Duration
+		obj[3][3]="1 year";
+		//Duration
+		obj[3][4]="1";
+		//Common Name
+		obj[3][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[3][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[3][7]="Ssl-test1";
+		//Csr Line 3
+		obj[3][8]="Ssl-test2";
+		//Csr Line 3
+		obj[3][9]="Ssl-test3";
+		//Csr Line 4
+		obj[3][10]="Ssl-test4";
+		//Csr Line 5
+		obj[3][11]="Ssl-test5";
+		//Csr Line 6
+		obj[3][12]="Ssl-test6";
+		//Csr Line 7
+		obj[3][13]="Ssl-test7";
+		//Csr Line 8
+		obj[3][14]="Ssl-test8";
+		//Csr Line 9
+		obj[3][15]="Ssl-test9";
+		//Csr Line 10
+		obj[3][16]="Ssl-test10";
+		//Csr Line 11
+		obj[3][17]="Ssl-test11";
+		//Csr Line 12
+		obj[3][18]="Ssl-test12";
+		//Csr Line 13
+		obj[3][19]="Ssl-test13";
+		//Csr Line 14
+		obj[3][20]="Ssl-test14";
+		//Csr Line 15
+		obj[3][21]="Ssl-test15";
+		//Csr Line 16
+		obj[3][22]="Ssl-test16";
+		//Csr Line 17
+		obj[3][23]="Ssl-test17";
+
+		/*---------5th Parameter-------------*/	
+		//ProductType
+		obj[4][0]="Code Signing";
+		//Product
+		obj[4][1]="RGS Codesigning Certificate (HSM) 1010";
+		//Quantity
+		obj[4][2]="1";
+		//Duration
+		obj[4][3]="1 year";
+		//Duration
+		obj[4][4]="1";
+		//Common Name
+		obj[4][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[4][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[4][7]="Ssl-test1";
+		//Csr Line 2
+		obj[4][8]="Ssl-test2";
+		//Csr Line 3
+		obj[4][9]="Ssl-test3";
+		//Csr Line 4
+		obj[4][10]="Ssl-test4";
+		//Csr Line 5
+		obj[4][11]="Ssl-test5";
+		//Csr Line 6
+		obj[4][12]="Ssl-test6";
+		//Csr Line 7
+		obj[4][13]="Ssl-test7";
+		//Csr Line 8
+		obj[4][14]="Ssl-test8";
+		//Csr Line 9
+		obj[4][15]="Ssl-test9";
+		//Csr Line 10
+		obj[4][16]="Ssl-test10";
+		//Csr Line 11
+		obj[4][17]="Ssl-test11";
+		//Csr Line 12
+		obj[4][18]="Ssl-test12";
+		//Csr Line 13
+		obj[4][19]="Ssl-test13";
+		//Csr Line 14
+		obj[4][20]="Ssl-test14";
+		//Csr Line 15
+		obj[4][21]="Ssl-test15";
+		//Csr Line 16
+		obj[4][22]="Ssl-test16";
+		//Csr Line 17
+		obj[4][23]="Ssl-test17";
+		
+		/*---------6th Parameter-------------*/	
+		//ProductType
+		obj[5][0]="Code Signing";
+		//Product
+		obj[5][1]="RGS Codesigning Certificate (Software) 1007";
+		//Quantity
+		obj[5][2]="1";
+		//Duration
+		obj[5][3]="1 year";
+		//Duration
+		obj[5][4]="1";
+		//Common Name
+		obj[5][5]="ssl247-test.co.uk";
+		//Staff Name
+		obj[5][6]="Daniel Genadiev";
+		//Csr Line 1
+		obj[5][7]="Ssl-test1";
+		//Csr Line 2
+		obj[5][8]="Ssl-test2";
+		//Csr Line 3
+		obj[5][9]="Ssl-test3";
+		//Csr Line 4
+		obj[5][10]="Ssl-test4";
+		//Csr Line 5
+		obj[5][11]="Ssl-test5";
+		//Csr Line 6
+		obj[5][12]="Ssl-test6";
+		//Csr Line 7
+		obj[5][13]="Ssl-test7";
+		//Csr Line 8
+		obj[5][14]="Ssl-test8";
+		//Csr Line 9
+		obj[5][15]="Ssl-test9";
+		//Csr Line 10
+		obj[5][16]="Ssl-test10";
+		//Csr Line 11
+		obj[5][17]="Ssl-test11";
+		//Csr Line 12
+		obj[5][18]="Ssl-test12";
+		//Csr Line 13
+		obj[5][19]="Ssl-test13";
+		//Csr Line 14
+		obj[5][20]="Ssl-test14";
+		//Csr Line 15
+		obj[5][21]="Ssl-test15";
+		//Csr Line 16
+		obj[5][22]="Ssl-test16";
+		//Csr Line 17
+		obj[5][23]="Ssl-test17";
+
+	
+		return obj;
+		
+	}
+
 	
 	
 }

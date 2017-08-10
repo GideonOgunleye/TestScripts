@@ -87,6 +87,13 @@ public class sslDashBoard extends DriverLoad {
 	@FindBy(css = "a[href*='/myssl/smime/incomplete']")
 	WebElement IncompleteSMIMELink;
 	
+	/*************My Code Signing Certs**************/
+	@FindBy(css = "a[href*='/myssl/code-signing']")
+	WebElement MyCodeSigningCertsLink;
+	
+	@FindBy(css = "a[href*='/myssl/code-signing/incomplete']")
+	WebElement IncompleteCodeSigningCertsLink;
+	
 
 	
 	/********Issue Certificates Page****/
@@ -193,6 +200,16 @@ public class sslDashBoard extends DriverLoad {
 	public void IncompleSMIMELinkClick() {
 		
 		IncompleteSMIMELink.click();
+	}
+	
+	public void MyCodeSigningCertsLinkClick() {
+		
+		MyCodeSigningCertsLink.click();
+	}
+	
+	public void IncompleteCodeSigningCertsLinkClick() {
+		
+		IncompleteCodeSigningCertsLink.click();
 	}
 	
 	public void ClickMyUsersLink() {
