@@ -5,9 +5,9 @@
     <classes>
       <class name="Sanity_Test.Test_Build">
         <methods>
-          <include name="Ssl_Certificates_Proposals" invocation-numbers="0"/>
           <include name="User_Logout"/>
           <include name="beforeTest"/>
+          <include name="CodeSigningCerts_Proposals" invocation-numbers="0"/>
           <include name="afterTest"/>
           <include name="User_Login"/>
         </methods>
