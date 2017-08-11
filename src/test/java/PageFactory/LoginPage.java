@@ -66,72 +66,7 @@ public class LoginPage extends DriverLoad {
 		
 	}
 	
-	
-	public void LoadLoginPage () throws Exception {
-		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
 
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		Thread.sleep(5000);
-		
-	}
-	
-	public void ClientLogin () throws Exception {
-		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
-
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		String title = driver.getTitle();				 
-		Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		Thread.sleep(5000);
-		
-		ClickLoginLink();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		EnterUserName(prop.getProperty("Username"));
-		EnterPassword(prop.getProperty("Password"));
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		ClickLoginButton();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		String Status = driver.getTitle();
-		Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
-
-	}
-	
-	public void AdminLogin() throws Exception {
-		
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
-				 
-		prop.load(fis);
-
-		driver.get(prop.getProperty("Url")); 
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		//String title = driver.getTitle();				 
-		//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-		//Thread.sleep(5000);
-		
-		ClickLoginLink();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		EnterUserName(prop.getProperty("AdUserName"));
-		EnterPassword(prop.getProperty("AdPassword"));
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		ClickLoginButton();
-		
-		
-	}
 	
 	public boolean AdminPageValidation () {
 		
@@ -163,6 +98,18 @@ public class LoginPage extends DriverLoad {
 	public boolean LoginLinkIsVisible () {
 		
 		return LoginLink.getText().contains("Login");
+		
+	}
+	
+	public boolean LoginLinkContains (String Label) {
+		
+		return LoginLink.getText().contains(Label);
+		
+	}
+	
+	public void LoginLinkTestPrint() {
+		
+		 System.out.println("LinkText = " +  LoginLink.getText());
 		
 	}
 	
@@ -204,4 +151,138 @@ public class LoginPage extends DriverLoad {
 		return AdminLogoutButton.isDisplayed();
 		
 	}
+	
+	//UK Login-----------------------------------------------------------------------------------------------------------------------------------	
+		public void LoadLoginPage () throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("Url")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			String title = driver.getTitle();				 
+			Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			Thread.sleep(5000);
+			
+		}
+		
+		public void ClientLogin () throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("Url")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			String title = driver.getTitle();				 
+			Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			Thread.sleep(5000);
+			
+			ClickLoginLink();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			EnterUserName(prop.getProperty("Username"));
+			EnterPassword(prop.getProperty("Password"));
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			ClickLoginButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			String Status = driver.getTitle();
+			Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
+
+		}
+		
+		public void AdminLogin() throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("Url")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			//String title = driver.getTitle();				 
+			//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			//Thread.sleep(5000);
+			
+			ClickLoginLink();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			EnterUserName(prop.getProperty("AdUserName"));
+			EnterPassword(prop.getProperty("AdPassword"));
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			ClickLoginButton();
+			
+			
+		}
+		
+		//French Login-----------------------------------------------------------------------------------------------------------------------------------	
+		public void FrLoadLoginPage () throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("FrenchUrl")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			String title = driver.getTitle();				 
+			Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			Thread.sleep(5000);
+			
+		}
+		
+		public void FrClientLogin () throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("FrenchUrl")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			String title = driver.getTitle();				 
+			Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			Thread.sleep(5000);
+			
+			ClickLoginLink();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			EnterUserName(prop.getProperty("Username"));
+			EnterPassword(prop.getProperty("Password"));
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			ClickLoginButton();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			String Status = driver.getTitle();
+			Assert.assertTrue(Status.contains("MySSL® » Dashboard"));
+
+		}
+		
+		public void FrAdminLogin() throws Exception {
+			
+			Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+			prop.load(fis);
+
+			driver.get(prop.getProperty("FrenchUrl")); 
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			//String title = driver.getTitle();				 
+			//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			//Thread.sleep(5000);
+			
+			ClickLoginLink();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			EnterUserName(prop.getProperty("AdUserName"));
+			EnterPassword(prop.getProperty("AdPassword"));
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			ClickLoginButton();
+			
+			
+		}
 }

@@ -4,7 +4,7 @@
 
   <groups>
     <run>
-    <include name="BS_Smoke"/>
+    <include name="BS_Regression"/>
     </run>
  </groups> 
 
@@ -17,11 +17,11 @@
     </classes>    
   </test><!-- Test -->
   
-   <test name="Test 4">
+<!--   <test name="Test 4">
    <classes>
       <class name="Regression_Test.SQL_Queries"/>
     </classes>    
-  </test><!-- Test -->
+  </test> Test -->
   
   
 </suite> <!-- Suite -->

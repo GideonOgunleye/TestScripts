@@ -42,7 +42,7 @@ import PageFactory.ProposalsPage;
 import PageFactory.SmimeValidationPage;
 import PageFactory.sslDashBoard;
 
-public class CertignaProposal_Orders extends Chrome {
+public class CertignaProposal_Orders extends BrowserStack {
 	ExtentReports report;
 	ExtentTest test;
 	LoginPage 	LoginPageElements;
