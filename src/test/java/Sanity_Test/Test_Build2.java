@@ -18,6 +18,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -27,8 +28,10 @@ import com.relevantcodes.extentreports.LogStatus;
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
+import BaseUtilities.Constants;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
+import BaseUtilities.ExcelUtility;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.AddAccountPage;
@@ -91,7 +94,8 @@ public class Test_Build2 extends Chrome {
 	  
 		  //LoginPageElements.AdminLogin();
 		  
-		  report = ExtentFactory.getInstance(); 	 
+		  report = ExtentFactory.getInstance(); 
+
 			 
 	  }
 
@@ -279,22 +283,66 @@ public void Admin_LogInValidation(String Websitename, String Domain, String User
 }
 
 
-@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
-public void Edit_Account_User() throws Exception{
+@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="EditUserAllSites")
+public void Edit_Account_User(String Websitename, String Domain, String Username, String Password,String Credentials) throws Exception{
 	  
 		//Search For UK Test User
-	     test = report.startTest("Admin Test --> Edit User");
+		  test = report.startTest("Admin User Test --> Edit User Account- "+ Websitename);
+		  
+		  Properties prop = new Properties();
+		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+		  prop.load(fis);
+
+		  Thread.sleep(1000);
+		  
+		  //Admin Login User
+		  try {
+			  
+			  driver.get(prop.getProperty(Domain)); 
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  driver.manage().window().maximize();
+			  //LoginPageElements.LoadLoginPage();
+			  Thread.sleep(1000);
+			  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+			  test.log(LogStatus.INFO, "Login Page Loaded");
+			  
+			  LoginPageElements.ClickLoginLink();
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Clicked Login Link");
+			  
+			  LoginPageElements.EnterUserName(prop.getProperty(Username));
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Entereed UserName");
+			  
+			  LoginPageElements.EnterPassword(prop.getProperty(Password));
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Entered Password");
+			  
+			  LoginPageElements.ClickLoginButton();
+			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			  test.log(LogStatus.INFO, "Clicked Login Link");
+			  
+			  Thread.sleep(1000);
+		  
+		  }catch (Exception e) {
+				
+				test.log(LogStatus.FAIL, "Element Not Found");
+				System.out.println("Element Not Found");
+				String path2 = ScreenShot.Image(driver, "Element");
+				String imagePath2 = test.addScreenCapture(path2);
+				test.log(LogStatus.INFO, imagePath2);
+				report.endTest(test);
+				report.flush();
+				Assert.fail("Exception " + e);
+			}
+	     
 	     
 	     test.log(LogStatus.INFO, "Admin User Logged in");
 	  
 	     AdminNavigationLinksElements.ClientsAccountsLinkClick();
 	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		 test.log(LogStatus.INFO, "Click on clients Accounts Link");
-		 
-		 ClientAccountsPageElements.ValidatePage();
-		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		 test.log(LogStatus.INFO, "Click Account Page Validated");
-		 
 		 
 		 ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
 		 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
@@ -323,9 +371,9 @@ public void Edit_Account_User() throws Exception{
 	     
 	     Thread.sleep(1000);
 	     
-	     sslDashBoardElements.AdminDashboardValidation();
-	     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-	  	 test.log(LogStatus.INFO, "DashBord Page Opened");
+	     //sslDashBoardElements.AdminDashboardValidation();
+	     //driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	  	// test.log(LogStatus.INFO, "DashBord Page Opened");
 	     
 		 
 	     
@@ -351,7 +399,7 @@ public void Edit_Account_User() throws Exception{
 		     test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 		     
 		     //Edit User
-		     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+		     AdminSslDashBoardElements.AccessLevelSelect();
 			 Thread.sleep(1000);
 			 
 			//Edit Optional Details
@@ -384,7 +432,7 @@ public void Edit_Account_User() throws Exception{
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     
@@ -420,7 +468,7 @@ public void Edit_Account_User() throws Exception{
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     
@@ -457,7 +505,7 @@ public void Edit_Account_User() throws Exception{
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     
@@ -525,30 +573,118 @@ public void Edit_Account_User() throws Exception{
 									
 				String path = ScreenShot.Image(driver, "SearchResult");
 				String imagePath = test.addScreenCapture(path);
-				test.log(LogStatus.FAIL, "Alert Not Displayed");
+				test.log(LogStatus.INFO, "Alert Not Displayed");
 				test.log(LogStatus.INFO, imagePath);
 
 
 			}
+		 
+		 
+		 //Admin Log Out
+		 try {
+			 
+			  LoginPageElements.ClickAdminLogoutButton();
+			  test.log(LogStatus.INFO, "Admin User Logged Out");
+			  String path2 = ScreenShot.Image(driver, "Logout");
+			  String imagePath2 = test.addScreenCapture(path2);
+			  test.log(LogStatus.INFO, imagePath2);
+			  report.endTest(test);
+			  report.flush();
+			 
+		 }catch (Exception c) {
+			 
+			test.log(LogStatus.FAIL, "Logout Button Not Displayed");
+			String path2 = ScreenShot.Image(driver, "Logout");
+			String imagePath2 = test.addScreenCapture(path2);
+			test.log(LogStatus.INFO, imagePath2);
+			report.endTest(test);
+			report.flush();
+			Assert.fail("Exception " + c); 
+		 }
 	
 		 
 }
 
-@Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
-public void Create_Proposal () throws Exception {
+@DataProvider(name = "loginData")
+public Object[][] dataProvider() {
+	Object[][] testData = ExcelUtility.getTestData("Invalid_Login");
+	
+	return testData;
+}
+
+@Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProvider="loginData")
+public void Create_Proposal (String Username, String Password) throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
 	  
 	  		report = ExtentFactory.getInstance3();
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
+	  		
+			ExcelUtility.setExcelFile(Constants.File_Path + Constants.File_Name, "LoginTests");
+	  		
+	  	  //Properties prop = new Properties();
+		  //FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+					 
+		  //prop.load(fis);
+
+		  Thread.sleep(1000);	  		
+	  		
+	  		
+			  //Admin Login User
+			  try {
+				  
+				  //driver.get(prop.getProperty(Domain)); 
+				  driver.get(Constants.URL);
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  driver.manage().window().maximize();
+				  //LoginPageElements.LoadLoginPage();
+				  Thread.sleep(1000);
+				  test.log(LogStatus.INFO, "Browser Opened and Url Entered");
+				  test.log(LogStatus.INFO, "Login Page Loaded");
+				  
+				  LoginPageElements.ClickLoginLink();
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Clicked Login Link");
+				  
+				 //LoginPageElements.EnterUserName(prop.getProperty(Username));
+				  LoginPageElements.EnterUserName(Username);
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Entereed UserName");
+				  
+				  //LoginPageElements.EnterPassword(prop.getProperty(Password));
+				  LoginPageElements.EnterPassword(Password);
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Entered Password");
+				  
+				  LoginPageElements.ClickLoginButton();
+				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+				  test.log(LogStatus.INFO, "Clicked Login Link");
+				  
+				  Thread.sleep(1000);
+			  
+			  }catch (Exception e) {
+					
+					test.log(LogStatus.FAIL, "Element Not Found");
+					System.out.println("Element Not Found");
+					String path2 = ScreenShot.Image(driver, "Element");
+					String imagePath2 = test.addScreenCapture(path2);
+					test.log(LogStatus.INFO, imagePath2);
+					report.endTest(test);
+					report.flush();
+					Assert.fail("Exception " + e);
+				}	  		
+	  		
+	  		
+	  		
+	  		
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
 	 	
 			AdminNavigationLinksElements.ClientsAccountsLinkClick();
 			test.log(LogStatus.INFO, "Click on clients Accounts Link");
 			 
-			ClientAccountsPageElements.ValidatePage();
-			ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
-			test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+			//ClientAccountsPageElements.ValidatePage();
+			//ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+			//test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
 			 
 			ClientAccountsPageElements.UpdateButtonClink();
 			test.log(LogStatus.INFO, "Click on Update Button");

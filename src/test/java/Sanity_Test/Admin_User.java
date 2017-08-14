@@ -320,7 +320,7 @@ public void Admin_LogInValidation(String Username, String Password, String Crede
 		     test.log(LogStatus.INFO, "Navigate to Quality Assurance Tester User and Click Edit");
 		     
 		     //Edit User
-		     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+		     AdminSslDashBoardElements.AccessLevelSelect();
 			 Thread.sleep(1000);
 			 
 			//Edit Optional Details
@@ -353,7 +353,7 @@ public void Admin_LogInValidation(String Username, String Password, String Crede
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     
@@ -389,7 +389,7 @@ public void Admin_LogInValidation(String Username, String Password, String Crede
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     
@@ -426,7 +426,7 @@ public void Admin_LogInValidation(String Username, String Password, String Crede
 				 driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Clicked Required Details Tab");
 				 
-			     AdminSslDashBoardElements.AccessLevelSelect("Super User");
+			     AdminSslDashBoardElements.AccessLevelSelect();
 			     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 				 test.log(LogStatus.INFO, "Selected Super User Option");
 			     

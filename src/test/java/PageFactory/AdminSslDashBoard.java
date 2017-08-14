@@ -479,10 +479,10 @@ public class AdminSslDashBoard extends DriverLoad {
 		RequiredDetailsTab.click();
 	}
 	
-	public void AccessLevelSelect(String Access){
+	public void AccessLevelSelect(){
 		
 		 Select Level = new Select(AccessLevelField);
-		 Level.selectByVisibleText(Access);
+		 Level.selectByIndex(1);
 	}
 	
 	public void OptionalDetailsTabClick() {
