@@ -2,31 +2,31 @@
 <testng-results skipped="0" failed="1" ignored="7" total="8" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13707" started-at="2017-08-14T16:31:07Z" finished-at="2017-08-14T16:31:21Z">
+  <suite name="Default suite" duration-ms="12781" started-at="2017-08-14T23:28:17Z" finished-at="2017-08-14T23:28:30Z">
     <groups>
       <group name="BS_Smoke">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
       </group> <!-- BS_Smoke -->
       <group name="Smoke_Firefox">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
       </group> <!-- Smoke_Firefox -->
       <group name="Smoke">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
       </group> <!-- Smoke -->
       <group name="BS_Sanity">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
       </group> <!-- BS_Sanity -->
       <group name="Smoke_Chrome">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
       </group> <!-- Smoke_Chrome -->
     </groups>
-    <test name="Default test" duration-ms="13707" started-at="2017-08-14T16:31:07Z" finished-at="2017-08-14T16:31:21Z">
+    <test name="Default test" duration-ms="12781" started-at="2017-08-14T23:28:17Z" finished-at="2017-08-14T23:28:30Z">
       <class name="Sanity_Test.Test_Build2">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build2@887af79]" name="beforeTest" is-config="true" duration-ms="2724" started-at="2017-08-14T17:31:07Z" finished-at="2017-08-14T17:31:10Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build2@5b87ed94]" name="beforeTest" is-config="true" duration-ms="1662" started-at="2017-08-15T00:28:17Z" finished-at="2017-08-15T00:28:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="FAIL" signature="Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@887af79]" name="Create_Proposal" duration-ms="0" started-at="2017-08-14T17:31:10Z" data-provider="loginData" finished-at="2017-08-14T17:31:10Z">
+        <test-method status="FAIL" signature="Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" duration-ms="0" started-at="2017-08-15T00:28:19Z" data-provider="loginData" finished-at="2017-08-15T00:28:19Z">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -63,7 +63,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Create_Proposal -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build2@887af79]" name="afterTest" is-config="true" duration-ms="10943" started-at="2017-08-14T17:31:10Z" finished-at="2017-08-14T17:31:21Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build2@5b87ed94]" name="afterTest" is-config="true" duration-ms="11084" started-at="2017-08-15T00:28:19Z" finished-at="2017-08-15T00:28:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

@@ -156,7 +156,7 @@ public class LoginPage extends DriverLoad {
 		public void LoadLoginPage () throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 
@@ -172,7 +172,7 @@ public class LoginPage extends DriverLoad {
 		public void ClientLogin () throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 
@@ -198,7 +198,7 @@ public class LoginPage extends DriverLoad {
 		public void AdminLogin() throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 
@@ -223,7 +223,7 @@ public class LoginPage extends DriverLoad {
 		public void FrLoadLoginPage () throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 
@@ -239,7 +239,7 @@ public class LoginPage extends DriverLoad {
 		public void FrClientLogin () throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 
@@ -265,7 +265,7 @@ public class LoginPage extends DriverLoad {
 		public void FrAdminLogin() throws Exception {
 			
 			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
 					 
 			prop.load(fis);
 

@@ -55,6 +55,9 @@ import PageFactory.SmimeValidationPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
+import BaseUtilities.Constants;
+import BaseUtilities.ExcelUtility;
+
 public class Test_Build2 extends Chrome {
 	
 	  ExtentReports report;
@@ -194,7 +197,7 @@ public void Admin_LogInValidation(String Websitename, String Domain, String User
 	  test = report.startTest("Registered User Test --> Admin Login- "+ Websitename + " - " + Credentials);
 	  
 	  Properties prop = new Properties();
-	  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+	  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 				 
 	  prop.load(fis);
 
@@ -290,7 +293,7 @@ public void Edit_Account_User(String Websitename, String Domain, String Username
 		  test = report.startTest("Admin User Test --> Edit User Account- "+ Websitename);
 		  
 		  Properties prop = new Properties();
-		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 		  prop.load(fis);
 
@@ -613,14 +616,14 @@ public Object[][] dataProvider() {
 }
 
 @Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProvider="loginData")
-public void Create_Proposal (String Username, String Password) throws Exception {
+public void Create_Proposal (String username, String password) throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
 	  
 	  		report = ExtentFactory.getInstance3();
 	  		test = report.startTest("Admin Test -->  Create a Proposal");
 	  		
-			ExcelUtility.setExcelFile(Constants.File_Path + Constants.File_Name, "LoginTests");
+			ExcelUtility.setExcelFile(Constants.File_Path + Constants.ExcelFile_Name, "LoginTests");
 	  		
 	  	  //Properties prop = new Properties();
 		  //FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
@@ -646,13 +649,13 @@ public void Create_Proposal (String Username, String Password) throws Exception 
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Clicked Login Link");
 				  
-				 //LoginPageElements.EnterUserName(prop.getProperty(Username));
-				  LoginPageElements.EnterUserName(Username);
+				 //LoginPageElements.EnterUserName(prop.getProperty(username));
+				  LoginPageElements.EnterUserName(username);
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Entereed UserName");
 				  
 				  //LoginPageElements.EnterPassword(prop.getProperty(Password));
-				  LoginPageElements.EnterPassword(Password);
+				  LoginPageElements.EnterPassword(password);
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Entered Password");
 				  
