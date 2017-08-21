@@ -5,11 +5,11 @@
     <classes>
       <class name="Sanity_Test.Test_Build5">
         <methods>
-          <include name="Get_Attribute"/>
+          <include name="Get_Attribute" invocation-numbers="0 1"/>
           <include name="Login"/>
+          <include name="beforeTest"/>
           <include name="afterTest"/>
           <include name="Logout"/>
-          <include name="beforeTest"/>
         </methods>
       </class> <!-- Sanity_Test.Test_Build5 -->
     </classes>

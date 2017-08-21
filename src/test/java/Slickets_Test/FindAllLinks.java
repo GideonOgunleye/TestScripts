@@ -1,19 +1,27 @@
 package Slickets_Test;
  
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
  
 import org.openqa.selenium.WebElement;
- 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
  
 public class FindAllLinks {
  
+	public static WebDriver driver;
+	
 	public static void main(String[] args) throws Exception {
  
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		driver = new ChromeDriver();  
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
  
 		driver.get("https://www.ssl247.co.uk/thalesPartnerURL");
 		driver.manage().window().maximize();
@@ -27,7 +35,7 @@ public class FindAllLinks {
 		
         try {
         	
-        	if (driver.getPageSource().contains("not found")) {
+        	if (driver.getPageSource().contains("404 Page not found")) {
         		
         		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
         		

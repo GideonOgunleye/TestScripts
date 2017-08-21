@@ -116,25 +116,32 @@ public class Test_Build5 extends Chrome  {
 		String path2 = ScreenShot.Image(driver, "Logout");
 		String imagePath2 = test.addScreenCapture(path2);
 		test.log(LogStatus.INFO, imagePath2);
+	*/
 		report.endTest(test);
 		report.flush();
-	*/
+	
 		
 	}
 	
 
 	
 	@Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProviderClass =Test_DataSanity.class,dataProvider="IndexLinksAllSites")
-	  public void Get_Attribute () throws Exception{
+	  public void Get_Attribute (String WebsiteName, String IndexPageLink) throws Exception{
 		 
-		 // report = ExtentFactory.getInstance3();
+
 		
-		 // test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
-		 //test = report.startTest("Url Test --> Validate Links- ");
+		  Properties prop = new Properties();
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
+		  prop.load(fis);
 			  
+		  report = ExtentFactory.getInstance3();
+				
+		  //test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
+		  test = report.startTest("Url Test --> Validate Links on- "+ WebsiteName); 
+		  
 	     // TODO 
 	        
-	     String homePage = "https://www.ssl247.co.uk";
+	     //String homePage = "https://www.ssl247.co.uk";
 	     String url = "";
 
 	        
@@ -142,7 +149,7 @@ public class Test_Build5 extends Chrome  {
 	        
 	     driver.manage().window().maximize();
 	        
-	     driver.get(homePage);
+	     driver.get(prop.getProperty(IndexPageLink));
 	        
 	   	 List<WebElement> demovar=driver.findElements(By.tagName("a"));
 		 System.out.println(demovar.size());
@@ -159,13 +166,14 @@ public class Test_Build5 extends Chrome  {
 	            	                continue;
 	             }
 	            
-	              if(!url.contains("ssl247.co.uk")){
+	              if(!url.contains("ssl247.")){
 	            	  
 	                  System.out.println("URL belongs to another domain, skipping it.");
 	                  continue;
 	                  
 	              	}
-	              if(url.contains("ssl247.co.uk/#")){
+	              
+	              if(url.contains("/#")){
 	            	  
 	                  System.out.println("Irrelevant Url");
 	                  continue;
@@ -200,13 +208,24 @@ public class Test_Build5 extends Chrome  {
 		        
 		        try {
 		        	
-		        	if (driver.getPageSource().contains("404")) {
+		        	if (driver.getPageSource().contains("404 Page not found")) {
 		        		
 		        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+		        		String path = ScreenShot.Image(driver, "Link Error");
+			  			String imagePath = test.addScreenCapture(path);
+			  			test.log(LogStatus.INFO, imagePath);
+			  			test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!");
+			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
+			  			
 		        		
 		        	}else if (driver.getPageSource().contains("not found")){
 		        		
 		        		System.out.println("Page Not Found Error..!!");
+		        		String path = ScreenShot.Image(driver, "Link Error");
+			  			String imagePath = test.addScreenCapture(path);
+			  			test.log(LogStatus.INFO, imagePath);
+			  			test.log(LogStatus.FAIL, "Page Not Found Error..!!");
+			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
 		        		
 		        	}
 		        	
