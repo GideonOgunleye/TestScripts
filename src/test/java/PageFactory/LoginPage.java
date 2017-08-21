@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import BaseUtilities.Constants;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.HandleEvents;
 
@@ -155,24 +156,24 @@ public class LoginPage extends DriverLoad {
 	//UK Login-----------------------------------------------------------------------------------------------------------------------------------	
 		public void LoadLoginPage () throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 
 			driver.get(prop.getProperty("Url")); 
 			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			driver.manage().window().maximize();
-			String title = driver.getTitle();				 
-			Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
-			Thread.sleep(5000);
+			//String title = driver.getTitle();				 
+			//Assert.assertTrue(title.contains("SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk")); 
+			//Thread.sleep(5000);
 			
 		}
 		
 		public void ClientLogin () throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 
@@ -197,8 +198,8 @@ public class LoginPage extends DriverLoad {
 		
 		public void AdminLogin() throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 
@@ -222,8 +223,8 @@ public class LoginPage extends DriverLoad {
 		//French Login-----------------------------------------------------------------------------------------------------------------------------------	
 		public void FrLoadLoginPage () throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 
@@ -238,8 +239,8 @@ public class LoginPage extends DriverLoad {
 		
 		public void FrClientLogin () throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 
@@ -264,8 +265,8 @@ public class LoginPage extends DriverLoad {
 		
 		public void FrAdminLogin() throws Exception {
 			
-			Properties prop = new Properties();
-			FileInputStream fis = new FileInputStream("C://Users//TOM//workspace//TestScripts//DataDriving.properties");
+		  	Properties prop = new Properties();
+			FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
 			prop.load(fis);
 

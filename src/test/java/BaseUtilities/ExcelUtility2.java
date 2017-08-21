@@ -1,7 +1,9 @@
 package BaseUtilities;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,16 +19,18 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-public class ExcelUtility {
+public class ExcelUtility2 {
 
 	private static XSSFWorkbook ExcelWBook;
 	private static XSSFSheet ExcelWSheet;
-	
+	private static XSSFCell Cell;
+	private static XSSFRow Row;
+
 	/*
 	 * Set the File path, open Excel file
 	 * @params - Excel Path and Sheet Name
 	 */
-	public void setExcelFile(String path, String sheetName) throws Exception {
+	public static void setExcelFile(String path, String sheetName) throws Exception {
 		try {
 			// Open the Excel file
 			FileInputStream ExcelFile = new FileInputStream(path);
@@ -34,14 +38,12 @@ public class ExcelUtility {
 			// Access the excel data sheet
 			ExcelWBook = new XSSFWorkbook(ExcelFile);
 			ExcelWSheet = ExcelWBook.getSheet(sheetName);
-			
-			
 		} catch (Exception e) {
 			throw (e);
 		}
 	}
 
-	public String[][] getTestData(String tableName) {
+	public static String[][] getTestData(String tableName) {
 		String[][] testData = null;
 
 		try {
@@ -61,7 +63,7 @@ public class ExcelUtility {
 
 			for (int i=startRow; i<endRow+1; i++) {
 				for (int j=startCol; j<endCol+1; j++) {
-					testData[i-startRow][j-startCol] = ExcelWSheet.getRow(i).getCell(j).getStringCellValue();
+					// testData[i-startRow][j-startCol] = ExcelWSheet.getRow(i).getCell(j).getStringCellValue();
 					Cell cell = ExcelWSheet.getRow(i).getCell(j);
 					testData[i - startRow][j - startCol] = formatter.formatCellValue(cell);
 				}
@@ -73,7 +75,7 @@ public class ExcelUtility {
 	}
 	
     
-	public XSSFCell[] findCells(String tableName) {
+	public static XSSFCell[] findCells(String tableName) {
 		DataFormatter formatter = new DataFormatter();
 		String pos = "begin";
 		XSSFCell[] cells = new XSSFCell[2];

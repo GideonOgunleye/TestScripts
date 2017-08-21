@@ -9,6 +9,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
+import BaseUtilities.Constants;
 import BaseUtilities.Cookies;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
@@ -122,7 +123,7 @@ public class New_User extends BrowserStack  {
 */
 		report = ExtentFactory.getInstance3();
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 				 
 		prop.load(fis);
 

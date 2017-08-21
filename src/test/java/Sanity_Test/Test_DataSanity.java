@@ -9,6 +9,8 @@ import BaseUtilities.ExcelUtility;
 
 public class Test_DataSanity {
 	
+	static ExcelUtility ExcelUtility = new ExcelUtility();
+	
 	@DataProvider (name ="LoginUser")
 	public static Object[][] LoginUser(){
 		Object[][] obj = new Object[2][3];
@@ -868,16 +870,16 @@ public class Test_DataSanity {
 		
 	}
 	
-	@DataProvider (name ="IssueProposalAllSites")
-	public static Object[][] IssueProposalAllSites(){
-		Object[][] obj = new Object[1][5];
+	@DataProvider (name ="DataAllSites")
+	public static Object[][] DataAllSites(){
+		Object[][] obj = new Object[18][5];
 		
 		
 		/*---------1st Parameter-------------*/	
 		//Websitename
-		obj[0][0]="French Website-02";
+		obj[0][0]="Uk Website-01";
 		//Domain
-		obj[0][1]="FrenchUrl";
+		obj[0][1]="Url";
 		//Username
 		obj[0][2]="AdUserName";
 		//Password
@@ -885,16 +887,465 @@ public class Test_DataSanity {
 		//Url
 		obj[0][4]="Valid Credentials";
 		
+		
+		/*---------2nd Parameter-------------*/
+		//Websitename
+		obj[1][0]="French Website-02";
+		//Domain
+		obj[1][1]="FrenchUrl";
+		//Username
+		obj[1][2]="AdUserName";
+		//Password
+		obj[1][3]="AdValidPassword";
+		//Url
+		obj[1][4]="Valid Credentials";
+		
+		
+		/*---------3rd Parameter-------------*/	
+		//Websitename
+		obj[2][0]="AE Website-03";
+		//Domain
+		obj[2][1]="AeUrl";
+		//Username
+		obj[2][2]="AdUserName";
+		//Password
+		obj[2][3]="AdValidPassword";
+		//Url
+		obj[2][4]="Valid Credentials";
+		
+		
+		/*---------4th Parameter-------------*/
+		//Websitename
+		obj[3][0]="BE Website-04";
+		//Domain
+		obj[3][1]="BeUrl";
+		//Username
+		obj[3][2]="AdUserName";
+		//Password
+		obj[3][3]="AdValidPassword";
+		//Url
+		obj[3][4]="Valid Credentials";
+		
+		/*---------5th Parameter-------------*/	
+		//Websitename
+		obj[4][0]="CL Website-05";
+		//Domain
+		obj[4][1]="ClUrl";
+		//Username
+		obj[4][2]="AdUserName";
+		//Password
+		obj[4][3]="AdValidPassword";
+		//Url
+		obj[4][4]="Valid Credentials";
+		
+		/*---------6th Parameter-------------*/
+		//Websitename
+		obj[5][0]="Com Website-06";
+		//Domain
+		obj[5][1]="ComUrl";
+		//Username
+		obj[5][2]="AdUserName";
+		//Password
+		obj[5][3]="AdValidPassword";
+		//Url
+		obj[5][4]="Valid Credentials";
+		
+		/*---------7th Parameter-------------*/
+		//Websitename
+		obj[6][0]="Com.Br Website-07";
+		//Domain
+		obj[6][1]="Com.brUrl";
+		//Username
+		obj[6][2]="AdUserName";
+		//Password
+		obj[6][3]="AdValidPassword";
+		//Url
+		obj[6][4]="Valid Credentials";
+		
+		/*---------8th Parameter-------------*/
+		//Websitename
+		obj[7][0]="Com.co Website-08";
+		//Domain
+		obj[7][1]="Com.coUrl";
+		//Username
+		obj[7][2]="AdUserName";
+		//Password
+		obj[7][3]="AdValidPassword";
+		//Url
+		obj[7][4]="Valid Credentials";
+		
+		/*---------9th Parameter-------------*/
+		//Websitename
+		obj[8][0]="Com.mx Website-09";
+		//Domain
+		obj[8][1]="Com.mxUrl";
+		//Username
+		obj[8][2]="AdUserName";
+		//Password
+		obj[8][3]="AdValidPassword";
+		//Url
+		obj[8][4]="Valid Credentials";
+		
+		/*---------10th Parameter-------------*/
+		//Websitename
+		obj[9][0]="Com.pe Website-10";
+		//Domain
+		obj[9][1]="Com.peUrl";
+		//Username
+		obj[9][2]="AdUserName";
+		//Password
+		obj[9][3]="AdValidPassword";
+		//Url
+		obj[9][4]="Valid Credentials";
+		
+		/*---------11th Parameter-------------*/
+		//Websitename
+		obj[10][0]="DE Website-11";
+		//Domain
+		obj[10][1]="DeUrl";
+		//Username
+		obj[10][2]="AdUserName";
+		//Password
+		obj[10][3]="AdValidPassword";
+		//Url
+		obj[10][4]="Valid Credentials";
+		
+		/*---------12th Parameter-------------*/
+		//Websitename
+		obj[11][0]="DK Website-12";
+		//Domain
+		obj[11][1]="DkUrl";
+		//Username
+		obj[11][2]="AdUserName";
+		//Password
+		obj[11][3]="AdValidPassword";
+		//Url
+		obj[11][4]="Valid Credentials";
+		
+		/*---------13th Parameter-------------*/
+		//Websitename
+		obj[12][0]="ES Website-13";
+		//Domain
+		obj[12][1]="EsUrl";
+		//Username
+		obj[12][2]="AdUserName";
+		//Password
+		obj[12][3]="AdValidPassword";
+		//Url
+		obj[12][4]="Valid Credentials";
+		
+		/*---------14th Parameter-------------*/
+		//Websitename
+		obj[13][0]="IE Website-14";
+		//Domain
+		obj[13][1]="IeUrl";
+		//Username
+		obj[13][2]="AdUserName";
+		//Password
+		obj[13][3]="AdValidPassword";
+		//Url
+		obj[13][4]="Valid Credentials";
+		
+		/*---------15th Parameter-------------*/
+		//Websitename
+		obj[14][0]="IT Website-15";
+		//Domain
+		obj[14][1]="ItUrl";
+		//Username
+		obj[14][2]="AdUserName";
+		//Password
+		obj[14][3]="AdValidPassword";
+		//Url
+		obj[14][4]="Valid Credentials";
+		
+		/*---------16th Parameter-------------*/
+		//Websitename
+		obj[15][0]="NI Website-16";
+		//Domain
+		obj[15][1]="NlUrl";
+		//Username
+		obj[15][2]="AdUserName";
+		//Password
+		obj[15][3]="AdValidPassword";
+		//Url
+		obj[15][4]="Valid Credentials";
+		
+		/*---------17th Parameter-------------*/
+		//Websitename
+		obj[16][0]="PT Website-17";
+		//Domain
+		obj[16][1]="PtUrl";
+		//Username
+		obj[16][2]="AdUserName";
+		//Password
+		obj[16][3]="AdValidPassword";
+		//Url
+		obj[16][4]="Valid Credentials";
+		
+		/*---------18th Parameter-------------*/
+		//Websitename
+		obj[17][0]="SE Website-18";
+		//Domain
+		obj[17][1]="SeUrl";
+		//Username
+		obj[17][2]="AdUserName";
+		//Password
+		obj[17][3]="AdValidPassword";
+		//Url
+		obj[17][4]="Valid Credentials";
+
 		return obj;
 		
 	}
-	
+	/*
 	@DataProvider (name ="ExcelTest")
-	public Object[][] ExcelTest(){
-		Object[][] testData = ExcelUtility.getTestData("Invalid_Login");
+	public static Object[][] ExcelTest(){
+		Object[][] testData =  ExcelUtility.getTestData("Invalid_Login");
 	
 		return testData;
 		
+	}
+	*/
+	
+	@DataProvider(name = "loginData")
+	public static Object[][] dataProvider(){
+		
+			
+		Object[][] testData = ExcelUtility.getTestData("Invalid_Login");
+		
+		for(Object o:testData){
+			
+			System.out.println(o.toString());
+		}
+		
+		return testData;
+	}
+	
+	@DataProvider (name ="IndexLinksAllSites")
+	public static Object[][] IndexLinksAllSites(){
+		Object[][] obj = new Object[18][5];
+		
+		
+		/*---------1st Parameter-------------*/	
+		//MainLink
+		obj[0][0]="Uk Website-01";
+		//Sublink
+		obj[0][1]="about/SSEaccredited";
+		//Username
+		obj[0][2]="AdUserName";
+		//Password
+		obj[0][3]="AdValidPassword";
+		//Url
+		obj[0][4]="Valid Credentials";
+		
+		
+		/*---------2nd Parameter-------------*/
+		//Websitename
+		obj[1][0]="French Website-02";
+		//Domain
+		obj[1][1]="FrenchUrl";
+		//Username
+		obj[1][2]="AdUserName";
+		//Password
+		obj[1][3]="AdValidPassword";
+		//Url
+		obj[1][4]="Valid Credentials";
+		
+		
+		/*---------3rd Parameter-------------*/	
+		//Websitename
+		obj[2][0]="AE Website-03";
+		//Domain
+		obj[2][1]="AeUrl";
+		//Username
+		obj[2][2]="AdUserName";
+		//Password
+		obj[2][3]="AdValidPassword";
+		//Url
+		obj[2][4]="Valid Credentials";
+		
+		
+		/*---------4th Parameter-------------*/
+		//Websitename
+		obj[3][0]="BE Website-04";
+		//Domain
+		obj[3][1]="BeUrl";
+		//Username
+		obj[3][2]="AdUserName";
+		//Password
+		obj[3][3]="AdValidPassword";
+		//Url
+		obj[3][4]="Valid Credentials";
+		
+		/*---------5th Parameter-------------*/	
+		//Websitename
+		obj[4][0]="CL Website-05";
+		//Domain
+		obj[4][1]="ClUrl";
+		//Username
+		obj[4][2]="AdUserName";
+		//Password
+		obj[4][3]="AdValidPassword";
+		//Url
+		obj[4][4]="Valid Credentials";
+		
+		/*---------6th Parameter-------------*/
+		//Websitename
+		obj[5][0]="Com Website-06";
+		//Domain
+		obj[5][1]="ComUrl";
+		//Username
+		obj[5][2]="AdUserName";
+		//Password
+		obj[5][3]="AdValidPassword";
+		//Url
+		obj[5][4]="Valid Credentials";
+		
+		/*---------7th Parameter-------------*/
+		//Websitename
+		obj[6][0]="Com.Br Website-07";
+		//Domain
+		obj[6][1]="Com.brUrl";
+		//Username
+		obj[6][2]="AdUserName";
+		//Password
+		obj[6][3]="AdValidPassword";
+		//Url
+		obj[6][4]="Valid Credentials";
+		
+		/*---------8th Parameter-------------*/
+		//Websitename
+		obj[7][0]="Com.co Website-08";
+		//Domain
+		obj[7][1]="Com.coUrl";
+		//Username
+		obj[7][2]="AdUserName";
+		//Password
+		obj[7][3]="AdValidPassword";
+		//Url
+		obj[7][4]="Valid Credentials";
+		
+		/*---------9th Parameter-------------*/
+		//Websitename
+		obj[8][0]="Com.mx Website-09";
+		//Domain
+		obj[8][1]="Com.mxUrl";
+		//Username
+		obj[8][2]="AdUserName";
+		//Password
+		obj[8][3]="AdValidPassword";
+		//Url
+		obj[8][4]="Valid Credentials";
+		
+		/*---------10th Parameter-------------*/
+		//Websitename
+		obj[9][0]="Com.pe Website-10";
+		//Domain
+		obj[9][1]="Com.peUrl";
+		//Username
+		obj[9][2]="AdUserName";
+		//Password
+		obj[9][3]="AdValidPassword";
+		//Url
+		obj[9][4]="Valid Credentials";
+		
+		/*---------11th Parameter-------------*/
+		//Websitename
+		obj[10][0]="DE Website-11";
+		//Domain
+		obj[10][1]="DeUrl";
+		//Username
+		obj[10][2]="AdUserName";
+		//Password
+		obj[10][3]="AdValidPassword";
+		//Url
+		obj[10][4]="Valid Credentials";
+		
+		/*---------12th Parameter-------------*/
+		//Websitename
+		obj[11][0]="DK Website-12";
+		//Domain
+		obj[11][1]="DkUrl";
+		//Username
+		obj[11][2]="AdUserName";
+		//Password
+		obj[11][3]="AdValidPassword";
+		//Url
+		obj[11][4]="Valid Credentials";
+		
+		/*---------13th Parameter-------------*/
+		//Websitename
+		obj[12][0]="ES Website-13";
+		//Domain
+		obj[12][1]="EsUrl";
+		//Username
+		obj[12][2]="AdUserName";
+		//Password
+		obj[12][3]="AdValidPassword";
+		//Url
+		obj[12][4]="Valid Credentials";
+		
+		/*---------14th Parameter-------------*/
+		//Websitename
+		obj[13][0]="IE Website-14";
+		//Domain
+		obj[13][1]="IeUrl";
+		//Username
+		obj[13][2]="AdUserName";
+		//Password
+		obj[13][3]="AdValidPassword";
+		//Url
+		obj[13][4]="Valid Credentials";
+		
+		/*---------15th Parameter-------------*/
+		//Websitename
+		obj[14][0]="IT Website-15";
+		//Domain
+		obj[14][1]="ItUrl";
+		//Username
+		obj[14][2]="AdUserName";
+		//Password
+		obj[14][3]="AdValidPassword";
+		//Url
+		obj[14][4]="Valid Credentials";
+		
+		/*---------16th Parameter-------------*/
+		//Websitename
+		obj[15][0]="NI Website-16";
+		//Domain
+		obj[15][1]="NlUrl";
+		//Username
+		obj[15][2]="AdUserName";
+		//Password
+		obj[15][3]="AdValidPassword";
+		//Url
+		obj[15][4]="Valid Credentials";
+		
+		/*---------17th Parameter-------------*/
+		//Websitename
+		obj[16][0]="PT Website-17";
+		//Domain
+		obj[16][1]="PtUrl";
+		//Username
+		obj[16][2]="AdUserName";
+		//Password
+		obj[16][3]="AdValidPassword";
+		//Url
+		obj[16][4]="Valid Credentials";
+		
+		/*---------18th Parameter-------------*/
+		//Websitename
+		obj[17][0]="SE Website-18";
+		//Domain
+		obj[17][1]="SeUrl";
+		//Username
+		obj[17][2]="AdUserName";
+		//Password
+		obj[17][3]="AdValidPassword";
+		//Url
+		obj[17][4]="Valid Credentials";
+
+		return obj;
 	}
 	
 }

@@ -15,6 +15,7 @@ import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
 import PageFactory.BillingPage;
 import PageFactory.LoginPage;
+import PageFactory.MyProductsPage;
 import PageFactory.sslDashBoard;
 import Sanity_Test.Test_DataSanity;
 
@@ -49,7 +50,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.BeforeMethod;
 
-public class Order_Products extends BrowserStack {
+public class Order_Products_TB extends BrowserStack {
 	//WebDriver driver;
 	ExtentReports report;
 	ExtentTest test;
@@ -59,6 +60,7 @@ public class Order_Products extends BrowserStack {
 	AlertBox AlertBoxElements;
 	TakeScreenShot ScreenShot;
 	CsR CsrElements;
+	MyProductsPage MyProductsPageElements;
 
 	
 	@BeforeMethod (groups = {"Regression","BS_Regression","Regression_Chrome"})
@@ -70,8 +72,8 @@ public class Order_Products extends BrowserStack {
 		AlertBoxElements = new AlertBox(driver);
 		ScreenShot = new TakeScreenShot();
 		CsrElements = new CsR(driver);
+		MyProductsPageElements = new MyProductsPage(driver);
 
-		
 	}
 
 	
@@ -99,13 +101,7 @@ public class Order_Products extends BrowserStack {
 	
 	@Test (priority = 1, groups = {"Regression","BS_Regression","Regression_Chrome"},dataProviderClass = Test_Data.class, dataProvider="OrderProduct_Data")
 	  public void Order_Certificates(String Product, String ProductLink) throws Exception {
-
-/*
-		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//SSL247_Test//DataDriving.properties");
-				 
-		prop.load(fis);
-*/		
+		
 		report = ExtentFactory.getInstance2();
 		test = report.startTest(Product);
 	    test.log(LogStatus.INFO, "User Logged in");
@@ -152,72 +148,71 @@ public class Order_Products extends BrowserStack {
 		WebElement Link23 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[23]/td[1]"));
 		WebElement Link24 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[24]/td[1]"));
 		WebElement Link25 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[25]/td[1]"));
-		//WebElement Link26 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[13]/td[1]"));
-		//WebElement Link16 = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[1]"));
 		
-		if (Link1.getText().contains(ProductLink)) {
+		
+		if (MyProductsPageElements.Link1Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
-				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[1]/td[2]/a")).click();
+				MyProductsPageElements.Link1_Button1Clink();
 				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if (Link2.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link2Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[2]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 		
-			}else if (Link3.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link3Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[3]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 				
-			}else if (Link4.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link4Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[4]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if (Link5.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link5Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[5]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 			
-			}else if (Link6.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link6Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[6]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 				
 			
-			}else if (Link7.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link7Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[7]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 		
-			}else if (Link8.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link8Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[8]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 				
 			
-			}else if (Link9.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link9Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[9]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
-			
-			}else if (Link10.getText().contains(ProductLink)) {
+		
+			}else if (MyProductsPageElements.Link10Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[10]/td[2]/a")).click();
 				test.log(LogStatus.INFO, "Product Page Opened");
 				
-			}else if (Link11.getText().contains(ProductLink)) {
+			}else if (MyProductsPageElements.Link11Contains(ProductLink)) {
 				
 				System.out.println(ProductLink + " Found");
 				driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[11]/td[2]/a")).click();
@@ -323,15 +318,8 @@ public class Order_Products extends BrowserStack {
 		Assert.fail("Exception " + e);
 		
 	}
-	
-
-	/*	
-		Thread.sleep(15000);
-		WebElement Link = driver.findElement(By.xpath(".//*[@id='SSLCertificate']/table/tbody/tr[16]/td[3]/a"));
-		Link.click();
-		test.log(LogStatus.INFO, "Product Page Opened");
-	*/	
-		//Check Domain Name
+		
+		//Check Domain Name------------------------------------------------------------------------------------------
 		driver.findElement(By.name("data[Basket][common_name]")).clear();
 		driver.findElement(By.name("data[Basket][common_name]")).sendKeys("ssl247.net");
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -352,14 +340,8 @@ public class Order_Products extends BrowserStack {
 			System.out.println("SAN Option Not Present");
 		
 			}
-
-/*		
-		//Choose 3year Duration Option
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		driver.findElement(By.id("BasketYears3")).click();
-*/
 		
-		//Select Apache 2 Server and Add to basket
+		//Select Apache 2 Server and Add to basket--------------------------------------------------------------------
 		try {
 			
 			if (driver.findElement(By.xpath(".//*[@id='BasketServerType']")).isDisplayed()) {

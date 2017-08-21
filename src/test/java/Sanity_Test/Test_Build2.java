@@ -55,9 +55,6 @@ import PageFactory.SmimeValidationPage;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
 
-import BaseUtilities.Constants;
-import BaseUtilities.ExcelUtility;
-
 public class Test_Build2 extends Chrome {
 	
 	  ExtentReports report;
@@ -286,7 +283,7 @@ public void Admin_LogInValidation(String Websitename, String Domain, String User
 }
 
 
-@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="EditUserAllSites")
+@Test (priority = 1, groups = {"Sanity","BS_Sanity","Sanity_Chrome"},dataProviderClass =Test_DataSanity.class, dataProvider="DataAllSites")
 public void Edit_Account_User(String Websitename, String Domain, String Username, String Password,String Credentials) throws Exception{
 	  
 		//Search For UK Test User
@@ -608,27 +605,19 @@ public void Edit_Account_User(String Websitename, String Domain, String Username
 		 
 }
 
-@DataProvider(name = "loginData")
-public Object[][] dataProvider() {
-	Object[][] testData = ExcelUtility.getTestData("Invalid_Login");
-	
-	return testData;
-}
-
-@Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProvider="loginData")
-public void Create_Proposal (String username, String password) throws Exception {
+@Test (priority = 2,groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"},dataProviderClass =Test_DataSanity.class,dataProvider="DataAllSites")
+public void Create_Proposal (String Websitename, String Domain, String Username, String Password, String Credentials) throws Exception {
 	  
 	//Navigate to User Account, Search for User and Click View
 	  
-	  		report = ExtentFactory.getInstance3();
-	  		test = report.startTest("Admin Test -->  Create a Proposal");
+	  	  report = ExtentFactory.getInstance3();
+	  	  test = report.startTest("Admin Test -->  Create a Proposal -"+ Websitename);
 	  		
-			ExcelUtility.setExcelFile(Constants.File_Path + Constants.ExcelFile_Name, "LoginTests");
 	  		
-	  	  //Properties prop = new Properties();
-		  //FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+	  	  Properties prop = new Properties();
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 					 
-		  //prop.load(fis);
+		  prop.load(fis);
 
 		  Thread.sleep(1000);	  		
 	  		
@@ -636,8 +625,7 @@ public void Create_Proposal (String username, String password) throws Exception 
 			  //Admin Login User
 			  try {
 				  
-				  //driver.get(prop.getProperty(Domain)); 
-				  driver.get(Constants.URL);
+				  driver.get(prop.getProperty(Domain)); 
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  driver.manage().window().maximize();
 				  //LoginPageElements.LoadLoginPage();
@@ -649,13 +637,11 @@ public void Create_Proposal (String username, String password) throws Exception 
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Clicked Login Link");
 				  
-				 //LoginPageElements.EnterUserName(prop.getProperty(username));
-				  LoginPageElements.EnterUserName(username);
+				  LoginPageElements.EnterUserName(prop.getProperty(Username));
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Entereed UserName");
 				  
-				  //LoginPageElements.EnterPassword(prop.getProperty(Password));
-				  LoginPageElements.EnterPassword(password);
+				  LoginPageElements.EnterPassword(prop.getProperty(Password));
 				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 				  test.log(LogStatus.INFO, "Entered Password");
 				  
@@ -679,17 +665,20 @@ public void Create_Proposal (String username, String password) throws Exception 
 	  		
 	  		
 	  		
-	  		
+	try {
 	  		test.log(LogStatus.INFO, "Admin User Logged in");
 	 	
 			AdminNavigationLinksElements.ClientsAccountsLinkClick();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Click on clients Accounts Link");
 			 
 			//ClientAccountsPageElements.ValidatePage();
-			//ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
-			//test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
+			ClientAccountsPageElements.SearchQueryFieldFill("UK Test");
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+			test.log(LogStatus.INFO, "Click on Search Query and Enter UK Test");
 			 
 			ClientAccountsPageElements.UpdateButtonClink();
+			driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 			test.log(LogStatus.INFO, "Click on Update Button");
 			 
 			Thread.sleep(5000);
@@ -715,6 +704,14 @@ public void Create_Proposal (String username, String password) throws Exception 
 		  	AdminSslDashBoardElements.ProposalsLinkClick();
 			Thread.sleep(10000);
 			test.log(LogStatus.INFO, "Proposal Link Clicked");
+			
+		}catch (Exception e) {
+		
+		test.log(LogStatus.FAIL, "Account Not Found/Opened");
+		Assert.fail("Exception " + e);
+
+		}	
+			
 		
 		try {	
 			//Click on New Proposal

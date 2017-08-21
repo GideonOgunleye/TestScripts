@@ -21,6 +21,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
+import BaseUtilities.Constants;
 import BaseUtilities.CsR;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
@@ -168,7 +169,7 @@ public class CertignaProposal_Orders extends BrowserStack {
 	  public void CertignaCertificates_Proposals (String ProductType, String Product1, String Quantity, String Duration, String License, String CommonName, String StaffName, String Line1, String Line2, String Line3, String Line4, String Line5, String Line6, String Line7, String Line8, String Line9, String Line10, String Line11, String Line12, String Line13, String Line14, String Line15, String Line16, String Line17) throws Exception {
 		  
 		  Properties prop = new Properties();
-		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 		  
 		  prop.load(fis);
 		  
@@ -879,7 +880,7 @@ public class CertignaProposal_Orders extends BrowserStack {
 	  public void CertignaPersonalID_ProposalsOrder (String ProductType, String Product1, String Quantity, String Duration, String License, String CommonName, String StaffName, String Line1, String Line2, String Line3, String Line4, String Line5, String Line6, String Line7, String Line8, String Line9, String Line10, String Line11, String Line12, String Line13, String Line14, String Line15, String Line16, String Line17) throws Exception {
 		  
 		  Properties prop = new Properties();
-		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 		  
 		  prop.load(fis);
 		  
@@ -1466,7 +1467,7 @@ public class CertignaProposal_Orders extends BrowserStack {
 	  public void CodeSigningCerts_Proposals (String ProductType, String Product1, String Quantity, String Duration, String License, String CommonName, String StaffName, String Line1, String Line2, String Line3, String Line4, String Line5, String Line6, String Line7, String Line8, String Line9, String Line10, String Line11, String Line12, String Line13, String Line14, String Line15, String Line16, String Line17) throws Exception {
 		  
 		  Properties prop = new Properties();
-		  FileInputStream fis = new FileInputStream("C://Users//Gideon Okunleye//workspace//AutomationTestScripts//DataDriving.properties");
+		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 		  
 		  prop.load(fis);
 		  

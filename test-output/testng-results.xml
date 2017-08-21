@@ -1,73 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="7" total="8" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12781" started-at="2017-08-14T23:28:17Z" finished-at="2017-08-14T23:28:30Z">
+  <suite name="Default suite" duration-ms="244872" started-at="2017-08-17T15:26:25Z" finished-at="2017-08-17T15:30:30Z">
     <groups>
       <group name="BS_Smoke">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" class="Sanity_Test.Test_Build5"/>
       </group> <!-- BS_Smoke -->
       <group name="Smoke_Firefox">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" class="Sanity_Test.Test_Build5"/>
       </group> <!-- Smoke_Firefox -->
       <group name="Smoke">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" class="Sanity_Test.Test_Build5"/>
       </group> <!-- Smoke -->
       <group name="BS_Sanity">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" class="Sanity_Test.Test_Build5"/>
       </group> <!-- BS_Sanity -->
       <group name="Smoke_Chrome">
-        <method signature="Test_Build2.Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" class="Sanity_Test.Test_Build2"/>
+        <method signature="Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" class="Sanity_Test.Test_Build5"/>
       </group> <!-- Smoke_Chrome -->
     </groups>
-    <test name="Default test" duration-ms="12781" started-at="2017-08-14T23:28:17Z" finished-at="2017-08-14T23:28:30Z">
-      <class name="Sanity_Test.Test_Build2">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build2@5b87ed94]" name="beforeTest" is-config="true" duration-ms="1662" started-at="2017-08-15T00:28:17Z" finished-at="2017-08-15T00:28:19Z">
+    <test name="Default test" duration-ms="244872" started-at="2017-08-17T15:26:25Z" finished-at="2017-08-17T15:30:30Z">
+      <class name="Sanity_Test.Test_Build5">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="beforeTest" is-config="true" duration-ms="2686" started-at="2017-08-17T16:26:25Z" finished-at="2017-08-17T16:26:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="FAIL" signature="Create_Proposal(java.lang.String, java.lang.String)[pri:2, instance:Sanity_Test.Test_Build2@5b87ed94]" name="Create_Proposal" duration-ms="0" started-at="2017-08-15T00:28:19Z" data-provider="loginData" finished-at="2017-08-15T00:28:19Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider() must return either Object[][] or Iterator<Object>[], not class [[Ljava.lang.Object;]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider() must return either Object[][] or Iterator<Object>[], not class [[Ljava.lang.Object;
-	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:137)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:509)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        <test-method status="PASS" signature="Login()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Login" is-config="true" duration-ms="2317" started-at="2017-08-17T16:26:28Z" finished-at="2017-08-17T16:26:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Create_Proposal -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build2@5b87ed94]" name="afterTest" is-config="true" duration-ms="11084" started-at="2017-08-15T00:28:19Z" finished-at="2017-08-15T00:28:30Z">
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Get_Attribute" duration-ms="225304" started-at="2017-08-17T16:26:30Z" finished-at="2017-08-17T16:30:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Get_Attribute -->
+        <test-method status="PASS" signature="Logout(org.testng.ITestResult)[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="Logout" is-config="true" duration-ms="3520" started-at="2017-08-17T16:30:15Z" finished-at="2017-08-17T16:30:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Get_Attribute status=SUCCESS method=Test_Build5.Get_Attribute()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Logout -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:Sanity_Test.Test_Build5@5ae63ade]" name="afterTest" is-config="true" duration-ms="11027" started-at="2017-08-17T16:30:19Z" finished-at="2017-08-17T16:30:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Sanity_Test.Test_Build2 -->
+      </class> <!-- Sanity_Test.Test_Build5 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

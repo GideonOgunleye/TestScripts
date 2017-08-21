@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\TOM\AppData\Local\Temp\testng-eclipse--758600936\testng-customsuite.xml</span>
+                    <span>C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse--1977191862\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content failed suite-Default_suite">
+                    <div class="method-list-content passed suite-Default_suite">
                       <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.Test_Build2" hash-for-method="Create_Proposal">Create_Proposal</a> <!-- method navigator-link -->
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="Sanity_Test.Test_Build5" hash-for-method="Get_Attribute">Get_Attribute</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,51 +117,25 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
+          <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">Sanity_Test.Test_Build2</span>
+              <img src="passed.png"/>
+              <span class="class-name">Sanity_Test.Test_Build5</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Create_Proposal">
-                  </a> <!-- Create_Proposal -->
-                  <span class="method-name">Create_Proposal</span>
-                  <div class="stack-trace">org.testng.TestNGException: 
-Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider() must return either Object[][] or Iterator&lt;Object&gt;[], not class [[Ljava.lang.Object;
-	at org.testng.internal.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:137)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:509)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-
-</div> <!-- stack-trace -->
+                  <a name="Get_Attribute">
+                  </a> <!-- Get_Attribute -->
+                  <span class="method-name">Get_Attribute</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\TOM\AppData\Local\Temp\testng-eclipse--758600936\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Gideon Okunleye\AppData\Local\Temp\testng-eclipse--1977191862\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -170,11 +144,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Sanity_Test.Test_Build2&quot;&gt;
-        &lt;methods&gt;
-          &lt;include name=&quot;Create_Proposal&quot;/&gt;
-        &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- Sanity_Test.Test_Build2 --&gt;
+      &lt;class name=&quot;Sanity_Test.Test_Build5&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -202,7 +172,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
               <span class="test-group-name">BS_Sanity</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Create_Proposal</span>
+                <span class="method-in-group-name">Get_Attribute</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -210,7 +180,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
               <span class="test-group-name">BS_Smoke</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Create_Proposal</span>
+                <span class="method-in-group-name">Get_Attribute</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -218,7 +188,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
               <span class="test-group-name">Smoke</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Create_Proposal</span>
+                <span class="method-in-group-name">Get_Attribute</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -226,7 +196,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
               <span class="test-group-name">Smoke_Chrome</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Create_Proposal</span>
+                <span class="method-in-group-name">Get_Attribute</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -234,7 +204,7 @@ Data Provider public java.lang.Object[][] Sanity_Test.Test_Build2.dataProvider()
               <span class="test-group-name">Smoke_Firefox</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">Create_Proposal</span>
+                <span class="method-in-group-name">Get_Attribute</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -256,14 +226,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Create_Proposal')
-data.setCell(0, 2, 'Sanity_Test.Test_Build2')
-data.setCell(0, 3, 0);
+data.setCell(0, 1, 'Get_Attribute')
+data.setCell(0, 2, 'Sanity_Test.Test_Build5')
+data.setCell(0, 3, 225304);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -278,28 +248,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">7 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">Sanity_Test.Test_Build2</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">Sync_Cert_WithCA</span>
-                <br/>
-                <span class="ignored-method-name">Create_user_Account</span>
-                <br/>
-                <span class="ignored-method-name">Send_Fulfillment_Email</span>
-                <br/>
-                <span class="ignored-method-name">Edit_Account_User</span>
-                <br/>
-                <span class="ignored-method-name">Admin_LogInValidation</span>
-                <br/>
-                <span class="ignored-method-name">Send_Change_Password_Request_Email</span>
-                <br/>
-                <span class="ignored-method-name">IssueProposal</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -308,14 +259,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Sanity_Test.Test_Build2</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Sanity_Test.Test_Build5</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">Login</span>
+                <span class="method-start">2693 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Get_Attribute</span>
+                <span class="method-start">5010 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Logout([TestResult name=Get_Attribute status=SUCCESS method=Test_Build5.Get_Attribute()[pri:0, instance:San...)</span>
+                <span class="method-start">230316 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">1689 ms</span>
+                <span class="method-start">233836 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
