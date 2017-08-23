@@ -1,4 +1,4 @@
-package Sanity_Test;
+package Slickets_Test;
 
 import org.testng.annotations.Test;
 
@@ -22,7 +22,7 @@ import PageFactory.LoginPage;
 import PageFactory.NavigationLinks;
 import PageFactory.sslDashBoard;
 import Regression_Test.Test_Data;
-import Slickets_Test.FindAllLinks5;
+import Sanity_Test.Test_DataSanity;
 
 import org.testng.annotations.BeforeTest;
 //import org.json.simple.parser.JSONParser;
@@ -67,7 +67,7 @@ import org.testng.annotations.BeforeSuite;
 import java.net.HttpURLConnection;
 
 
-public class Test_Build5 extends Chrome  {
+public class Test_Build5C extends Chrome  {
 	
 	ExtentReports report;
 	ExtentTest test;
@@ -80,50 +80,9 @@ public class Test_Build5 extends Chrome  {
 	TakeScreenShot ScreenShot;
 	IssuedCertificatesPage IssuedCertificatesPageElements;
 	CertificateDetailsPage CertificateDetailsPageElements;
-	Test_Build5 TestBuild5;
-	
-   /*public Test_Build5(WebDriver driver) {
-	    	
-	        this.driver = driver;
-	  }
-	
-   public void ImageTest() {
-   	
-       try {
-       	
-	        	
-	  		  List<WebElement> inputs = driver.findElements(By.tagName("img"));
-			  System.out.println("Total images are " + inputs.size());
-			  
-			  for (Iterator<WebElement> iterator = inputs.iterator(); iterator.hasNext();) {
-				  
-			      WebElement webElement = (WebElement) iterator.next();
-			      URLConnection urlConnection = new URL(webElement.getAttribute("src")).openConnection();
-			      int size = urlConnection.getContentLength();
-			      System.out.println("Image Src Is:"+ webElement.getAttribute("src"));
-		    	  test.log(LogStatus.INFO, "Image Src Is:"+ webElement.getAttribute("src"));
-			      System.out.println("Image Size is: " + size+"Bytes");
-		    	  test.log(LogStatus.INFO, "Image Size is: " + size+"Bytes");
-			      
-			      if (size > 250000 ) {
-			    	  
-			    	  System.out.println("Image Size is greater than 150kb!!!");
-			    	  test.log(LogStatus.FAIL, "Image Size is greater than 150kb" );
-			      }
-			      
-			      System.out.println("-----------------------------------------------------");
-			   
-			  }
-       	
-       }catch (Exception e) {
+	protected java.util.HashSet<String> alreadyListed;
+	protected java.util.Queue<String> queue;
 
-       	System.out.println("Image Array Method not Validated");
-       	System.out.println("e");
-       	
-       }
-   	
-   	
-   }*/
 	
 	@BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","BS_Sanity","BS_Sanity","BS_DailySanity","Smoke_Firefox","Smoke_Chrome","Sanity_Chrome"})
 	public void Login () throws Exception {
@@ -138,7 +97,9 @@ public class Test_Build5 extends Chrome  {
 		IssuedCertificatesPageElements = new IssuedCertificatesPage(driver);
 		CertificateDetailsPageElements = new CertificateDetailsPage(driver);
 		ScreenShot = new TakeScreenShot();
-		TestBuild5 = new Test_Build5();
+		
+		alreadyListed = new java.util.HashSet<String>();
+		queue = new java.util.LinkedList<String>();
 		
 		
 		//LoginPageElements.ClientLogin();
@@ -156,9 +117,9 @@ public class Test_Build5 extends Chrome  {
 		String imagePath = test.addScreenCapture(path);
 		test.log(LogStatus.INFO, "Test Complete", imagePath);
 	*/	
-		//driver.navigate().refresh();
+		driver.navigate().refresh();
 		
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 	/*	
 		String path2 = ScreenShot.Image(driver, "Logout");
 		String imagePath2 = test.addScreenCapture(path2);
@@ -169,6 +130,7 @@ public class Test_Build5 extends Chrome  {
 	
 		
 	}
+	
 	
 
 	
@@ -184,9 +146,13 @@ public class Test_Build5 extends Chrome  {
 		  report = ExtentFactory.getInstance3();
 				
 		  //test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
-		  test = report.startTest("Url Test --> Validate Links on- "+ "France Website"); 
+		  test = report.startTest("Url Test --> Validate Links on- "+ "UK Website"); 
 		  
 	     // TODO 
+		  
+		  
+		  
+		  
 	        
 	     //String homePage = "https://www.ssl247.co.uk";
 	     String url = "";
@@ -196,11 +162,9 @@ public class Test_Build5 extends Chrome  {
 	        
 	     driver.manage().window().maximize();
 	        
-	     //driver.get(prop.getProperty("FrenchUrl2"));
-	     driver.get("https://www.ssl247.ae/ssl-certificates");
+	     driver.get(prop.getProperty("UkUrl2"));
 	        
-	   	 //List<WebElement> demovar=driver.findElements(By.tagName("a"));
-	     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+	   	 List<WebElement> demovar=driver.findElements(By.tagName("a"));
 		 System.out.println(demovar.size());
 		
 		 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
@@ -210,9 +174,10 @@ public class Test_Build5 extends Chrome  {
 		    	
 		    	url = var.getAttribute("href");
 		    	
-	            if(url == null || url.isEmpty()){
-	            	System.out.println("URL is either not configured for anchor tag or it is empty");
-	            	                continue;
+	            if(url == null || url.isEmpty()){  
+	            	
+	            	  System.out.println("URL is either not configured for anchor tag or it is empty");
+	            	  continue;
 	             }
 	            
 	              if(!url.contains("ssl247.")){
@@ -243,7 +208,7 @@ public class Test_Build5 extends Chrome  {
 		    	
 		        driver.navigate().to(href);
 		        System.out.println((++i)+": navigated to URL with href: "+href);
-		        Thread.sleep(3000); // To check if the navigation is happening properly.
+		        Thread.sleep(3000);
 		        
 		        try {
 		        	
@@ -261,30 +226,27 @@ public class Test_Build5 extends Chrome  {
 		        	if (driver.getTitle().contains("404")) {
 		        		
 		        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
-		        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
 		        		String path = ScreenShot.Image(driver, "Link Error");
 			  			String imagePath = test.addScreenCapture(path);
 			  			test.log(LogStatus.INFO, imagePath);
-			  			
-			  			//test.log(LogStatus.FAIL, "Failed Link is:" + href);
+			  			test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!");
+			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
 			  			
 		        		
 		        	}else if (driver.getPageSource().contains("not found")){
 		        		
 		        		System.out.println("Page Not Found Error..!!");
-		        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
 		        		String path = ScreenShot.Image(driver, "Link Error");
 			  			String imagePath = test.addScreenCapture(path);
 			  			test.log(LogStatus.INFO, imagePath);
-			  			
-			  			//test.log(LogStatus.FAIL, "Failed Link is:" + href);
+			  			test.log(LogStatus.FAIL, "Page Not Found Error..!!");
+			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
 		        		
 		        	}
 		        	
 		        try {
 		        	
 		    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
-		    		//String PageContentBox = ContentDiv.getAttribute("value");
 		    		
 			         if(ContentDiv.getText().isEmpty()) {
 			        		
@@ -299,10 +261,7 @@ public class Test_Build5 extends Chrome  {
 		        	
 		        }catch (Exception e){
 		        	
-		        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
-		        	//test.log(LogStatus.FAIL, driver.getTitle());
 		        	System.out.println("Page Content Dive Not Found");
-		        	//System.out.println("Exception On Page:----" + e);
 
 	        		}
 		        
@@ -311,7 +270,6 @@ public class Test_Build5 extends Chrome  {
 		        try {
 		        	
 			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
-			    		//String PageContentBox = ContentDiv.getAttribute("value");
 			    		
 				         if(ContentDiv.getText().isEmpty()) {
 				        		
@@ -326,10 +284,7 @@ public class Test_Build5 extends Chrome  {
 			        	
 			      }catch (Exception e){
 			        	
-			        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
-			        	//test.log(LogStatus.FAIL, driver.getTitle());
 			    	  System.out.println("Page Content # Dive Not Found");
-			    	 // System.out.println("Exception On Page:----" + e);
 
 		        	}
 		        
@@ -338,7 +293,6 @@ public class Test_Build5 extends Chrome  {
 		        try {
 		        	
 			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
-			    		//String PageContentBox = ContentDiv.getAttribute("value");
 			    		
 				         if(ContentDiv.getText().isEmpty()) {
 				        		
@@ -353,10 +307,7 @@ public class Test_Build5 extends Chrome  {
 			        	
 			      }catch (Exception e){
 			        	
-			        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
-			        	//test.log(LogStatus.FAIL, driver.getTitle());
 			    	  System.out.println("page-content fullwidth_page Dive Not Found");
-			    	  //System.out.println("Exception On Page:----" + e);
 
 		        	}
 		        
@@ -367,42 +318,7 @@ public class Test_Build5 extends Chrome  {
 		        System.out.println(k);
 		    }
 		        
-		        //new Test_Build5(driver).ImageTest();
-		        //TestBuild5.ImageTest();
 		        
-		        //TODO
-		        try {
-		           	
-		        	
-			  		  List<WebElement> inputs = driver.findElements(By.tagName("img"));
-					  System.out.println("Total images are " + inputs.size());
-					  
-					  for (Iterator<WebElement> iterator = inputs.iterator(); iterator.hasNext();) {
-						  
-					      WebElement webElement = (WebElement) iterator.next();
-					      URLConnection urlConnection = new URL(webElement.getAttribute("src")).openConnection();
-					      int size = urlConnection.getContentLength();
-					      System.out.println("Image Src Is:"+ webElement.getAttribute("src"));
-				    	  test.log(LogStatus.INFO, "Image Src Is:"+ webElement.getAttribute("src"));
-					      System.out.println("Image Size is: " + size+"Bytes");
-				    	  test.log(LogStatus.INFO, "Image Size is: " + size+"Bytes");
-					      
-					      if (size > 250000 ) {
-					    	  
-					    	  System.out.println("Image Size is greater than 150kb!!!");
-					    	  test.log(LogStatus.FAIL, "Image Size is greater than 150kb" );
-					      }
-					      
-					      System.out.println("-----------------------------------------------------");
-					   
-					  }
-		       	
-		       }catch (Exception e) {
-
-		       	System.out.println("Image Array Method not Validated");
-		       	System.out.println("e");
-		       	
-		       }
 		        
 		        driver.navigate().back();
 		        Thread.sleep(3000); // To check if the navigation is happening properly.
@@ -413,7 +329,7 @@ public class Test_Build5 extends Chrome  {
 
 	    }
 		  
-/*	 @AfterTest (groups = {"Sanity","SQL","Regression","Smoke"})
+	 @AfterTest (groups = {"Sanity","SQL","Regression","Smoke"})
 	  public void afterTest() throws Exception {
 		  
 		  Thread.sleep(10000);
@@ -422,7 +338,7 @@ public class Test_Build5 extends Chrome  {
 		driver.quit();
 
 		  
-	  }*/
+	  }
 
 	
 }

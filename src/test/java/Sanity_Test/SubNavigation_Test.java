@@ -7,8 +7,10 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
+import BaseUtilities.Firefox;
 import PageFactory.LoginPage;
 //import PageFactory.Navigation;
 import PageFactory.NavigationLinks;
@@ -33,7 +35,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class SubNavigation_Test extends BrowserStack {
+public class SubNavigation_Test extends Chrome {
   
 	ExtentReports report;
 	ExtentTest test;
@@ -46,7 +48,13 @@ public class SubNavigation_Test extends BrowserStack {
 	  NavigationElements = new NavigationLinks(driver);
 	  LoginPageElements = new LoginPage(driver);
 	  
-	  LoginPageElements.LoadLoginPage();
+	  //LoginPageElements.LoadLoginPage();
+	  driver.get("https://www.ssl247.co.uk");
+	  driver.manage().window().maximize();
+	  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+	  
+	  Thread.sleep(3000);
+	  
 	  report = ExtentFactory.getInstance();
 	  //test.log(LogStatus.INFO, "Browser Opened and Url Entered");
 	  
@@ -574,127 +582,875 @@ public class SubNavigation_Test extends BrowserStack {
 	   
   }
   
-  /*
-   *  
-  @Test (priority = 2, groups = {"Smoke"})
-  public void ProtectAndSecure_Link_Test() {
+  @Test (priority = 17, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void PenentrationTestingLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Protect And Secure Link Test");
-	  
-	  NavigationElements.ClickProtectAndSecureLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> PenentrationTestingLink Test");
+
+
+		
+	  try {
+			 NavigationElements.PenentrationTestingLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 4, groups = {"Smoke"})
-  public void Identify_Link_Test() {
+  @Test (priority = 18, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void QualysConsultancyKitLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Identify Link Test");
-	  
-	  NavigationElements.ClickIdentifyLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> QualysConsultancyKitLink Test");
+
+
+		
+	  try {
+			 NavigationElements.QualysConsultancyKitLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 5, groups = {"Smoke"})
-  public void Register_Link_Test() {
+  @Test (priority = 19, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Gdpr_HealthCheckLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Register Link Test");
-	  
-	  NavigationElements.ClickRegisterLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> Gdpr_HealthCheckLink Test");
+
+
+		
+	  try {
+			 NavigationElements.Gdpr_HealthCheckLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 6, groups = {"Smoke"})
-  public void Manage_Link_Test() {
+  @Test (priority = 20, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void ThalesVolumetricDataLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Manage Link Test");
-	  
-	  NavigationElements.ClickManageLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> ThalesVolumetricDataLink Test");
+
+
+		
+	  try {
+			 NavigationElements.ThalesVolumetricDataLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 7, groups = {"Smoke"})
-  public void BecomePartner_Link_Test() {
+  @Test (priority = 21, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void ThalesHsmLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
-	  
-	  NavigationElements.ClickBecomePartnerLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> ThalesHsmLink Test");
+
+
+		
+	  try {
+			 NavigationElements.ThalesHsmLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 8, groups = {"Smoke"})
-  public void MySsl_Link_Test() {
+  @Test (priority = 22, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void SynmantecCloudSecurityLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Become Partner Link Test");
-	  
-	  NavigationElements.ClickMySslLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> SynmantecCloudSecurityLink Test");
+
+
+		
+	  try {
+			 NavigationElements.SynmantecCloudSecurityLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 9, groups = {"Smoke"})
-  public void FreeTrials_Link_Test() {
+  @Test (priority = 23, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void WebSecurityLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Free Trials Link Test");
-	  
-	  NavigationElements.ClickFreeTrialsLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> WebSecurityLink Test");
+
+
+		
+	  try {
+			 NavigationElements.WebSecurityLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 10, groups = {"Smoke"})
-  public void Wizard_Link_Test() {
+  @Test (priority = 24, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void EndPointProtectionLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Wizard Link Test");
-	  
-	  NavigationElements.ClickWizardLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> EndPointProtectionLink Test");
+
+
+		
+	  try {
+			 NavigationElements.EndPointProtectionLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 11, groups = {"Smoke"})
-  public void About_Link_Test() {
+  @Test (priority = 25, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void EmailSecurityLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> About Link Test");
-	  
-	  NavigationElements.ClickAboutLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> EmailSecurityLink Test");
+
+
+		
+	  try {
+			 NavigationElements.EmailSecurityLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 12, groups = {"Smoke"})
-  public void Support_Link_Test() {
+  @Test (priority = 26, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void PersonalIdsLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Support Link Test");
+	 test = report.startTest("Nav Links Test --> PersonalIdsLink Test");
+
+
+		
+	  try {
+			 NavigationElements.PersonalIdsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 27, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void CodeSigningLink_Test() {
 	  
-	  NavigationElements.ClickSupportLink();
+	 test = report.startTest("Nav Links Test --> CodeSigningLink Test");
+
+
+		
+	  try {
+			 NavigationElements.CodeSigningLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 28, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void PdfSigningLink_Test() {
 	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> PdfSigningLink Test");
+
+
+		
+	  try {
+			 NavigationElements.PdfSigningLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 29, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void MpkiLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> MpkiLink Test");
+
+
+		
+	  try {
+			 NavigationElements.MpkiLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 30, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void DomainNamesLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> DomainNamesLink Test");
+
+
+		
+	  try {
+			 NavigationElements.DomainNamesLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 31, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void BrandProtectionLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> BrandProtectionLink Test");
+
+	  try {
+			 NavigationElements.BrandProtectionLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+
+  
+  @Test (priority = 32, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void CoperateProgramsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> CoperateProgramsLink Test");
+
+	  try {
+			 NavigationElements.CoperateProgramsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 33, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void ResellerProgramsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> ResellerProgramsLink Test");
+
+	  try {
+			 NavigationElements.ResellerProgramsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 34, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void WhatIsMySslLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> WhatIsMySslLink Test");
+
+	  try {
+			 NavigationElements.WhatIsMySslLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 35, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void LogIntoMySslLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> LogIntoMySslLink Test");
+
+	  try {
+			 NavigationElements.LogIntoMySslLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 36, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void RenewalsWithSsl247Link_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> RenewalsWithSsl247Link Test");
+
+	  try {
+			 NavigationElements.RenewalsWithSsl247LinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 37, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void RenewYourSslCertificateLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> RenewYourSslCertificateLink Test");
+
+	  try {
+			 NavigationElements.RenewalsWithSsl247LinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 38, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void OurFreeTrialsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> OurFreeTrialsLink Test");
+
+	  try {
+			 NavigationElements.OurFreeTrialsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 39, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void FreeTrialSslLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> FreeTrialSslLink Test");
+
+	  try {
+			 NavigationElements.FreeTrialSslLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 40, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void FreeVulnerabilityScanLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> FreeVulnerabilityScanLink Test");
+
+	  try {
+			 NavigationElements.FreeVulnerabilityScanLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  } 
+  
+  @Test (priority = 41, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void WhoWeAreLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> WhoWeAreLink Test");
+
+	  try {
+			 NavigationElements.WhoWeAreLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
   
-  @Test (priority = 13, groups = {"Smoke"})
-  public void Blog_Link_Test() {
+  @Test (priority = 42, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void OnlineBusinessContinuityLink_Test() {
 	  
-	  test = report.startTest("Nav Links Test --> Blog Link Test");
-	  
-	  NavigationElements.ClickBlogLink();
-	  
-	  test.log(LogStatus.INFO, "Page Opened");
-	    
+	 test = report.startTest("Nav Links Test --> OnlineBusinessContinuityLink Test");
+
+	  try {
+			 NavigationElements.OnlineBusinessContinuityLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
   }
-	*/
+  
+  @Test (priority = 43, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void ContactLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> ContactLink Test");
+
+	  try {
+			 NavigationElements.ContactLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 44, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void TestimonialsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> TestimonialsLink Test");
+
+	  try {
+			 NavigationElements.TestimonialsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 45, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void AccreditationsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> AccreditationsLink Test");
+
+	  try {
+			 NavigationElements.AccreditationsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 46, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void CareersLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> CareersLink Test");
+
+	  try {
+			 NavigationElements.CareersLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 47, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void HelpAndSuppotLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> HelpAndSuppotLink Test");
+
+	  try {
+			 NavigationElements.HelpAndSuppotLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 48, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void KnowledgeBaseLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> KnowledgeBaseLink Test");
+
+	  try {
+			 NavigationElements.KnowledgeBaseLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 49, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void SslToolsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> SslToolsLink Test");
+
+	  try {
+			 NavigationElements.SslToolsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 50, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void Sha1CheckerLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> Sha1CheckerLink Test");
+
+	  try {
+			 NavigationElements.Sha1CheckerLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 51, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void CsrGeneratorLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> CsrGeneratorLink Test");
+
+	  try {
+			 NavigationElements.CsrGeneratorLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 52, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void CreateCsrLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> CreateCsrLink Test");
+
+	  try {
+			 NavigationElements.CreateCsrLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 53, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void InstallCertificateLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> InstallCertificateLink Test");
+
+	  try {
+			 NavigationElements.InstallCertificateLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 54, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void InstallSiteSealLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> InstallSiteSealLink Test");
+
+	  try {
+			 NavigationElements.InstallSiteSealLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 55, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void ImportExportTipsLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> ImportExportTipsLink Test");
+
+	  try {
+			 NavigationElements.ImportExportTipsLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  
+  @Test (priority = 56, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void DownloadRootsCertificatesLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> DownloadRootsCertificatesLink Test");
+
+	  try {
+			 NavigationElements.DownloadRootsCertificatesLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 57, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void RenewalsWithSsl247_SupportLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> RenewalsWithSsl247_SupportLink Test");
+
+	  try {
+			 NavigationElements.RenewalsWithSsl247_SupportLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  @Test (priority = 58, groups = {"Sanity","BS_Sanity","Sanity_Chrome"})
+  public void RenewYourSslCertificate_SupportLink_Test() {
+	  
+	 test = report.startTest("Nav Links Test --> RenewYourSslCertificate_SupportLink Test");
+
+	  try {
+			 NavigationElements.RenewYourSslCertificate_SupportLinkClick();	    	
+			 Thread.sleep(1000);				
+	 	  	 test.log(LogStatus.PASS, "Validation Complete");
+	 	  	 System.out.println("Validation Complete!");		    	
+	 
+	 	  	
+	  }catch (Exception e) {
+	 	  						
+	 	  		test.log(LogStatus.FAIL, "Validation Failed");
+	 	  		Assert.fail("Exception " + e);
+	  }
+	   
+  }
+  
+  
 }

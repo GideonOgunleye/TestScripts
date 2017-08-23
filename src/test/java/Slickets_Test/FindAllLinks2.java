@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
  
 import org.openqa.selenium.WebElement;
- 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
  
 public class FindAllLinks2 {
@@ -21,10 +21,11 @@ public class FindAllLinks2 {
  
 	public static void main(String[] args) throws Exception {
  
-		WebDriver driver = new FirefoxDriver();
- 
-		//driver.get("https://www.ssl247.co.uk/");
-		driver.get("https://www.ssl247.co.uk/");
+		WebDriver driver = new ChromeDriver();
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		    
+		driver.get("https://www.ssl247.co.uk/ssl-certificates/brands/symantec");
 		driver.manage().window().maximize();
 		
 		//WebElement element = driver.findElement(By.id(Value));
@@ -34,7 +35,8 @@ public class FindAllLinks2 {
 
 		 //driver.get("http://bing.com");
 
-		 List<WebElement> demovar=driver.findElements(By.tagName("a"));
+		 //List<WebElement> demovar=driver.findElements(By.tagName("a"));
+		 List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='page-content ha']")).findElements(By.tagName("a"));
 		 System.out.println(demovar.size());
 		 String url = "";
 
@@ -47,9 +49,9 @@ public class FindAllLinks2 {
 		    	
 	            if(url == null || url.isEmpty()){
 	            	System.out.println("URL is either not configured for anchor tag or it is empty");
-	            	                continue;
+	            	  continue;
 	             }
-	            
+	       
 	              if(!url.contains("ssl247.co.uk")){
 	            	  
 	                  System.out.println("URL belongs to another domain, skipping it.");
@@ -62,6 +64,11 @@ public class FindAllLinks2 {
 	                  continue;
 	                  
 	              	}
+	              
+		           /* if(var.isDisplayed() && !hrefs.contains(var.getText())){
+		            	//System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	//continue;
+		             }*/
 	            
 		        System.out.println(var.getText()); // used to get text present between the anchor tags
 		        System.out.println(var.getAttribute("href"));
@@ -156,50 +163,5 @@ public class FindAllLinks2 {
 		        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		    }
 		
-		
-		
-		
-	/*	List<WebElement> linksize = driver.findElements(By.tagName("a")); 
-		linksCount = linksize.size();
-		System.out.println("Total no of links Available: "+linksCount);
-		links= new String[linksCount];
-		System.out.println("List of links Available: ");  
-		// print all the links from webpage 
-		for(int i=0;i<linksCount;i++)
-		{
-		links[i] = linksize.get(i).getAttribute("href");
-		System.out.println(linksize.get(i).getAttribute("href"));
-		} 
-		// navigate to each Link on the webpage
-		for(int i=0;i<linksCount;i++)
-		{
-		driver.navigate().to(links[i]);
-		Thread.sleep(3000);
-		}*/
-		
-
-		
-		
-		
- 
-	/*	List<WebElement> allLinks = driver.findElements(By.tagName("a"));
-		
-		 
-		System.out.println("All links found on web page are: " + allLinks.size() + " links");
-		 
-		for (WebElement link : allLinks) {
-		 
-		//print the links i.e. http://example.com or https://www.example.com
-		System.out.println(link.getAttribute("href"));
-		 
-		//print the links text
-		System.out.println(link.getText());
-		
-		//
-		
-		Thread.sleep(3000);
-		driver.navigate().back();
-		
-		}*/
 	}
 }

@@ -40,6 +40,42 @@ public class ExtentFactory {
 		return extent;
 
 	}
+	
+	public static ExtentReports getInstance4() {
+		ExtentReports extent;
+
+		String Path = "C:\\ExtentReport\\IndexPageCrokenLinks Test.html";
+
+		extent = new ExtentReports (Path, false);
+		
+		
+		return extent;
+
+	}
+	
+	public static ExtentReports getInstance5() {
+		ExtentReports extent;
+
+		String Path = "C:\\ExtentReport\\MainNavBrokenLinks Test.html";
+
+		extent = new ExtentReports (Path, false);
+		
+		
+		return extent;
+
+	}
+	
+	public static ExtentReports getInstance6() {
+		ExtentReports extent;
+
+		String Path = "C:\\ExtentReport\\SubNavBrokenLinks Test.html";
+
+		extent = new ExtentReports (Path, false);
+		
+		
+		return extent;
+
+	}
 
 
 }

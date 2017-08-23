@@ -26,16 +26,18 @@ public class FindAllLinks {
 		driver.get("https://www.ssl247.co.uk/thalesPartnerURL");
 		driver.manage().window().maximize();
 		
-		WebElement MainNavigation = driver.findElement(By.xpath(".//*[@id='mainNavigation']"));
+		//WebElement MainNavigation = driver.findElement(By.xpath(".//*[@id='mainNavigation']"));
+
 		
 		//String Css = MainNavigation.getCssValue("z-index");getLocation()
 		
-		Point Css = MainNavigation.getLocation();
-		System.out.println("Menu Z index is "+ Css);
+		//Point Css = MainNavigation.getLocation();
+		//System.out.println("Menu Z index is "+ Css);
 		
         try {
         	
-        	if (driver.getPageSource().contains("404 Page not found")) {
+        	
+        	if (driver.getTitle().contains("404")) {
         		
         		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
         		
@@ -45,10 +47,33 @@ public class FindAllLinks {
         		
         	}
         	
+        	
+        }catch (Exception e){
+        	
+        	
+        }
+        
+        try {
+        	
+    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+    		//String PageContentBox = ContentDiv.getAttribute("value");
+        	
+        	if(ContentDiv.getText().isEmpty()) {
+        		
+        		System.out.println("Content Div is empty");
+    		
+        	}else {
+        		
+        		System.out.println("Page Has Content");
+        	}
+        	
         }catch (Exception k){
         	
-        	System.out.println(k);
+        	System.out.println("Exception On Page:----" + k);
         }
+        
+        
+        
 		
 		
 		

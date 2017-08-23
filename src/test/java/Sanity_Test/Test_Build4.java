@@ -64,7 +64,7 @@ import org.testng.annotations.BeforeSuite;
 import java.net.HttpURLConnection;
 
 
-public class Test_Build4 extends HtmlUnit  {
+public class Test_Build4 extends HtmlUnit {
 	
 	ExtentReports report;
 	ExtentTest test;
@@ -156,7 +156,7 @@ public class Test_Build4 extends HtmlUnit  {
 		 // test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
 		 // test = report.startTest("Url Test --> Validate Links- ");
 		  
-		  driver.get("https://ssl247:wpmsBv9P@automation-live.ssl247.co.uk"); 
+		  driver.get("https://www.ssl247.co.uk"); 
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  driver.manage().window().maximize();
 		 
@@ -175,10 +175,18 @@ public class Test_Build4 extends HtmlUnit  {
 		      //String ImageName=webElement.getLocation();
 		      URLConnection urlConnection = new URL(webElement.getAttribute("src")).openConnection();
 		      int size = urlConnection.getContentLength();
-		      System.out.println( webElement);
+		      System.out.println("Image Src Is:"+ webElement);
 		      //System.out.println("Image Text is: " + ImageName);
 		      //System.out.println("Image SrC is: " + ImageUrl);
 		      System.out.println("Image Size is: " + size+"Bytes");
+		      
+		      if (size > 150000) {
+		    	  
+		    	  System.out.println("Image Size is greater than 150kb");
+		      }
+		      
+		      System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		   
 		  }
 		  
 	

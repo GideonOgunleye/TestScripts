@@ -38,7 +38,7 @@ public class Chrome {
   @AfterClass (groups = {"Sanity","SQL","Regression","Smoke"})
   public void afterTest() throws Exception {
 	  
-	  Thread.sleep(10000);
+	  Thread.sleep(1000);
 		 //report.endTest(test);
 		 
 	driver.quit();

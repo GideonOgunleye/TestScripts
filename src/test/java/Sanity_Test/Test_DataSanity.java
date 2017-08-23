@@ -1130,114 +1130,113 @@ public class Test_DataSanity {
 		//MainLink
 		obj[0][0]="Uk Website-01";
 		//Sublink
-		obj[0][1]="UkUrl2";
-
+		obj[0][1]="https://www.ssl247.co.uk";
 		
+
 		/*---------2nd Parameter-------------*/
 		//Websitename
 		obj[1][0]="French Website-02";
 		//Domain
-		obj[1][1]="FrenchUrl2";
+		obj[1][1]="https://www.ssl247.fr";
 
 
 		/*---------3rd Parameter-------------*/	
 		//Websitename
 		obj[2][0]="AE Website-03";
 		//Domain
-		obj[2][1]="AeUrl2";
+		obj[2][1]="https://www.ssl247.ae";
 		
 		
 		/*---------4th Parameter-------------*/
 		//Websitename
 		obj[3][0]="BE Website-04";
 		//Domain
-		obj[3][1]="BeUrl2";
+		obj[3][1]="https://ssl247.be";
 		
 		/*---------5th Parameter-------------*/	
 		//Websitename
 		obj[4][0]="CL Website-05";
 		//Domain
-		obj[4][1]="ClUrl2";
+		obj[4][1]="https://ssl247.cl";
 
 		/*---------6th Parameter-------------*/
 		//Websitename
 		obj[5][0]="Com Website-06";
 		//Domain
-		obj[5][1]="ComUrl2";
+		obj[5][1]="https://ssl247.com";
 		
 		/*---------7th Parameter-------------*/
 		//Websitename
 		obj[6][0]="Com.Br Website-07";
 		//Domain
-		obj[6][1]="Com.brUrl2";
+		obj[6][1]="https://ssl247.com.br";
 
 		/*---------8th Parameter-------------*/
 		//Websitename
 		obj[7][0]="Com.co Website-08";
 		//Domain
-		obj[7][1]="Com.coUrl2";
-
-		
+		obj[7][1]="https://ssl247.com.co";
+	
 		/*---------9th Parameter-------------*/
 		//Websitename
 		obj[8][0]="Com.mx Website-09";
 		//Domain
-		obj[8][1]="Com.mxUrl2";
+		obj[8][1]="https://ssl247.com.mx";
 
 		
 		/*---------10th Parameter-------------*/
 		//Websitename
 		obj[9][0]="Com.pe Website-10";
 		//Domain
-		obj[9][1]="Com.peUrl2";
+		obj[9][1]="https://ssl247.com.pe";
 
 		/*---------11th Parameter-------------*/
 		//Websitename
 		obj[10][0]="DE Website-11";
 		//Domain
-		obj[10][1]="DeUrl2";
+		obj[10][1]="https://ssl247.de";
 		
 		/*---------12th Parameter-------------*/
 		//Websitename
 		obj[11][0]="DK Website-12";
 		//Domain
-		obj[11][1]="DkUrl2";
+		obj[11][1]="https://ssl247.dk";
 		
 		/*---------13th Parameter-------------*/
 		//Websitename
 		obj[12][0]="ES Website-13";
 		//Domain
-		obj[12][1]="EsUrl2";
+		obj[12][1]="https://ssl247.es";
 		
 		/*---------14th Parameter-------------*/
 		//Websitename
 		obj[13][0]="IE Website-14";
 		//Domain
-		obj[13][1]="IeUrl2";
+		obj[13][1]="https://ssl247.ie";
 		
 		/*---------15th Parameter-------------*/
 		//Websitename
 		obj[14][0]="IT Website-15";
 		//Domain
-		obj[14][1]="ItUrl2";
+		obj[14][1]="https://ssl247.it";
 		
 		/*---------16th Parameter-------------*/
 		//Websitename
-		obj[15][0]="NI Website-16";
+		obj[15][0]="NL Website-16";
 		//Domain
-		obj[15][1]="NlUrl2";
+		obj[15][1]="https://ssl247.nl";
 		
 		/*---------17th Parameter-------------*/
 		//Websitename
 		obj[16][0]="PT Website-17";
 		//Domain
-		obj[16][1]="PtUrl2";
+		obj[16][1]="https://ssl247.pt";
 		
 		/*---------18th Parameter-------------*/
 		//Websitename
 		obj[17][0]="SE Website-18";
 		//Domain
-		obj[17][1]="SeUrl2";
+		obj[17][1]="https://ssl247.se";
 
 		return obj;
 	}
