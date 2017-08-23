@@ -130,6 +130,7 @@ public class Test_Build5 extends Chrome  {
 		 
 
 		
+		
 		  Properties prop = new Properties();
 		  FileInputStream fis = new FileInputStream(Constants.File_Path + Constants.DataFile_Name);
 		  prop.load(fis);
@@ -137,7 +138,7 @@ public class Test_Build5 extends Chrome  {
 		  report = ExtentFactory.getInstance3();
 				
 		  //test = report.startTest("<---------------------------Test Suite Start----------------------------------->");
-		  test = report.startTest("Url Test --> Validate Links on- "+ WebsiteName); 
+		  test = report.startTest("Url Test --> Validate Links on- "+ "France Website"); 
 		  
 	     // TODO 
 	        
@@ -149,9 +150,11 @@ public class Test_Build5 extends Chrome  {
 	        
 	     driver.manage().window().maximize();
 	        
-	     driver.get(prop.getProperty(IndexPageLink));
+	     //driver.get(prop.getProperty("FrenchUrl2"));
+	     driver.get("https://www.ssl247.co.uk/ssl-certificates/brands/symantec");
 	        
-	   	 List<WebElement> demovar=driver.findElements(By.tagName("a"));
+	   	 //List<WebElement> demovar=driver.findElements(By.tagName("a"));
+	     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='page-content ha']")).findElements(By.tagName("a"));
 		 System.out.println(demovar.size());
 		
 		 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
@@ -206,33 +209,119 @@ public class Test_Build5 extends Chrome  {
 		        	System.out.println(e);
 		        }
 		        
+		        
 		        try {
 		        	
-		        	if (driver.getPageSource().contains("404 Page not found")) {
+		        	if (driver.getTitle().contains("404")) {
 		        		
 		        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+		        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
 		        		String path = ScreenShot.Image(driver, "Link Error");
 			  			String imagePath = test.addScreenCapture(path);
 			  			test.log(LogStatus.INFO, imagePath);
-			  			test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!");
-			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
+			  			
+			  			//test.log(LogStatus.FAIL, "Failed Link is:" + href);
 			  			
 		        		
 		        	}else if (driver.getPageSource().contains("not found")){
 		        		
 		        		System.out.println("Page Not Found Error..!!");
+		        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
 		        		String path = ScreenShot.Image(driver, "Link Error");
 			  			String imagePath = test.addScreenCapture(path);
 			  			test.log(LogStatus.INFO, imagePath);
-			  			test.log(LogStatus.FAIL, "Page Not Found Error..!!");
-			  			test.log(LogStatus.FAIL, "Failed Link is:" + href);
+			  			
+			  			//test.log(LogStatus.FAIL, "Failed Link is:" + href);
 		        		
 		        	}
 		        	
-		        }catch (Exception k){
+		        try {
 		        	
-		        	System.out.println(k);
-		        }
+		    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+		    		//String PageContentBox = ContentDiv.getAttribute("value");
+		    		
+			         if(ContentDiv.getText().isEmpty()) {
+			        		
+			        	System.out.println("Content Div is empty");
+			        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+			        		
+			         }else {
+			        		
+			        		System.out.println("Page Has Content");
+			        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+			        	}
+		        	
+		        }catch (Exception e){
+		        	
+		        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
+		        	//test.log(LogStatus.FAIL, driver.getTitle());
+		        	System.out.println("Page Content Dive Not Found");
+		        	//System.out.println("Exception On Page:----" + e);
+
+	        		}
+		        
+		        //Try Page Content # Div
+		        
+		        try {
+		        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+			    		//String PageContentBox = ContentDiv.getAttribute("value");
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			      }catch (Exception e){
+			        	
+			        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
+			        	//test.log(LogStatus.FAIL, driver.getTitle());
+			    	  System.out.println("Page Content # Dive Not Found");
+			    	 // System.out.println("Exception On Page:----" + e);
+
+		        	}
+		        
+		        //Try Page Content Fullwidth_Page	
+		        
+		        try {
+		        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+			    		//String PageContentBox = ContentDiv.getAttribute("value");
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			      }catch (Exception e){
+			        	
+			        	//test.log(LogStatus.FAIL, "Div Link Not Found:" + href);
+			        	//test.log(LogStatus.FAIL, driver.getTitle());
+			    	  System.out.println("page-content fullwidth_page Dive Not Found");
+			    	  //System.out.println("Exception On Page:----" + e);
+
+		        	}
+		        
+		        
+		        	
+		     }catch (Exception k){
+		        	
+		        System.out.println(k);
+		    }
+		        
+		        
 		        
 		        driver.navigate().back();
 		        Thread.sleep(3000); // To check if the navigation is happening properly.
@@ -243,5 +332,17 @@ public class Test_Build5 extends Chrome  {
 
 	    }
 		  
+	 @AfterTest (groups = {"Sanity","SQL","Regression","Smoke"})
+	  public void afterTest() throws Exception {
+		  
+		  Thread.sleep(10000);
+			 //report.endTest(test);
+			 
+		driver.quit();
+
+		  
+	  }
+
+	
 	
 }

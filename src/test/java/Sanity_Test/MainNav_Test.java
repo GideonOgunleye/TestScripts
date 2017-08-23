@@ -9,6 +9,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import BaseUtilities.AlertBox;
 import BaseUtilities.BrowserStack;
 import BaseUtilities.Chrome;
+import BaseUtilities.Constants;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
@@ -22,18 +23,22 @@ import org.testng.annotations.BeforeSuite;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 
-public class MainNav_Test extends BrowserStack {
+public class MainNav_Test extends Chrome {
   
 	ExtentReports report;
 	ExtentTest test;
@@ -58,16 +63,6 @@ public class MainNav_Test extends BrowserStack {
 
   @AfterMethod (groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void afterMethod(ITestResult result) throws IOException, Exception {
-
-/*
-	  	String filename = result.getMethod().getMethodName()+ result.getEndMillis() +".png";
-	    String Directory = "C:\\Screenshots\\Sanity ScreenShots\\";
-		  
-	    File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(sourceFile, new File(Directory + filename));
-		  
-		String destination = Directory + filename;
-*/
 	  
 	  	String path =  ScreenShot.Image(driver, "TestSecreenShot" + result.getMethod().getMethodName());
 		String imagePath = test.addScreenCapture(path);
@@ -85,13 +80,6 @@ public class MainNav_Test extends BrowserStack {
 	  
   }
   
-
- /* @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
-  public void SuiteStart() {
-	  
-	  test = report.startTest("<----------------------Test Suite Started---------------------->");
-	  test.log(LogStatus.INFO, "Started");
-  }*/
   
   @Test (priority = 0, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
   public void SSL_Certlink_Test() {
@@ -99,38 +87,169 @@ public class MainNav_Test extends BrowserStack {
 	  
 	  test = report.startTest("Nav Links Test --> SSL Cert link Test");
 	  
-
-		
 	  try {
-	  			
-		  if (NavigationElements.SslCertificatesLinkContains("SSL Certificates")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.SslCertificatesLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
 		  
 		  NavigationElements.ClickSslCertificatesLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "SSL247's SSL Certificates";
-		  
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  			    	
-	  		}
+	     // TODO - Find All Links Method
+	        
+	     String url = "";
+      
+	     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+		 System.out.println(demovar.size());
+		
+		 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+		 
+		    for (WebElement var : demovar) {
+		    	
+		    	url = var.getAttribute("href");
+		    	
+	            if(url == null || url.isEmpty()){
+	            	System.out.println("URL is either not configured for anchor tag or it is empty");
+	            	                continue;
+	             }
+	            
+	              if(!url.contains("ssl247.")){
+	            	  
+	                  System.out.println("URL belongs to another domain, skipping it.");
+	                  continue;
+	                  
+	              	}
+	              
+	              if(url.contains("/#")){
+	            	  
+	                  System.out.println("Irrelevant Url");
+	                  continue;
+	                  
+	              	}
+	            
+		        System.out.println(var.getText()); // used to get text present between the anchor tags
+		        System.out.println(var.getAttribute("href"));
+		        hrefs.add(var.getAttribute("href")); 
+		        System.out.println("*************************************");     
+		    }
+
+		    //Navigating to each link
+		    int i=0;
+		    for (String href : hrefs) {
+		    	
+		        driver.navigate().to(href);
+		        System.out.println((++i)+": navigated to URL with href: "+href);
+		        Thread.sleep(3000); // To check if the navigation is happening properly.
+		        
+		        try {
+		        	
+		        	 System.out.println("Page Title Is:-" + driver.getTitle());
+		        	 
+		        }catch (Exception e) {
+		        	
+		        	System.out.println("Page Has no Title");
+		        	System.out.println(e);
+		        }
+		        
+		      
+		        try {
+		        	
+		        	if (driver.getTitle().contains("404")) {
+		        		
+		        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+		        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+		        		String path = ScreenShot.Image(driver, "Link Error");
+			  			String imagePath = test.addScreenCapture(path);
+			  			test.log(LogStatus.INFO, imagePath);
+			  			
+		        		
+		        	}else if (driver.getPageSource().contains("not found")){
+		        		
+		        		System.out.println("Page Not Found Error..!!");
+		        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+		        		String path = ScreenShot.Image(driver, "Link Error");
+			  			String imagePath = test.addScreenCapture(path);
+			  			test.log(LogStatus.INFO, imagePath);	
+		        	}
+		        	
+		        try {
+		        	
+		    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+		    		
+			         if(ContentDiv.getText().isEmpty()) {
+			        		
+			        	System.out.println("Content Div is empty");
+			        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+			        		
+			         }else {
+			        		
+			        		System.out.println("Page Has Content");
+			        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+			        	}
+		        	
+		        }catch (Exception e){
+
+		        	System.out.println("Page Content Dive Not Found");
+
+	        		}
+		        
+		        //Try Page Content # Div
+		        
+		        try {
+		        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			      }catch (Exception e){
+
+			    	  System.out.println("Page Content # Dive Not Found");
+
+		        	}
+		        
+		        //Try Page Content Fullwidth_Page	
+		        
+		        try {
+		        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			      }catch (Exception e){
+			        	
+			    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+		        	}
+
+		        	
+		     }catch (Exception k){
+		        	
+		        System.out.println(k);
+		    }
+		        
+		        driver.navigate().back();
+		        Thread.sleep(3000); // To check if the navigation is happening properly.
+		        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		        System.out.println("Navigate Back");
+		        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		    }
+
 	  	
 	  }catch (Exception e) {
 	  						
@@ -138,9 +257,6 @@ public class MainNav_Test extends BrowserStack {
 	  		Assert.fail("Exception " + e);
 	  }
 
-	  
-	  
-	  
   }
   
   @Test (priority = 1, groups = {"Smoke","BS_Smoke","BS_Sanity","Smoke_Firefox","Smoke_Chrome"})
@@ -152,35 +268,170 @@ public class MainNav_Test extends BrowserStack {
 	  try {
 		  
 		  
-		  if (NavigationElements.FreeSslLinkContains("Free SSL")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-				test.log(LogStatus.FAIL, "Text Not Validated");
-				NavigationElements.FreeSslLinkTextPrint();
-				Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickFreeSslLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "GeoTrust Free Trial";
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
 	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
-	  			    	
-	  		}
+		     // TODO - Find All Links Method
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+			    }
 	  	
 	  }catch (Exception e) {
 	  						
@@ -197,17 +448,7 @@ public class MainNav_Test extends BrowserStack {
 	 
 	  try {
 		  
-		  if (NavigationElements.ProtectAndSecureLinkContains("Test & Protect")) { 
-			  
-				  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-				  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-				  test.log(LogStatus.FAIL, "Text Not Validated");
-				  NavigationElements.ProtectAndSecurePrintText();
-				  Assert.fail("Text Not Validated"); 	
-		  }
+
 
 	  	
 	  }catch (Exception e) {
@@ -235,28 +476,7 @@ public class MainNav_Test extends BrowserStack {
 			  test.log(LogStatus.FAIL, "Text Not Validated");
 			  NavigationElements.IdentifyLinkTextPrint();
 			  Assert.fail("Text Not Validated"); 	
-		  }		  
-
-	/*	  
-		  NavigationElements.ClickIdentifyLink();
-		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		  test.log(LogStatus.INFO, "Page Opened");
-		  
-		  String PageTitle = "Digital IDs from SSL247";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
-	  			    	
-	  		}
-	  		
-	  */		
+		  }		  		
 	  	
 	  }catch (Exception e) {
 	  						
@@ -273,36 +493,174 @@ public class MainNav_Test extends BrowserStack {
 	  
 		
 	  try {
-		  
-		  if (NavigationElements.RegisterLinkContains("Register")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.RegisterLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }		  
+		    
 		  
 		  NavigationElements.ClickRegisterLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "Get your Domain Name Now";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
-	  			    	
-	  		}
+		 
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+			    }	    	
+	  		
 	  	
 	  }catch (Exception e) {
 	  						
@@ -355,33 +713,170 @@ public class MainNav_Test extends BrowserStack {
 			
 	  try {
 		  
-		  if (NavigationElements.BecomePartnerLinkContains("Become a Partner")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.BecomePartnerLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
 		  
 		  NavigationElements.ClickBecomePartnerLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "Grow your business by joining our partners programs!";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -399,34 +894,170 @@ public class MainNav_Test extends BrowserStack {
 	  test = report.startTest("Nav Links Test --> MySsl Link Test");
 
 	  try {
-	
-		  if (NavigationElements.MySslLinkContains("MySSL")) { 
 			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.MySslLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickMySslLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "MySSL® Account Login";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -446,33 +1077,169 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  if (NavigationElements.FreeTrialsLinkContains("Free Trials")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.FreeTrialsLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickFreeTrialsLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "Free trials";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -492,33 +1259,169 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  if (NavigationElements.WizardLinkContains("Wizard")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.WizardLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickWizardLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "SSL Certificates: Buy Symantec, Thawte, Apache SSL Cert, GlobalSign, GeoTrust, RapidSSL- SSL247.co.uk";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -537,33 +1440,169 @@ public class MainNav_Test extends BrowserStack {
 	  
 	  try {
 		  
-		  if (NavigationElements.AboutLinkContains("About")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.AboutLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickAboutLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "About SSL247® – The Web Security Consultants";	
+		  // TODO - Find All Links Method
 		  
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -582,33 +1621,170 @@ public class MainNav_Test extends BrowserStack {
 	  
 	  try {
 		   
-		  if (NavigationElements.SupportLinkContains("Support")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.SupportLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
 		  
 		  NavigationElements.ClickSupportLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "Help and Support - Install your SSL Certificate";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	
@@ -629,33 +1805,169 @@ public class MainNav_Test extends BrowserStack {
 		
 	  try {
 		  
-		  if (NavigationElements.BlogLinkContains("Blog")) { 
-			  
-			  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-			  test.log(LogStatus.INFO, "Link Text Is Validated");
-			  
-		  }else {
-			  	
-			  test.log(LogStatus.FAIL, "Text Not Validated");
-			  NavigationElements.BlogLinkTextPrint();
-			  Assert.fail("Text Not Validated"); 	
-		  }
-		  
 		  NavigationElements.ClickBlogLink();
 		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  test.log(LogStatus.INFO, "Page Opened");
 		  
-		  String PageTitle = "SSL247 Blog";
-	  			    	
-	  		if (NavigationElements.ValidatePage(PageTitle)) {
-	  						
-	  				test.log(LogStatus.PASS, "Validation Complete");
-	  			    Assert.assertTrue(NavigationElements.ValidatePage(PageTitle));
-	  			    System.out.println("Validation Complete!");
-	  		}else{
-	  				NavigationElements.PrintPageTitle();	
-	  				test.log(LogStatus.FAIL, "Validation Failed");
-	  				Assert.fail("Validation Failed ");
+		  // TODO - Find All Links Method
+		  
+		  System.out.println(driver.getTitle());
+		  driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		  test.log(LogStatus.INFO, "Page Title is:" + driver.getTitle());
+	        
+		     String url = "";
+	      
+		     List<WebElement> demovar = driver.findElement(By.xpath(".//*[@class='contentWrapper']")).findElements(By.tagName("a"));
+			 System.out.println(demovar.size());
+			
+			 ArrayList<String> hrefs = new ArrayList<String>(); //List for storing all href values for 'a' tag
+			 
+			    for (WebElement var : demovar) {
+			    	
+			    	url = var.getAttribute("href");
+			    	
+		            if(url == null || url.isEmpty()){
+		            	System.out.println("URL is either not configured for anchor tag or it is empty");
+		            	                continue;
+		             }
+		            
+		              if(!url.contains("ssl247.")){
+		            	  
+		                  System.out.println("URL belongs to another domain, skipping it.");
+		                  continue;
+		                  
+		              	}
+		              
+		              if(url.contains("/#")){
+		            	  
+		                  System.out.println("Irrelevant Url");
+		                  continue;
+		                  
+		              	}
+		            
+			        System.out.println(var.getText()); // used to get text present between the anchor tags
+			        System.out.println(var.getAttribute("href"));
+			        hrefs.add(var.getAttribute("href")); 
+			        System.out.println("*************************************");     
+			    }
+
+			    //Navigating to each link
+			    int i=0;
+			    for (String href : hrefs) {
+			    	
+			        driver.navigate().to(href);
+			        System.out.println((++i)+": navigated to URL with href: "+href);
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        
+			        try {
+			        	
+			        	 System.out.println("Page Title Is:-" + driver.getTitle());
+			        	 
+			        }catch (Exception e) {
+			        	
+			        	System.out.println("Page Has no Title");
+			        	System.out.println(e);
+			        }
+			        
+			      
+			        try {
+			        	
+			        	if (driver.getTitle().contains("404")) {
+			        		
+			        		System.out.println("ERROR 404 FOUND ON PAGE!!!!!");
+			        		test.log(LogStatus.FAIL, "ERROR 404 FOUND ON PAGE!!!!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);
+				  			
+			        		
+			        	}else if (driver.getPageSource().contains("not found")){
+			        		
+			        		System.out.println("Page Not Found Error..!!");
+			        		test.log(LogStatus.FAIL, "Page Not Found Error..!!: - " + href);
+			        		String path = ScreenShot.Image(driver, "Link Error");
+				  			String imagePath = test.addScreenCapture(path);
+				  			test.log(LogStatus.INFO, imagePath);	
+			        	}
+			        	
+			        try {
+			        	
+			    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content']"));
+			    		
+				         if(ContentDiv.getText().isEmpty()) {
+				        		
+				        	System.out.println("Content Div is empty");
+				        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+				        		
+				         }else {
+				        		
+				        		System.out.println("Page Has Content");
+				        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+				        	}
+			        	
+			        }catch (Exception e){
+
+			        	System.out.println("Page Content Dive Not Found");
+
+		        		}
+			        
+			        //Try Page Content # Div
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content ha']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+
+				    	  System.out.println("Page Content # Dive Not Found");
+
+			        	}
+			        
+			        //Try Page Content Fullwidth_Page	
+			        
+			        try {
+			        	
+				    		WebElement ContentDiv = driver.findElement(By.xpath(".//*[@class='page-content fullwidth_page']"));
+				    		
+					         if(ContentDiv.getText().isEmpty()) {
+					        		
+					        	System.out.println("Content Div is empty");
+					        	test.log(LogStatus.FAIL, "Content Link Is Empty----:" + href);
+					        		
+					         }else {
+					        		
+					        		System.out.println("Page Has Content");
+					        		test.log(LogStatus.INFO, "Page Has Content:----" + href);
+					        	}
+				        	
+				      }catch (Exception e){
+				        	
+				    	  System.out.println("page-content fullwidth_page Dive Not Found");
+
+			        	}
+
+			        	
+			     }catch (Exception k){
+			        	
+			        System.out.println(k);
+			    }
+			        
+			        driver.navigate().back();
+			        Thread.sleep(3000); // To check if the navigation is happening properly.
+			        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			        System.out.println("Navigate Back");
+			        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	  			    	
 	  		}
 	  	

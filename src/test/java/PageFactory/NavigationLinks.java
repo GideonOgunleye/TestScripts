@@ -709,5 +709,11 @@ public class NavigationLinks extends BrowserStack {
 
 	}
 	
+	public void FindAllLinks() {
+		
+		
+
+	}
+	
 	
 }
