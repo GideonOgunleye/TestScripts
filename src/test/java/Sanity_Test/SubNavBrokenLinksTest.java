@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import BaseUtilities.BrowserStack;
+import BaseUtilities.Chrome;
 import BaseUtilities.DriverLoad;
 import BaseUtilities.ExtentFactory;
 import BaseUtilities.TakeScreenShot;
@@ -39,7 +40,7 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
-public class SubNavBrokenLinksTest extends BrowserStack {
+public class SubNavBrokenLinksTest extends Chrome {
   
 	ExtentReports report;
 	ExtentTest test;
@@ -55,7 +56,7 @@ public class SubNavBrokenLinksTest extends BrowserStack {
 	  ScreenShot = new TakeScreenShot();
 	  
 	  //LoginPageElements.LoadLoginPage();
-	  //report = ExtentFactory.getInstance();
+	  report = ExtentFactory.getInstance6();
 	  
   }
 
@@ -63,10 +64,10 @@ public class SubNavBrokenLinksTest extends BrowserStack {
   public void afterMethod(ITestResult result) throws IOException, Exception {
 	  
 		
-		Thread.sleep(5000);
-		driver.navigate().refresh();
+		//Thread.sleep(5000);
+		//driver.navigate().refresh();
 		
-		test.log(LogStatus.INFO, "Browser Refreshed");
+		//test.log(LogStatus.INFO, "Browser Refreshed");
 		report.endTest(test);
 		report.flush();
 	
