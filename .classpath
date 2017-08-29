@@ -95,5 +95,9 @@
 	<classpathentry kind="lib" path="C:/Users/TOM/workspace/DevTools/ExtantReport/extentreports-java-3.0.6/lib/mongodb-driver-core-3.3.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/TOM/workspace/DevTools/ExtantReport/extentreports-java-3.0.6/lib/testng-6.9.10.jar"/>
 	<classpathentry kind="lib" path="C:/Users/TOM/workspace/DevTools/ExtantReport/extentreports-java-3.0.6/extentreports-3.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TOM/workspace/Selenium Jars/httpclient-4.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TOM/workspace/Selenium Jars/javacsv-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TOM/workspace/Selenium Jars/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TOM/workspace/Selenium Jars/openxml4j-1.0-beta.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

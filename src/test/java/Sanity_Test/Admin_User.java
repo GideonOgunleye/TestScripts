@@ -72,8 +72,8 @@ public class Admin_User extends BrowserStack {
 	  AddAccountPage AddAccountPageElements;
 	  TakeScreenShot ScreenShot;
 	
-	 @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
-	  public void Login() throws Exception {
+ @BeforeMethod (groups = {"Sanity","Smoke","BS_Smoke","Smoke_Firefox","Smoke_Chrome","BS_Sanity","Sanity_Chrome"})
+ public void Login() throws Exception {
 
 		  LoginPageElements = new LoginPage(driver);
 		  BillingPageElements = new BillingPage(driver);

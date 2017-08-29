@@ -1123,120 +1123,160 @@ public class Test_DataSanity {
 	
 	@DataProvider (name ="IndexLinksAllSites")
 	public static Object[][] IndexLinksAllSites(){
-		Object[][] obj = new Object[18][2];
+		Object[][] obj = new Object[18][3];
 		
 		
-		/*---------1st Parameter-------------*/	
+		/*---------1st Parameter-------------	*/
 		//MainLink
-		obj[0][0]="Uk Website-01";
+		obj[0][0]="Uk Website";
 		//Sublink
 		obj[0][1]="https://www.ssl247.co.uk";
+		//Path
+		obj[0][2]="C:\\ExtentReport\\Uk-Website.csv";
 		
 
 		/*---------2nd Parameter-------------*/
 		//Websitename
-		obj[1][0]="French Website-02";
+		obj[1][0]="Fr Website";
 		//Domain
 		obj[1][1]="https://www.ssl247.fr";
+		//Path
+		obj[1][2]="C:\\ExtentReport\\FR-Website.csv";
 
 
 		/*---------3rd Parameter-------------*/	
 		//Websitename
-		obj[2][0]="AE Website-03";
+		obj[2][0]="AE Website";
 		//Domain
 		obj[2][1]="https://www.ssl247.ae";
+		//Path
+		obj[2][2]="C:\\ExtentReport\\AE-Website.csv";
 		
 		
 		/*---------4th Parameter-------------*/
 		//Websitename
-		obj[3][0]="BE Website-04";
+		obj[3][0]="BE Website";
 		//Domain
 		obj[3][1]="https://ssl247.be";
+		//Path
+		obj[3][2]="C:\\ExtentReport\\BE-Website.csv";
 		
 		/*---------5th Parameter-------------*/	
 		//Websitename
-		obj[4][0]="CL Website-05";
+		obj[4][0]="CL Website";
 		//Domain
 		obj[4][1]="https://ssl247.cl";
+		//Path
+		obj[4][2]="C:\\ExtentReport\\CL-Website.csv";
 
 		/*---------6th Parameter-------------*/
 		//Websitename
-		obj[5][0]="Com Website-06";
+		obj[5][0]="Com Website";
 		//Domain
 		obj[5][1]="https://ssl247.com";
+		//Path
+		obj[5][2]="C:\\ExtentReport\\COM-Website.csv";
 		
 		/*---------7th Parameter-------------*/
 		//Websitename
-		obj[6][0]="Com.Br Website-07";
+		obj[6][0]="Com.Br Website";
 		//Domain
 		obj[6][1]="https://ssl247.com.br";
+		//Path
+		obj[6][2]="C:\\ExtentReport\\COM.BR-Website.csv";
+		
 
 		/*---------8th Parameter-------------*/
 		//Websitename
-		obj[7][0]="Com.co Website-08";
+		obj[7][0]="Com.co Website";
 		//Domain
 		obj[7][1]="https://ssl247.com.co";
+		//Path
+		obj[7][2]="C:\\ExtentReport\\COM.CO-Website.csv";
+		
 	
 		/*---------9th Parameter-------------*/
 		//Websitename
-		obj[8][0]="Com.mx Website-09";
+		obj[8][0]="Com.mx Website";
 		//Domain
 		obj[8][1]="https://ssl247.com.mx";
-
+		//Path
+		obj[8][2]="C:\\ExtentReport\\COM.MX-Website.csv";
+		
 		
 		/*---------10th Parameter-------------*/
 		//Websitename
-		obj[9][0]="Com.pe Website-10";
+		obj[9][0]="Com.pe Website";
 		//Domain
 		obj[9][1]="https://ssl247.com.pe";
+		//Path
+		obj[9][2]="C:\\ExtentReport\\COM.PE-Website.csv";
+		
 
 		/*---------11th Parameter-------------*/
 		//Websitename
-		obj[10][0]="DE Website-11";
+		obj[10][0]="DE Website";
 		//Domain
 		obj[10][1]="https://ssl247.de";
+		//Path
+		obj[10][2]="C:\\ExtentReport\\DE-Website.csv";
+		
 		
 		/*---------12th Parameter-------------*/
 		//Websitename
-		obj[11][0]="DK Website-12";
+		obj[11][0]="DK Website";
 		//Domain
 		obj[11][1]="https://ssl247.dk";
+		//Path
+		obj[11][2]="C:\\ExtentReport\\DK-Website.csv";
 		
 		/*---------13th Parameter-------------*/
 		//Websitename
-		obj[12][0]="ES Website-13";
+		obj[12][0]="ES Website";
 		//Domain
 		obj[12][1]="https://ssl247.es";
+		//Path
+		obj[12][2]="C:\\ExtentReport\\ES-Website.csv";
 		
 		/*---------14th Parameter-------------*/
 		//Websitename
-		obj[13][0]="IE Website-14";
+		obj[13][0]="IE Website";
 		//Domain
 		obj[13][1]="https://ssl247.ie";
+		//Path
+		obj[13][2]="C:\\ExtentReport\\IE-Website.csv";
 		
 		/*---------15th Parameter-------------*/
 		//Websitename
-		obj[14][0]="IT Website-15";
+		obj[14][0]="IT Website";
 		//Domain
 		obj[14][1]="https://ssl247.it";
+		//Path
+		obj[14][2]="C:\\ExtentReport\\IT-Website.csv";
 		
 		/*---------16th Parameter-------------*/
 		//Websitename
-		obj[15][0]="NL Website-16";
+		obj[15][0]="NL Website";
 		//Domain
 		obj[15][1]="https://ssl247.nl";
+		//Path
+		obj[15][2]="C:\\ExtentReport\\NL-Website.csv";
 		
 		/*---------17th Parameter-------------*/
 		//Websitename
-		obj[16][0]="PT Website-17";
+		obj[16][0]="PT Website";
 		//Domain
 		obj[16][1]="https://ssl247.pt";
+		//Path
+		obj[16][2]="C:\\ExtentReport\\PT-Website.csv";
 		
 		/*---------18th Parameter-------------*/
 		//Websitename
-		obj[17][0]="SE Website-18";
+		obj[17][0]="SE Website";
 		//Domain
 		obj[17][1]="https://ssl247.se";
+		//Path
+		obj[17][2]="C:\\ExtentReport\\SE-Website.csv";
 
 		return obj;
 	}

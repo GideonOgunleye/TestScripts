@@ -150,6 +150,8 @@ public class FindAllLinks5 {
     		    		
     		    	}*/
     		    	
+    		    	
+    		    	
 		    		 driver.navigate().to(href);
 	    		     System.out.println((++i)+": navigated to URL with href: "+href);
 	    		     
